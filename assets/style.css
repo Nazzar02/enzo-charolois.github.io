@@ -152,3 +152,34 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
   .role { font-size: clamp(40px, 12vw, 72px); }
   .carousel.small .slide { flex-basis: 46%; max-width: 46%; }
 }
+
+/* CTA buttons — same look for <a> and <button> */
+.cta a.btn,
+.cta button.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--fg);
+  text-decoration: none;
+  font: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.cta a.btn:hover,
+.cta button.btn:hover {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+/* primary variant if you use it on the first button */
+.cta .btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
