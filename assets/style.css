@@ -28,6 +28,9 @@
 * { box-sizing: border-box; }
 html, body { height: 100%; scroll-behavior: smooth; }
 body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--fg); background: var(--bg); }
+/* AVANT: .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 20px; } */
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 clamp(16px, 3vw, 40px); }
+.wrap > * { max-width: 100%; } /* ensure no overflow */
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
 
 /* Header */
@@ -54,6 +57,20 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
 .toggle .thumb { width: 24px; height: 24px; border-radius: 50%; background: color-mix(in srgb, var(--fg) 90%, var(--bg)); position:absolute; top: 2px; left: 2px; box-shadow: 0 3px 10px rgba(0,0,0,.4); transition: left .2s ease; }
 :root.light .toggle .thumb { background: #fff; }
 .toggle input:checked + .track .thumb { left: 30px; }
+
+/* élargir la largeur max du contenu sur grands écrans */
+@media (min-width: 1366px){
+  :root{ --wrap: 1280px; }
+}
+@media (min-width: 1600px){
+  :root{ --wrap: 1440px; --gap: 64px; }
+}
+@media (min-width: 1900px){
+  :root{ --wrap: 1560px; --gap: 72px; }
+}
+@media (min-width: 2200px){
+  :root{ --wrap: 1800px; --gap: 80px; }
+}
 
 /* Mobile menu */
 @media (max-width: 1100px){
@@ -128,6 +145,21 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
   .carousel.small .slide { flex-basis: 72%; max-width: 72%; }
 }
 
+/* hero plus large sur desktop */
+@media (min-width: 1600px){
+  .hero-grid{
+    grid-template-columns: minmax(520px, 1fr) 420px;
+    gap: var(--gap);
+  }
+  .photo-wrap{ width: 360px; height: 360px; }
+}
+@media (min-width: 1900px){
+  .hero-grid{
+    grid-template-columns: minmax(560px, 1fr) 460px;
+  }
+  .photo-wrap{ width: 400px; height: 400px; }
+}
+
 
 /* Skills carousel compact (remove any darker band) */
 .carousel { position: relative; margin-top: 14px; background: transparent !important; }
@@ -183,3 +215,6 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
   border-color: var(--accent);
   color: var(--bg);
 }
+
+
+#sf-toggle { bottom: 150px; }   /* leaves space above your Ask Enzo button */
