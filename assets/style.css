@@ -218,3 +218,37 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
 
 
 #sf-toggle { bottom: 150px; }   /* leaves space above your Ask Enzo button */
+/* ===== Skill Finder ===== */
+#sf-launcher{
+  position: fixed; right: 22px; bottom: 22px; z-index: 120;
+  width: 56px; height: 56px; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--card);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: var(--shadow); cursor: pointer;
+}
+#sf-launcher animated-icons{ pointer-events:none; display:block; }
+
+#sf-modal[aria-hidden="true"]{ display:none; }
+#sf-modal{
+  position:fixed; inset:0; background: rgba(0,0,0,.35);
+  display:flex; align-items:flex-end; justify-content:flex-end;
+  padding: 80px 24px 24px; z-index: 130;
+}
+#sf-modal .sf-panel{
+  width: min(520px, 92vw); max-height: 70vh; overflow:hidden;
+  border: 1px solid var(--line); background: var(--card); color: var(--fg);
+  border-radius: 16px; box-shadow: var(--shadow);
+  display:flex; flex-direction:column;
+}
+.sf-hd{ display:flex; align-items:center; justify-content:space-between; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+.sf-x{ background:transparent; color:var(--fg); border:0; font-size:22px; line-height:1; cursor:pointer; }
+.sf-body{ padding: 12px 16px; overflow:auto; display:flex; flex-direction:column; gap:10px; }
+.sf-msg{ background: var(--bg); border:1px solid var(--line); padding:10px 12px; border-radius: 12px; }
+.sf-msg.bot{ background: color-mix(in srgb, var(--accent) 6%, var(--bg)); }
+.sf-input{ display:flex; gap:10px; padding: 12px; border-top:1px solid var(--line); }
+#sf-q{ flex:1; padding:10px 12px; border-radius: 999px; border:1px solid var(--line); background: var(--bg); color: var(--fg); }
+
+/* petit effet highlight quand on scroll vers une carte */
+.hl-pulse{ box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-strong) 45%, transparent), var(--shadow) !important; transition: box-shadow .6s ease; }
+
+
