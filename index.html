@@ -7,10 +7,15 @@
   <meta name="description" content="AI Engineer with experience in IT project management, team leadership, and FX. Two AI papers at a top-tier conference.">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/style.css">
-  <script defer src="assets/script.js"></script>
+
+  <!-- animated icons (pour le bouton du Skill Finder) -->
   <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
+
+  <!-- ton JS global -->
+  <script defer src="assets/script.js"></script>
 </head>
 <body>
+  
   <header class="site-nav">
     <div class="wrap top">
       <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span> Enzo CHAROLOIS</a>
@@ -31,6 +36,7 @@
   </header>
 
   <main id="top">
+    <!-- HERO -->
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="left">
@@ -55,6 +61,7 @@
       </div>
     </section>
 
+    <!-- WORK -->
     <section id="work" class="section">
       <div class="wrap">
         <div class="section-head">
@@ -65,7 +72,7 @@
         </div>
 
         <div class="stack">
-          <article class="card hover-float reveal">
+          <article id="exp-smarttrade" class="card hover-float reveal">
             <header class="card-hd">
               <div>
                 <h4>IT Project Manager Intern</h4>
@@ -77,11 +84,11 @@
               <li>Integrated FX solutions for Swiss banks: Julius Baer, Zürcher Kantonalbank, BCV.</li>
               <li>Worked with the Solution Architect and helped multiple squads.</li>
               <li>Closed ~100 tickets using logs and SQL scripts.</li>
-              <li>Built a nearest‑neighbor tool for client config matching.</li>
+              <li>Built a nearest-neighbor tool for client config matching.</li>
             </ul>
           </article>
 
-          <article class="card hover-float reveal">
+          <article id="exp-siemens" class="card hover-float reveal">
             <header class="card-hd">
               <div>
                 <h4>Prototype Developer Intern — OpenIT Studio</h4>
@@ -90,13 +97,13 @@
               <img class="logo" src="assets/logo-siemens.png" alt="Siemens Healthineers">
             </header>
             <ul>
-              <li>User‑focused requirement work with design thinking.</li>
-              <li>Low‑code prototypes for 5+ use cases.</li>
+              <li>User-focused requirement work with design thinking.</li>
+              <li>Low-code prototypes for 5+ use cases.</li>
               <li>Internal training on cybersecurity.</li>
             </ul>
           </article>
 
-          <article class="card hover-float reveal">
+          <article id="exp-jmp" class="card hover-float reveal">
             <header class="card-hd">
               <div>
                 <h4>Vice President</h4>
@@ -113,6 +120,7 @@
       </div>
     </section>
 
+    <!-- PUBLICATIONS -->
     <section id="publications" class="section alt">
       <div class="wrap">
         <div class="section-head">
@@ -122,21 +130,22 @@
             trigger="loop" height="56" width="56"></animated-icons>
         </div>
         <div class="stack">
-          <article class="card hover-float reveal">
+          <article id="exp-recsys" class="card hover-float reveal">
             <header class="card-hd">
               <div>
-                <h4>Transformer‑based playlist recommendation</h4>
+                <h4>Transformer-based playlist recommendation</h4>
                 <span class="meta">ACM RecSys 2025 · main and demo tracks</span>
               </div>
               <img class="logo" src="assets/logo-recsys.png" alt="RecSys 2025 Prague">
             </header>
-            <p>Playlist generation from title using transformers and the Million Playlist Dataset. Semantic clusters, light fine‑tuning, and a voting step.</p>
+            <p>Playlist generation from title using transformers and the Million Playlist Dataset. Semantic clusters, light fine-tuning, and a voting step.</p>
             <p><a class="text-link" href="https://playlist-recommendation.tools.eurecom.fr/" target="_blank" rel="noopener">Live demo</a> · <a class="text-link" href="https://github.com/elea-vellard/LLM-Playlist-Recommender" target="_blank" rel="noopener">GitHub</a></p>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- EDUCATION -->
     <section id="education" class="section">
       <div class="wrap">
         <div class="section-head">
@@ -150,7 +159,7 @@
             <header class="card-hd">
               <div>
                 <h4>EURECOM</h4>
-                <span class="meta">Post‑Master Double Degree — AI & Cybersecurity · 2024 — 2025</span>
+                <span class="meta">Post-Master Double Degree — AI & Cybersecurity · 2024 — 2025</span>
               </div>
               <img class="logo" src="assets/logo-eurecom.png" alt="EURECOM">
             </header>
@@ -164,10 +173,10 @@
           <article class="card hover-float reveal">
             <header class="card-hd">
               <div>
-                <h4>Mines Saint‑Étienne (ISMIN)</h4>
+                <h4>Mines Saint-Étienne (ISMIN)</h4>
                 <span class="meta">Master of Engineering — Computer Science · 2022 — 2025</span>
               </div>
-              <img class="logo" src="assets/logo-mines.png" alt="Mines Saint‑Étienne">
+              <img class="logo" src="assets/logo-mines.png" alt="Mines Saint-Étienne">
             </header>
             <ul>
               <li>CS, microelectronics, and embedded systems.</li>
@@ -178,6 +187,7 @@
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section id="about" class="section">
       <div class="wrap about-grid">
         <div class="section-head">
@@ -210,6 +220,7 @@
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="section">
       <div class="wrap">
         <div class="section-head">
@@ -230,5 +241,38 @@
   <footer class="site-footer">
     <div class="wrap"><p>© 2025 Enzo CHAROLOIS</p></div>
   </footer>
+
+  <!-- Skill Finder launcher + modal -->
+  <button id="sf-launcher" aria-label="Open Skill Finder" title="Skill Finder">
+    <animated-icons
+      src="https://animatedicons.co/get-icon?name=chat&style=minimalistic&token=aa724904-12c8-4d99-a7a1-cca76b7ddec0"
+      trigger="loop"
+      attributes='{"variationThumbColour":"#536DFE","variationName":"Two Tone","variationNumber":2,"numberOfGroups":2,"backgroundIsGroup":false,"strokeWidth":1,"defaultColours":{"group-1":"#000000","group-2":"#536DFE","background":"#FFFFFF"}}'
+      height="28" width="28"
+    ></animated-icons>
+  </button>
+
+  <div id="sf-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="sf-title">
+    <div class="sf-panel">
+      <div class="sf-hd">
+        <strong id="sf-title">Skill Finder</strong>
+        <button id="sf-close" class="sf-x" aria-label="Close">×</button>
+      </div>
+      <div id="sf-log" class="sf-body">
+        <div class="sf-msg bot">
+          Ask where a skill fits best. Try: financial risk, prototyping, SQL, leadership, transformers, embedded.
+        </div>
+      </div>
+      <form id="sf-form" class="sf-input">
+        <input id="sf-q" type="text" placeholder="Type a skill, e.g. financial risk" autocomplete="off">
+        <button class="btn primary" type="submit">Find</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Skill Finder logic -->
+  <script defer src="assets/skill-finder.js"></script>
+
+
 </body>
 </html>
