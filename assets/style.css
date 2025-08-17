@@ -81,7 +81,15 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
 
 /* Hero */
 .hero { padding: 90px 0 56px; border-bottom: 1px solid var(--accent); }
-.hero-grid { display: grid; gap: var(--gap); grid-template-columns: minmax(360px, 1fr) 320px; align-items: center; }
+
+/* 2e colonne (photo) devient fluide : entre 240px et 360px, ~24vw au milieu */
+.hero-grid {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: minmax(360px, 1fr) clamp(240px, 24vw, 360px);
+  align-items: center;
+}
+
 .left { min-width: 0; }
 .hello { margin: 0 0 14px; color: var(--muted); font-weight: 600; letter-spacing: .4px; }
 .name { margin: 0 0 10px; font-size: clamp(36px, 5vw, 52px); line-height: 1.05; }
@@ -92,7 +100,24 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
 .lead { margin: 0 0 24px; color: var(--muted); max-width: 70ch; font-size: 18px; }
 .cta .btn { min-width: 160px; text-align: center; } /* make all CTAs same width */
 
-.photo-wrap { width: 320px; height: 320px; border-radius: 28px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); justify-self: end; }
+/* La photo prend toute la colonne et garde un ratio 1:1 */
+.photo-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+  justify-self: end;
+}
+
+/* Assure le crop correct de l'image dans le container fluide */
+.photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 /* Sections */
 .section { padding: 52px 0; border-bottom: 1px solid var(--accent); }
