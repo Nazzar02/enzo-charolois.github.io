@@ -80,7 +80,7 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
 }
 
 /* Hero */
-.hero { padding: 90px 0 56px; border-bottom: 1px solid var(--accent); }
+.hero { padding: 40px 0 56px; border-bottom: 1px solid var(--accent); }
 
 /* 2e colonne (photo) devient fluide : entre 240px et 360px, ~24vw au milieu */
 .hero-grid {
@@ -276,4 +276,83 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
 /* petit effet highlight quand on scroll vers une carte */
 .hl-pulse{ box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-strong) 45%, transparent), var(--shadow) !important; transition: box-shadow .6s ease; }
 
+
+/* Hero highlight badges */
+.hero-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:22px;
+  margin: 8px 0 22px;
+}
+
+/* Optionnel: sur mobile, repasse en colonne pleine largeur */
+@media (max-width: 560px){
+  .hero-badges{
+    flex-direction: column;
+  }
+  .hero-badges .badge{
+    width: 100%;
+  }
+}
+
+.badge{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  color: var(--fg);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--card) 92%, transparent),
+    color-mix(in srgb, var(--card) 84%, transparent)
+  );
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 16px 24px;
+  box-shadow: var(--shadow);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+  font-weight: 650;
+}
+
+.badge-lg{
+  min-width: clamp(260px, 35vw, 520px);
+  font-size: clamp(16px, 1.6vw, 22px);
+  line-height: 1.1;
+}
+
+.badge:hover{
+  transform: translateY(-2px);
+  background: var(--card-hover);
+  border-color: var(--accent);
+  box-shadow: 0 18px 55px rgba(0,0,0,.35);
+}
+
+/* Mobile: badges sur toute la largeur */
+@media (max-width: 900px){
+  .badge-lg{ min-width: 100%; }
+}
+
+
+/* Badges de la hero */
+.hero-badges{
+  display: flex;              /* côte à côte */
+  gap: 16px;                  /* espace entre eux */
+  flex-wrap: wrap;            /* passe à la ligne si pas assez de place */
+  margin: 16px 0 8px;
+}
+
+.hero-badges .badge{
+  display: inline-flex;       /* évite le width:100% implicite */
+  align-items: center;
+  justify-content: center;
+  padding: 18px 24px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--fg);
+  text-decoration: none;
+  white-space: nowrap;
+  flex: 0 0 auto;             /* ne pas s'étirer */
+  width: auto;                /* important si tu avais width:100% quelque part */
+}
 
