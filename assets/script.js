@@ -35,9 +35,19 @@ tick();
 // Reveal on scroll
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
-    if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
   });
-},{rootMargin: "-40% 0px -55% 0px", threshold: 0.01});
+},{
+  // start revealing when the top of the card is ~10% below the viewport top,
+  // and when only 80% of the viewport remains (i.e., earlier than before)
+  rootMargin: "10% 0px -20% 0px",
+  threshold: 0
+});
+
+
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 // Scrollspy active link
