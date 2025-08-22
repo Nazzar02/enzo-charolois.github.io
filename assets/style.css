@@ -365,7 +365,7 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
 }
 
 @media (max-width: 900px){
-  .role { min-height: 3.5em; } /* phones/tablets: a bit more headroom */
+  .role { min-height: 2.5em; } /* phones/tablets: a bit more headroom */
 }
 
 @media (max-width: 480px){
