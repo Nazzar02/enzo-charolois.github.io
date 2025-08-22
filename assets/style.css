@@ -343,3 +343,69 @@ body{ margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, A
 }
 /* sécurité globale au cas où un ancien height resterait en mémoire */
 .photo-wrap{ height: auto !important; }
+
+
+/* Caret piloté en JS */
+.role{
+  position: relative;         /* conteneur pour positionner le caret */
+}
+
+.role #typing{
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  -webkit-hyphens: none;
+  hyphens: none;
+  padding-right: 0;           /* pas d'espace réservé, caret en absolu */
+}
+
+/* ANNULER les anciens essais de caret via ::after ou display:none */
+.role #typing::after{ content: none !important; }
+.role .caret{ display: block !important; }
+
+/* Style du caret */
+.caret{
+  position: absolute;
+  width: 2px;
+  background: var(--fg);
+  animation: blink 1s steps(2, start) infinite;
+  pointer-events: none;
+}
+@keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+
+/* === Caret CSS-only, aligné sur la dernière ligne === */
+.role{ position: relative; line-height: 1.06; }
+
+/* le texte tapé */
+#typing{
+  position: relative;               /* référentiel pour ::after */
+  padding-right: .45ch;             /* réserve un poil de place */
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  -webkit-hyphens: none; hyphens: none;
+}
+
+/* on cache l'ancien <span class="caret"> s'il est encore dans le DOM */
+.role .caret{ display: none !important; }
+
+/* le caret : 1em de haut, collé en bas de la dernière ligne */
+#typing::after{
+  content: "" !important;           /* réactive même si on l'avait mis à none */
+  position: absolute;
+  right: 0;
+  bottom: .08em;                    /* petit réglage vertical */
+  width: 2px;
+  height: 1em;                      /* toujours la hauteur d’une ligne */
+  background: var(--fg);
+  animation: blink 1s steps(2, start) infinite;
+}
+
+/* Mobiles : on garde exactement 2 lignes d’espace pour le typing */
+@media (max-width: 600px){
+  .role{
+    font-size: clamp(36px, 10vw, 44px);
+    min-height: calc(2 * 1.06em);   /* 2 lignes pile, pas plus */
+    margin: 8px 0 14px;
+  }
+}
