@@ -355,3 +355,22 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
   flex: 0 0 auto;             /* ne pas s'étirer */
   width: auto;                /* important si tu avais width:100% quelque part */
 }
+
+
+/* --- Stabilize typing line height + add tiny gap --- */
+.role { 
+  line-height: 1.08;           /* a touch more breathing room */
+  margin: 10px 0 22px;         /* a bit more space before badges */
+  min-height: 3.2em;           /* always keep room for ~2 lines */
+}
+
+@media (max-width: 900px){
+  .role { min-height: 3.5em; } /* phones/tablets: a bit more headroom */
+}
+
+@media (max-width: 480px){
+  .role { 
+    font-size: 44px;           /* keep your intended size */
+    min-height: 3.8em;         /* ensure 2 lines + safety so nothing shifts */
+  }
+}
