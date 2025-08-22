@@ -162,6 +162,33 @@ body{
 }
 .photo-wrap img{ width:100%; height:100%; object-fit:cover; display:block; }
 
+/*    FIX      */
+/* Zone du titre qui tape : réserve stable pour 2 lignes */
+.role-wrap{
+  /* espace vertical (gère l’écart au-dessus/au-dessous du titre) */
+  margin: 10px 0 18px;
+  /* hauteur fixe -> 2 lignes + marge de sécurité */
+  height: 3.6em;        /* ↑ augmente à 3.8em si tu vois encore un clip */
+  overflow: hidden;
+}
+
+/* Le H2 lui-même ne porte plus de marge (sinon margin-collapse) */
+.role{
+  margin: 0;                  /* <— important */
+  line-height: 1.15;
+  font-size: clamp(44px, 9.2vw, 88px);  /* un poil moins agressif que 10vw */
+  font-weight: 900;
+  letter-spacing: .5px;
+}
+
+/* Petits écrans : un chouïa plus de place pour éviter tout clip */
+@media (max-width: 480px){
+  .role-wrap { height: 3.8em; }  /* 4.0em si tu veux large */
+  .role      { font-size: clamp(38px, 11vw, 72px); }
+}
+/*    FIN de FIX      */
+
+
 /* Desktop élargis */
 @media (min-width:1600px){
   .hero-grid{ grid-template-columns:minmax(520px, 1fr) 420px; }
