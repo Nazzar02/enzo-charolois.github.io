@@ -303,7 +303,7 @@ body{ margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, A
 .role{
   font-size: clamp(42px, 8.8vw, 88px);  /* un chouïa plus petit que 9.2vw */
   line-height: 1.06;
-  min-height: 2%;                    /* 2 lignes garanties + marge */
+  min-height: 2.4em;                    /* 2 lignes garanties + marge */
   margin: 10px 0 18px;
 }
 .role-wrap{ min-width: 0; }             /* autorise le wrapping dans la grid */
