@@ -647,3 +647,9 @@ body{ margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, A
     margin-right: clamp(220px, 18vw, 420px);
   }
 }
+
+/* header brand avec logo */
+.brand{ display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.5px; }
+.brand .dot{ display:none; }                 /* on cache l’ancien rond */
+.brand-logo{ width:30px; height:30px; display:block; }  /* un peu plus gros */
+.site-nav .top{ height:60px; }               /* petite marge de confort */
