@@ -1,173 +1,655 @@
-// Theme toggle with persisted state
-const root = document.documentElement;
-const saved = localStorage.getItem('theme');
-if(saved === 'light') root.classList.add('light');
-const themeSwitch = document.getElementById('themeSwitch');
-if (saved === 'light' && themeSwitch) themeSwitch.checked = true;
-themeSwitch?.addEventListener('change', () => {
-  root.classList.toggle('light', themeSwitch.checked);
-  localStorage.setItem('theme', themeSwitch.checked ? 'light' : 'dark');
-});
-
-// Mobile menu
-const menuBtn = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navlinks');
-menuBtn.addEventListener('click', ()=> navLinks.classList.toggle('open'));
-document.addEventListener('click', (e)=>{
-  if(!navLinks.contains(e.target) && !menuBtn.contains(e.target)) navLinks.classList.remove('open');
-});
-
-// Typing effect
-const words = ['AI Engineer','Recommender Systems','Project manager'];
-const target = document.getElementById('typing');
-let wi = 0, ci = 0, dir = 1, pause = 0;
-
-function positionCaret() {
-  const caret = document.querySelector('.role .caret');
-  const container = document.querySelector('.role');
-  if (!caret || !container) return;
-
-  const t = document.getElementById('typing');
-  const range = document.createRange();
-  range.selectNodeContents(t);
-  range.collapse(false); // fin du texte
-
-  const rects = range.getClientRects();
-  const rect = rects.length ? rects[rects.length - 1] : t.getBoundingClientRect();
-  const crect = container.getBoundingClientRect();
-
-  // place le caret à la fin du dernier line box
-  caret.style.left = (rect.right - crect.left) + 'px';
-  caret.style.top  = (rect.top   - crect.top)  + 'px';
-  caret.style.height = rect.height + 'px';
+/* =======================
+   THEME & GLOBAL
+   ======================= */
+:root{
+  --bg:#0f1620;
+  --fg:#e6eaf0;
+  --muted:#9db2cc;
+  --line:#223046;
+  --accent:#7f93ac;
+  --accent-strong:#b7c7dc;
+  --card:#18212e;
+  --card-hover:#1b2634;
+  --wrap:1100px;
+  --r:18px;
+  --shadow:0 18px 60px rgba(0,0,0,.35);
+  --gap:56px;
 }
-function tick(){
-  const current = words[wi];
-  if(pause > 0){ pause--; return setTimeout(() => { positionCaret(); tick(); }, 50); }
-  ci += dir;
-  target.textContent = current.slice(0, ci);
-  // Reposition après que le DOM se soit peint
-  requestAnimationFrame(positionCaret);
-
-  if(ci === current.length){ pause = 12; dir = -1; }
-  if(ci === 0){ dir = 1; wi = (wi + 1) % words.length; }
-  setTimeout(tick, dir > 0 ? 55 : 35);
-}
-tick();
-window.addEventListener('resize', () => requestAnimationFrame(positionCaret));
-requestAnimationFrame(positionCaret);
-
-// Reveal on scroll
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      io.unobserve(e.target);
-    }
-  });
-},{
-  // start revealing when the top of the card is ~10% below the viewport top,
-  // and when only 80% of the viewport remains (i.e., earlier than before)
-  rootMargin: "10% 0px -20% 0px",
-  threshold: 0
-});
-
-
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-// Scrollspy active link
-const links = navLinks.querySelectorAll('a[href^="#"]');
-function setActiveById(id){ links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === id)); }
-links.forEach(a => a.addEventListener('click', () => setActiveById(a.getAttribute('href'))));
-const targets = Array.from(links).map(a => document.querySelector(a.getAttribute('href')));
-const spy = new IntersectionObserver((ents)=>{
-  let best = null;
-  ents.forEach(ent=>{ if(ent.isIntersecting && (!best || ent.intersectionRatio > best.intersectionRatio)) best = ent; });
-  if(best){ setActiveById('#'+best.target.id); }
-},{rootMargin: "-45% 0px -50% 0px", threshold: [0,.2,.5,.8,1]});
-targets.forEach(sec => sec && spy.observe(sec));
-
-// Copy email same-size buttons handled in CSS via min-width
-const copyBtn = document.getElementById('copyEmail');
-if (copyBtn) {
-  copyBtn.addEventListener('click', async ()=>{
-    try {
-      await navigator.clipboard.writeText('enzo.charolois@gmail.com');
-      alert('Email copied');
-    } catch(e){}
-  });
+:root.light{
+  --bg:#ffffff;
+  --fg:#0b0c10;
+  --muted:#5b616e;
+  --line:#e6eaf0;
+  --accent:#5b6b80;
+  --accent-strong:#3f4f66;
+  --card:#f7f9fc;
+  --card-hover:#fff;
+  --shadow:0 12px 36px rgba(0,0,0,.06);
 }
 
+*{ box-sizing:border-box; }
+html,body{ height:100%; scroll-behavior:smooth; }
+body{ margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--fg); background:var(--bg); }
 
-// ===== Skills carousel — auto + flèches =====
-(() => {
-  const carousel = document.getElementById('skillsCarousel');
-  if (!carousel) return;
+.wrap{ max-width:var(--wrap); margin:0 auto; padding:0 clamp(16px,3vw,40px); }
+.wrap > *{ max-width:100%; }
 
-  const track = document.getElementById('skillTrack');
-  const dotsWrap = document.getElementById('skillDots');
-  const slides = Array.from(track.children);
-  const prevBtn = carousel.querySelector('.cnav.prev');
-  const nextBtn = carousel.querySelector('.cnav.next');
+/* widen content on very large screens */
+@media (min-width:1366px){ :root{ --wrap:1280px; } }
+@media (min-width:1600px){ :root{ --wrap:1440px; --gap:64px; } }
+@media (min-width:1900px){ :root{ --wrap:1560px; --gap:72px; } }
+@media (min-width:2200px){ :root{ --wrap:1800px; --gap:80px; } }
 
-  let index = 0;
-  let autoId = 0, unpauseId = 0;
-  let paused = false;
+/* =======================
+   HEADER / NAV
+   ======================= */
+.site-nav{ position:sticky; top:0; z-index:100; background:color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--accent); }
+.site-nav .top{ display:flex; align-items:center; justify-content:space-between; height:56px; }
+.brand{ color:var(--fg); text-decoration:none; font-weight:800; letter-spacing:.5px; flex-shrink:0; }
+.brand .dot{ width:10px; height:10px; background:var(--accent); border-radius:50%; display:inline-block; margin-right:8px; box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent); }
 
-  const AUTOPLAY_MS = 2200;   // fréquence d’auto-défilement
-  const PAUSE_MS = 3800;      // pause après interaction
+#menuToggle{ display:none; }
+#navlinks{ display:flex; align-items:center; gap:16px; white-space:nowrap; }
+#navlinks a{ color:var(--fg); text-decoration:none; padding:8px 5px; border-bottom:2px solid transparent; }
+#navlinks a.active{ border-color:var(--accent-strong); }
 
-  function center(i){
-    index = (i + slides.length) % slides.length;
-    const s = slides[index];
-    const x = s.offsetLeft - (track.clientWidth - s.clientWidth)/2;
-    track.scrollTo({ left: x, behavior: 'smooth' });
-    const dots = [...dotsWrap.children];
-    dots.forEach((d,n)=>d.classList.toggle('active', n===index));
+.btn{ display:inline-block; text-decoration:none; padding:10px 16px; border-radius:999px; border:1px solid var(--line); color:var(--fg); background:var(--card); line-height:1; }
+.btn.primary{ background:var(--fg); color:var(--bg); }
+.btn.ghost{ background:var(--card); }
+.btn.header{ padding:8px 12px; }
+
+.icon-btn{ border:1px solid var(--line); background:var(--card); color:var(--fg); border-radius:8px; padding:6px 10px; }
+
+/* mobile menu */
+@media (max-width:1100px){
+  #menuToggle{ display:inline-block; }
+  #navlinks{
+    position:fixed; right:16px; top:64px; background:var(--card);
+    border:1px solid var(--line); border-radius:14px; padding:10px;
+    display:none; flex-direction:column; gap:10px; box-shadow:var(--shadow);
   }
+  #navlinks.open{ display:flex; }
+}
 
-  function buildDots(){
-    dotsWrap.innerHTML = '';
-    slides.forEach((_,i)=>{
-      const b = document.createElement('button');
-      b.addEventListener('click', ()=>{ center(i); resetAuto(PAUSE_MS); });
-      dotsWrap.appendChild(b);
-    });
+/* toggle switch */
+.toggle{ display:inline-flex; align-items:center; cursor:pointer; }
+.toggle input{ display:none; }
+.toggle .track{ width:56px; height:28px; border-radius:999px; background:color-mix(in srgb, var(--fg) 10%, var(--bg)); border:1px solid var(--line); display:inline-block; position:relative; box-shadow:inset 0 2px 8px rgba(0,0,0,.25); }
+.toggle .thumb{ width:24px; height:24px; border-radius:50%; background:color-mix(in srgb, var(--fg) 90%, var(--bg)); position:absolute; top:2px; left:2px; box-shadow:0 3px 10px rgba(0,0,0,.4); transition:left .2s ease; }
+:root.light .toggle .thumb{ background:#fff; }
+.toggle input:checked + .track .thumb{ left:30px; }
+
+/* =======================
+   HERO
+   ======================= */
+.hero{ padding:40px 0 56px; border-bottom:1px solid var(--accent); }
+
+.hero-grid{
+  display:grid; gap:var(--gap);
+  grid-template-columns:minmax(360px,1fr) clamp(240px,24vw,360px);
+  align-items:center;
+}
+.left{ min-width:0; }
+.hello{ margin:0 0 14px; color:var(--muted); font-weight:600; letter-spacing:.4px; }
+.name{ margin:0 0 10px; font-size:clamp(36px,5vw,52px); line-height:1.05; }
+.role-wrap{ max-width:100%; margin-bottom:8px; }
+
+/* typing line — stable & no mid-word breaks */
+.role{
+  margin:10px 0 18px;
+  font-size:clamp(44px, 9.2vw, 88px);  /* légèrement moins que 10vw pour éviter la bascule */
+  line-height:1.06;
+  font-weight:900; letter-spacing:.3px;
+  min-height:3.2em;                    /* réserve ~ 2 lignes */
+}
+.role .caret{ display:none; }          /* on coupe l’ancien caret */
+.role #typing{
+  display:inline-block;
+  padding-right:.45ch;                 /* réserve la place du caret */
+  border-right:2px solid var(--fg);    /* caret intégré */
+  animation:caretBlink 1s steps(2,start) infinite;
+  white-space:normal;
+  word-break:normal;
+  overflow-wrap:normal;
+  -webkit-hyphens:none; hyphens:none;
+}
+@keyframes caretBlink{
+  0%,49%{ border-color:var(--fg); }
+  50%,100%{ border-color:transparent; }
+}
+
+.lead{ margin:0 0 24px; color:var(--muted); max-width:70ch; font-size:18px; }
+.cta .btn{ min-width:160px; text-align:center; }
+
+/* photo - always a square frame */
+.photo-wrap{
+  width:100%; aspect-ratio:1 / 1;
+  border-radius:28px; overflow:hidden; box-shadow:var(--shadow);
+  border:1px solid var(--line); justify-self:end;
+}
+.photo-wrap img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+/* =======================
+   SECTIONS & CARDS
+   ======================= */
+.section{ padding:52px 0; border-bottom:1px solid var(--accent); }
+.section.alt{ background:color-mix(in srgb, var(--accent) 6%, var(--bg)); }
+.section-head{ display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+.section-title{ margin:0; font-size:22px; }
+
+.stack{ display:grid; gap:18px; }
+.card{
+  background:var(--card); border:1px solid var(--line); border-radius:var(--r);
+  padding:20px; box-shadow:var(--shadow); transform:translateY(6px); opacity:0;
+}
+.card-hd{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px; }
+.logo{ width:84px; height:84px; object-fit:contain; filter:drop-shadow(0 2px 10px rgba(0,0,0,.25)); }
+.card .meta{ color:var(--muted); font-size:14px; }
+.card ul{ margin:8px 0 0; padding-left:18px; }
+.card li{ margin:6px 0; }
+
+.hover-float{ transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease; }
+.hover-float:hover{ transform:translateY(-6px); background:var(--card-hover); box-shadow:0 22px 70px rgba(0,0,0,.45); border-color:var(--accent); }
+
+.edu-grid{ display:grid; grid-template-columns:1fr; gap:18px; }
+@media (min-width:900px){ .edu-grid{ grid-template-columns:1fr 1fr; } }
+
+.reveal.visible{ transform:translateY(0); opacity:1; transition:all .6s ease; }
+
+/* =======================
+   RESPONSIVE TWEAKS
+   ======================= */
+
+/* Tablet: shrink photo a bit in 2-column layout */
+@media (max-width:1024px){
+  .hero-grid{ grid-template-columns:1fr 320px; gap:36px; }
+  .photo-wrap{ width:280px; height:280px; }
+}
+
+/* Stack on one column (phones & small tablets) — FIX for ~913px */
+@media (max-width:920px){
+  .hero-grid{ grid-template-columns:1fr; }
+  .right{ justify-self:center; }
+  .photo-wrap{
+    width:clamp(240px, 60vw, 320px);
+    aspect-ratio:1 / 1;
+    height:auto;                 /* empêche le bandeau */
+    margin:8px auto 0;
   }
+  .carousel.small .slide{ flex-basis:46%; max-width:46%; }
+}
 
-  function next(n=1){ center(index + n); }
-  function prev(){ next(-1); }
+/* Very small phones */
+@media (max-width:480px){
+  .name{ font-size:34px; }
+  .role{ font-size:44px; min-height:3.8em; }
+  .cta{ display:flex; flex-wrap:wrap; gap:10px; }
+  .cta .btn{ min-width:48%; }
+}
+@media (max-width:360px){ .cta .btn{ min-width:100%; } }
 
-  function startAuto(){
-    clearInterval(autoId);
-    autoId = setInterval(()=>{ if(!paused) next(); }, AUTOPLAY_MS);
+/* hero larger on big desktops */
+@media (min-width:1600px){
+  .hero-grid{ grid-template-columns:minmax(520px,1fr) 420px; gap:var(--gap); }
+  .photo-wrap{ width:360px; height:360px; }
+}
+@media (min-width:1900px){
+  .hero-grid{ grid-template-columns:minmax(560px,1fr) 460px; }
+  .photo-wrap{ width:400px; height:400px; }
+}
+
+/* carousel generic */
+.carousel{ position:relative; margin-top:14px; background:transparent !important; }
+.carousel::before{ content:none !important; }
+.track{ display:flex; gap:12px; overflow:hidden; scroll-behavior:smooth; background:transparent !important; }
+.carousel.small .slide{ flex:0 0 28%; max-width:28%; padding:22px; font-size:18px; }
+.slide{
+  flex:0 0 70%; max-width:70%;
+  background:var(--card); border:1px solid var(--line); border-radius:16px;
+  padding:40px; font-size:22px; text-align:center; margin:8px 0; box-shadow:var(--shadow);
+}
+.cnav{ position:absolute; top:50%; transform:translateY(-50%); background:var(--card); border:1px solid var(--line); width:36px; height:36px; border-radius:50%; color:var(--fg); display:flex; align-items:center; justify-content:center; }
+.cnav.prev{ left:-6px; } .cnav.next{ right:-6px; }
+.dots{ display:flex; justify-content:center; gap:8px; margin-top:6px; }
+.dots button{ width:8px; height:8px; border-radius:50%; border:0; background:color-mix(in srgb, var(--accent-strong) 35%, transparent); }
+.dots button.active{ background:var(--accent-strong); }
+
+/* links & footer */
+.text-link{ color:var(--accent-strong); text-decoration:none; border-bottom:1px solid color-mix(in srgb, var(--accent-strong) 30%, transparent); }
+.text-link:hover{ border-bottom-color:var(--accent-strong); }
+.site-footer{ padding:36px 0; text-align:center; color:var(--muted); }
+
+/* reduce motion */
+@media (prefers-reduced-motion:reduce){ *{ animation:none !important; transition:none !important; } }
+
+/* =======================
+   CTA BUTTONS (shared)
+   ======================= */
+.cta a.btn,
+.cta button.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:12px 18px; border-radius:999px; border:1px solid var(--line);
+  background:var(--card); color:var(--fg); text-decoration:none;
+  font:inherit; -webkit-appearance:none; appearance:none; line-height:1; cursor:pointer;
+}
+.cta a.btn:hover,
+.cta button.btn:hover{ box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent); }
+.cta .btn.primary{ background:var(--accent); border-color:var(--accent); color:var(--bg); }
+
+/* =======================
+   SKILL FINDER (launcher + modal)
+   ======================= */
+#sf-toggle{ bottom:150px; }
+#sf-launcher{
+  position:fixed; right:22px; bottom:22px; z-index:120;
+  width:56px; height:56px; border-radius:50%;
+  border:1px solid var(--line); background:var(--card);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:var(--shadow); cursor:pointer;
+}
+#sf-launcher animated-icons{ pointer-events:none; display:block; }
+
+#sf-modal[aria-hidden="true"]{ display:none; }
+#sf-modal{
+  position:fixed; inset:0; background:rgba(0,0,0,.35);
+  display:flex; align-items:flex-end; justify-content:flex-end;
+  padding:80px 24px 24px; z-index:130;
+}
+#sf-modal .sf-panel{
+  width:min(520px, 92vw); max-height:70vh; overflow:hidden;
+  border:1px solid var(--line); background:var(--card); color:var(--fg);
+  border-radius:16px; box-shadow:var(--shadow);
+  display:flex; flex-direction:column;
+}
+.sf-hd{ display:flex; align-items:center; justify-content:space-between; padding:14px 16px; border-bottom:1px solid var(--line); }
+.sf-x{ background:transparent; color:var(--fg); border:0; font-size:22px; line-height:1; cursor:pointer; }
+.sf-body{ padding:12px 16px; overflow:auto; display:flex; flex-direction:column; gap:10px; }
+.sf-msg{ background:var(--bg); border:1px solid var(--line); padding:10px 12px; border-radius:12px; }
+.sf-msg.bot{ background:color-mix(in srgb, var(--accent) 6%, var(--bg)); }
+.sf-input{ display:flex; gap:10px; padding:12px; border-top:1px solid var(--line); }
+#sf-q{ flex:1; padding:10px 12px; border-radius:999px; border:1px solid var(--line); background:var(--bg); color:var(--fg); }
+
+/* subtle highlight when scrolling to a card */
+.hl-pulse{ box-shadow:0 0 0 3px color-mix(in srgb, var(--accent-strong) 45%, transparent), var(--shadow) !important; transition:box-shadow .6s ease; }
+
+/* =======================
+   HERO BADGES
+   ======================= */
+.hero-badges{
+  display:flex; flex-wrap:wrap; gap:16px;
+  margin:16px 0 8px;
+}
+.hero-badges .badge{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:18px 24px; border-radius:999px; border:1px solid var(--line);
+  background:var(--card); color:var(--fg); text-decoration:none;
+  white-space:nowrap; flex:0 0 auto; width:auto;
+  box-shadow:var(--shadow); transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+  font-weight:650;
+}
+.badge:hover{ transform:translateY(-2px); background:var(--card-hover); border-color:var(--accent); box-shadow:0 18px 55px rgba(0,0,0,.35); }
+
+.badge-lg{ min-width:clamp(260px,35vw,520px); font-size:clamp(16px,1.6vw,22px); line-height:1.1; }
+
+@media (max-width:900px){ .badge-lg{ min-width:100%; } }
+@media (max-width:560px){
+  .hero-badges{ flex-direction:column; }
+  .hero-badges .badge{ width:100%; }
+}
+
+/* === FINAL PATCH — typing 100% stable + photo safe vers 930px === */
+
+/* 1) Empêcher toute césure “au milieu des mots” et stabiliser la hauteur */
+.role{
+  font-size: clamp(42px, 8.8vw, 88px);  /* un chouïa plus petit que 9.2vw */
+  line-height: 1.06;
+  min-height: 2.4em;                    /* 2 lignes garanties + marge */
+  margin: 10px 0 18px;
+}
+.role-wrap{ min-width: 0; }             /* autorise le wrapping dans la grid */
+
+/* 2) Caret en pseudo-élément (ne change jamais la largeur du texte) */
+.role .caret{ display: none !important; } /* on neutralise l’ancien span */
+.role #typing{
+  position: relative;
+  padding-right: 0 !important;
+  border-right: 0 !important;
+  white-space: normal;
+  word-break: keep-all;                 /* ne coupe qu’aux espaces */
+  overflow-wrap: normal;
+  -webkit-hyphens: none; hyphens: none;
+}
+.role #typing::after{
+  content: "";
+  position: absolute;
+  top: 0.08em;
+  right: -0.12em;                       /* chevauche sans pousser la mise en page */
+  width: 2px; height: 1em;
+  background: var(--fg);
+  animation: typingCaretBlink 1s steps(2, start) infinite;
+}
+@keyframes typingCaretBlink{ 0%,49%{opacity:1} 50%,100%{opacity:0} }
+
+/* 3) Photo : jamais de “bandeau” autour de 913–940px */
+@media (max-width: 1000px){             /* on élargit légèrement le breakpoint */
+  .hero-grid{ grid-template-columns: 1fr; }
+  .right{ justify-self: center; }
+  .photo-wrap{
+    width: clamp(240px, 60vw, 320px) !important;
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+    margin: 8px auto 0;
   }
-  function resetAuto(temp=0){
-    if (temp){
-      paused = true;
-      clearTimeout(unpauseId);
-      unpauseId = setTimeout(()=>{ paused=false; }, temp);
-    }
-    startAuto();
+}
+/* sécurité globale au cas où un ancien height resterait en mémoire */
+.photo-wrap{ height: auto !important; }
+
+
+/* Caret piloté en JS */
+.role{
+  position: relative;         /* conteneur pour positionner le caret */
+}
+
+.role #typing{
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  -webkit-hyphens: none;
+  hyphens: none;
+  padding-right: 0;           /* pas d'espace réservé, caret en absolu */
+}
+
+/* ANNULER les anciens essais de caret via ::after ou display:none */
+.role #typing::after{ content: none !important; }
+.role .caret{ display: block !important; }
+
+/* Style du caret */
+.caret{
+  position: absolute;
+  width: 2px;
+  background: var(--fg);
+  animation: blink 1s steps(2, start) infinite;
+  pointer-events: none;
+}
+@keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+
+/* === Caret CSS-only, aligné sur la dernière ligne === */
+.role{ position: relative; line-height: 1.06; }
+
+/* le texte tapé */
+#typing{
+  position: relative;               /* référentiel pour ::after */
+  padding-right: .45ch;             /* réserve un poil de place */
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  -webkit-hyphens: none; hyphens: none;
+}
+
+/* on cache l'ancien <span class="caret"> s'il est encore dans le DOM */
+.role .caret{ display: none !important; }
+
+/* le caret : 1em de haut, collé en bas de la dernière ligne */
+#typing::after{
+  content: "" !important;           /* réactive même si on l'avait mis à none */
+  position: absolute;
+  right: 0;
+  bottom: .08em;                    /* petit réglage vertical */
+  width: 2px;
+  height: 1em;                      /* toujours la hauteur d’une ligne */
+  background: var(--fg);
+  animation: blink 1s steps(2, start) infinite;
+}
+
+/* Mobiles : on garde exactement 2 lignes d’espace pour le typing */
+@media (max-width: 600px){
+  .role{
+    font-size: clamp(36px, 10vw, 44px);
+    min-height: calc(2 * 1.06em);   /* 2 lignes pile, pas plus */
+    margin: 8px 0 14px;
   }
+}
 
-  // Events flèches
-  nextBtn.addEventListener('click', ()=>{ next(); resetAuto(PAUSE_MS); });
-  prevBtn.addEventListener('click', ()=>{ prev(); resetAuto(PAUSE_MS); });
+/* Skills carousel — flèches bien cliquables et centrage propre */
+.carousel{ position:relative; overflow:hidden; }
+.track{ display:flex; gap:12px; scroll-behavior:smooth; }
 
-  // Pause quand on interagit, reprise ensuite
-  ['mouseenter','focusin','pointerdown','touchstart'].forEach(ev=>{
-    carousel.addEventListener(ev, ()=>{ paused = true; });
-  });
-  ['mouseleave','focusout','pointerup','touchend','touchcancel'].forEach(ev=>{
-    carousel.addEventListener(ev, ()=>{ paused = false; });
-  });
+/* on ne laisse pas les flèches se faire masquer par le track */
+.cnav{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:40px; height:40px; border-radius:999px;
+  border:1px solid var(--line); background:color-mix(in srgb,var(--card) 92%, transparent);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:var(--shadow); z-index:3; cursor:pointer;
+}
+.cnav.prev{ left:8px; }
+.cnav.next{ right:8px; }
+.cnav:focus{ outline:2px solid color-mix(in srgb,var(--accent) 60%, transparent); }
 
-  // Recentrer si la taille change
-  window.addEventListener('resize', ()=> center(index));
-  document.addEventListener('visibilitychange', ()=> { paused = document.hidden; });
+/* taille des cartes : 1 centrée sur petits écrans, 2 puis 3 sur grands */
+.carousel.small .slide{ flex:0 0 86%; max-width:86%; }
+@media (min-width: 700px){ .carousel.small .slide{ flex-basis: 48%; max-width:48%; } }
+@media (min-width: 1100px){ .carousel.small .slide{ flex-basis: 31%; max-width:31%; } }
 
-  buildDots();
-  center(0);
-  startAuto();
-})();
+/* points */
+#skillDots{ display:flex; justify-content:center; gap:8px; margin-top:6px; }
+#skillDots button{ width:8px; height:8px; border-radius:50%; border:0;
+  background: color-mix(in srgb, var(--accent-strong) 35%, transparent); }
+#skillDots button.active{ background: var(--accent-strong); }
+
+/* (optionnel) cacher la scrollbar si tu passes le track en overflow:auto un jour */
+.track::-webkit-scrollbar{ display:none; }
+
+/* ===== Contact refonte ===== */
+.contact-grid{ display:grid; gap:18px; }
+.email-row{
+  display:flex; align-items:center; gap:10px;
+}
+.email-row .email{ font-size:18px; }
+
+.icon-pill{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:34px; height:34px; border-radius:8px;
+  border:1px solid var(--line); background:var(--card);
+  box-shadow: var(--shadow); cursor:pointer;
+}
+.icon-pill img{ display:block; }
+
+.cta-row{
+  display:flex; align-items:center; gap:26px; flex-wrap:wrap;
+}
+
+/* gros boutons en pastille */
+.pill{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:12px 18px; border-radius:999px;
+  text-decoration:none; font-weight:600;
+  background: color-mix(in srgb, var(--fg) 18%, var(--card)); /* clair sur fond sombre */
+  color: var(--bg); border: 0;
+  box-shadow: var(--shadow);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.pill:hover{ transform: translateY(-1px); box-shadow: 0 18px 55px rgba(0,0,0,.35); }
+
+.btn-linkedin img{ order: 2; margin-left: 6px; } /* icône à droite */
+.btn-cv img{ order: 0; margin-right: 6px; }      /* icône à gauche */
+
+/* responsive: en pile sur petits écrans */
+@media (max-width: 700px){
+  .cta-row{ gap:12px; }
+  .pill{ width:100%; justify-content:center; }
+}
+/* ===== Contact inline (PC: tout sur une ligne) ===== */
+.contact-inline{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;                 /* mobile: passe à la ligne */
+  margin-top: 6px;
+}
+.email{ font-size:18px; }
+
+/* versions plus claires des boutons */
+.icon-pill,
+.pill{
+  box-shadow: var(--shadow);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+}
+
+/* petit bouton copier plus clair */
+.icon-pill.light{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:36px; height:36px; border-radius:10px; border:1px solid var(--line);
+  background: color-mix(in srgb, var(--fg) 26%, var(--card));
+}
+.icon-pill.light:hover{ background: color-mix(in srgb, var(--fg) 34%, var(--card)); transform: translateY(-1px); }
+
+/* gros pills plus clairs */
+.pill-light{
+  background: color-mix(in srgb, var(--fg) 22%, var(--card));
+  color: var(--bg);
+  border: 1px solid color-mix(in srgb, var(--fg) 28%, var(--line));
+}
+.pill-light:hover{
+  background: color-mix(in srgb, var(--fg) 30%, var(--card));
+  transform: translateY(-1px);
+}
+
+/* ordre des icônes */
+.btn-linkedin img{ order: 2; margin-left: 6px; }
+.btn-cv img{ order: 0; margin-right: 6px; }
+
+/* Desktop: forcer une seule ligne tant qu’il y a la place */
+@media (min-width: 900px){
+  .contact-inline{ flex-wrap: nowrap; }
+}
+
+/* Mobile: étirer les pills en pleine largeur si tu veux */
+@media (max-width: 700px){
+  .pill{ width:100%; justify-content:center; }
+}
+
+/* ===== Contact bar (aligné + actions à droite) ===== */
+.contact-bar{
+  display:flex; align-items:center;
+  gap:18px; flex-wrap:wrap;
+}
+
+/* bloc gauche : email + copier */
+.contact-left{
+  display:flex; align-items:center; gap:10px; min-width:0;
+}
+.contact-left .email{ font-size:18px; }
+
+/* bloc droite : LinkedIn + CV, poussé à droite */
+.contact-actions{
+  display:flex; align-items:center; gap:14px;
+  margin-left:auto;                     /* pousse à droite */
+}
+
+/* boutons plus clairs (légèrement + lisibles) */
+.icon-pill.light{
+  width:36px; height:36px; border-radius:10px;
+  border:1px solid color-mix(in srgb, var(--fg) 36%, var(--line));
+  background: color-mix(in srgb, var(--fg) 34%, var(--card));
+}
+.pill-light{
+  background: color-mix(in srgb, var(--fg) 30%, var(--card));
+  color: var(--bg);
+  border:1px solid color-mix(in srgb, var(--fg) 40%, var(--line));
+}
+.pill-light:hover{
+  background: color-mix(in srgb, var(--fg) 36%, var(--card));
+  transform: translateY(-1px);
+}
+
+/* ordre des icônes sur les pills */
+.btn-linkedin img{ order:2; margin-left:6px; }
+.btn-cv img{ order:0; margin-right:6px; }
+
+/* mobile : on empile proprement */
+@media (max-width:700px){
+  .contact-actions{ margin-left:0; width:100%; gap:12px; }
+  .contact-actions .pill{ flex:1; justify-content:center; }
+}
+
+/* ===== Contact bar — alignement mockup ===== */
+.contact-bar{
+  display: grid;
+  grid-template-columns: 1fr auto;   /* gauche rempli, droite serrée à droite */
+  align-items: center;
+  gap: 18px;
+}
+
+/* bloc gauche : email + copier */
+.contact-left{ display:flex; align-items:center; gap:10px; min-width:0; }
+.contact-left .email{ font-size: 18px; }
+
+/* bloc droit : à droite, avec espace entre les 2 boutons */
+.contact-actions{
+  justify-self: end;                  /* colle le groupe à droite */
+  display:flex; align-items:center; gap: 18px;
+}
+
+/* style plus clair des boutons */
+.icon-pill.light{
+  width: 38px; height: 38px; border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--fg) 42%, var(--line));
+  background: color-mix(in srgb, var(--fg) 40%, var(--card));  /* + clair */
+  box-shadow: var(--shadow);
+  display:inline-flex; align-items:center; justify-content:center;
+  transition: transform .2s, background .2s, box-shadow .2s, border-color .2s;
+}
+.icon-pill.light:hover{
+  background: color-mix(in srgb, var(--fg) 48%, var(--card));
+  transform: translateY(-1px);
+}
+
+/* gros pills plus clairs */
+.pill{
+  display:inline-flex; align-items:center; gap:10px;
+  padding: 12px 22px; border-radius: 999px; font-weight: 600;
+  text-decoration: none; line-height: 1;
+  box-shadow: var(--shadow);
+  transition: transform .2s, background .2s, box-shadow .2s, border-color .2s;
+}
+.pill-light{
+  background: color-mix(in srgb, var(--fg) 32%, var(--card));  /* + clair */
+  color: var(--bg);
+  border: 1px solid color-mix(in srgb, var(--fg) 46%, var(--line));
+}
+.pill-light:hover{
+  background: color-mix(in srgb, var(--fg) 40%, var(--card));
+  transform: translateY(-1px);
+}
+
+/* ordre des icônes comme le mockup */
+.btn-linkedin img{ order: 2; margin-left: 6px; }  /* icône à droite */
+.btn-cv img{ order: 0; margin-right: 6px; }       /* icône à gauche */
+
+/* Responsive : empile proprement sous 800px */
+@media (max-width: 800px){
+  .contact-bar{ grid-template-columns: 1fr; gap: 12px; }
+  .contact-actions{ justify-self: start; gap: 12px; flex-wrap: wrap; }
+  .contact-actions .pill{ flex: 1 1 auto; justify-content: center; }
+}
+
+/* ===== Contact: rapprocher LinkedIn/CV du centre (desktop) ===== */
+@media (min-width: 900px){
+  .contact-actions{
+    justify-self: end;                 /* reste dans la colonne de droite */
+    margin-right: clamp(120px, 14vw, 320px); /* ⟵ tire vers le centre */
+  }
+}
+/* très grands écrans : un peu plus au centre */
+@media (min-width: 1600px){
+  .contact-actions{
+    margin-right: clamp(220px, 18vw, 420px);
+  }
+}
+
+/* header brand avec logo */
+.brand{ display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.5px; }
+.brand .dot{ display:none; }                 /* on cache l’ancien rond */
+.brand-logo{ width:30px; height:30px; display:block; }  /* un peu plus gros */
+.site-nav .top{ height:60px; }               /* petite marge de confort */
