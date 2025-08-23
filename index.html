@@ -228,23 +228,43 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <h3 class="section-title">Contact</h3>
-          <animated-icons
-            src="https://animatedicons.co/get-icon?name=contact&style=minimalistic&token=a95329fc-932a-463b-996b-23c9a6ec0092"
-            trigger="loop" height="56" width="56"></animated-icons>
-        </div>
-        <p>
-          <a class="text-link" href="mailto:enzo.charolois@gmail.com">enzo.charolois@gmail.com</a>
-          <span class="sep">·</span>
-          <a class="text-link" href="https://www.linkedin.com/in/enzo-charolois" target="_blank" rel="noopener">LinkedIn</a>
-        </p>
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h3 class="section-title">Contact</h3>
+      <animated-icons
+        src="https://animatedicons.co/get-icon?name=contact&style=minimalistic&token=a95329fc-932a-463b-996b-23c9a6ec0092"
+        trigger="loop" height="56" width="56"></animated-icons>
+    </div>
+
+    <!-- Barre alignée comme sur ton mockup -->
+    <div class="contact-bar">
+      <!-- Bloc gauche : email + copier (collés) -->
+      <div class="contact-left">
+        <a class="text-link email" href="mailto:enzo.charolois@gmail.com">enzo.charolois@gmail.com</a>
+        <button id="copyEmail" class="icon-pill light" aria-label="Copy email">
+          <img src="assets/copie.png" alt="" width="18" height="18">
+        </button>
       </div>
-    </section>
-  </main>
+
+      <!-- Bloc droit : actions poussées à droite -->
+      <div class="contact-actions">
+        <a class="pill pill-light btn-linkedin" href="https://www.linkedin.com/in/enzo-charolois" target="_blank" rel="noopener">
+          <span>LinkedIn</span>
+          <img src="assets/Linkedin.png" alt="" width="18" height="18">
+        </a>
+        <a class="pill pill-light btn-cv" href="Enzo_Charolois_CV.pdf" download>
+          <img src="assets/download.png" alt="" width="18" height="18">
+          <span>CV</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    </main>
 
   <footer class="site-footer">
     <div class="wrap"><p>© 2025 Enzo CHAROLOIS</p></div>
