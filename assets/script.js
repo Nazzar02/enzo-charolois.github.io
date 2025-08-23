@@ -63,9 +63,15 @@ const spy = new IntersectionObserver((ents)=>{
 targets.forEach(sec => sec && spy.observe(sec));
 
 // Copy email same-size buttons handled in CSS via min-width
-document.getElementById('copyEmail').addEventListener('click', async ()=>{
-  try { await navigator.clipboard.writeText('enzo.charolois@gmail.com'); alert('Email copied'); } catch(e){}
-});
+const copyBtn = document.getElementById('copyEmail');
+if (copyBtn) {
+  copyBtn.addEventListener('click', async ()=>{
+    try {
+      await navigator.clipboard.writeText('enzo.charolois@gmail.com');
+      alert('Email copied');
+    } catch(e){}
+  });
+}
 
 // Skills carousel — compact, auto-scroll robust
 const carousel = document.getElementById('skillsCarousel');
