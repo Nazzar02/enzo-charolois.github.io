@@ -8,7 +8,7 @@ themeSwitch?.addEventListener('change', () => {
   root.classList.toggle('light', themeSwitch.checked);
   localStorage.setItem('theme', themeSwitch.checked ? 'light' : 'dark');
 });
-
+ 
 // Mobile menu
 const menuBtn = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navlinks');
