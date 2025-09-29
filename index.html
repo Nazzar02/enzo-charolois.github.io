@@ -11,7 +11,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-
   <!-- animated icons (pour le bouton du Skill Finder) -->
   <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
 
@@ -41,42 +40,47 @@
       </nav>
     </div>
   </header>
+
 <main id="top">
-  <!-- HERO -->
-  <section class="hero">
-        <!-- BG Particles -->
-    <div id="hero-bg" aria-hidden="true"></div>
-    <div class="wrap hero-grid">
-      <div class="left">
-        <p class="hello">Hello, I'm</p>
-        <h1 class="name">Enzo CHAROLOIS</h1>
+<!-- HERO -->
+<section class="hero">
+  <!-- BG Particles -->
+  <div id="hero-bg" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="left">
+      <p class="hello">Hello, I'm</p>
+      <h1 class="name">Enzo CHAROLOIS</h1>
 
-        <div class="role-wrap">
-          <h2 class="role">
-            <span id="typing"></span><span class="caret" aria-hidden="true"></span>
-          </h2>
-        </div>
-
-        <!-- New badges (replace old buttons) -->
-        <div class="hero-badges">
-          <a class="badge" href="#work" aria-label="Go to Work experience">
-            💼 FX/IT Project Manager
-          </a>
-          <a class="badge" href="#publications" aria-label="Go to Publications">
-            📄 2× AI papers 
-          </a>
-        </div>
-        </p>
+      <div class="role-wrap">
+        <h2 class="role">
+          <span id="typing"></span><span class="caret" aria-hidden="true"></span>
+        </h2>
       </div>
 
-      <div class="right">
-        <figure class="photo-wrap fade-in">
-          <img src="assets/profile.jpg" alt="Enzo CHAROLOIS" loading="eager" width="320" height="320">
-        </figure>
+      <!-- Badges -->
+      <div class="hero-badges">
+        <a class="badge star-badge" href="#work" aria-label="Go to Work experience">
+          <span class="star-btn" style="--star-color:#9f26c1; --star-speed:6s; --star-thickness:1px; --star-opacity:.55">
+            <span class="inner">💼 FX/IT Project Manager</span>
+          </span>
+        </a>
+        <a class="badge star-badge" href="#publications" aria-label="Go to Publications">
+          <span class="star-btn" style="--star-color:#9f26c1; --star-speed:6s; --star-thickness:1px; --star-opacity:.55">
+            <span class="inner">📄 2× AI papers</span>
+          </span>
+        </a>
       </div>
     </div>
-  </section>
+
+    <div class="right">
+      <figure class="photo-wrap fade-in">
+        <img src="assets/profile.jpg" alt="Enzo CHAROLOIS" loading="eager" width="320" height="320">
+      </figure>
+    </div>
+  </div>
+</section>
 </main>
+
 
     <!-- WORK -->
     <section id="work" class="section">
@@ -98,10 +102,10 @@
               <img class="logo" src="assets/logo-smarttrade.png" alt="SmartTrade Technologies">
             </header>
             <ul>
-              <li>Integrated FX solutions for Swiss banks: Julius Baer, Zürcher Kantonalbank, BCV.</li>
-              <li>Worked with the Solution Architect and helped multiple squads.</li>
-              <li>Closed ~100 tickets using logs and SQL scripts.</li>
-              <li>Built a nearest-neighbor tool for client config matching.</li>
+              <li>Integrated FX solutions for Swiss banking clients (BCV, Lombard Odier, Metalor).</li>
+              <li>Implementation of an internal RAG (Retrieval-Augmented Generation) tool.</li>
+              <li>Resolved ~100 production tickets through log investigations and SQL scripting.</li>
+              <li>Developed nearest-neighbor search &amp; clustering tool for faster client config matching.</li>
             </ul>
           </article>
 
@@ -157,10 +161,10 @@
             </header>
             <p>Playlist generation from title using transformers and the Million Playlist Dataset. Semantic clusters, light fine-tuning, and a voting step.</p>
             <p>
-              <a class="text-link" href="https://playlist-recommendation.tools.eurecom.fr/" target="_blank" rel="noopener">Live demo</a> ·
-              <a class="text-link" href="https://github.com/elea-vellard/LLM-Playlist-Recommender" target="_blank" rel="noopener">GitHub</a> ·
-              <a class="text-link" href="https://recsys.acm.org/recsys25/accepted-contributions/" target="_blank" rel="noopener">Publication link</a> ·
-              <a class="text-link" href="https://scholar.google.com/scholar?hl=fr&as_sdt=0%2C5&q=+A+Language+Model-Based+Playlist+Generation+Recommender+System&btnG" target="_blank" rel="noopener">Google Scholar link</a>
+              <a class="text-link" href="https://recsys.acm.org/recsys25/accepted-contributions/" target="_blank" rel="noopener">Conference link</a> ·
+              <a class="text-link" href="https://dl.acm.org/doi/10.1145/3705328.3748053" target="_blank" rel="noopener">1st Paper (main conference)</a> ·
+              <a class="text-link" href="https://dl.acm.org/doi/10.1145/3705328.3759336" target="_blank" rel="noopener">2nd paper (demo paper)</a> ·
+              <a class="text-link" href="https://playlist-recommendation.tools.eurecom.fr/" target="_blank" rel="noopener">Live demo</a>
             </p>
           </article>
         </div>
@@ -186,9 +190,9 @@
               <img class="logo" src="assets/logo-eurecom.png" alt="EURECOM">
             </header>
             <ul>
-              <li>AI: ML, DL, RL, deepfake detection, LLMs.</li>
-              <li>Security: cryptology, OS, big data, hardware security.</li>
-              <li>Program in English with management courses.</li>
+              <li>Expertise in AI: ML, DL, RL, Deepfake detection, and LLMs, top 10% best students.</li>
+              <li>Advanced training in cryptology, OS, big data, and hardware security.</li>
+              <li>Management skills for strategic and organizational roles in an all-English environment.</li>
             </ul>
           </article>
 
@@ -220,8 +224,39 @@
         </div>
 
         <div>
-          <p>Languages: French native, English fluent, Spanish intermediate.</p>
+          <!-- Languages (plus jolie) -->
+          <div class="about-block">
+            <h4 class="minor-title">Languages</h4>
+            <ul class="lang-list">
+              <li><span class="lang-chip">French</span><span class="lang-level">Native</span></li>
+              <li><span class="lang-chip">English</span><span class="lang-level">Fluent</span></li>
+              <li><span class="lang-chip">Spanish</span><span class="lang-level">Intermediate</span></li>
+            </ul>
+          </div>
 
+          <!-- Certificates -->
+          <div class="about-block">
+            <h4 class="minor-title">Certificates</h4>
+            <ul class="cert-list">
+              <li>
+                <a class="cert-link" href="https://www.coursera.org/account/accomplishments/verify/86C743YBS95K?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course" target="_blank" rel="noopener">
+                  Google’s Foundation of Project Management
+                </a>
+              </li>
+              <li>
+                <a class="cert-link" href="https://www.coursera.org/account/accomplishments/verify/7FWNB2TD9SZB?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course" target="_blank" rel="noopener">
+                  X (Polytechnique)’s Digital Business
+                </a>
+              </li>
+              <li>
+                <a class="cert-link" href="https://www.etsglobal.org/fr/en/digital-score-report/0D478AAA68C10E702CE2A8F116453398500B623F486E22CBEED196CD4633034ESjdONVk0RFBDcnJZRW52Y3Q3QlhBSWRsbUxVeWlKMUZVWVVUcU52YUtwUERLcW9j" target="_blank" rel="noopener">
+                  TOEIC 940
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Skills carousel -->
           <div class="carousel small" id="skillsCarousel">
             <button class="cnav prev" aria-label="Prev">‹</button>
             <div class="track" id="skillTrack">
@@ -277,7 +312,6 @@
   </div>
 </section>
 
-
     </main>
 
   <footer class="site-footer">
@@ -314,8 +348,7 @@
 
   <!-- Skill Finder logic -->
   <script defer src="assets/skill-finder.js"></script>
-
-<script type="module" src="assets/particles-hero.js"></script>
+  <script type="module" src="assets/particles-hero.js"></script>
 
 </body>
 </html>
