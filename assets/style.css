@@ -97,16 +97,16 @@ body{ margin:0; font-family:"Raleway", Inter, system-ui, -apple-system, Segoe UI
 /* typing line — stable & no mid-word breaks */
 .role{
   margin:10px 0 18px;
-  font-size:clamp(44px, 9.2vw, 88px);  /* légèrement moins que 10vw pour éviter la bascule */
+  font-size:clamp(44px, 9.2vw, 88px);
   line-height:1.06;
   font-weight:900; letter-spacing:.3px;
-  min-height:3.2em;                    /* réserve ~ 2 lignes */
+  min-height:3.2em;
 }
-.role .caret{ display:none; }          /* on coupe l’ancien caret */
+.role .caret{ display:none; }
 .role #typing{
   display:inline-block;
-  padding-right:.45ch;                 /* réserve la place du caret */
-  border-right:2px solid var(--fg);    /* caret intégré */
+  padding-right:.45ch;
+  border-right:2px solid var(--fg);
   animation:caretBlink 1s steps(2,start) infinite;
   white-space:normal;
   word-break:normal;
@@ -173,7 +173,7 @@ body{ margin:0; font-family:"Raleway", Inter, system-ui, -apple-system, Segoe UI
   .photo-wrap{
     width:clamp(240px, 60vw, 320px);
     aspect-ratio:1 / 1;
-    height:auto;                 /* empêche le bandeau */
+    height:auto;
     margin:8px auto 0;
   }
   .carousel.small .slide{ flex-basis:46%; max-width:46%; }
@@ -301,21 +301,21 @@ body{ margin:0; font-family:"Raleway", Inter, system-ui, -apple-system, Segoe UI
 
 /* 1) Empêcher toute césure “au milieu des mots” et stabiliser la hauteur */
 .role{
-  font-size: clamp(42px, 8.8vw, 88px);  /* un chouïa plus petit que 9.2vw */
+  font-size: clamp(42px, 8.8vw, 88px);
   line-height: 1.06;
-  min-height: 2.4em;                    /* 2 lignes garanties + marge */
+  min-height: 2.4em;
   margin: 10px 0 18px;
 }
-.role-wrap{ min-width: 0; }             /* autorise le wrapping dans la grid */
+.role-wrap{ min-width: 0; }
 
 /* 2) Caret en pseudo-élément (ne change jamais la largeur du texte) */
-.role .caret{ display: none !important; } /* on neutralise l’ancien span */
+.role .caret{ display: none !important; }
 .role #typing{
   position: relative;
   padding-right: 0 !important;
   border-right: 0 !important;
   white-space: normal;
-  word-break: keep-all;                 /* ne coupe qu’aux espaces */
+  word-break: keep-all;
   overflow-wrap: normal;
   -webkit-hyphens: none; hyphens: none;
 }
@@ -323,7 +323,7 @@ body{ margin:0; font-family:"Raleway", Inter, system-ui, -apple-system, Segoe UI
   content: "";
   position: absolute;
   top: 0.08em;
-  right: -0.12em;                       /* chevauche sans pousser la mise en page */
+  right: -0.12em;
   width: 2px; height: 1em;
   background: var(--fg);
   animation: typingCaretBlink 1s steps(2, start) infinite;
@@ -331,7 +331,7 @@ body{ margin:0; font-family:"Raleway", Inter, system-ui, -apple-system, Segoe UI
 @keyframes typingCaretBlink{ 0%,49%{opacity:1} 50%,100%{opacity:0} }
 
 /* 3) Photo : jamais de “bandeau” autour de 913–940px */
-@media (max-width: 1000px){             /* on élargit légèrement le breakpoint */
+@media (max-width: 1000px){
   .hero-grid{ grid-template-columns: 1fr; }
   .right{ justify-self: center; }
   .photo-wrap{
@@ -341,29 +341,21 @@ body{ margin:0; font-family:"Raleway", Inter, system-ui, -apple-system, Segoe UI
     margin: 8px auto 0;
   }
 }
-/* sécurité globale au cas où un ancien height resterait en mémoire */
 .photo-wrap{ height: auto !important; }
 
-
 /* Caret piloté en JS */
-.role{
-  position: relative;         /* conteneur pour positionner le caret */
-}
-
+.role{ position: relative; }
 .role #typing{
   white-space: normal;
   word-break: keep-all;
   overflow-wrap: normal;
   -webkit-hyphens: none;
   hyphens: none;
-  padding-right: 0;           /* pas d'espace réservé, caret en absolu */
+  padding-right: 0;
 }
-
-/* ANNULER les anciens essais de caret via ::after ou display:none */
 .role #typing::after{ content: none !important; }
 .role .caret{ display: block !important; }
 
-/* Style du caret */
 .caret{
   position: absolute;
   width: 2px;
@@ -373,39 +365,31 @@ body{ margin:0; font-family:"Raleway", Inter, system-ui, -apple-system, Segoe UI
 }
 @keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
 
-/* === Caret CSS-only, aligné sur la dernière ligne === */
 .role{ position: relative; line-height: 1.06; }
-
-/* le texte tapé */
 #typing{
-  position: relative;               /* référentiel pour ::after */
-  padding-right: .45ch;             /* réserve un poil de place */
+  position: relative;
+  padding-right: .45ch;
   white-space: normal;
   word-break: keep-all;
   overflow-wrap: normal;
   -webkit-hyphens: none; hyphens: none;
 }
-
-/* on cache l'ancien <span class="caret"> s'il est encore dans le DOM */
 .role .caret{ display: none !important; }
-
-/* le caret : 1em de haut, collé en bas de la dernière ligne */
 #typing::after{
-  content: "" !important;           /* réactive même si on l'avait mis à none */
+  content: "" !important;
   position: absolute;
   right: 0;
-  bottom: .08em;                    /* petit réglage vertical */
+  bottom: .08em;
   width: 2px;
-  height: 1em;                      /* toujours la hauteur d’une ligne */
+  height: 1em;
   background: var(--fg);
   animation: blink 1s steps(2, start) infinite;
 }
 
-/* Mobiles : on garde exactement 2 lignes d’espace pour le typing */
 @media (max-width: 600px){
   .role{
     font-size: clamp(36px, 10vw, 44px);
-    min-height: calc(2 * 1.06em);   /* 2 lignes pile, pas plus */
+    min-height: calc(2 * 1.06em);
     margin: 8px 0 14px;
   }
 }
@@ -413,8 +397,6 @@ body{ margin:0; font-family:"Raleway", Inter, system-ui, -apple-system, Segoe UI
 /* Skills carousel — flèches bien cliquables et centrage propre */
 .carousel{ position:relative; overflow:hidden; }
 .track{ display:flex; gap:12px; scroll-behavior:smooth; }
-
-/* on ne laisse pas les flèches se faire masquer par le track */
 .cnav{
   position:absolute; top:50%; transform:translateY(-50%);
   width:40px; height:40px; border-radius:999px;
@@ -425,26 +407,18 @@ body{ margin:0; font-family:"Raleway", Inter, system-ui, -apple-system, Segoe UI
 .cnav.prev{ left:8px; }
 .cnav.next{ right:8px; }
 .cnav:focus{ outline:2px solid color-mix(in srgb,var(--accent) 60%, transparent); }
-
-/* taille des cartes : 1 centrée sur petits écrans, 2 puis 3 sur grands */
 .carousel.small .slide{ flex:0 0 86%; max-width:86%; }
 @media (min-width: 700px){ .carousel.small .slide{ flex-basis: 48%; max-width:48%; } }
 @media (min-width: 1100px){ .carousel.small .slide{ flex-basis: 31%; max-width:31%; } }
-
-/* points */
 #skillDots{ display:flex; justify-content:center; gap:8px; margin-top:6px; }
 #skillDots button{ width:8px; height:8px; border-radius:50%; border:0;
   background: color-mix(in srgb, var(--accent-strong) 35%, transparent); }
 #skillDots button.active{ background: var(--accent-strong); }
-
-/* (optionnel) cacher la scrollbar si tu passes le track en overflow:auto un jour */
 .track::-webkit-scrollbar{ display:none; }
 
 /* ===== Contact refonte ===== */
 .contact-grid{ display:grid; gap:18px; }
-.email-row{
-  display:flex; align-items:center; gap:10px;
-}
+.email-row{ display:flex; align-items:center; gap:10px; }
 .email-row .email{ font-size:18px; }
 
 .icon-pill{
@@ -455,56 +429,46 @@ body{ margin:0; font-family:"Raleway", Inter, system-ui, -apple-system, Segoe UI
 }
 .icon-pill img{ display:block; }
 
-.cta-row{
-  display:flex; align-items:center; gap:26px; flex-wrap:wrap;
-}
+.cta-row{ display:flex; align-items:center; gap:26px; flex-wrap:wrap; }
 
 /* gros boutons en pastille */
 .pill{
   display:inline-flex; align-items:center; gap:10px;
   padding:12px 18px; border-radius:999px;
   text-decoration:none; font-weight:600;
-  background: color-mix(in srgb, var(--fg) 18%, var(--card)); /* clair sur fond sombre */
+  background: color-mix(in srgb, var(--fg) 18%, var(--card));
   color: var(--bg); border: 0;
   box-shadow: var(--shadow);
   transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
 .pill:hover{ transform: translateY(-1px); box-shadow: 0 18px 55px rgba(0,0,0,.35); }
+.btn-linkedin img{ order: 2; margin-left: 6px; }
+.btn-cv img{ order: 0; margin-right: 6px; }
 
-.btn-linkedin img{ order: 2; margin-left: 6px; } /* icône à droite */
-.btn-cv img{ order: 0; margin-right: 6px; }      /* icône à gauche */
-
-/* responsive: en pile sur petits écrans */
 @media (max-width: 700px){
   .cta-row{ gap:12px; }
   .pill{ width:100%; justify-content:center; }
 }
-/* ===== Contact inline (PC: tout sur une ligne) ===== */
 .contact-inline{
   display:flex;
   align-items:center;
   gap:14px;
-  flex-wrap:wrap;                 /* mobile: passe à la ligne */
+  flex-wrap:wrap;
   margin-top: 6px;
 }
 .email{ font-size:18px; }
 
-/* versions plus claires des boutons */
 .icon-pill,
 .pill{
   box-shadow: var(--shadow);
   transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
 }
-
-/* petit bouton copier plus clair */
 .icon-pill.light{
   display:inline-flex; align-items:center; justify-content:center;
   width:36px; height:36px; border-radius:10px; border:1px solid var(--line);
   background: color-mix(in srgb, var(--fg) 26%, var(--card));
 }
 .icon-pill.light:hover{ background: color-mix(in srgb, var(--fg) 34%, var(--card)); transform: translateY(-1px); }
-
-/* gros pills plus clairs */
 .pill-light{
   background: color-mix(in srgb, var(--fg) 22%, var(--card));
   color: var(--bg);
@@ -514,153 +478,329 @@ body{ margin:0; font-family:"Raleway", Inter, system-ui, -apple-system, Segoe UI
   background: color-mix(in srgb, var(--fg) 30%, var(--card));
   transform: translateY(-1px);
 }
-
-/* ordre des icônes */
-.btn-linkedin img{ order: 2; margin-left: 6px; }
-.btn-cv img{ order: 0; margin-right: 6px; }
-
-/* Desktop: forcer une seule ligne tant qu’il y a la place */
-@media (min-width: 900px){
-  .contact-inline{ flex-wrap: nowrap; }
-}
-
-/* Mobile: étirer les pills en pleine largeur si tu veux */
-@media (max-width: 700px){
-  .pill{ width:100%; justify-content:center; }
-}
-
-/* ===== Contact bar (aligné + actions à droite) ===== */
-.contact-bar{
-  display:flex; align-items:center;
-  gap:18px; flex-wrap:wrap;
-}
-
-/* bloc gauche : email + copier */
-.contact-left{
-  display:flex; align-items:center; gap:10px; min-width:0;
-}
-.contact-left .email{ font-size:18px; }
-
-/* bloc droite : LinkedIn + CV, poussé à droite */
-.contact-actions{
-  display:flex; align-items:center; gap:14px;
-  margin-left:auto;                     /* pousse à droite */
-}
-
-/* boutons plus clairs (légèrement + lisibles) */
-.icon-pill.light{
-  width:36px; height:36px; border-radius:10px;
-  border:1px solid color-mix(in srgb, var(--fg) 36%, var(--line));
-  background: color-mix(in srgb, var(--fg) 34%, var(--card));
-}
-.pill-light{
-  background: color-mix(in srgb, var(--fg) 30%, var(--card));
-  color: var(--bg);
-  border:1px solid color-mix(in srgb, var(--fg) 40%, var(--line));
-}
-.pill-light:hover{
-  background: color-mix(in srgb, var(--fg) 36%, var(--card));
-  transform: translateY(-1px);
-}
-
-/* ordre des icônes sur les pills */
 .btn-linkedin img{ order:2; margin-left:6px; }
 .btn-cv img{ order:0; margin-right:6px; }
 
-/* mobile : on empile proprement */
-@media (max-width:700px){
-  .contact-actions{ margin-left:0; width:100%; gap:12px; }
-  .contact-actions .pill{ flex:1; justify-content:center; }
-}
-
-/* ===== Contact bar — alignement mockup ===== */
-.contact-bar{
-  display: grid;
-  grid-template-columns: 1fr auto;   /* gauche rempli, droite serrée à droite */
-  align-items: center;
-  gap: 18px;
-}
-
-/* bloc gauche : email + copier */
-.contact-left{ display:flex; align-items:center; gap:10px; min-width:0; }
-.contact-left .email{ font-size: 18px; }
-
-/* bloc droit : à droite, avec espace entre les 2 boutons */
-.contact-actions{
-  justify-self: end;                  /* colle le groupe à droite */
-  display:flex; align-items:center; gap: 18px;
-}
-
-/* style plus clair des boutons */
-.icon-pill.light{
-  width: 38px; height: 38px; border-radius: 10px;
-  border: 1px solid color-mix(in srgb, var(--fg) 42%, var(--line));
-  background: color-mix(in srgb, var(--fg) 40%, var(--card));  /* + clair */
-  box-shadow: var(--shadow);
-  display:inline-flex; align-items:center; justify-content:center;
-  transition: transform .2s, background .2s, box-shadow .2s, border-color .2s;
-}
-.icon-pill.light:hover{
-  background: color-mix(in srgb, var(--fg) 48%, var(--card));
-  transform: translateY(-1px);
-}
-
-/* gros pills plus clairs */
-.pill{
-  display:inline-flex; align-items:center; gap:10px;
-  padding: 12px 22px; border-radius: 999px; font-weight: 600;
-  text-decoration: none; line-height: 1;
-  box-shadow: var(--shadow);
-  transition: transform .2s, background .2s, box-shadow .2s, border-color .2s;
-}
-.pill-light{
-  background: color-mix(in srgb, var(--fg) 32%, var(--card));  /* + clair */
-  color: var(--bg);
-  border: 1px solid color-mix(in srgb, var(--fg) 46%, var(--line));
-}
-.pill-light:hover{
-  background: color-mix(in srgb, var(--fg) 40%, var(--card));
-  transform: translateY(-1px);
-}
-
-/* ordre des icônes comme le mockup */
-.btn-linkedin img{ order: 2; margin-left: 6px; }  /* icône à droite */
-.btn-cv img{ order: 0; margin-right: 6px; }       /* icône à gauche */
-
-/* Responsive : empile proprement sous 800px */
-@media (max-width: 800px){
-  .contact-bar{ grid-template-columns: 1fr; gap: 12px; }
-  .contact-actions{ justify-self: start; gap: 12px; flex-wrap: wrap; }
-  .contact-actions .pill{ flex: 1 1 auto; justify-content: center; }
-}
-
-/* ===== Contact: rapprocher LinkedIn/CV du centre (desktop) ===== */
 @media (min-width: 900px){
-  .contact-actions{
-    justify-self: end;                 /* reste dans la colonne de droite */
-    margin-right: clamp(120px, 14vw, 320px); /* ⟵ tire vers le centre */
-  }
+  .contact-actions{ justify-self: end; margin-right: clamp(120px, 14vw, 320px); }
 }
-/* très grands écrans : un peu plus au centre */
 @media (min-width: 1600px){
-  .contact-actions{
-    margin-right: clamp(220px, 18vw, 420px);
-  }
+  .contact-actions{ margin-right: clamp(220px, 18vw, 420px); }
 }
 
 /* header brand avec logo */
 .brand{ display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.5px; }
-.brand .dot{ display:none; }                 /* on cache l’ancien rond */
-.brand-logo{ width:30px; height:30px; display:block; }  /* un peu plus gros */
-.site-nav .top{ height:60px; }               /* petite marge de confort */
-
+.brand .dot{ display:none; }
+.brand-logo{ width:30px; height:30px; display:block; }
+.site-nav .top{ height:60px; }
 
 /* === Hero background: OGL particles === */
-.hero{ position: relative; overflow: hidden; }            /* crée un contexte d'empilement */
-.hero > .wrap{ position: relative; z-index: 1; }          /* contenu au-dessus */
+.hero{ position: relative; overflow: hidden; }
+.hero > .wrap{ position: relative; z-index: 1; }
 #hero-bg{
   position: absolute; inset: 0; z-index: 0;
-  pointer-events: none;                                    /* pas de clics bloqués */
+  pointer-events: none;
 }
 #hero-bg canvas{ width:100% !important; height:100% !important; display:block; }
+
+/* ===========================
+   ✨ Hero badges — GLOW effect
+   =========================== */
+.hero-badges .badge{
+  position: relative;
+  border-color: color-mix(in srgb, var(--accent) 48%, var(--line));
+  /* multi-shadow pour un glow doux */
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.35),
+    0 0 22px color-mix(in srgb, var(--accent) 30%, transparent),
+    0 0 60px color-mix(in srgb, var(--accent-strong) 22%, transparent);
+  isolation:isolate; /* pour gérer le pseudo-élément sous le contenu */
+}
+.hero-badges .badge::before{
+  content:"";
+  position:absolute; inset:-3px;
+  border-radius:inherit;
+  background:
+    radial-gradient(140% 120% at 50% 0%,
+      color-mix(in srgb, var(--accent-strong) 46%, transparent) 0%,
+      transparent 65%);
+  filter: blur(14px);
+  opacity:.55;
+  transform: translateY(0);
+  transition: opacity .25s ease, transform .25s ease;
+  z-index:-1; pointer-events:none;
+}
+.hero-badges .badge:hover{
+  box-shadow:
+    0 16px 48px rgba(0,0,0,.45),
+    0 0 30px color-mix(in srgb, var(--accent) 42%, transparent),
+    0 0 90px color-mix(in srgb, var(--accent-strong) 32%, transparent);
+}
+.hero-badges .badge:hover::before{
+  opacity:.85; transform: translateY(-2px);
+}
+
+/* ===========================
+   About — Languages & Certificates
+   =========================== */
+.about-block{ margin: 8px 0 16px; }
+.minor-title{
+  margin:0 0 8px; font-size:14px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--muted);
+}
+
+/* Languages chips */
+.lang-list{
+  list-style:none; padding:0; margin:0 0 4px;
+  display:flex; flex-wrap:wrap; gap:10px 12px;
+}
+.lang-list li{ display:flex; align-items:center; gap:8px; }
+.lang-chip{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:8px 12px; border-radius:999px;
+  border:1px solid var(--line);
+  background: color-mix(in srgb, var(--fg) 12%, var(--card));
+  font-weight:800; letter-spacing:.2px;
+}
+.lang-level{ color:var(--muted); font-size:.95em; }
+
+/* Certificates list */
+.cert-list{
+  list-style:none; padding:0; margin:6px 0 0;
+  display:grid; gap:10px;
+}
+.cert-link{
+  display:flex; align-items:center; gap:10px;
+  padding:12px 14px; border-radius:12px;
+  border:1px solid var(--line);
+  background: color-mix(in srgb, var(--card) 92%, transparent);
+  color:var(--fg); text-decoration:none;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease, background .2s ease;
+}
+.cert-link::before{ content:"🔗"; font-size:16px; opacity:.9; }
+.cert-link:hover{
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--card) 86%, transparent);
+  box-shadow: 0 18px 55px rgba(0,0,0,.35);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   ★ HERO — Star halo buttons (gris clair)
+   - halos animés + glow en pulse
+   - intensité réglable via --star-opacity
+   ========================================================= */
+
+/* Neutralise l'ancien glow des badges ciblés */
+.hero-badges .badge.star-badge{
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.hero-badges .badge.star-badge::before{ display:none; }
+
+/* --- Bouton halo --- */
+.star-btn{
+  /* Variables personnalisables */
+  --star-color: #e6e7eb;          /* gris clair du halo */
+  --star-speed: 6s;               /* vitesse du défilement des halos */
+  --star-thickness: 2px;          /* épaisseur du contour externe */
+  --star-opacity: .55;            /* intensité du halo */
+  --star-glow-min: color-mix(in srgb, var(--star-color) 18%, transparent);
+  --star-glow-max: color-mix(in srgb, var(--star-color) 32%, transparent);
+
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 999px;
+  overflow: hidden;
+  padding: var(--star-thickness) 0;
+  isolation: isolate;
+}
+
+/* Zone intérieure du “pill” */
+.star-btn > .inner{
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.6em;
+  line-height: 1.7;
+  padding: 0 1.6em;
+  border-radius: 999px;
+  border: 1.5px solid color-mix(in srgb, var(--fg) 15%, var(--line));
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+  color: var(--fg);
+  font-weight: 700;
+
+  /* Glow doux + pulse (en gris clair) */
+  box-shadow:
+    0 10px 34px rgba(0,0,0,.32),
+    0 0 16px var(--star-glow-min);
+  animation: star-pulse 2.6s ease-in-out infinite;
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background .2s ease,
+    border-color .2s ease;
+}
+
+/* Survol : petit lift + glow renforcé (toujours gris) */
+.hero-badges .badge.star-badge:hover .inner{
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--star-color) 30%, var(--line));
+  box-shadow:
+    0 12px 38px rgba(0,0,0,.38),
+    0 0 22px var(--star-glow-max);
+}
+
+/* Halos : haut→droite et bas→gauche */
+.star-btn::after,
+.star-btn::before{
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 55%;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--star-color), transparent 12%);
+  opacity: var(--star-opacity);
+  pointer-events: none;
+  z-index: 0;
+}
+.star-btn::after{
+  top: -12px;
+  left: -100%;
+  animation: star-right var(--star-speed) linear infinite;
+}
+.star-btn::before{
+  bottom: -12px;
+  right: -100%;
+  animation: star-left var(--star-speed) linear infinite;
+  animation-delay: calc(var(--star-speed) / 2);
+}
+
+/* Pulse du glow (gris clair) */
+@keyframes star-pulse{
+  0%,100%{
+    box-shadow:
+      0 10px 34px rgba(0,0,0,.32),
+      0 0 14px var(--star-glow-min);
+  }
+  50%{
+    box-shadow:
+      0 14px 42px rgba(0,0,0,.42),
+      0 0 24px var(--star-glow-max);
+  }
+}
+
+/* Défilement des halos */
+@keyframes star-right{
+  from{ transform: translateX(0%);   opacity:.9; }
+  to  { transform: translateX(100%); opacity:0; }
+}
+@keyframes star-left{
+  from{ transform: translateX(0%);    opacity:.9; }
+  to  { transform: translateX(-100%); opacity:0; }
+}
+
+/* Accessibilité focus */
+.hero-badges .badge.star-badge:focus-visible .inner{
+  outline: 2px solid var(--star-glow-max);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Tailles des boutons (grands)
+   ============================================ */
+.hero-badges{ gap:22px; }
+
+.hero-badges .badge.star-badge .star-btn > .inner{
+  font-size: clamp(18px, 1.6vw, 22px);
+}
+
+/* Mobile : plein largeur */
+@media (max-width:560px){
+  .hero-badges .badge.star-badge{ display:block; width:100%; }
+  .hero-badges .badge.star-badge .star-btn{ display:block; width:100%; }
+  .hero-badges .badge.star-badge .star-btn > .inner{
+    width:100%;
+    justify-content:center;
+  }
+}
+/* ============================
+   CONTACT — alignement + gris clair + responsive
+   (patch safe à coller en fin de fichier)
+   ============================ */
+
+/* Barre : email à gauche, actions à droite */
+.contact-bar{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  align-items:center;
+  gap: 16px 24px;
+}
+
+/* Groupes */
+.contact-left{
+  display:flex; align-items:center; gap:10px; min-width:0;
+}
+.contact-actions{
+  display:flex; align-items:center; gap:14px;
+  justify-self:end;           /* pousse à droite */
+  margin-right:0 !important;  /* override anciens margins */
+}
+
+/* Gris plus clair pour les boutons LinkedIn / CV */
+.pill-light{
+  background: color-mix(in srgb, var(--fg) 38%, var(--card)); /* plus clair */
+  color: var(--bg);
+  border: 1px solid color-mix(in srgb, var(--fg) 46%, var(--line));
+  box-shadow: var(--shadow);
+  transition: background .2s ease, border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.pill-light:hover{
+  background: color-mix(in srgb, var(--fg) 46%, var(--card));
+  border-color: color-mix(in srgb, var(--fg) 54%, var(--line));
+  transform: translateY(-1px);
+}
+
+/* Bouton "copier" à côté de l'email : même gris clair */
+.icon-pill.light{
+  background: color-mix(in srgb, var(--fg) 38%, var(--card));
+  border: 1px solid color-mix(in srgb, var(--fg) 46%, var(--line));
+}
+.icon-pill.light:hover{
+  background: color-mix(in srgb, var(--fg) 46%, var(--card));
+}
+
+/* Thème clair : un peu moins contrasté */
+:root.light .pill-light,
+:root.light .icon-pill.light{
+  background: color-mix(in srgb, var(--fg) 14%, var(--card));
+  border-color: color-mix(in srgb, var(--fg) 22%, var(--line));
+  color: var(--fg);
+}
+
+/* Tailles confortables */
+.pill-light{ padding: 12px 20px; border-radius: 999px; font-weight: 700; }
+.btn-linkedin img{ order:2; margin-left:6px; }
+.btn-cv img{ order:0; margin-right:6px; }
+
+/* ====== Responsive ====== */
+/* Tablette : garde sur une ligne si possible, sinon wrap */
+@media (max-width: 900px){
+  .contact-bar{ grid-template-columns: 1fr; }
+  .contact-actions{ justify-self:start; flex-wrap: wrap; }
+}
+
+/* Mobile : boutons pleine largeur, bien centrés */
+@media (max-width: 560px){
+  .contact-actions a.pill-light{
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 
