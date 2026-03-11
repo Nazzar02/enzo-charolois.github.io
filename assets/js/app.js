@@ -764,7 +764,7 @@ const initRobotGuide = () => {
   const appearanceDelay = 1750;
   const smileDelay = 780;
   const smileDuration = 1180;
-  const bubbleDuration = 1180;
+  const bubbleDuration = 3500;
   const sectionSpeechDelay = 110;
   const defaultBubbleKey = "robot_bubble";
   const ease = gsap
