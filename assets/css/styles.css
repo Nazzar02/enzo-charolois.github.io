@@ -1066,13 +1066,13 @@ main > section + section::before {
 .robot-global-layer {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: auto;
   pointer-events: none;
   overflow: visible;
 }
 
 .robot-global-layer.is-hero-zone {
-  z-index: 7;
+  z-index: auto;
 }
 
 .robot-trail {
@@ -1101,29 +1101,33 @@ main > section + section::before {
   top: 0;
   left: 0;
   width: 98px;
-  z-index: 1;
+  z-index: auto;
   pointer-events: none;
-  opacity: 0;
   --robot-enter-y: 10px;
   --robot-scale: 0.97;
   --robot-rotation: 0deg;
-  transform: translate3d(0, var(--robot-enter-y), 0) rotate(var(--robot-rotation)) scale(var(--robot-scale));
-  transition: opacity 300ms ease, transform 380ms ease;
-  transform-origin: 50% 88%;
 }
 
 .robot-guide.robot-guide-global.is-visible {
-  opacity: 1;
   --robot-enter-y: 0px;
   --robot-scale: 1;
 }
 
 .robot-guide.robot-guide-global .robot-figure {
   position: relative;
+  z-index: 1;
   width: 100%;
   aspect-ratio: 1;
+  opacity: 0;
+  transform: translate3d(0, var(--robot-enter-y), 0) rotate(var(--robot-rotation)) scale(var(--robot-scale));
+  transition: opacity 300ms ease, transform 380ms ease;
+  transform-origin: 50% 88%;
   filter: drop-shadow(0 18px 34px rgba(34, 46, 66, 0.16));
   animation: robotBob 5.8s ease-in-out infinite;
+}
+
+.robot-guide.robot-guide-global.is-visible .robot-figure {
+  opacity: 1;
 }
 
 .robot-guide.robot-guide-global .robot-state {
@@ -1159,12 +1163,15 @@ main > section + section::before {
   position: absolute;
   right: calc(100% - 0.18rem);
   top: 0.3rem;
+  z-index: 12;
   max-width: 9.8rem;
   padding: 0.5rem 0.72rem;
   border-radius: 15px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(246,242,236,0.92));
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(246,242,236,0.94));
   border: 1px solid rgba(45, 61, 89, 0.12);
-  box-shadow: 0 16px 30px rgba(34, 46, 66, 0.11);
+  box-shadow: 0 18px 32px rgba(34, 46, 66, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--navy);
   font-size: 0.76rem;
   font-weight: 700;
@@ -1183,9 +1190,12 @@ main > section + section::before {
   bottom: -0.3rem;
   width: 0.68rem;
   height: 0.68rem;
-  background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(246,242,236,0.92));
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(246,242,236,0.94));
   border-right: 1px solid rgba(45, 61, 89, 0.12);
   border-bottom: 1px solid rgba(45, 61, 89, 0.12);
+  box-shadow: 3px 5px 12px rgba(34, 46, 66, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   transform: rotate(45deg);
 }
 
@@ -1487,8 +1497,10 @@ main {
     padding: 0 0.95rem;
     border-radius: 999px;
     border: 1px solid var(--line);
-    background: rgba(255,255,255,0.66);
+    background: linear-gradient(180deg, rgba(251, 248, 244, 0.94), rgba(244, 240, 234, 0.92));
     box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     color: var(--text);
     font-weight: 700;
     cursor: pointer;
@@ -1506,9 +1518,11 @@ main {
     gap: 0.55rem;
     padding: 0.7rem;
     border-radius: 24px;
-    background: rgba(255,255,255,0.78);
+    background: linear-gradient(180deg, rgba(251, 248, 244, 0.97), rgba(244, 240, 234, 0.95));
     border: 1px solid rgba(45, 61, 89, 0.1);
     box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
     max-height: min(20rem, calc(100vh - 5.5rem));
     overflow-y: auto;
     opacity: 0;
@@ -1558,7 +1572,16 @@ main {
   }
 
   .hero-copy h1 {
-    max-width: none;
+    max-width: 13ch;
+  }
+
+  .section-heading h2,
+  .contact-grid h2 {
+    max-width: min(22ch, calc(100% - 5.25rem));
+  }
+
+  .featured-heading h2 {
+    max-width: min(19ch, calc(100% - 5.25rem));
   }
 
   .hero-proof-strip.triptych {
@@ -1611,7 +1634,7 @@ main {
   }
 
   .robot-anchor-skills {
-    top: -3.7rem;
+    top: -2.7rem;
     right: 0.08rem;
   }
 
@@ -1687,6 +1710,7 @@ main {
     width: 100%;
     justify-content: center;
     padding: 0 0.85rem;
+    background: linear-gradient(180deg, rgba(251, 248, 244, 0.96), rgba(244, 240, 234, 0.94));
   }
 
   .site-nav {
@@ -1695,6 +1719,7 @@ main {
     padding: 0.55rem;
     flex-direction: column;
     align-items: stretch;
+    background: linear-gradient(180deg, rgba(251, 248, 244, 0.98), rgba(244, 240, 234, 0.96));
   }
 
   .site-nav a {
@@ -1719,11 +1744,17 @@ main {
 
   .hero-copy h1 {
     font-size: clamp(2.3rem, 12vw, 3.45rem);
+    max-width: 12ch;
   }
 
   .section-heading h2,
   .contact-grid h2 {
     font-size: clamp(2.05rem, 9vw, 2.9rem);
+    max-width: calc(100% - 3.4rem);
+  }
+
+  .featured-heading h2 {
+    max-width: calc(100% - 3.4rem);
   }
 
   .hero-actions,
@@ -1807,7 +1838,7 @@ main {
   }
 
   .robot-anchor-skills {
-    top: -3.2rem;
+    top: -2.2rem;
     right: 0.02rem;
   }
 
@@ -2296,6 +2327,9 @@ body.skill-finder-focus-mode .skill-finder-target-muted {
   .skill-finder-panel {
     width: min(100%, 100vw - 1rem);
     max-height: min(82vh, 760px);
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
     padding: 1rem;
     border-radius: 24px;
   }
@@ -2306,6 +2340,12 @@ body.skill-finder-focus-mode .skill-finder-target-muted {
 
   .skill-finder-submit {
     width: 100%;
+  }
+
+  .skill-finder-results {
+    flex: 0 0 auto;
+    overflow: visible;
+    padding-right: 0;
   }
 }
 
