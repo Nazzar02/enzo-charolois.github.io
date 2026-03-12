@@ -1593,6 +1593,12 @@ const initRobotGuide = () => {
     robot.classList.remove("is-speaking");
   };
 
+  const silenceHeroBubble = () => {
+    clearSpeech();
+    activeBubbleKey = defaultBubbleKey;
+    bubble.textContent = "";
+  };
+
   const announceStop = (stop, delay = sectionSpeechDelay) => {
     if (!guideReady || !stop) {
       return;
@@ -2000,6 +2006,7 @@ const initRobotGuide = () => {
       return;
     }
 
+    silenceHeroBubble();
     stopMoveTween();
     stopTrailFade();
     heroTravelState = buildHeroTravelState();
@@ -2139,19 +2146,8 @@ const initRobotGuide = () => {
     queueDebugRefresh("guide-visible", true);
 
     if (isInHeroTravelZone()) {
-      clearSpeech();
-      setBubbleKey(defaultBubbleKey);
-
-      speakStartTimer = window.setTimeout(() => {
-        robot.classList.add("is-speaking");
-
-        speakEndTimer = window.setTimeout(() => {
-          robot.classList.remove("is-speaking");
-          speakEndTimer = null;
-        }, smileDuration);
-
-        speakStartTimer = null;
-      }, smileDelay);
+      silenceHeroBubble();
+      return;
     }
   };
 
