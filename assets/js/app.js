@@ -113,7 +113,7 @@ const translations = {
     contact_kicker: "Contact",
     contact_title: "A simple next step for conversation.",
     contact_body: "For role discussions, profile reviews, or direct outreach, email and LinkedIn remain the simplest entry points.",
-    contact_ai_cv: "Open AI CV",
+    contact_ai_cv: "Open AI-focused CV",
     contact_pm_cv: "Open PM CV"
   },
   fr: {
@@ -230,7 +230,7 @@ const translations = {
     contact_kicker: "Contact",
     contact_title: "Une prochaine etape simple pour echanger.",
     contact_body: "Pour discuter d'un role, faire relire le profil ou prendre contact, l'email et LinkedIn restent les points d'entree les plus simples.",
-    contact_ai_cv: "Ouvrir le CV IA",
+    contact_ai_cv: "Ouvrir le CV oriente IA",
     contact_pm_cv: "Ouvrir le CV PM"
   }
 };
@@ -263,6 +263,10 @@ const getViewportCategory = (width = window.innerWidth || document.documentEleme
 
   return "desktop";
 };
+
+const wait = (duration) => new Promise((resolve) => {
+  window.setTimeout(resolve, duration);
+});
 
 const applyLanguage = (lang) => {
   const dictionary = translations[lang];
@@ -740,6 +744,353 @@ const initCardHoverSystem = () => {
     card.addEventListener("pointercancel", resetCard);
   });
 };
+const initHeroIntro = (lenis) => {
+  const intro = document.getElementById("heroIntro");
+
+  if (!intro) {
+    if (typeof window.__heroIntroBootCleanup === "function") {
+      window.__heroIntroBootCleanup();
+    }
+    return;
+  }
+
+  if (window.__heroIntroBootAborted) {
+    return;
+  }
+
+  const introGuide = document.getElementById("heroIntroGuide");
+  const introFigure = document.getElementById("heroIntroFigure");
+  const introText = document.getElementById("heroIntroText");
+  const heroAnchor = document.getElementById("robotHeroAnchor");
+  const normalRobot = document.getElementById("robotGuide");
+  const sentence = "Hi, have you met Enzo already? Let me show you his portfolio.";
+  const travelDuration = window.innerWidth <= 760 ? 760 : 820;
+  const endPause = 560;
+  const overlapDelay = 180;
+  const fadeDuration = 460;
+  let finished = false;
+
+  if (!introGuide || !introFigure || !introText || !heroAnchor || !normalRobot || !document.querySelector(".page-shell")) {
+    console.info("[hero-intro] fallback", { reason: "missing-elements" });
+    if (typeof window.__heroIntroBootCleanup === "function") {
+      window.__heroIntroBootCleanup();
+    }
+    return;
+  }
+
+  if ((window.scrollY || 0) > 24 || (window.location.hash && window.location.hash !== "#home")) {
+    console.info("[hero-intro] fallback", { reason: "skip-state" });
+    if (typeof window.__heroIntroBootCleanup === "function") {
+      window.__heroIntroBootCleanup();
+    }
+    return;
+  }
+
+  const clampValue = (value, min, max) => Math.min(max, Math.max(min, value));
+  const blockedScrollKeys = new Set([" ", "Spacebar", "PageUp", "PageDown", "End", "Home", "ArrowUp", "ArrowDown"]);
+
+  const preventOverlayScroll = (event) => {
+    event.preventDefault();
+  };
+
+  const preventIntroKeyScroll = (event) => {
+    if (blockedScrollKeys.has(event.key)) {
+      event.preventDefault();
+    }
+  };
+
+  const resetIntroScroll = () => {
+    if (!finished && (window.scrollX !== 0 || window.scrollY !== 0)) {
+      window.scrollTo(0, 0);
+    }
+  };
+
+  const clearBootTimeout = () => {
+    if (!window.__heroIntroBootTimeout) {
+      return;
+    }
+
+    window.clearTimeout(window.__heroIntroBootTimeout);
+    window.__heroIntroBootTimeout = null;
+  };
+
+
+  const syncGuideTransformOrigin = () => {
+    const guideRect = introGuide.getBoundingClientRect();
+    const figureRect = introFigure.getBoundingClientRect();
+
+    if (guideRect.width <= 0 || guideRect.height <= 0 || figureRect.width <= 0 || figureRect.height <= 0) {
+      return;
+    }
+
+    const originX = clampValue(((figureRect.left + figureRect.width / 2 - guideRect.left) / guideRect.width) * 100, 0, 100);
+    const originY = clampValue(((figureRect.top + figureRect.height / 2 - guideRect.top) / guideRect.height) * 100, 0, 100);
+    intro.style.setProperty("--hero-intro-origin-x", `${originX.toFixed(2)}%`);
+    intro.style.setProperty("--hero-intro-origin-y", `${originY.toFixed(2)}%`);
+  };
+
+  const applyIntroState = () => {
+    intro.hidden = false;
+    body.classList.add("hero-intro-active", "hero-intro-hide-guide");
+    resetIntroScroll();
+    intro.addEventListener("wheel", preventOverlayScroll, { passive: false });
+    intro.addEventListener("touchmove", preventOverlayScroll, { passive: false });
+    window.addEventListener("keydown", preventIntroKeyScroll);
+    window.addEventListener("scroll", resetIntroScroll, { passive: true });
+  };
+
+  const clearIntroState = () => {
+    if (typeof window.__heroIntroBootCleanup === "function") {
+      window.__heroIntroBootCleanup();
+    } else {
+      intro.hidden = true;
+      body.classList.remove("hero-intro-active", "hero-intro-hide-guide", "hero-intro-reveal-site", "hero-intro-fading");
+    }
+
+    intro.classList.remove("is-travelling", "is-fading");
+    intro.style.removeProperty("--hero-intro-travel-x");
+    intro.style.removeProperty("--hero-intro-travel-y");
+    intro.style.removeProperty("--hero-intro-travel-scale");
+    intro.style.removeProperty("--hero-intro-travel-rotate");
+    intro.style.removeProperty("--hero-intro-origin-x");
+    intro.style.removeProperty("--hero-intro-origin-y");
+    intro.removeEventListener("wheel", preventOverlayScroll);
+    intro.removeEventListener("touchmove", preventOverlayScroll);
+    window.removeEventListener("keydown", preventIntroKeyScroll);
+    window.removeEventListener("scroll", resetIntroScroll);
+  };
+
+  const releaseScrolling = () => {
+    if (lenis && typeof lenis.start === "function") {
+      lenis.start();
+    }
+  };
+
+  const revealNormalRobot = () => {
+    normalRobot.classList.remove("is-speaking");
+    normalRobot.classList.add("is-visible");
+    body.classList.remove("hero-intro-hide-guide");
+  };
+
+  const complete = () => {
+    if (finished) {
+      return;
+    }
+
+    finished = true;
+    normalRobot.classList.remove("is-speaking");
+    normalRobot.classList.add("is-visible");
+    clearBootTimeout();
+    clearIntroState();
+    releaseScrolling();
+
+    if (window.ScrollTrigger) {
+      window.ScrollTrigger.refresh();
+    }
+
+    console.info("[hero-intro] complete");
+  };
+
+  const fallback = (reason = "unknown") => {
+    if (finished) {
+      return;
+    }
+
+    finished = true;
+    clearBootTimeout();
+    revealNormalRobot();
+    clearIntroState();
+    releaseScrolling();
+
+    if (window.ScrollTrigger) {
+      window.ScrollTrigger.refresh();
+    }
+
+    console.info("[hero-intro] fallback", { reason });
+  };
+
+  const waitForLayoutReady = () => {
+    const pending = [];
+
+    if (document.readyState !== "complete") {
+      pending.push(new Promise((resolve) => {
+        window.addEventListener("load", resolve, { once: true });
+      }));
+    }
+
+    if (document.fonts?.ready) {
+      pending.push(Promise.race([
+        document.fonts.ready.catch(() => {}),
+        wait(900)
+      ]));
+    }
+
+    return pending.length ? Promise.allSettled(pending) : Promise.resolve();
+  };
+
+  const computeTravelTarget = () => {
+    const figureRect = introFigure.getBoundingClientRect();
+
+    if (figureRect.width <= 0 || figureRect.height <= 0) {
+      return null;
+    }
+
+    let finalRect = null;
+    const normalFigure = normalRobot.querySelector(".robot-figure");
+
+    if (normalFigure) {
+      const previousVisible = normalRobot.classList.contains("is-visible");
+      const previousSpeaking = normalRobot.classList.contains("is-speaking");
+      const previousTransition = normalFigure.style.transition;
+      const previousTransform = normalFigure.style.transform;
+      const previousOpacity = normalFigure.style.opacity;
+      const previousAnimation = normalFigure.style.animation;
+
+      normalRobot.classList.add("is-visible");
+      normalRobot.classList.remove("is-speaking");
+      normalFigure.style.transition = "none";
+      normalFigure.style.transform = "none";
+      normalFigure.style.opacity = "1";
+      normalFigure.style.animation = "none";
+      finalRect = normalFigure.getBoundingClientRect();
+      normalFigure.style.transition = previousTransition;
+      normalFigure.style.transform = previousTransform;
+      normalFigure.style.opacity = previousOpacity;
+      normalFigure.style.animation = previousAnimation;
+
+      if (previousSpeaking) {
+        normalRobot.classList.add("is-speaking");
+      }
+
+      if (!previousVisible) {
+        normalRobot.classList.remove("is-visible");
+      }
+    }
+
+    if (!finalRect || finalRect.width <= 0 || finalRect.height <= 0) {
+      const anchorRect = heroAnchor.getBoundingClientRect();
+
+      if (anchorRect.width <= 0 || anchorRect.height <= 0) {
+        return null;
+      }
+
+      const fallbackScale = clampValue(
+        anchorRect.width / figureRect.width,
+        window.innerWidth <= 760 ? 0.58 : 0.62,
+        0.86
+      );
+      const fallbackWidth = figureRect.width * fallbackScale;
+      const fallbackHeight = figureRect.height * fallbackScale;
+
+      finalRect = {
+        left: anchorRect.left + (anchorRect.width - fallbackWidth) / 2,
+        top: anchorRect.top + (anchorRect.height - fallbackHeight) / 2,
+        width: fallbackWidth,
+        height: fallbackHeight
+      };
+    }
+
+    const currentCenterX = figureRect.left + figureRect.width / 2;
+    const currentCenterY = figureRect.top + figureRect.height / 2;
+    const targetCenterX = finalRect.left + finalRect.width / 2;
+    const targetCenterY = finalRect.top + finalRect.height / 2;
+    const deltaX = targetCenterX - currentCenterX;
+    const deltaY = targetCenterY - currentCenterY;
+    const finalScale = clampValue(finalRect.width / figureRect.width, 0.5, 1.05);
+
+    return {
+      x: deltaX,
+      y: deltaY,
+      scale: finalScale,
+      rotate: `${clampValue(deltaX * 0.016, -10, 10).toFixed(2)}deg`
+    };
+  };
+
+  const typeSentence = async () => {
+    introText.textContent = "";
+
+    for (const character of sentence) {
+      introText.textContent += character;
+
+      let delay = 18;
+      if (character === " ") {
+        delay = 9;
+      } else if (character === ",") {
+        delay = 28;
+      } else if (character === ".") {
+        delay = 44;
+      } else if (character === "?") {
+        delay = 56;
+      }
+
+      await wait(delay);
+    }
+  };
+
+  applyIntroState();
+  clearBootTimeout();
+
+  if (lenis && typeof lenis.stop === "function") {
+    lenis.stop();
+  }
+
+  console.info("[hero-intro] init");
+
+  const run = async () => {
+    const layoutReady = waitForLayoutReady();
+
+    if (prefersReducedMotion) {
+      introText.textContent = sentence;
+      await Promise.race([layoutReady, wait(260)]);
+      body.classList.add("hero-intro-reveal-site");
+      await wait(180);
+      revealNormalRobot();
+      console.info("[hero-intro] reveal normal robot");
+      await wait(80);
+      console.info("[hero-intro] fade intro");
+      body.classList.add("hero-intro-fading");
+      intro.classList.add("is-fading");
+      await wait(220);
+      complete();
+      return;
+    }
+
+    console.info("[hero-intro] start typing");
+    await typeSentence();
+    await wait(endPause);
+    await Promise.race([layoutReady, wait(900)]);
+
+    syncGuideTransformOrigin();
+    const target = computeTravelTarget();
+    if (!target) {
+      fallback("invalid-target");
+      return;
+    }
+
+    console.info("[hero-intro] start travel");
+    body.classList.add("hero-intro-reveal-site");
+    intro.style.setProperty("--hero-intro-travel-x", `${target.x.toFixed(2)}px`);
+    intro.style.setProperty("--hero-intro-travel-y", `${target.y.toFixed(2)}px`);
+    intro.style.setProperty("--hero-intro-travel-scale", `${target.scale.toFixed(3)}`);
+    intro.style.setProperty("--hero-intro-travel-rotate", target.rotate);
+    intro.classList.add("is-travelling");
+
+    await wait(travelDuration);
+    revealNormalRobot();
+    console.info("[hero-intro] reveal normal robot");
+    await wait(overlapDelay);
+    console.info("[hero-intro] fade intro");
+    body.classList.add("hero-intro-fading");
+    intro.classList.add("is-fading");
+    await wait(fadeDuration);
+    complete();
+  };
+
+  run().catch((error) => {
+    fallback(error instanceof Error ? error.message : "unexpected-error");
+  });
+};
+
 const initRobotGuide = () => {
   const robot = document.getElementById("robotGuide");
   const bubble = robot?.querySelector(".robot-bubble");
@@ -1856,6 +2207,7 @@ const lenis = initLenis();
 initScrollAnimations(lenis);
 initCardHoverSystem();
 initRobotGuide();
+initHeroIntro(lenis);
 
 window.addEventListener("load", () => {
   updateHeaderState();
@@ -1863,6 +2215,7 @@ window.addEventListener("load", () => {
     window.ScrollTrigger.refresh();
   }
 });
+
 
 
 

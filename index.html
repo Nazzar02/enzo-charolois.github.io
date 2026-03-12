@@ -12,6 +12,42 @@
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+  <div class="hero-intro" id="heroIntro" hidden>
+    <div class="hero-intro__inner">
+      <div class="hero-intro__guide" id="heroIntroGuide">
+        <div class="hero-intro__bubble">
+          <span class="hero-intro__message" id="heroIntroText"></span>
+          <span class="hero-intro__caret" aria-hidden="true"></span>
+        </div>
+        <div class="hero-intro__figure" id="heroIntroFigure" aria-hidden="true">
+          <img src="assets/img/robots/robot-smiling.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (() => {
+      const intro = document.getElementById("heroIntro");
+      const body = document.body;
+      if (!intro || !body) {
+        return;
+      }
+
+      const cleanup = () => {
+        intro.hidden = true;
+        body.classList.remove("hero-intro-active", "hero-intro-hide-guide", "hero-intro-reveal-site", "hero-intro-fading");
+      };
+
+      intro.hidden = false;
+      body.classList.add("hero-intro-active", "hero-intro-hide-guide");
+      window.__heroIntroBootAborted = false;
+      window.__heroIntroBootCleanup = cleanup;
+      window.__heroIntroBootTimeout = window.setTimeout(() => {
+        window.__heroIntroBootAborted = true;
+        cleanup();
+      }, 7000);
+    })();
+  </script>
   <div class="page-shell">
     <header class="site-header">
       <div class="container nav-row">
@@ -375,7 +411,7 @@
             <a class="contact-line" href="mailto:enzo.charolois@gmail.com">enzo.charolois@gmail.com</a>
             <a class="contact-line" href="https://www.linkedin.com/in/enzo-charolois" target="_blank" rel="noreferrer">LinkedIn</a>
             <div class="contact-actions">
-              <a class="button button-primary" href="assets/docs/cv/CV_Enzo_Charolois-CH-AI.pdf" target="_blank" rel="noreferrer" data-i18n="contact_ai_cv">Open AI CV</a>
+              <a class="button button-primary" href="assets/docs/cv/CV_Enzo_Charolois-CH-AI.pdf" target="_blank" rel="noreferrer" data-i18n="contact_ai_cv">Open AI-focused CV</a>
               <a class="button button-ghost" href="assets/docs/cv/CV_Enzo_Charolois-CH-PM.pdf" target="_blank" rel="noreferrer" data-i18n="contact_pm_cv">Open PM CV</a>
             </div>
           </div>
@@ -403,6 +439,7 @@
   <script type="module" src="assets/js/floating-lines-hero.js"></script>
 </body>
 </html>
+
 
 
 

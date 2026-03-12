@@ -31,11 +31,16 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
 body {
   margin: 0;
   font-family: "Manrope", "Segoe UI", sans-serif;
   color: var(--text);
+  overflow-x: hidden;
   background:
     radial-gradient(circle at top left, rgba(118, 142, 192, 0.12), transparent 26%),
     radial-gradient(circle at 100% 0%, rgba(102, 122, 158, 0.08), transparent 24%),
@@ -542,9 +547,272 @@ body {
     linear-gradient(180deg, #f8f5f0 0%, #f1ede7 48%, #f4f1ec 100%);
 }
 
+body.hero-intro-active {
+  overscroll-behavior: none;
+}
+
 .page-shell {
   position: relative;
   isolation: isolate;
+  transition: opacity 520ms ease, transform 720ms cubic-bezier(0.22, 1, 0.36, 1), filter 520ms ease;
+}
+
+body.hero-intro-active .page-shell {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+body.hero-intro-active.hero-intro-reveal-site .page-shell {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+body.hero-intro-hide-guide #robotGuide,
+body.hero-intro-hide-guide #robotTrail {
+  visibility: hidden;
+}
+
+body.hero-intro-hide-guide #robotTrail {
+  opacity: 0 !important;
+}
+
+@property --hero-intro-exit-radius {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0vmax;
+}
+
+.hero-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  padding: clamp(1rem, 2vw, 1.4rem);
+  background: transparent;
+  overflow: clip;
+  visibility: visible;
+}
+
+.hero-intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(246, 246, 246, 0.96), transparent 30%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.995), rgba(252, 252, 252, 0.995));
+  opacity: 1;
+  --hero-intro-exit-radius: 0vmax;
+}
+
+.hero-intro::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+body.hero-intro-reveal-site .hero-intro::before {
+  opacity: 1;
+}
+
+.hero-intro__inner {
+  position: relative;
+  z-index: 1;
+  width: min(calc(var(--container) + 1rem), 100%);
+  height: 100%;
+  margin: 0 auto;
+}
+
+.hero-intro__guide {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: clamp(5.75rem, 17vh, 10.25rem);
+  width: min(35rem, calc(100vw - 2rem));
+  margin-inline: auto;
+  display: grid;
+  gap: 1.05rem;
+  justify-items: center;
+  transform-origin: var(--hero-intro-origin-x, 60%) var(--hero-intro-origin-y, 88%);
+  transform: translate3d(var(--hero-intro-travel-x, 0px), var(--hero-intro-travel-y, 0px), 0) scale(var(--hero-intro-travel-scale, 1)) rotate(var(--hero-intro-travel-rotate, 0deg));
+  transition: transform 820ms cubic-bezier(0.22, 1, 0.36, 1), opacity 260ms ease;
+  will-change: transform, opacity;
+}
+
+.hero-intro__bubble {
+  position: relative;
+  width: min(34rem, 100%);
+  max-width: min(34rem, calc(100vw - 2rem));
+  min-height: 6.2rem;
+  padding: 1.18rem 1.32rem 1.2rem;
+  border-radius: 26px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(248,244,238,0.92));
+  border: 1px solid rgba(45, 61, 89, 0.12);
+  box-shadow: 0 24px 54px rgba(34, 46, 66, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.58);
+  color: var(--navy);
+  font-size: clamp(1.06rem, 1.58vw, 1.23rem);
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: opacity 180ms ease, transform 220ms ease;
+}
+
+.hero-intro__bubble::after {
+  content: "";
+  position: absolute;
+  left: calc(50% - 1rem);
+  bottom: -0.42rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(248,244,238,0.92));
+  border-right: 1px solid rgba(45, 61, 89, 0.12);
+  border-bottom: 1px solid rgba(45, 61, 89, 0.12);
+  transform: rotate(45deg);
+}
+
+.hero-intro__message {
+  white-space: normal;
+}
+
+.hero-intro__caret {
+  display: inline-block;
+  width: 0.62ch;
+  height: 1.02em;
+  margin-left: 0.08rem;
+  vertical-align: -0.12em;
+  border-radius: 999px;
+  background: rgba(45, 61, 89, 0.82);
+  animation: heroIntroCaretBlink 0.92s steps(2, start) infinite;
+}
+
+.hero-intro__figure {
+  width: clamp(136px, 13.8vw, 176px);
+  margin-left: 0;
+  filter: drop-shadow(0 22px 34px rgba(34, 46, 66, 0.18));
+  animation: heroIntroFloat 3.8s ease-in-out infinite;
+}
+
+.hero-intro__figure img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.hero-intro.is-travelling .hero-intro__bubble,
+.hero-intro.is-fading .hero-intro__bubble {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0) scale(0.96);
+}
+
+.hero-intro.is-travelling .hero-intro__figure {
+  animation-play-state: paused;
+}
+
+.hero-intro.is-fading .hero-intro__guide {
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.hero-intro.is-fading {
+  pointer-events: none;
+}
+
+.hero-intro.is-fading::before {
+  opacity: 0;
+  --hero-intro-exit-radius: 84vmax;
+  -webkit-mask-image: radial-gradient(
+    circle at 50% 50%,
+    transparent var(--hero-intro-exit-radius),
+    rgba(0, 0, 0, 0.72) calc(var(--hero-intro-exit-radius) + 5vmax),
+    #000 calc(var(--hero-intro-exit-radius) + 11vmax)
+  );
+  mask-image: radial-gradient(
+    circle at 50% 50%,
+    transparent var(--hero-intro-exit-radius),
+    rgba(0, 0, 0, 0.72) calc(var(--hero-intro-exit-radius) + 5vmax),
+    #000 calc(var(--hero-intro-exit-radius) + 11vmax)
+  );
+  transition:
+    opacity 460ms cubic-bezier(0.22, 1, 0.36, 1),
+    --hero-intro-exit-radius 460ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes heroIntroCaretBlink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes heroIntroFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-intro {
+    padding: 0.85rem;
+  }
+
+  .hero-intro__guide {
+    left: 0;
+    right: 0;
+    top: clamp(4.7rem, 13vh, 6.95rem);
+    width: min(32rem, calc(100vw - 1.5rem));
+    margin-inline: auto;
+  }
+
+  .hero-intro__bubble {
+    width: min(100%, 30rem);
+    min-height: 7rem;
+    padding: 1rem 1.08rem 1.1rem;
+    border-radius: 23px;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .hero-intro__bubble::after {
+    left: calc(50% - 0.92rem);
+  }
+
+  .hero-intro__figure {
+    width: clamp(122px, 31vw, 144px);
+    margin-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-shell,
+  .hero-intro,
+  .hero-intro::before,
+  .hero-intro__guide,
+  .hero-intro__bubble {
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero-intro.is-fading::before {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+
+  .hero-intro__caret,
+  .hero-intro__figure {
+    animation: none;
+  }
 }
 
 .page-shell::before,
@@ -1066,13 +1334,13 @@ main > section + section::before {
 .robot-global-layer {
   position: absolute;
   inset: 0;
-  z-index: auto;
+  z-index: 1;
   pointer-events: none;
   overflow: visible;
 }
 
 .robot-global-layer.is-hero-zone {
-  z-index: auto;
+  z-index: 1;
 }
 
 .robot-trail {
@@ -1101,7 +1369,7 @@ main > section + section::before {
   top: 0;
   left: 0;
   width: 98px;
-  z-index: auto;
+  z-index: 1;
   pointer-events: none;
   --robot-enter-y: 10px;
   --robot-scale: 0.97;
@@ -1312,6 +1580,7 @@ main {
   width: 100% !important;
   height: 100% !important;
   display: block;
+  z-index: 0;
 }
 
 .hero-orbit,
@@ -2349,6 +2618,25 @@ body.skill-finder-focus-mode .skill-finder-target-muted {
   }
 }
 
+@media (max-width: 760px) {
+  .skill-finder-fab::before {
+    top: 50%;
+    bottom: auto;
+    left: auto;
+    right: calc(100% + 0.5rem);
+    width: 8.5rem;
+    max-width: calc(100vw - 5.5rem);
+    white-space: normal;
+    text-align: center;
+    transform: translateY(-50%);
+  }
+
+  .skill-finder-fab:hover::before,
+  .skill-finder-fab:focus-visible::before,
+  .skill-finder-fab.is-hint-visible::before {
+    transform: translateY(-50%);
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .skill-finder-fab,
   .skill-finder-fab::before,
@@ -2363,6 +2651,7 @@ body.skill-finder-focus-mode .skill-finder-target-muted {
     transition: none;
   }
 }
+
 
 
 
