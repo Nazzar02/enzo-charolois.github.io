@@ -14,36 +14,75 @@
 <body>
   <div class="hero-intro" id="heroIntro" hidden>
     <div class="hero-intro__inner">
-      <div class="hero-intro__guide" id="heroIntroGuide">
-        <div class="hero-intro__bubble">
-          <span class="hero-intro__message" id="heroIntroText"></span>
-          <span class="hero-intro__caret" aria-hidden="true"></span>
+      <section class="hero-intro__window" aria-label="Portfolio guide">
+        <div class="hero-intro__window-head" aria-hidden="true">
+          <div class="hero-intro__window-controls">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <p class="hero-intro__window-label">Guide panel</p>
+          <span class="hero-intro__window-status">Preview</span>
         </div>
-        <div class="hero-intro__figure" id="heroIntroFigure" aria-hidden="true">
-          <img src="assets/img/robots/robot-smiling.png" alt="">
+        <div class="hero-intro__window-body">
+          <div class="hero-intro__stage">
+            <div class="hero-intro__guide" id="heroIntroGuide">
+              <div class="hero-intro__bubble">
+                <span class="hero-intro__message" id="heroIntroText"></span>
+                <span class="hero-intro__caret" aria-hidden="true"></span>
+              </div>
+              <div class="hero-intro__figure" id="heroIntroFigure" aria-hidden="true">
+                <img src="assets/img/robots/robot-smiling.png" alt="">
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   </div>
   <script>
     (() => {
       const intro = document.getElementById("heroIntro");
       const body = document.body;
-      if (!intro || !body) {
+      if (!intro || !body || window.__portfolioIntroStarted || window.__portfolioIntroCompleted) {
         return;
       }
 
-      const cleanup = () => {
-        intro.hidden = true;
-        body.classList.remove("hero-intro-active", "hero-intro-hide-guide", "hero-intro-reveal-site", "hero-intro-fading");
+      const resetIntroView = () => {
+        intro.hidden = false;
+        intro.classList.remove("is-travelling", "is-guide-fading", "is-fading");
+        intro.style.removeProperty("--hero-intro-travel-x");
+        intro.style.removeProperty("--hero-intro-travel-y");
+        intro.style.removeProperty("--hero-intro-travel-scale");
+        intro.style.removeProperty("--hero-intro-travel-rotate");
+        intro.style.removeProperty("--hero-intro-origin-x");
+        intro.style.removeProperty("--hero-intro-origin-y");
+        body.classList.remove("hero-intro-reveal-site", "hero-intro-fading");
+        body.classList.add("hero-intro-active", "hero-intro-hide-guide");
       };
 
-      intro.hidden = false;
-      body.classList.add("hero-intro-active", "hero-intro-hide-guide");
-      window.__heroIntroBootAborted = false;
-      window.__heroIntroBootCleanup = cleanup;
-      window.__heroIntroBootTimeout = window.setTimeout(() => {
-        window.__heroIntroBootAborted = true;
+      const cleanup = () => {
+        if (window.__portfolioIntroBootTimeout) {
+          window.clearTimeout(window.__portfolioIntroBootTimeout);
+          window.__portfolioIntroBootTimeout = null;
+        }
+
+        body.classList.remove("hero-intro-active", "hero-intro-hide-guide", "hero-intro-reveal-site", "hero-intro-fading");
+
+        if (intro.isConnected) {
+          intro.remove();
+        }
+
+        window.__portfolioIntroBootCleanup = null;
+        window.__portfolioIntroBootAborted = false;
+      };
+
+      resetIntroView();
+      window.__portfolioIntroBootAborted = false;
+      window.__portfolioIntroBootCleanup = cleanup;
+      window.__portfolioIntroBootTimeout = window.setTimeout(() => {
+        window.__portfolioIntroBootAborted = true;
+        window.__portfolioIntroCompleted = true;
         cleanup();
       }, 7000);
     })();
