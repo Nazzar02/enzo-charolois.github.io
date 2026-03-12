@@ -289,15 +289,15 @@ a { color: inherit; }
 .contact-grid h2 {
   font-size: clamp(2.2rem, 3.25vw, 3.45rem);
   line-height: 1.02;
-  max-width: none;
+  max-width: 24ch;
 }
 .featured-heading h2 {
-  max-width: 760px;
+  max-width: 20ch;
   text-wrap: balance;
   font-size: clamp(2.15rem, 2.95vw, 3.1rem);
 }
 .education-heading h2 {
-  max-width: 880px;
+  max-width: 24ch;
   white-space: normal;
   text-wrap: balance;
   font-size: clamp(2.05rem, 2.85vw, 3.05rem);
@@ -554,16 +554,20 @@ body.hero-intro-active {
 .page-shell {
   position: relative;
   isolation: isolate;
-  transition: opacity 520ms ease, transform 720ms cubic-bezier(0.22, 1, 0.36, 1), filter 520ms ease;
+  transition:
+    opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 520ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 body.hero-intro-active .page-shell {
-  opacity: 1;
-  transform: none;
-  filter: none;
+  opacity: 0.96;
+  transform: scale(0.988);
+  filter: blur(8px);
 }
 
-body.hero-intro-active.hero-intro-reveal-site .page-shell {
+body.hero-intro-active.hero-intro-reveal-site .page-shell,
+body.hero-intro-fading .page-shell {
   opacity: 1;
   transform: none;
   filter: none;
@@ -578,20 +582,15 @@ body.hero-intro-hide-guide #robotTrail {
   opacity: 0 !important;
 }
 
-@property --hero-intro-exit-radius {
-  syntax: "<length>";
-  inherits: false;
-  initial-value: 0vmax;
-}
-
 .hero-intro {
   position: fixed;
   inset: 0;
   z-index: 60;
   padding: clamp(1rem, 2vw, 1.4rem);
   background: transparent;
-  overflow: clip;
+  overflow: hidden;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .hero-intro::before {
@@ -599,18 +598,31 @@ body.hero-intro-hide-guide #robotTrail {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 18% 18%, rgba(246, 246, 246, 0.96), transparent 30%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.995), rgba(252, 252, 252, 0.995));
+    linear-gradient(180deg, rgba(255,255,255,0.995), rgba(252,252,252,0.995));
   opacity: 1;
-  --hero-intro-exit-radius: 0vmax;
+  transition: opacity 520ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-intro::after {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -6%;
   pointer-events: none;
   opacity: 0;
+  transform: scale(0.96);
+  filter: blur(0px);
+  background:
+    radial-gradient(circle at 50% 40%,
+      rgba(255,255,255,0.0) 0%,
+      rgba(255,255,255,0.0) 10%,
+      rgba(255,255,255,0.18) 26%,
+      rgba(255,255,255,0.52) 48%,
+      rgba(255,255,255,0.9) 72%,
+      rgba(255,255,255,1) 100%);
+  transition:
+    opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 520ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 body.hero-intro-reveal-site .hero-intro::before {
@@ -712,33 +724,23 @@ body.hero-intro-reveal-site .hero-intro::before {
   animation-play-state: paused;
 }
 
+.hero-intro.is-fading {
+  pointer-events: none;
+}
+
 .hero-intro.is-fading .hero-intro__guide {
   opacity: 0;
   transition: opacity 180ms ease;
 }
 
-.hero-intro.is-fading {
-  pointer-events: none;
-}
-
 .hero-intro.is-fading::before {
   opacity: 0;
-  --hero-intro-exit-radius: 84vmax;
-  -webkit-mask-image: radial-gradient(
-    circle at 50% 50%,
-    transparent var(--hero-intro-exit-radius),
-    rgba(0, 0, 0, 0.72) calc(var(--hero-intro-exit-radius) + 5vmax),
-    #000 calc(var(--hero-intro-exit-radius) + 11vmax)
-  );
-  mask-image: radial-gradient(
-    circle at 50% 50%,
-    transparent var(--hero-intro-exit-radius),
-    rgba(0, 0, 0, 0.72) calc(var(--hero-intro-exit-radius) + 5vmax),
-    #000 calc(var(--hero-intro-exit-radius) + 11vmax)
-  );
-  transition:
-    opacity 460ms cubic-bezier(0.22, 1, 0.36, 1),
-    --hero-intro-exit-radius 460ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-intro.is-fading::after {
+  opacity: 1;
+  transform: scale(1.08);
+  filter: blur(10px);
 }
 @keyframes heroIntroCaretBlink {
   0%,
@@ -799,15 +801,13 @@ body.hero-intro-reveal-site .hero-intro::before {
   .page-shell,
   .hero-intro,
   .hero-intro::before,
+  .hero-intro::after,
   .hero-intro__guide,
   .hero-intro__bubble {
     transition-duration: 0.01ms !important;
   }
 
-  .hero-intro.is-fading::before {
-    -webkit-mask-image: none !important;
-    mask-image: none !important;
-  }
+
 
   .hero-intro__caret,
   .hero-intro__figure {
@@ -1846,11 +1846,11 @@ main {
 
   .section-heading h2,
   .contact-grid h2 {
-    max-width: min(22ch, calc(100% - 5.25rem));
+    max-width: min(19ch, calc(100% - 5.25rem));
   }
 
   .featured-heading h2 {
-    max-width: min(19ch, calc(100% - 5.25rem));
+    max-width: min(17ch, calc(100% - 5.25rem));
   }
 
   .hero-proof-strip.triptych {
@@ -2019,11 +2019,11 @@ main {
   .section-heading h2,
   .contact-grid h2 {
     font-size: clamp(2.05rem, 9vw, 2.9rem);
-    max-width: calc(100% - 3.4rem);
+    max-width: min(18ch, calc(100% - 3.4rem));
   }
 
   .featured-heading h2 {
-    max-width: calc(100% - 3.4rem);
+    max-width: min(16ch, calc(100% - 3.4rem));
   }
 
   .hero-actions,
