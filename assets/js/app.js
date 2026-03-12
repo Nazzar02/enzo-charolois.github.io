@@ -268,6 +268,29 @@ const wait = (duration) => new Promise((resolve) => {
   window.setTimeout(resolve, duration);
 });
 
+const withInstantScrollBehavior = (callback) => {
+  const previousScrollBehavior = html.style.scrollBehavior;
+  html.style.scrollBehavior = "auto";
+
+  try {
+    callback();
+  } finally {
+    window.requestAnimationFrame(() => {
+      if (previousScrollBehavior) {
+        html.style.scrollBehavior = previousScrollBehavior;
+      } else {
+        html.style.removeProperty("scroll-behavior");
+      }
+    });
+  }
+};
+
+const scrollViewportToTop = () => {
+  withInstantScrollBehavior(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  });
+};
+
 const applyLanguage = (lang) => {
   const dictionary = translations[lang];
   document.querySelectorAll("[data-i18n]").forEach((node) => {
@@ -744,7 +767,7 @@ const initCardHoverSystem = () => {
     card.addEventListener("pointercancel", resetCard);
   });
 };
-const initHeroIntro = (lenis) => {
+const initHeroIntro = (_lenis) => {
   const intro = document.getElementById("heroIntro");
 
   if (!intro) {
@@ -779,15 +802,16 @@ const initHeroIntro = (lenis) => {
   const introFigure = document.getElementById("heroIntroFigure");
   const introText = document.getElementById("heroIntroText");
   const normalRobot = document.getElementById("robotGuide");
+  const pageShell = document.querySelector(".page-shell");
   const sentence = "Have you ever met Enzo? Let me show you around.";
-  const endPause = 1560;
-  const reducedEndPause = 1260;
+  const typingLeadIn = 240;
+  const endPause = 1080;
+  const reducedEndPause = 320;
   const guideFadeDuration = 180;
-  const reducedGuideFadeDuration = 80;
-  const fadeDuration = 520;
+  const fadeDuration = 420;
   let finished = false;
 
-  if (!introGuide || !introFigure || !introText || !normalRobot || !document.querySelector(".page-shell")) {
+  if (!introGuide || !introFigure || !introText || !normalRobot || !pageShell) {
     window.__portfolioIntroCompleted = true;
     console.info("[hero-intro] fallback", { reason: "missing-elements" });
     if (typeof window.__portfolioIntroBootCleanup === "function") {
@@ -800,29 +824,11 @@ const initHeroIntro = (lenis) => {
     history.scrollRestoration = "manual";
   }
 
-  window.scrollTo(0, 0);
+  scrollViewportToTop();
 
   if (window.location.hash && window.location.hash !== "#home") {
     history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
   }
-
-  const blockedScrollKeys = new Set([" ", "Spacebar", "PageUp", "PageDown", "End", "Home", "ArrowUp", "ArrowDown"]);
-
-  const preventOverlayScroll = (event) => {
-    event.preventDefault();
-  };
-
-  const preventIntroKeyScroll = (event) => {
-    if (blockedScrollKeys.has(event.key)) {
-      event.preventDefault();
-    }
-  };
-
-  const resetIntroScroll = () => {
-    if (!finished && (window.scrollX !== 0 || window.scrollY !== 0)) {
-      window.scrollTo(0, 0);
-    }
-  };
 
   const clearBootTimeout = () => {
     if (!window.__portfolioIntroBootTimeout) {
@@ -832,7 +838,6 @@ const initHeroIntro = (lenis) => {
     window.clearTimeout(window.__portfolioIntroBootTimeout);
     window.__portfolioIntroBootTimeout = null;
   };
-
 
   const applyIntroState = () => {
     intro.hidden = false;
@@ -845,11 +850,6 @@ const initHeroIntro = (lenis) => {
     intro.style.removeProperty("--hero-intro-origin-y");
     body.classList.remove("hero-intro-reveal-site", "hero-intro-fading");
     body.classList.add("hero-intro-active", "hero-intro-hide-guide");
-    resetIntroScroll();
-    intro.addEventListener("wheel", preventOverlayScroll, { passive: false });
-    intro.addEventListener("touchmove", preventOverlayScroll, { passive: false });
-    window.addEventListener("keydown", preventIntroKeyScroll);
-    window.addEventListener("scroll", resetIntroScroll, { passive: true });
   };
 
   const clearIntroState = () => {
@@ -867,16 +867,6 @@ const initHeroIntro = (lenis) => {
     intro.style.removeProperty("--hero-intro-travel-rotate");
     intro.style.removeProperty("--hero-intro-origin-x");
     intro.style.removeProperty("--hero-intro-origin-y");
-    intro.removeEventListener("wheel", preventOverlayScroll);
-    intro.removeEventListener("touchmove", preventOverlayScroll);
-    window.removeEventListener("keydown", preventIntroKeyScroll);
-    window.removeEventListener("scroll", resetIntroScroll);
-  };
-
-  const releaseScrolling = () => {
-    if (lenis && typeof lenis.start === "function") {
-      lenis.start();
-    }
   };
 
   const syncNormalRobotPosition = (reason = "hero-intro-sync") => {
@@ -902,16 +892,14 @@ const initHeroIntro = (lenis) => {
     clearBootTimeout();
     clearIntroState();
 
-    if (window.ScrollTrigger) {
-      window.ScrollTrigger.refresh();
-    }
-
     revealNormalRobot("hero-intro-complete");
     console.info("[hero-intro] reveal normal robot");
     window.requestAnimationFrame(() => {
       syncNormalRobotPosition("hero-intro-post-complete");
+      if (window.ScrollTrigger) {
+        window.ScrollTrigger.update();
+      }
     });
-    releaseScrolling();
 
     console.info("[hero-intro] complete");
   };
@@ -926,13 +914,10 @@ const initHeroIntro = (lenis) => {
     clearBootTimeout();
     clearIntroState();
 
-    if (window.ScrollTrigger) {
-      window.ScrollTrigger.refresh();
-    }
-
     revealNormalRobot("hero-intro-fallback");
-    releaseScrolling();
-
+    if (window.ScrollTrigger) {
+      window.ScrollTrigger.update();
+    }
     console.info("[hero-intro] fallback", { reason });
   };
 
@@ -948,7 +933,7 @@ const initHeroIntro = (lenis) => {
     if (document.fonts?.ready) {
       pending.push(Promise.race([
         document.fonts.ready.catch(() => {}),
-        wait(900)
+        wait(600)
       ]));
     }
 
@@ -978,11 +963,6 @@ const initHeroIntro = (lenis) => {
 
   applyIntroState();
   clearBootTimeout();
-
-  if (lenis && typeof lenis.stop === "function") {
-    lenis.stop();
-  }
-
   console.info("[hero-intro] init");
 
   const run = async () => {
@@ -990,10 +970,8 @@ const initHeroIntro = (lenis) => {
 
     if (prefersReducedMotion) {
       introText.textContent = sentence;
-      await Promise.race([layoutReady, wait(260)]);
+      await Promise.race([layoutReady, wait(220)]);
       await wait(reducedEndPause);
-      intro.classList.add("is-guide-fading");
-      await wait(reducedGuideFadeDuration);
       console.info("[hero-intro] fade intro");
       body.classList.add("hero-intro-fading");
       intro.classList.add("is-fading");
@@ -1002,11 +980,10 @@ const initHeroIntro = (lenis) => {
       return;
     }
 
+    await Promise.race([layoutReady, wait(typingLeadIn)]);
     console.info("[hero-intro] start typing");
     await typeSentence();
     await wait(endPause);
-    await Promise.race([layoutReady, wait(900)]);
-
     intro.classList.add("is-guide-fading");
     await wait(guideFadeDuration);
     console.info("[hero-intro] fade intro");
@@ -1020,7 +997,6 @@ const initHeroIntro = (lenis) => {
     fallback(error instanceof Error ? error.message : "unexpected-error");
   });
 };
-
 const initRobotGuide = () => {
   const robot = document.getElementById("robotGuide");
   const bubble = robot?.querySelector(".robot-bubble");
@@ -2145,10 +2121,16 @@ initHeroIntro(lenis);
 
 window.addEventListener("load", () => {
   updateHeaderState();
-  if (window.ScrollTrigger) {
-    window.ScrollTrigger.refresh();
+  if (!window.ScrollTrigger || window.__portfolioIntroStarted) {
+    return;
   }
+
+  window.ScrollTrigger.refresh();
 });
+
+
+
+
 
 
 
