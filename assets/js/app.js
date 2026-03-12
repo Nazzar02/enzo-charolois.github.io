@@ -767,7 +767,7 @@ const initHeroIntro = (lenis) => {
   const travelDuration = window.innerWidth <= 760 ? 760 : 820;
   const endPause = 560;
   const overlapDelay = 180;
-  const fadeDuration = 460;
+  const fadeDuration = 520;
   let finished = false;
 
   if (!introGuide || !introFigure || !introText || !heroAnchor || !normalRobot || !document.querySelector(".page-shell")) {
@@ -778,12 +778,14 @@ const initHeroIntro = (lenis) => {
     return;
   }
 
-  if ((window.scrollY || 0) > 24 || (window.location.hash && window.location.hash !== "#home")) {
-    console.info("[hero-intro] fallback", { reason: "skip-state" });
-    if (typeof window.__heroIntroBootCleanup === "function") {
-      window.__heroIntroBootCleanup();
-    }
-    return;
+  if (history.scrollRestoration) {
+    history.scrollRestoration = "manual";
+  }
+
+  window.scrollTo(0, 0);
+
+  if (window.location.hash && window.location.hash !== "#home") {
+    history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
   }
 
   const clampValue = (value, min, max) => Math.min(max, Math.max(min, value));
