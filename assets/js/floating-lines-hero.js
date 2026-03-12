@@ -194,6 +194,11 @@ void main() {
 
 const MAX_GRADIENT_STOPS = 8;
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const prefersFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+const THREE_MODULE_URLS = [
+  "https://cdn.jsdelivr.net/npm/three@0.167.1/build/three.module.js",
+  "https://unpkg.com/three@0.167.1/build/three.module.js"
+];
 
 function hexToVec3(hex, Vector3Ctor) {
   let value = hex.trim();
@@ -219,6 +224,17 @@ function hexToVec3(hex, Vector3Ctor) {
   return new Vector3Ctor(r / 255, g / 255, b / 255);
 }
 
+async function loadThreeModule() {
+  for (const url of THREE_MODULE_URLS) {
+    try {
+      return await import(url);
+    } catch {
+      // Keep trying other CDNs without surfacing console noise.
+    }
+  }
+
+  return null;
+}
 async function bootFloatingLines() {
   const container = document.getElementById("floatingLinesHero");
   const heroSection = container?.closest(".hero-section") ?? null;
@@ -237,7 +253,13 @@ async function bootFloatingLines() {
   if (heroSection) heroSection.dataset.floatingLines = "loading";
 
   try {
-    const three = await import("https://unpkg.com/three@0.161.0/build/three.module.js");
+    const three = await loadThreeModule();
+
+    if (!three) {
+      container.dataset.floatingLines = "disabled";
+      if (heroSection) heroSection.dataset.floatingLines = "disabled";
+      return;
+    }
     const {
       Scene,
       OrthographicCamera,
@@ -267,7 +289,7 @@ async function bootFloatingLines() {
       middleWavePosition: { x: 3.6, y: -0.04, rotate: 0.08 },
       bottomWavePosition: { x: 1.5, y: -0.6, rotate: 0.18 },
       animationSpeed: 0.64,
-      interactive: true,
+      interactive: prefersFinePointer,
       bendRadius: 6.2,
       bendStrength: -0.22,
       mouseDamping: 0.04,
@@ -451,14 +473,16 @@ async function bootFloatingLines() {
       material.dispose();
       renderer.dispose();
     }, { once: true });
-  } catch (error) {
-    console.error("Floating lines hero failed to initialize", error);
+  } catch {
     container.dataset.floatingLines = "error";
     if (heroSection) heroSection.dataset.floatingLines = "error";
   }
 }
 
 bootFloatingLines();
+
+
+
 
 
 
