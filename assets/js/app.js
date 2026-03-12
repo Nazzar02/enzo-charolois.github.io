@@ -748,32 +748,50 @@ const initHeroIntro = (lenis) => {
   const intro = document.getElementById("heroIntro");
 
   if (!intro) {
-    if (typeof window.__heroIntroBootCleanup === "function") {
-      window.__heroIntroBootCleanup();
+    if (typeof window.__portfolioIntroBootCleanup === "function") {
+      window.__portfolioIntroBootCleanup();
     }
     return;
   }
 
-  if (window.__heroIntroBootAborted) {
+  if (window.__portfolioIntroCompleted) {
+    if (typeof window.__portfolioIntroBootCleanup === "function") {
+      window.__portfolioIntroBootCleanup();
+    }
     return;
   }
+
+  if (window.__portfolioIntroBootAborted) {
+    window.__portfolioIntroCompleted = true;
+    if (typeof window.__portfolioIntroBootCleanup === "function") {
+      window.__portfolioIntroBootCleanup();
+    }
+    return;
+  }
+
+  if (window.__portfolioIntroStarted) {
+    return;
+  }
+
+  window.__portfolioIntroStarted = true;
 
   const introGuide = document.getElementById("heroIntroGuide");
   const introFigure = document.getElementById("heroIntroFigure");
   const introText = document.getElementById("heroIntroText");
-  const heroAnchor = document.getElementById("robotHeroAnchor");
   const normalRobot = document.getElementById("robotGuide");
-  const sentence = "Hi, have you met Enzo already? Let me show you his portfolio.";
-  const travelDuration = window.innerWidth <= 760 ? 760 : 820;
-  const endPause = 560;
-  const overlapDelay = 180;
+  const sentence = "Have you ever met Enzo? Let me show you around.";
+  const endPause = 1560;
+  const reducedEndPause = 1260;
+  const guideFadeDuration = 180;
+  const reducedGuideFadeDuration = 80;
   const fadeDuration = 520;
   let finished = false;
 
-  if (!introGuide || !introFigure || !introText || !heroAnchor || !normalRobot || !document.querySelector(".page-shell")) {
+  if (!introGuide || !introFigure || !introText || !normalRobot || !document.querySelector(".page-shell")) {
+    window.__portfolioIntroCompleted = true;
     console.info("[hero-intro] fallback", { reason: "missing-elements" });
-    if (typeof window.__heroIntroBootCleanup === "function") {
-      window.__heroIntroBootCleanup();
+    if (typeof window.__portfolioIntroBootCleanup === "function") {
+      window.__portfolioIntroBootCleanup();
     }
     return;
   }
@@ -788,7 +806,6 @@ const initHeroIntro = (lenis) => {
     history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
   }
 
-  const clampValue = (value, min, max) => Math.min(max, Math.max(min, value));
   const blockedScrollKeys = new Set([" ", "Spacebar", "PageUp", "PageDown", "End", "Home", "ArrowUp", "ArrowDown"]);
 
   const preventOverlayScroll = (event) => {
@@ -808,31 +825,25 @@ const initHeroIntro = (lenis) => {
   };
 
   const clearBootTimeout = () => {
-    if (!window.__heroIntroBootTimeout) {
+    if (!window.__portfolioIntroBootTimeout) {
       return;
     }
 
-    window.clearTimeout(window.__heroIntroBootTimeout);
-    window.__heroIntroBootTimeout = null;
+    window.clearTimeout(window.__portfolioIntroBootTimeout);
+    window.__portfolioIntroBootTimeout = null;
   };
 
-
-  const syncGuideTransformOrigin = () => {
-    const guideRect = introGuide.getBoundingClientRect();
-    const figureRect = introFigure.getBoundingClientRect();
-
-    if (guideRect.width <= 0 || guideRect.height <= 0 || figureRect.width <= 0 || figureRect.height <= 0) {
-      return;
-    }
-
-    const originX = clampValue(((figureRect.left + figureRect.width / 2 - guideRect.left) / guideRect.width) * 100, 0, 100);
-    const originY = clampValue(((figureRect.top + figureRect.height / 2 - guideRect.top) / guideRect.height) * 100, 0, 100);
-    intro.style.setProperty("--hero-intro-origin-x", `${originX.toFixed(2)}%`);
-    intro.style.setProperty("--hero-intro-origin-y", `${originY.toFixed(2)}%`);
-  };
 
   const applyIntroState = () => {
     intro.hidden = false;
+    intro.classList.remove("is-travelling", "is-guide-fading", "is-fading");
+    intro.style.removeProperty("--hero-intro-travel-x");
+    intro.style.removeProperty("--hero-intro-travel-y");
+    intro.style.removeProperty("--hero-intro-travel-scale");
+    intro.style.removeProperty("--hero-intro-travel-rotate");
+    intro.style.removeProperty("--hero-intro-origin-x");
+    intro.style.removeProperty("--hero-intro-origin-y");
+    body.classList.remove("hero-intro-reveal-site", "hero-intro-fading");
     body.classList.add("hero-intro-active", "hero-intro-hide-guide");
     resetIntroScroll();
     intro.addEventListener("wheel", preventOverlayScroll, { passive: false });
@@ -842,14 +853,14 @@ const initHeroIntro = (lenis) => {
   };
 
   const clearIntroState = () => {
-    if (typeof window.__heroIntroBootCleanup === "function") {
-      window.__heroIntroBootCleanup();
+    if (typeof window.__portfolioIntroBootCleanup === "function") {
+      window.__portfolioIntroBootCleanup();
     } else {
       intro.hidden = true;
       body.classList.remove("hero-intro-active", "hero-intro-hide-guide", "hero-intro-reveal-site", "hero-intro-fading");
     }
 
-    intro.classList.remove("is-travelling", "is-fading");
+    intro.classList.remove("is-travelling", "is-guide-fading", "is-fading");
     intro.style.removeProperty("--hero-intro-travel-x");
     intro.style.removeProperty("--hero-intro-travel-y");
     intro.style.removeProperty("--hero-intro-travel-scale");
@@ -868,7 +879,14 @@ const initHeroIntro = (lenis) => {
     }
   };
 
-  const revealNormalRobot = () => {
+  const syncNormalRobotPosition = (reason = "hero-intro-sync") => {
+    if (typeof window.syncRobotGuidePosition === "function") {
+      window.syncRobotGuidePosition(reason);
+    }
+  };
+
+  const revealNormalRobot = (reason = "hero-intro-reveal") => {
+    syncNormalRobotPosition(reason);
     normalRobot.classList.remove("is-speaking");
     normalRobot.classList.add("is-visible");
     body.classList.remove("hero-intro-hide-guide");
@@ -880,15 +898,20 @@ const initHeroIntro = (lenis) => {
     }
 
     finished = true;
-    normalRobot.classList.remove("is-speaking");
-    normalRobot.classList.add("is-visible");
+    window.__portfolioIntroCompleted = true;
     clearBootTimeout();
     clearIntroState();
-    releaseScrolling();
 
     if (window.ScrollTrigger) {
       window.ScrollTrigger.refresh();
     }
+
+    revealNormalRobot("hero-intro-complete");
+    console.info("[hero-intro] reveal normal robot");
+    window.requestAnimationFrame(() => {
+      syncNormalRobotPosition("hero-intro-post-complete");
+    });
+    releaseScrolling();
 
     console.info("[hero-intro] complete");
   };
@@ -899,14 +922,16 @@ const initHeroIntro = (lenis) => {
     }
 
     finished = true;
+    window.__portfolioIntroCompleted = true;
     clearBootTimeout();
-    revealNormalRobot();
     clearIntroState();
-    releaseScrolling();
 
     if (window.ScrollTrigger) {
       window.ScrollTrigger.refresh();
     }
+
+    revealNormalRobot("hero-intro-fallback");
+    releaseScrolling();
 
     console.info("[hero-intro] fallback", { reason });
   };
@@ -928,84 +953,6 @@ const initHeroIntro = (lenis) => {
     }
 
     return pending.length ? Promise.allSettled(pending) : Promise.resolve();
-  };
-
-  const computeTravelTarget = () => {
-    const figureRect = introFigure.getBoundingClientRect();
-
-    if (figureRect.width <= 0 || figureRect.height <= 0) {
-      return null;
-    }
-
-    let finalRect = null;
-    const normalFigure = normalRobot.querySelector(".robot-figure");
-
-    if (normalFigure) {
-      const previousVisible = normalRobot.classList.contains("is-visible");
-      const previousSpeaking = normalRobot.classList.contains("is-speaking");
-      const previousTransition = normalFigure.style.transition;
-      const previousTransform = normalFigure.style.transform;
-      const previousOpacity = normalFigure.style.opacity;
-      const previousAnimation = normalFigure.style.animation;
-
-      normalRobot.classList.add("is-visible");
-      normalRobot.classList.remove("is-speaking");
-      normalFigure.style.transition = "none";
-      normalFigure.style.transform = "none";
-      normalFigure.style.opacity = "1";
-      normalFigure.style.animation = "none";
-      finalRect = normalFigure.getBoundingClientRect();
-      normalFigure.style.transition = previousTransition;
-      normalFigure.style.transform = previousTransform;
-      normalFigure.style.opacity = previousOpacity;
-      normalFigure.style.animation = previousAnimation;
-
-      if (previousSpeaking) {
-        normalRobot.classList.add("is-speaking");
-      }
-
-      if (!previousVisible) {
-        normalRobot.classList.remove("is-visible");
-      }
-    }
-
-    if (!finalRect || finalRect.width <= 0 || finalRect.height <= 0) {
-      const anchorRect = heroAnchor.getBoundingClientRect();
-
-      if (anchorRect.width <= 0 || anchorRect.height <= 0) {
-        return null;
-      }
-
-      const fallbackScale = clampValue(
-        anchorRect.width / figureRect.width,
-        window.innerWidth <= 760 ? 0.58 : 0.62,
-        0.86
-      );
-      const fallbackWidth = figureRect.width * fallbackScale;
-      const fallbackHeight = figureRect.height * fallbackScale;
-
-      finalRect = {
-        left: anchorRect.left + (anchorRect.width - fallbackWidth) / 2,
-        top: anchorRect.top + (anchorRect.height - fallbackHeight) / 2,
-        width: fallbackWidth,
-        height: fallbackHeight
-      };
-    }
-
-    const currentCenterX = figureRect.left + figureRect.width / 2;
-    const currentCenterY = figureRect.top + figureRect.height / 2;
-    const targetCenterX = finalRect.left + finalRect.width / 2;
-    const targetCenterY = finalRect.top + finalRect.height / 2;
-    const deltaX = targetCenterX - currentCenterX;
-    const deltaY = targetCenterY - currentCenterY;
-    const finalScale = clampValue(finalRect.width / figureRect.width, 0.5, 1.05);
-
-    return {
-      x: deltaX,
-      y: deltaY,
-      scale: finalScale,
-      rotate: `${clampValue(deltaX * 0.016, -10, 10).toFixed(2)}deg`
-    };
   };
 
   const typeSentence = async () => {
@@ -1044,15 +991,13 @@ const initHeroIntro = (lenis) => {
     if (prefersReducedMotion) {
       introText.textContent = sentence;
       await Promise.race([layoutReady, wait(260)]);
-      body.classList.add("hero-intro-reveal-site");
-      await wait(180);
-      revealNormalRobot();
-      console.info("[hero-intro] reveal normal robot");
-      await wait(80);
+      await wait(reducedEndPause);
+      intro.classList.add("is-guide-fading");
+      await wait(reducedGuideFadeDuration);
       console.info("[hero-intro] fade intro");
       body.classList.add("hero-intro-fading");
       intro.classList.add("is-fading");
-      await wait(220);
+      await wait(fadeDuration);
       complete();
       return;
     }
@@ -1062,25 +1007,8 @@ const initHeroIntro = (lenis) => {
     await wait(endPause);
     await Promise.race([layoutReady, wait(900)]);
 
-    syncGuideTransformOrigin();
-    const target = computeTravelTarget();
-    if (!target) {
-      fallback("invalid-target");
-      return;
-    }
-
-    console.info("[hero-intro] start travel");
-    body.classList.add("hero-intro-reveal-site");
-    intro.style.setProperty("--hero-intro-travel-x", `${target.x.toFixed(2)}px`);
-    intro.style.setProperty("--hero-intro-travel-y", `${target.y.toFixed(2)}px`);
-    intro.style.setProperty("--hero-intro-travel-scale", `${target.scale.toFixed(3)}`);
-    intro.style.setProperty("--hero-intro-travel-rotate", target.rotate);
-    intro.classList.add("is-travelling");
-
-    await wait(travelDuration);
-    revealNormalRobot();
-    console.info("[hero-intro] reveal normal robot");
-    await wait(overlapDelay);
+    intro.classList.add("is-guide-fading");
+    await wait(guideFadeDuration);
     console.info("[hero-intro] fade intro");
     body.classList.add("hero-intro-fading");
     intro.classList.add("is-fading");
@@ -2154,6 +2082,14 @@ const initRobotGuide = () => {
   };
 
   setBubbleKey(defaultBubbleKey);
+  window.syncRobotGuidePosition = (reason = "external-sync") => {
+    heroTravelState = null;
+    scrollRange = null;
+    stopMoveTween();
+    stopTrailFade();
+    syncCurrentStopPosition();
+    queueDebugRefresh(reason, true);
+  };
   window.updateRobotGuideLanguage = () => {
     setBubbleKey(activeBubbleKey);
     queueDebugRefresh("language", true);
