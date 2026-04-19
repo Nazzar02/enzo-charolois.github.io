@@ -1,0 +1,163 @@
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  overflow: hidden;
+  background: #f7f7f3;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+.deck-shell {
+  min-height: 100vh;
+}
+
+.deck-header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+.reveal {
+  min-height: 100vh;
+  padding-top: var(--deck-header-height, 108px);
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  height: calc(100vh - var(--deck-header-height, 108px));
+  transition: transform 240ms ease;
+  will-change: transform;
+}
+
+.slides > section {
+  box-sizing: border-box;
+  flex: 0 0 100vw;
+  height: calc(100vh - var(--deck-header-height, 108px));
+  min-height: calc(100vh - var(--deck-header-height, 108px));
+  padding: 1.35rem 1.6rem 1.7rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior-y: contain;
+  scrollbar-gutter: stable both-edges;
+  -webkit-overflow-scrolling: touch;
+}
+
+.slides > section::-webkit-scrollbar {
+  width: 10px;
+}
+
+.slides > section::-webkit-scrollbar-thumb {
+  background: rgba(89, 103, 97, 0.34);
+  border-radius: 999px;
+}
+
+.slide-frame {
+  width: min(1120px, calc(100vw - 2.8rem));
+  min-height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.85rem;
+  padding-top: 0.2rem;
+}
+
+.slides > section[aria-hidden="true"] {
+  pointer-events: none;
+}
+
+body.print-pdf {
+  overflow: auto;
+}
+
+body.print-pdf .deck-header {
+  display: none;
+}
+
+body.print-pdf .reveal {
+  min-height: 0;
+  padding-top: 0;
+  overflow: visible;
+}
+
+body.print-pdf .slides {
+  display: block;
+  height: auto;
+  transform: none !important;
+}
+
+body.print-pdf .slides > section {
+  min-height: 0;
+  height: auto;
+  padding: 1.2cm 1.2cm 1.15cm;
+  break-after: page;
+  page-break-after: always;
+}
+
+body.print-pdf .slides > section:last-child {
+  break-after: auto;
+  page-break-after: auto;
+}
+
+body.print-pdf .slide-frame {
+  width: auto;
+  min-height: 0;
+}
+
+@media print {
+  html,
+  body {
+    overflow: visible;
+    background: #ffffff;
+  }
+
+  .deck-header {
+    display: none !important;
+  }
+
+  .reveal {
+    min-height: 0;
+    padding-top: 0;
+    overflow: visible;
+  }
+
+  .slides {
+    display: block;
+    height: auto;
+    transform: none !important;
+  }
+
+  .slides > section {
+    min-height: 0;
+    height: auto;
+    padding: 1.2cm 1.2cm 1.15cm;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .slides > section:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  .slide-frame {
+    width: auto;
+    min-height: 0;
+  }
+}
