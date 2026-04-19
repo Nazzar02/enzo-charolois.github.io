@@ -205,6 +205,7 @@ a {
 }
 
 .card-grid,
+.problem-grid,
 .split-grid,
 .state-grid,
 .gap-matrix,
@@ -216,13 +217,17 @@ a {
 .question-grid,
 .closing-grid,
 .sources-grid,
-.timeline-flow {
+.sources-grid {
   display: grid;
   gap: 0.95rem;
 }
 
 .card-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.problem-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .split-grid,
@@ -238,8 +243,7 @@ a {
 }
 
 .approach-grid,
-.protocol-grid,
-.timeline-flow {
+.protocol-grid {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
@@ -267,8 +271,7 @@ a {
 .question,
 .closing-main,
 .closing-side,
-.source-item,
-.timeline-node {
+.source-item {
   padding: 1rem 1.05rem;
   border: 1px solid var(--hes-line);
   border-radius: var(--hes-radius);
@@ -281,6 +284,24 @@ a {
   padding: 0.9rem 1rem;
   border-left: 4px solid var(--hes-accent);
   background: linear-gradient(90deg, rgba(223, 233, 229, 0.95), rgba(255, 255, 255, 0.95));
+}
+
+.persona-card {
+  background: linear-gradient(180deg, rgba(223, 233, 229, 0.78), rgba(255, 255, 255, 0.94));
+}
+
+.card p + p,
+.state-card p + p {
+  margin-top: 0.45rem;
+}
+
+.card ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.card li + li {
+  margin-top: 0.28rem;
 }
 
 .inline-ref {
@@ -336,63 +357,91 @@ a {
   text-transform: uppercase;
 }
 
-.timeline-arrow {
-  height: 8px;
-  margin: 1.05rem 0 0.75rem;
-  background: linear-gradient(90deg, var(--hes-accent), var(--hes-accent-secondary));
-  position: relative;
-  border-radius: 999px;
+.plan-table-wrap {
+  overflow-x: auto;
+  padding-bottom: 0.2rem;
 }
 
-.timeline-arrow::after {
-  content: "";
-  position: absolute;
-  right: -1px;
-  top: 50%;
-  width: 1rem;
-  height: 1rem;
-  border-top: 5px solid var(--hes-accent-secondary);
-  border-right: 5px solid var(--hes-accent-secondary);
-  transform: translateY(-50%) rotate(45deg);
+.plan-table {
+  width: 100%;
+  min-width: 54rem;
+  border-collapse: separate;
+  border-spacing: 0.32rem;
+  table-layout: fixed;
 }
 
-.timeline-node {
-  position: relative;
-  border-top: none;
-  padding-top: 1.15rem;
+.plan-table col.step-col {
+  width: 10.75rem;
 }
 
-.timeline-node::before {
-  content: "";
-  position: absolute;
-  top: -1.3rem;
-  left: 1rem;
-  width: 0.82rem;
-  height: 0.82rem;
-  border-radius: 50%;
-  background: var(--hes-accent);
-  box-shadow: 0 0 0 5px rgba(223, 233, 229, 0.95);
+.plan-table th,
+.plan-table td {
+  padding: 0.58rem 0.4rem;
+  border: 1px solid var(--hes-line);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  line-height: 1.25;
+  text-align: center;
+  vertical-align: middle;
 }
 
-.timeline-node::after {
-  content: "";
-  position: absolute;
-  top: -0.48rem;
-  left: 1.37rem;
-  width: 2px;
-  height: 0.82rem;
-  background: rgba(31, 97, 91, 0.32);
+.plan-table thead th {
+  color: var(--hes-text);
+  font-weight: 700;
+  background: rgba(247, 247, 243, 0.9);
 }
 
-.plan-slide .timeline-flow {
-  position: relative;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0.75rem;
-  align-items: start;
+.month-name,
+.month-year {
+  display: block;
 }
 
-.plan-slide .timeline-node {
-  min-height: 100%;
+.month-name {
+  font-size: 0.7rem;
+}
+
+.month-year {
+  color: var(--hes-muted);
+  font-size: 0.64rem;
+  font-weight: 600;
+}
+
+.plan-table tbody th {
+  text-align: left;
+  color: var(--hes-text);
+  font-weight: 600;
+  background: rgba(247, 247, 243, 0.9);
+}
+
+.plan-table td.is-active {
+  background: rgba(223, 233, 229, 0.95);
+  color: var(--hes-text);
+  font-weight: 600;
+}
+
+.plan-table td.is-empty {
+  background: rgba(255, 255, 255, 0.46);
+}
+
+.plan-table td.phase-1 {
+  background: #f3dfdf;
+}
+
+.plan-table td.phase-2 {
+  background: #ecd0d0;
+}
+
+.plan-table td.phase-3 {
+  background: #e4c0c0;
+}
+
+.plan-table td.phase-4 {
+  background: #dcaead;
+}
+
+.plan-table td.phase-5 {
+  background: #d39d9b;
 }
 
 .scroll-slide .sources-grid {
@@ -438,6 +487,7 @@ a {
   }
 
   .card-grid,
+  .problem-grid,
   .split-grid,
   .state-grid,
   .gap-matrix,
@@ -451,8 +501,7 @@ a {
   }
 
   .approach-grid,
-  .protocol-grid,
-  .timeline-flow {
+  .protocol-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
@@ -466,44 +515,8 @@ a {
 }
 
 @media (max-width: 1180px) {
-  .plan-slide .timeline-arrow {
-    display: none;
-  }
-
-  .plan-slide .timeline-flow {
-    grid-template-columns: 1fr;
-    gap: 0.7rem;
-    padding-left: 1.55rem;
-  }
-
-  .plan-slide .timeline-flow::before {
-    content: "";
-    position: absolute;
-    left: 0.58rem;
-    top: 0.3rem;
-    bottom: 0.3rem;
-    width: 3px;
-    border-radius: 999px;
-    background: linear-gradient(180deg, var(--hes-accent), var(--hes-accent-secondary));
-  }
-
-  .plan-slide .timeline-node {
-    min-height: 0;
-    padding: 0.95rem 1rem 1rem 1.2rem;
-  }
-
-  .plan-slide .timeline-node::before {
-    top: 1.05rem;
-    left: -1.36rem;
-    width: 0.78rem;
-    height: 0.78rem;
-  }
-
-  .plan-slide .timeline-node::after {
-    top: 1.38rem;
-    left: -0.59rem;
-    width: 0.82rem;
-    height: 2px;
+  .plan-table {
+    min-width: 50rem;
   }
 }
 
@@ -513,6 +526,7 @@ a {
   }
 
   .card-grid,
+  .problem-grid,
   .split-grid,
   .state-grid,
   .gap-matrix,
@@ -523,9 +537,12 @@ a {
   .limit-grid,
   .question-grid,
   .closing-grid,
-  .sources-grid,
-  .timeline-flow {
+  .sources-grid {
     grid-template-columns: 1fr;
+  }
+
+  .plan-table {
+    min-width: 46rem;
   }
 
   .deck-header {
