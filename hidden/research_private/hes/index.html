@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HEG | Plateforme de socialisation et stimulation cognitive légère</title>
+  <meta name="description" content="Présentation de recherche appliquée sur une plateforme de socialisation et stimulation cognitive légère pour seniors, personnalisée par IA.">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="icon" type="image/png" href="assets/icons/heg_logo.png">
+  <link rel="stylesheet" href="site_libs/revealjs/reveal.css">
+  <link rel="stylesheet" href="assets/hes-presentation.css">
+</head>
+<body>
+  <div class="deck-shell">
+    <header class="deck-header" aria-label="Navigation de la présentation">
+      <div class="deck-brand">
+        <img src="assets/icons/heg_logo.png" alt="Logo HEG">
+      </div>
+      <div class="deck-meta">
+        <nav class="deck-toc" data-toc aria-label="Table des matières"></nav>
+      </div>
+      <a class="print-link" data-print-link href="?print-pdf#/1">PDF</a>
+    </header>
+
+    <main class="reveal" aria-label="Deck de recherche">
+      <div class="slides">
+        <section class="intro-slide" data-title="Introduction">
+          <div class="slide-frame intro-frame">
+            <img class="intro-logo" src="assets/icons/heg_logo.png" alt="Logo HEG">
+            <p class="slide-kicker">Projet de recherche appliquée</p>
+            <h1>Plateforme de socialisation et stimulation cognitive légère pour seniors</h1>
+            <p class="intro-name">Enzo Charolois</p>
+            <p class="nav-hint">Navigation : utiliser les flèches gauche et droite</p>
+          </div>
+        </section>
+
+        <section data-title="Problème">
+          <div class="slide-frame">
+            <p class="slide-kicker">Problème</p>
+            <h2>Objet de recherche</h2>
+            <div class="card-grid">
+              <article class="card">
+                <h3>Constat</h3>
+                <p>L'isolement social est associé à un risque accru de déclin cognitif et de détérioration de la qualité de vie; la littérature souligne aussi l'intérêt d'une activité intellectuelle régulière et légère. <span class="inline-ref">[1][2][4][5]</span></p>
+              </article>
+              <article class="card">
+                <h3>Écart actuel</h3>
+                <p>Les solutions numériques traitent le plus souvent soit le lien social, soit l'entraînement cognitif, rarement les deux avec une logique de suivi dans le temps.</p>
+              </article>
+              <article class="card">
+                <h3>Objet de recherche</h3>
+                <p>Étudier la faisabilité d'une plateforme sobre qui combine activités cognitives légères, interaction sociale et personnalisation progressive par IA.</p>
+              </article>
+            </div>
+            <div class="signal-band">
+              <p>Le problème n'est donc pas seulement l'isolement, mais aussi le manque d'activités intellectuelles adaptées, régulières et observables dans la durée.</p>
+            </div>
+            <div class="refs-line">
+              <span class="ref-tag">[1] Lee 2019</span>
+              <span class="ref-tag">[2] Portacolone et al. 2023</span>
+              <span class="ref-tag">[4] Ortega-Morán et al. 2024</span>
+              <span class="ref-tag">[5] Hird et al. 2024</span>
+              <a href="#/11">Sources</a>
+            </div>
+          </div>
+        </section>
+
+        <section data-title="Concepts clés">
+          <div class="slide-frame">
+            <p class="slide-kicker">Concepts clés</p>
+            <h2>Terminologie</h2>
+            <div class="split-grid">
+              <article class="mini-card">
+                <h3>Socialisation digitale</h3>
+                <p>Échanges, binômes, groupes ou jeux partagés visant le maintien du lien social.</p>
+              </article>
+              <article class="mini-card">
+                <h3>Stimulation légère</h3>
+                <p>Exercices simples mobilisant mémoire, attention ou raisonnement sans surcharge.</p>
+              </article>
+              <article class="mini-card">
+                <h3>Personnalisation</h3>
+                <p>Ajustement des contenus, du rythme et de la difficulté à partir des usages observés.</p>
+              </article>
+              <article class="mini-card">
+                <h3>Engagement</h3>
+                <p>Fréquence, durée, complétion et maintien de la participation dans le temps.</p>
+              </article>
+              <article class="mini-card">
+                <h3>Accessibilité</h3>
+                <p>Lisibilité, stabilité de navigation et limitation de la charge cognitive.</p>
+              </article>
+              <article class="mini-card">
+                <h3>Variations d'usage</h3>
+                <p>Repérage d'écarts inhabituels dans l'activité, la performance ou la rétention.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section data-title="État de l'art">
+          <div class="slide-frame">
+            <p class="slide-kicker">État de l'art</p>
+            <h2>Résultats existants et limites observées</h2>
+            <div class="state-grid">
+              <article class="state-card">
+                <h3>Cognition</h3>
+                <p>Il existe déjà de nombreux jeux et applications de stimulation: le serious game d'achats sur tablette d'Ortega-Morán et l'application Aikomi de Hird travaillent mémoire, attention et adaptation de difficulté. <span class="inline-ref">[4][5]</span></p>
+                <p><strong>Limite.</strong> Usage majoritairement solitaire et suivi souvent court. <span class="inline-ref">[4][5]</span></p>
+              </article>
+              <article class="state-card">
+                <h3>Socialisation</h3>
+                <p>Le jeu en ligne entre pairs étudié par Lee et des dispositifs d'assistance sociale comme ElliQ montrent qu'un support numérique peut soutenir le lien entre seniors ou avec leurs proches. <span class="inline-ref">[1][2]</span></p>
+                <p><strong>Limite.</strong> Peu d'articulation directe avec une stimulation cognitive légère. <span class="inline-ref">[1][2]</span></p>
+              </article>
+              <article class="state-card">
+                <h3>Personnalisation</h3>
+                <p>L'application Aikomi personnalise déjà des modules cognitifs, et le modèle de Vanini applique le filtrage collaboratif à des profils seniors pour recommander des interventions. <span class="inline-ref">[5][6]</span></p>
+                <p><strong>Limite.</strong> Peu de validations en usage prolongé et presque aucune personnalisation de la mise en relation sociale. <span class="inline-ref">[5][6]</span></p>
+              </article>
+              <article class="state-card">
+                <h3>Monitoring</h3>
+                <p>Les travaux recensés par Asiri mobilisent déjà capteurs, domotique, wearables et logs pour repérer des changements de routine ou d'activité. <span class="inline-ref">[3]</span></p>
+                <p><strong>Limite.</strong> Ces travaux visent surtout la sécurité ou la santé, pas l'usage d'une plateforme cognitive et sociale. <span class="inline-ref">[3]</span></p>
+              </article>
+            </div>
+            <div class="refs-line">
+              <span class="ref-tag">[1] Lee 2019</span>
+              <span class="ref-tag">[2] Portacolone et al. 2023</span>
+              <span class="ref-tag">[3] Asiri et al. 2023</span>
+              <span class="ref-tag">[4] Ortega-Morán et al. 2024</span>
+              <span class="ref-tag">[5] Hird et al. 2024</span>
+              <span class="ref-tag">[6] CF 2019</span>
+              <a href="#/11">Sources</a>
+            </div>
+          </div>
+        </section>
+
+        <section data-title="Originalité">
+          <div class="slide-frame">
+            <p class="slide-kicker">Originalité du projet</p>
+            <h2>Manques de la littérature et réponse proposée</h2>
+            <div class="gap-matrix">
+              <article class="gap-column">
+                <h3>Ce qui manque aujourd'hui</h3>
+                <ul>
+                  <li>Peu de plateformes combinent <strong>stimulation cognitive et socialisation native</strong>.</li>
+                  <li>La personnalisation vise surtout les tâches, rarement la dimension sociale ou le rythme d'usage.</li>
+                  <li>Les travaux sur le <strong>matching des seniors</strong> restent marginaux.</li>
+                  <li>Les évaluations longitudinales de l'engagement restent limitées.</li>
+                  <li>La <strong>détection des variations d'usage</strong> reste peu traitée dans un contexte ludique.</li>
+                  <li>L'<strong>accessibilité</strong> est encore abordée de manière fragmentaire.</li>
+                </ul>
+              </article>
+              <article class="gap-column">
+                <h3>Ce que l'approche apporte</h3>
+                <ul>
+                  <li>Dispositif <strong>unifié</strong> articulant activités légères, interaction sociale et suivi d'usage.</li>
+                  <li>Environnement <strong>personnalisé</strong> sur les contenus, la difficulté et les modalités de mise en relation.</li>
+                  <li><strong>Logique de binôme et de petit groupe</strong> comme composante centrale des usages.</li>
+                  <li>Instrumenter la plateforme pour une observation dans la durée.</li>
+                  <li>Intégrer une <strong>détection de variations d'usage</strong> pour repérer décrochages et changements.</li>
+                  <li>Traiter l'accessibilité comme une composante centrale de la conception.</li>
+                </ul>
+              </article>
+            </div>
+            <div class="refs-line">
+              <span class="ref-tag">Gaps synthétisés à partir du texte source canonique</span>
+              <a href="#/11">Sources</a>
+            </div>
+          </div>
+        </section>
+
+        <section data-title="Approches">
+          <div class="slide-frame">
+            <p class="slide-kicker">Approches techniques</p>
+            <h2>Options technologiques envisagées</h2>
+            <div class="approach-grid">
+              <article class="approach-item">
+                <h3>A</h3>
+                <p>Règles expertes pour une personnalisation initiale explicable.</p>
+              </article>
+              <article class="approach-item">
+                <h3>B</h3>
+                <p>Recommandation hybride pour activités et contenus.</p>
+              </article>
+              <article class="approach-item">
+                <h3>C</h3>
+                <p>Adaptation dynamique de la difficulté à partir des performances.</p>
+              </article>
+              <article class="approach-item">
+                <h3>D</h3>
+                <p>Matching de binômes ou petits groupes selon profils et préférences.</p>
+              </article>
+              <article class="approach-item">
+                <h3>E</h3>
+                <p>Détection d'anomalies d'engagement à partir des logs d'usage.</p>
+              </article>
+            </div>
+            <div class="refs-line">
+              <span class="ref-tag">[3] Asiri et al. 2023</span>
+              <span class="ref-tag">[4] Ortega-Morán et al. 2024</span>
+              <span class="ref-tag">[6] CF 2019</span>
+              <a href="#/11">Sources</a>
+            </div>
+          </div>
+        </section>
+
+        <section data-title="Évaluation">
+          <div class="slide-frame">
+            <p class="slide-kicker">Évaluation</p>
+            <h2>Ce qu'on mesure et comment</h2>
+            <div class="evaluation-grid">
+              <article class="evaluation-card">
+                <h3>Cognition</h3>
+                <div class="eval-type">Quantitatif</div>
+                <p><strong>Ce qu'on mesure.</strong> Scores de mémoire, d'attention ou de raisonnement, avant et après intervention.</p>
+                <p><strong>Comment.</strong> Tâches intégrées au jeu, tests standardisés, pilote initial puis comparaison contrôlée.</p>
+              </article>
+              <article class="evaluation-card">
+                <h3>Engagement, usage, rétention</h3>
+                <div class="eval-type">Quantitatif</div>
+                <p><strong>Ce qu'on mesure.</strong> Temps par session, fréquence, taux d'achèvement, abandons, acceptation des invitations ou recommandations.</p>
+                <p><strong>Comment.</strong> Instrumentation des logs, observation longitudinale et comparaison de versions ou de conditions d'usage.</p>
+              </article>
+              <article class="evaluation-card">
+                <h3>Social et psychologie</h3>
+                <div class="eval-type">Qualitatif</div>
+                <p><strong>Ce qu'on mesure.</strong> Qualité perçue des interactions, sentiment d'isolement, satisfaction sociale et expérience utilisateur.</p>
+                <p><strong>Comment.</strong> Questionnaires post-usage, entretiens brefs et retours de co-design avec les seniors.</p>
+              </article>
+            </div>
+            <div class="refs-line">
+              <span class="ref-tag">[4] Ortega-Morán et al. 2024</span>
+              <span class="ref-tag">[5] Hird et al. 2024</span>
+              <span class="ref-tag">[7] Essai contrôlé</span>
+              <a href="#/11">Sources</a>
+            </div>
+          </div>
+        </section>
+
+        <section data-title="Limites">
+          <div class="slide-frame">
+            <p class="slide-kicker">Limites</p>
+            <h2>Contraintes intrinsèques au projet</h2>
+            <div class="limit-grid">
+              <article class="limit-card">
+                <h3>Méthodologiques</h3>
+                <p>Échantillons faibles, biais de sélection, difficulté à définir un comparateur robuste et hétérogénéité des métriques.</p>
+              </article>
+              <article class="limit-card">
+                <h3>Techniques</h3>
+                <p>Besoin de données suffisantes, risque de sur-ajustement, qualité variable des signaux d'usage et faux positifs dans la détection.</p>
+              </article>
+              <article class="limit-card">
+                <h3>Données et éthique</h3>
+                <p>Données sensibles, minimisation nécessaire, consentement éclairé, explicabilité des recommandations et vigilance face aux biais de matching.</p>
+              </article>
+            </div>
+            <div class="refs-line">
+              <span class="ref-tag">[2] Portacolone et al. 2023</span>
+              <span class="ref-tag">[3] Asiri et al. 2023</span>
+              <a href="#/11">Sources</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="plan-slide" data-title="Plan">
+          <div class="slide-frame">
+            <p class="slide-kicker">Plan de mise en œuvre</p>
+            <h2>Déroulé temporel du projet</h2>
+            <div class="timeline-arrow" aria-hidden="true"></div>
+            <div class="timeline-flow">
+              <article class="timeline-node">
+                <h3>juillet 2026</h3>
+                <p>Co-design avec parties prenantes.</p>
+              </article>
+              <article class="timeline-node">
+                <h3>août à octobre 2026</h3>
+                <p>Prototype initial, tests ergonomiques, instrumentation.</p>
+              </article>
+              <article class="timeline-node">
+                <h3>novembre à décembre 2026</h3>
+                <p>Personnalisation par règles et premiers essais de matching.</p>
+              </article>
+              <article class="timeline-node">
+                <h3>janvier à février 2027</h3>
+                <p>Modèles hybrides, difficulté adaptative, détection d'anomalies.</p>
+              </article>
+              <article class="timeline-node">
+                <h3>mars à mai 2027</h3>
+                <p>Pilote longitudinal, analyse des résultats, itération finale.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section data-title="Problématiques">
+          <div class="slide-frame">
+            <p class="slide-kicker">Problématiques</p>
+            <h2>Problématiques</h2>
+            <div class="question-grid">
+              <article class="question">
+                <h3>Adaptation</h3>
+                <p>Comment ajuster la difficulté sans créer de frustration ni de lassitude&nbsp;?</p>
+              </article>
+              <article class="question">
+                <h3>Détection</h3>
+                <p>Quels signaux sont les plus robustes pour repérer un désengagement utile à corriger&nbsp;?</p>
+              </article>
+              <article class="question">
+                <h3>Interaction sociale</h3>
+                <p>Le matching de binômes ou groupes améliore-t-il durablement l'usage et le bien-être social&nbsp;?</p>
+              </article>
+              <article class="question">
+                <h3>Interface</h3>
+                <p>Quels choix de conception soutiennent réellement l'autonomie des seniors peu technophiles&nbsp;?</p>
+              </article>
+              <article class="question">
+                <h3>Éthique</h3>
+                <p>Comment concilier personnalisation, explicabilité, protection des données et maintien du lien humain&nbsp;?</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="scroll-slide" data-title="Sources">
+          <div class="slide-frame">
+            <p class="slide-kicker">Sources</p>
+            <h2>Références mobilisées dans le deck</h2>
+            <div class="sources-grid">
+              <article class="source-item">
+                <small>[1]</small>
+                <p>Lee (2019), <em>Older adults' digital gameplay, social capital, social connectedness, and civic participation</em>.</p>
+                <a href="https://gamestudies.org/1901/articles/lee" target="_blank" rel="noreferrer">gamestudies.org/1901/articles/lee</a>
+              </article>
+              <article class="source-item">
+                <small>[2]</small>
+                <p>Portacolone et al. (2023), <em>Should AI Play a Role in Cultivating Social Connections Among Older Adults?</em></p>
+                <a href="https://edhub.ama-assn.org/ama-journal-of-ethics/module/2811158" target="_blank" rel="noreferrer">edhub.ama-assn.org/.../2811158</a>
+              </article>
+              <article class="source-item">
+                <small>[3]</small>
+                <p>Asiri et al. (2023), revue sur les technologies de monitoring pour seniors.</p>
+                <a href="https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2023.1144636/full" target="_blank" rel="noreferrer">frontiersin.org/.../1144636/full</a>
+              </article>
+              <article class="source-item">
+                <small>[4]</small>
+                <p>Ortega-Morán et al. (2024), serious game de stimulation cognitive sur tablette.</p>
+                <a href="https://aging.jmir.org/2024/1/e41437/" target="_blank" rel="noreferrer">aging.jmir.org/2024/1/e41437/</a>
+              </article>
+              <article class="source-item">
+                <small>[5]</small>
+                <p>Hird et al. (2024), personnalisation de la stimulation cognitive digitale.</p>
+                <a href="https://formative.jmir.org/2024/1/e51732/PDF" target="_blank" rel="noreferrer">formative.jmir.org/2024/1/e51732/PDF</a>
+              </article>
+              <article class="source-item">
+                <small>[6]</small>
+                <p><em>A Collaborative Filtering Recommender System Model for Recommending Intervention to Improve Elderly Well-being</em>.</p>
+                <a href="https://thesai.org/Downloads/Volume10No6/Paper_19-A_Collaborative_Filtering_Recommender_System.pdf" target="_blank" rel="noreferrer">thesai.org/.../Paper_19-...</a>
+              </article>
+              <article class="source-item">
+                <small>[7]</small>
+                <p><em>A randomized controlled trial of brain training with non-action video</em>.</p>
+                <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4396447/" target="_blank" rel="noreferrer">pmc.ncbi.nlm.nih.gov/.../PMC4396447/</a>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="site_libs/revealjs/reveal.js"></script>
+</body>
+</html>
