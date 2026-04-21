@@ -206,10 +206,15 @@ a {
 
 .card-grid,
 .problem-grid,
+.problem-stack,
 .split-grid,
 .state-grid,
 .gap-matrix,
 .approach-grid,
+.approach-stage,
+.approach-diagram,
+.approach-main,
+.approach-sub,
 .evaluation-grid,
 .metric-grid,
 .protocol-grid,
@@ -228,6 +233,12 @@ a {
 
 .problem-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.problem-stack,
+.approach-stage,
+.approach-diagram {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .split-grid,
@@ -263,6 +274,7 @@ a {
 .mini-card,
 .state-card,
 .gap-column,
+.mvp-card,
 .approach-item,
 .evaluation-card,
 .metric-card,
@@ -281,9 +293,15 @@ a {
 
 .signal-band {
   margin-top: 1rem;
-  padding: 0.9rem 1rem;
+  padding: 1.15rem 1.2rem;
   border-left: 4px solid var(--hes-accent);
   background: linear-gradient(90deg, rgba(223, 233, 229, 0.95), rgba(255, 255, 255, 0.95));
+}
+
+.signal-band p {
+  font-size: 1.08rem;
+  line-height: 1.45;
+  color: var(--hes-text);
 }
 
 .persona-card {
@@ -302,6 +320,115 @@ a {
 
 .card li + li {
   margin-top: 0.28rem;
+}
+
+.problem-stack {
+  gap: 1rem;
+}
+
+.problem-focus {
+  background: linear-gradient(180deg, rgba(223, 233, 229, 0.68), rgba(255, 255, 255, 0.96));
+}
+
+.problem-focus ul,
+.research-axis ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.persona-bullet {
+  display: inline-block;
+  margin-left: 0.8rem;
+}
+
+.research-axis {
+  border-top: 3px solid rgba(31, 97, 91, 0.28);
+}
+
+.state-card {
+  display: grid;
+  gap: 0.55rem;
+  align-content: start;
+}
+
+.state-card p {
+  font-size: 0.76rem;
+  line-height: 1.36;
+}
+
+.state-card p + p {
+  margin-top: 0;
+}
+
+.approach-figure {
+  width: min(100%, 72rem);
+  margin: 0.5rem auto 0.2rem;
+}
+
+.approach-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  shape-rendering: geometricPrecision;
+}
+
+.approach-tree__line {
+  fill: none;
+  stroke: rgba(31, 97, 91, 0.34);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.approach-tree__joint {
+  fill: rgba(31, 97, 91, 0.42);
+}
+
+.approach-tree__card {
+  fill: rgba(255, 255, 255, 0.98);
+  stroke: rgba(31, 97, 91, 0.32);
+  stroke-width: 2;
+  filter: url(#approach-shadow);
+  vector-effect: non-scaling-stroke;
+}
+
+.approach-tree__card--mvp {
+  fill: url(#approach-mvp-fill);
+}
+
+.approach-tree__title,
+.approach-tree__body {
+  fill: var(--hes-text);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.approach-tree__title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.approach-tree__body {
+  font-size: 15px;
+  font-weight: 500;
+  fill: #31423e;
+}
+
+.approach-tree__body--small {
+  font-size: 13.5px;
+}
+
+.difficulty-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.solution-note {
+  margin-top: 0.7rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--hes-line);
+  color: var(--hes-accent);
+  font-size: 0.78rem;
 }
 
 .inline-ref {
@@ -364,7 +491,7 @@ a {
 
 .plan-table {
   width: 100%;
-  min-width: 54rem;
+  min-width: 66rem;
   border-collapse: separate;
   border-spacing: 0.32rem;
   table-layout: fixed;
@@ -488,12 +615,14 @@ a {
 
   .card-grid,
   .problem-grid,
+  .problem-stack,
   .split-grid,
   .state-grid,
   .gap-matrix,
   .evaluation-grid,
   .metric-grid,
   .limit-grid,
+  .difficulty-grid,
   .question-grid,
   .closing-grid,
   .sources-grid {
@@ -501,6 +630,7 @@ a {
   }
 
   .approach-grid,
+  .approach-branches,
   .protocol-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -516,7 +646,7 @@ a {
 
 @media (max-width: 1180px) {
   .plan-table {
-    min-width: 50rem;
+    min-width: 60rem;
   }
 }
 
@@ -527,14 +657,17 @@ a {
 
   .card-grid,
   .problem-grid,
+  .problem-stack,
   .split-grid,
   .state-grid,
   .gap-matrix,
   .approach-grid,
+  .approach-branches,
   .evaluation-grid,
   .metric-grid,
   .protocol-grid,
   .limit-grid,
+  .difficulty-grid,
   .question-grid,
   .closing-grid,
   .sources-grid {
@@ -542,7 +675,7 @@ a {
   }
 
   .plan-table {
-    min-width: 46rem;
+    min-width: 56rem;
   }
 
   .deck-header {
