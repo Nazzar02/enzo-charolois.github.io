@@ -22,7 +22,7 @@ The app is compatible with GitHub Pages and also includes an embedded fallback s
 - Static HTML, CSS and vanilla JavaScript.
 - No backend.
 - No live browser API calls.
-- No exposed API keys.
+- No exposed credentials.
 - No GitHub Actions.
 - No build step.
 

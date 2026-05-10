@@ -71,6 +71,9 @@
     bindEvents();
     populateControls();
     render();
+    if (window.Chart) {
+      window.PocCharts.loadZoomPlugin();
+    }
   }
 
   async function loadData() {
@@ -99,6 +102,18 @@
   }
 
   function bindEvents() {
+    window.addEventListener("chartjs-ready", () => {
+      window.PocCharts.loadZoomPlugin();
+      const activeTab = document.querySelector(".tab.is-active")?.dataset.tab;
+      if (activeTab === "financials") {
+        window.PocCharts.renderFinancialCharts(state.companies[state.company]);
+      }
+    });
+    window.addEventListener("chartjs-zoom-ready", () => {
+      if (document.querySelector(".tab.is-active")?.dataset.tab === "financials") {
+        window.PocCharts.renderFinancialCharts(state.companies[state.company]);
+      }
+    });
     document.getElementById("company-select").addEventListener("change", (event) => {
       state.company = event.target.value;
       render();
@@ -113,8 +128,16 @@
         button.classList.add("is-active");
         document.getElementById(button.dataset.tab).classList.add("is-active");
         if (button.dataset.tab === "financials") {
-          setTimeout(() => window.PocCharts.resizeAll(), 0);
+          setTimeout(() => {
+            window.PocCharts.renderFinancialCharts(state.companies[state.company]);
+            window.PocCharts.resizeAll();
+          }, 0);
         }
+      });
+    });
+    document.querySelectorAll("[data-reset-zoom]").forEach((button) => {
+      button.addEventListener("click", () => {
+        window.PocCharts.resetZoom(button.dataset.resetZoom);
       });
     });
   }
@@ -123,7 +146,7 @@
     const companySelect = document.getElementById("company-select");
     companySelect.innerHTML = TICKERS.map((ticker) => {
       const item = state.companies[ticker];
-      return `<option value="${ticker}">${ticker} · ${item.company_name}</option>`;
+      return `<option value="${ticker}">${ticker} - ${item.company_name}</option>`;
     }).join("");
     const peerSelect = document.getElementById("peer-select");
     peerSelect.innerHTML = Object.values(state.peerSets).map((peerSet) => `<option value="${peerSet.id}">${peerSet.name}</option>`).join("");
@@ -135,7 +158,7 @@
     document.getElementById("dataset-updated").textContent = `Last updated ${state.metadata.last_updated}`;
     document.getElementById("dataset-notes").textContent = state.metadata.notes;
     document.getElementById("footer-updated").textContent = `Last updated ${state.metadata.last_updated}`;
-    document.getElementById("control-summary").textContent = `${companyData.sector} · ${companyData.data_status.latest_annual_period} annuals · ${companyData.data_status.latest_valuation_period} valuation`;
+    document.getElementById("control-summary").textContent = `${companyData.sector} / ${companyData.data_status.latest_annual_period} annuals / ${companyData.data_status.latest_valuation_period} valuation`;
     renderOverview(companyData);
     renderFinancials(companyData);
     renderValuation(companyData, peers);
@@ -167,13 +190,17 @@
     ];
     document.getElementById("kpi-grid").innerHTML = kpis.map(([label, value, unit, badge]) => `
       <article class="kpi">
-        <span class="context">${companyData.ticker} · Annual · ${companyData.data_status.latest_annual_period}</span>
+        <span class="context">${companyData.ticker} / Annual / ${companyData.data_status.latest_annual_period}</span>
         <h3>${label}</h3>
         <span class="value">${window.Metrics.formatMetric(value, unit)}</span>
-        <span class="badge">${badge}</span>
+        <span class="badge badge-${badgeClass(badge)}">${badge}</span>
       </article>
     `).join("");
-    window.PocCharts.renderFinancialCharts(companyData);
+    if (document.querySelector(".tab.is-active")?.dataset.tab === "financials") {
+      window.PocCharts.renderFinancialCharts(companyData);
+    } else {
+      window.PocCharts.destroyAll();
+    }
   }
 
   function renderValuation(companyData, peers) {
@@ -220,5 +247,9 @@
 
   function renderList(id, items) {
     document.getElementById(id).innerHTML = items.map((item) => `<li>${item}</li>`).join("");
+  }
+
+  function badgeClass(label) {
+    return String(label).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "neutral";
   }
 })();

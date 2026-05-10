@@ -1,11 +1,21 @@
 (function () {
   const registry = {};
-  const palette = {
-    TSM: "#5db7ff",
-    NVDA: "#61d394",
-    ASML: "#f0a85f",
-    AVGO: "#b998ff"
+  const companyPalette = {
+    TSM: "#6fb7e8",
+    NVDA: "#6ccf9b",
+    ASML: "#e4b563",
+    AVGO: "#a991d4"
   };
+  const metricPalette = {
+    revenue: "#6fb7e8",
+    grossMargin: "#d4b06a",
+    operatingMargin: "#6fb7e8",
+    fcfMargin: "#6ccf9b",
+    cashFlowOperations: "#6fb7e8",
+    capex: "#e4b563",
+    freeCashFlow: "#6ccf9b"
+  };
+  let zoomLoadStarted = false;
 
   function canChart(canvasId) {
     const canvas = document.getElementById(canvasId);
@@ -15,8 +25,10 @@
         fallback.textContent = "Chart library unavailable. The dashboard remains readable through KPI cards and tables.";
         fallback.classList.add("is-visible");
       }
+      if (canvas) canvas.hidden = true;
       return false;
     }
+    canvas.hidden = false;
     if (fallback) fallback.classList.remove("is-visible");
     return true;
   }
@@ -40,47 +52,129 @@
         maintainAspectRatio: false,
         interaction: { mode: "index", intersect: false },
         plugins: {
-          legend: { labels: { color: "#dce8f6", usePointStyle: true } },
-          tooltip: { backgroundColor: "#07111f", borderColor: "rgba(215,181,109,.35)", borderWidth: 1 }
+          legend: {
+            position: "bottom",
+            align: "start",
+            labels: {
+              boxWidth: 8,
+              boxHeight: 8,
+              color: "#dce8f6",
+              padding: 18,
+              usePointStyle: true
+            }
+          },
+          tooltip: {
+            backgroundColor: "#07111f",
+            borderColor: "rgba(212,176,106,.38)",
+            borderWidth: 1,
+            titleColor: "#eef4f9",
+            bodyColor: "#b6c2cf",
+            padding: 12
+          },
+          zoom: {
+            pan: {
+              enabled: true,
+              mode: "x",
+              modifierKey: "ctrl"
+            },
+            zoom: {
+              drag: {
+                enabled: true,
+                backgroundColor: "rgba(212,176,106,.12)",
+                borderColor: "rgba(212,176,106,.5)",
+                borderWidth: 1
+              },
+              mode: "x",
+              wheel: {
+                enabled: false
+              }
+            },
+            limits: {
+              x: { min: "original", max: "original" }
+            }
+          }
         },
         scales: {
-          x: { ticks: { color: "#93a4b8" }, grid: { color: "rgba(186,202,221,.08)" } },
-          y: { title: { display: true, text: yTitle, color: "#aab8ca" }, ticks: { color: "#93a4b8" }, grid: { color: "rgba(186,202,221,.08)" } }
+          x: {
+            ticks: { color: "#93a4b8", maxRotation: 0 },
+            grid: { color: "rgba(201,214,230,.06)" },
+            border: { color: "rgba(201,214,230,.16)" }
+          },
+          y: {
+            title: { display: true, text: yTitle, color: "#aab8ca" },
+            ticks: { color: "#93a4b8" },
+            grid: { color: "rgba(201,214,230,.07)" },
+            border: { color: "rgba(201,214,230,.16)" }
+          }
         }
       }
     });
   }
 
-  function dataset(ticker, label, values, dashed) {
+  function companyDataset(ticker, label, values) {
+    return baseDataset(label, values, companyPalette[ticker] || "#d4b06a");
+  }
+
+  function metricDataset(metric, label, values, options = {}) {
+    return baseDataset(label, values, metricPalette[metric] || "#d4b06a", options);
+  }
+
+  function baseDataset(label, values, color, options = {}) {
     return {
       label,
       data: values,
-      borderColor: palette[ticker] || "#d7b56d",
-      backgroundColor: palette[ticker] || "#d7b56d",
-      borderWidth: 2,
-      borderDash: dashed ? [5, 5] : [],
-      pointRadius: 3,
-      tension: 0.32
+      borderColor: color,
+      backgroundColor: color,
+      borderWidth: options.width || 2,
+      borderDash: options.dashed ? [5, 5] : [],
+      pointRadius: options.points === false ? 0 : 3,
+      pointHoverRadius: 5,
+      tension: 0.28
     };
   }
 
   function renderFinancialCharts(company) {
     const annual = company.financials.annual;
-    lineChart("revenue-chart", annual.periods, [dataset(company.ticker, `${company.ticker} revenue`, annual.revenue)], "USD bn");
+    lineChart("revenue-chart", annual.periods, [companyDataset(company.ticker, `${company.ticker} revenue`, annual.revenue)], "USD bn");
     lineChart("margin-chart", annual.periods, [
-      dataset(company.ticker, "Gross margin", annual.grossMargin),
-      dataset(company.ticker, "Operating margin", annual.operatingMargin, true),
-      dataset(company.ticker, "FCF margin", annual.fcfMargin, true)
+      metricDataset("grossMargin", "Gross margin", annual.grossMargin),
+      metricDataset("operatingMargin", "Operating margin", annual.operatingMargin, { dashed: true }),
+      metricDataset("fcfMargin", "FCF margin", annual.fcfMargin)
     ], "%");
     lineChart("cash-chart", annual.periods, [
-      dataset(company.ticker, "Cash flow from operations", annual.cashFlowOperations),
-      dataset(company.ticker, "Capex", annual.capex, true),
-      dataset(company.ticker, "Free cash flow", annual.freeCashFlow)
+      metricDataset("cashFlowOperations", "Cash flow from operations", annual.cashFlowOperations),
+      metricDataset("capex", "Capex", annual.capex, { dashed: true }),
+      metricDataset("freeCashFlow", "Free cash flow", annual.freeCashFlow)
     ], "USD bn");
+  }
+
+  function loadZoomPlugin() {
+    if (zoomLoadStarted || !window.Chart) return;
+    zoomLoadStarted = true;
+    const script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.2.0/dist/chartjs-plugin-zoom.min.js";
+    script.async = true;
+    script.onload = () => {
+      if (window.ChartZoom && !Chart.registry.plugins.get("zoom")) {
+        Chart.register(window.ChartZoom);
+      }
+      window.dispatchEvent(new Event("chartjs-zoom-ready"));
+    };
+    document.head.appendChild(script);
   }
 
   window.PocCharts = {
     renderFinancialCharts,
+    loadZoomPlugin,
+    resetZoom(canvasId) {
+      const chart = registry[canvasId];
+      if (!chart) return;
+      if (typeof chart.resetZoom === "function") {
+        chart.resetZoom();
+      } else {
+        chart.resize();
+      }
+    },
     resizeAll() {
       Object.values(registry).forEach((chart) => chart.resize());
     },

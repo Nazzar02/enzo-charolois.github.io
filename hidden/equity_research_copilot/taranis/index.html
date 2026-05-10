@@ -6,7 +6,7 @@
     <title>POC Equity Research Copilot</title>
     <meta name="description" content="A first pass equity research dashboard for technology and AI infrastructure stocks.">
     <link rel="stylesheet" href="assets/css/taranis_poc.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" async onload="window.dispatchEvent(new Event('chartjs-ready'))"></script>
     <script src="assets/js/scoring.js" defer></script>
     <script src="assets/js/metrics.js" defer></script>
     <script src="assets/js/narrative.js" defer></script>
@@ -17,13 +17,17 @@
     <div class="shell">
       <header class="hero">
         <div class="brand-row">
-          <div class="brand-mark" aria-hidden="true">
-            <img src="assets/img/taranis-name-logo-for-black-background.svg" alt="">
+          <div class="brand-mark" aria-label="Taranis-inspired visual mark">
+            <img class="brand-icon" src="assets/img/taranis-logo.svg" alt="">
+            <img class="brand-wordmark" src="assets/img/taranis-name.svg" alt="">
           </div>
-          <span class="poc-pill">Shareable POC</span>
+          <div class="brand-meta">
+            <span class="poc-pill">Shareable POC</span>
+            <span class="unofficial-note">Unofficial demonstration</span>
+          </div>
         </div>
         <div class="hero-grid">
-          <div>
+          <div class="hero-copy">
             <p class="eyebrow">Technology equity research</p>
             <h1>POC Equity Research Copilot</h1>
             <p class="subtitle">A first pass equity research dashboard for technology and AI infrastructure stocks.</p>
@@ -108,31 +112,40 @@
               <div class="chart-header">
                 <div>
                   <span class="card-label">Revenue</span>
-                  <h3>Revenue trend · Annual · USD bn</h3>
+                  <h3>Revenue trend / Annual / USD bn</h3>
                 </div>
+                <button class="chart-reset" type="button" data-reset-zoom="revenue-chart">Reset zoom</button>
               </div>
-              <canvas id="revenue-chart" height="260"></canvas>
-              <p class="chart-fallback" data-fallback="revenue-chart"></p>
+              <div class="chart-frame">
+                <canvas id="revenue-chart"></canvas>
+                <p class="chart-fallback" data-fallback="revenue-chart"></p>
+              </div>
             </article>
             <article class="card chart-card">
               <div class="chart-header">
                 <div>
                   <span class="card-label">Profitability</span>
-                  <h3>Margin profile · Annual · %</h3>
+                  <h3>Margin profile / Annual / %</h3>
                 </div>
+                <button class="chart-reset" type="button" data-reset-zoom="margin-chart">Reset zoom</button>
               </div>
-              <canvas id="margin-chart" height="260"></canvas>
-              <p class="chart-fallback" data-fallback="margin-chart"></p>
+              <div class="chart-frame">
+                <canvas id="margin-chart"></canvas>
+                <p class="chart-fallback" data-fallback="margin-chart"></p>
+              </div>
             </article>
             <article class="card chart-card span-2">
               <div class="chart-header">
                 <div>
                   <span class="card-label">Cash conversion</span>
-                  <h3>CFO, capex and free cash flow · Annual · USD bn</h3>
+                  <h3>CFO, capex and free cash flow / Annual / USD bn</h3>
                 </div>
+                <button class="chart-reset" type="button" data-reset-zoom="cash-chart">Reset zoom</button>
               </div>
-              <canvas id="cash-chart" height="260"></canvas>
-              <p class="chart-fallback" data-fallback="cash-chart"></p>
+              <div class="chart-frame chart-frame-wide">
+                <canvas id="cash-chart"></canvas>
+                <p class="chart-fallback" data-fallback="cash-chart"></p>
+              </div>
             </article>
           </div>
         </section>
@@ -203,8 +216,8 @@
       </main>
 
       <footer class="footer">
-        <span>Demo dataset · <span id="footer-updated">Last updated pending</span></span>
-        <span>Unofficial product POC · No investment advice · Static JSON only</span>
+        <span>Made by Enzo Charolois &middot; POC Equity Research Copilot &middot; No investment recommendation</span>
+        <span>Demo dataset / <span id="footer-updated">Last updated pending</span> / Static JSON only</span>
       </footer>
     </div>
   </body>
