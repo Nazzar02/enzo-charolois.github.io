@@ -1,0 +1,49 @@
+{
+  "ticker": "AVGO",
+  "company_name": "Broadcom",
+  "sector": "Semiconductors and infrastructure software",
+  "currency": "USD",
+  "profile": {
+    "summary": "Diversified semiconductor and infrastructure software company with exposure to AI networking and custom silicon.",
+    "business_model": "Combines high-margin semiconductor franchises with infrastructure software assets and long-term enterprise relationships.",
+    "segments": ["Semiconductors", "Infrastructure software", "AI networking"],
+    "moat": ["Switching silicon", "Customer-specific design wins", "Software renewal base"],
+    "key_thesis": "AI networking and custom ASIC exposure with software-like margin resilience."
+  },
+  "financials": {
+    "annual": {
+      "periods": ["2021", "2022", "2023", "2024", "2025E"],
+      "revenue": [27.5, 31.7, 35.8, 41.1, 47.5],
+      "revenueGrowth": [15, 21, 18, 17, 16],
+      "grossMargin": [64.0, 64.5, 65.0, 65.4, 66.0],
+      "operatingMargin": [48.0, 49.0, 50.0, 51.0, 52.0],
+      "fcfMargin": [48.0, 47.9, 47.8, 47.7, 47.6],
+      "roic": [24.0, 25.0, 26.0, 27.0, 28.0],
+      "cashFlowOperations": [15.8, 18.1, 20.3, 23.0, 26.2],
+      "capex": [2.6, 2.9, 3.2, 3.4, 3.6],
+      "freeCashFlow": [13.2, 15.2, 17.1, 19.6, 22.6]
+    }
+  },
+  "valuation": {
+    "metrics": {
+      "pe": 34,
+      "forwardPe": 27,
+      "evSales": 14,
+      "evEbitda": 22,
+      "evFcf": 34,
+      "pFcf": 32
+    }
+  },
+  "risks": ["Integration execution", "Leverage after acquisitions", "Customer concentration in AI programs"],
+  "catalysts": ["AI networking growth", "VMware synergy realization", "Custom silicon demand"],
+  "analyst_view": {
+    "preliminary_view": "Quality compounder profile with improving AI exposure and software durability. The key question is balance sheet deleveraging and sustainability of AI networking growth."
+  },
+  "data_status": {
+    "source_type": "demo_dataset",
+    "last_updated": "2026-05-05",
+    "latest_annual_period": "2025E",
+    "latest_valuation_period": "May 2026",
+    "source_notes": "Illustrative static dataset for product demonstration. Not live or verified market data."
+  }
+}

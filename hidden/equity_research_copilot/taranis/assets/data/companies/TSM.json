@@ -1,0 +1,49 @@
+{
+  "ticker": "TSM",
+  "company_name": "Taiwan Semiconductor Manufacturing Company",
+  "sector": "Semiconductors",
+  "currency": "USD",
+  "profile": {
+    "summary": "Leading independent foundry manufacturing advanced chips for global fabless and IDM customers.",
+    "business_model": "Manufactures wafers for fabless semiconductor and IDM customers at scale, with premium economics tied to leading-edge nodes and advanced packaging.",
+    "segments": ["Advanced nodes", "Specialty technologies", "Advanced packaging"],
+    "moat": ["Process leadership", "Manufacturing scale", "Customer trust"],
+    "key_thesis": "Core manufacturing bottleneck for AI, smartphones and high performance computing."
+  },
+  "financials": {
+    "annual": {
+      "periods": ["2021", "2022", "2023", "2024", "2025E"],
+      "revenue": [113.4, 123.1, 133.3, 127.8, 138.2],
+      "revenueGrowth": [9, 14, 19, 18, 17],
+      "grossMargin": [54.0, 54.8, 55.5, 56.2, 57.0],
+      "operatingMargin": [45.5, 46.1, 46.8, 47.4, 48.0],
+      "fcfMargin": [26.8, 26.8, 26.8, 26.8, 26.8],
+      "roic": [25.0, 25.5, 26.0, 26.5, 27.0],
+      "cashFlowOperations": [65.9, 69.9, 74.1, 71.8, 76.0],
+      "capex": [35.5, 36.9, 38.4, 37.5, 39.0],
+      "freeCashFlow": [30.4, 33.0, 35.7, 34.3, 37.0]
+    }
+  },
+  "valuation": {
+    "metrics": {
+      "pe": 25,
+      "forwardPe": 21,
+      "evSales": 10,
+      "evEbitda": 16,
+      "evFcf": 58,
+      "pFcf": 48
+    }
+  },
+  "risks": ["Taiwan concentration", "High capex requirements", "Semiconductor cyclicality"],
+  "catalysts": ["AI accelerator demand", "Advanced packaging growth", "Leading-node pricing"],
+  "analyst_view": {
+    "preliminary_view": "Quality business with strategic relevance to AI infrastructure. Valuation requires judgment around geopolitical risk, capex intensity and durability of advanced-node demand."
+  },
+  "data_status": {
+    "source_type": "demo_dataset",
+    "last_updated": "2026-05-05",
+    "latest_annual_period": "2025E",
+    "latest_valuation_period": "May 2026",
+    "source_notes": "Illustrative static dataset for product demonstration. Not live or verified market data."
+  }
+}

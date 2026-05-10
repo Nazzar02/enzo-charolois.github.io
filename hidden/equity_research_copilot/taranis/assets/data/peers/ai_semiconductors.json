@@ -1,0 +1,6 @@
+{
+  "id": "ai_semiconductors",
+  "name": "AI infrastructure peers",
+  "description": "Compact demo peer set for first-pass relative valuation and quality comparison.",
+  "tickers": ["TSM", "NVDA", "ASML", "AVGO"]
+}

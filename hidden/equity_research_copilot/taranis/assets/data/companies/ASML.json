@@ -1,0 +1,49 @@
+{
+  "ticker": "ASML",
+  "company_name": "ASML Holding",
+  "sector": "Semiconductor equipment",
+  "currency": "USD",
+  "profile": {
+    "summary": "Monopoly-like supplier of EUV lithography systems used in advanced semiconductor manufacturing.",
+    "business_model": "Sells lithography systems, installed-base services and upgrades to leading logic and memory manufacturers.",
+    "segments": ["EUV systems", "DUV systems", "Installed base management"],
+    "moat": ["EUV technology leadership", "Deep supplier ecosystem", "Long customer roadmaps"],
+    "key_thesis": "Critical equipment bottleneck for advanced semiconductor scaling."
+  },
+  "financials": {
+    "annual": {
+      "periods": ["2021", "2022", "2023", "2024", "2025E"],
+      "revenue": [22.0, 23.8, 27.6, 30.1, 32.5],
+      "revenueGrowth": [18, 13, 30, 11, 10],
+      "grossMargin": [51.0, 51.5, 51.8, 52.1, 52.5],
+      "operatingMargin": [30.5, 31.2, 31.8, 32.3, 33.0],
+      "fcfMargin": [22.7, 22.7, 22.8, 22.9, 23.1],
+      "roic": [32.0, 32.5, 33.0, 33.5, 34.0],
+      "cashFlowOperations": [8.4, 8.8, 10.2, 10.8, 11.7],
+      "capex": [1.8, 1.9, 2.1, 2.2, 2.4],
+      "freeCashFlow": [6.6, 6.9, 8.1, 8.6, 9.3]
+    }
+  },
+  "valuation": {
+    "metrics": {
+      "pe": 40,
+      "forwardPe": 32,
+      "evSales": 12,
+      "evEbitda": 28,
+      "evFcf": 46,
+      "pFcf": 44
+    }
+  },
+  "risks": ["Export restrictions", "Customer capex cycles", "Long-cycle system demand volatility"],
+  "catalysts": ["High-NA EUV adoption", "Service revenue growth", "Advanced node capacity additions"],
+  "analyst_view": {
+    "preliminary_view": "High-quality equipment franchise with strategic scarcity value. Valuation depends on semiconductor capex recovery and the pace of next-generation EUV adoption."
+  },
+  "data_status": {
+    "source_type": "demo_dataset",
+    "last_updated": "2026-05-05",
+    "latest_annual_period": "2025E",
+    "latest_valuation_period": "May 2026",
+    "source_notes": "Illustrative static dataset for product demonstration. Not live or verified market data."
+  }
+}
