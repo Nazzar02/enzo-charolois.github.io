@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>POC Equity Research Copilot</title>
+    <meta name="description" content="A first pass equity research dashboard for technology and AI infrastructure stocks.">
+    <link rel="stylesheet" href="assets/css/taranis_poc.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+    <script src="assets/js/scoring.js" defer></script>
+    <script src="assets/js/metrics.js" defer></script>
+    <script src="assets/js/narrative.js" defer></script>
+    <script src="assets/js/charts.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="hero">
+        <div class="brand-row">
+          <div class="brand-mark" aria-hidden="true">
+            <img src="assets/img/taranis-name-logo-for-black-background.svg" alt="">
+          </div>
+          <span class="poc-pill">Shareable POC</span>
+        </div>
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">Technology equity research</p>
+            <h1>POC Equity Research Copilot</h1>
+            <p class="subtitle">A first pass equity research dashboard for technology and AI infrastructure stocks.</p>
+            <p class="disclaimer">For demonstration purposes only. No investment recommendation.</p>
+          </div>
+          <aside class="hero-panel" aria-label="Demo dataset metadata">
+            <span class="meta-label">Demo dataset</span>
+            <strong id="dataset-updated">Loading...</strong>
+            <p id="dataset-notes">Static JSON dataset for product demonstration.</p>
+          </aside>
+        </div>
+      </header>
+
+      <main>
+        <section class="control-card" aria-label="Dashboard controls">
+          <label>
+            <span>Company</span>
+            <select id="company-select"></select>
+          </label>
+          <label>
+            <span>Peer set</span>
+            <select id="peer-select"></select>
+          </label>
+          <div class="control-summary" id="control-summary">Loading company profile...</div>
+        </section>
+
+        <nav class="tabs" aria-label="Dashboard sections">
+          <button class="tab is-active" type="button" data-tab="overview">Overview</button>
+          <button class="tab" type="button" data-tab="financials">Financials</button>
+          <button class="tab" type="button" data-tab="valuation">Valuation</button>
+          <button class="tab" type="button" data-tab="peers">Peers</button>
+          <button class="tab" type="button" data-tab="risks">Risks</button>
+          <button class="tab" type="button" data-tab="analyst">Analyst View</button>
+        </nav>
+
+        <section id="overview" class="tab-panel is-active">
+          <div class="section-heading">
+            <p class="eyebrow">Overview</p>
+            <h2 id="overview-title">Company overview</h2>
+          </div>
+          <div class="overview-grid">
+            <article class="card span-2">
+              <span class="card-label">Company summary</span>
+              <h3 id="company-name"></h3>
+              <p id="company-summary"></p>
+            </article>
+            <article class="card">
+              <span class="card-label">Business model</span>
+              <p id="business-model"></p>
+            </article>
+            <article class="card">
+              <span class="card-label">Segment mix</span>
+              <ul id="segment-list" class="chip-list"></ul>
+            </article>
+            <article class="card">
+              <span class="card-label">Moat indicators</span>
+              <ul id="moat-list" class="clean-list"></ul>
+            </article>
+            <article class="card">
+              <span class="card-label">Key thesis</span>
+              <p id="key-thesis"></p>
+            </article>
+            <article class="card">
+              <span class="card-label">Key risks</span>
+              <ul id="overview-risks" class="clean-list"></ul>
+            </article>
+            <article class="card">
+              <span class="card-label">Key catalysts</span>
+              <ul id="overview-catalysts" class="clean-list"></ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="financials" class="tab-panel">
+          <div class="section-heading">
+            <p class="eyebrow">Financials</p>
+            <h2>Growth, margins, cash and reinvestment</h2>
+          </div>
+          <div id="kpi-grid" class="kpi-grid"></div>
+          <div class="chart-grid">
+            <article class="card chart-card">
+              <div class="chart-header">
+                <div>
+                  <span class="card-label">Revenue</span>
+                  <h3>Revenue trend · Annual · USD bn</h3>
+                </div>
+              </div>
+              <canvas id="revenue-chart" height="260"></canvas>
+              <p class="chart-fallback" data-fallback="revenue-chart"></p>
+            </article>
+            <article class="card chart-card">
+              <div class="chart-header">
+                <div>
+                  <span class="card-label">Profitability</span>
+                  <h3>Margin profile · Annual · %</h3>
+                </div>
+              </div>
+              <canvas id="margin-chart" height="260"></canvas>
+              <p class="chart-fallback" data-fallback="margin-chart"></p>
+            </article>
+            <article class="card chart-card span-2">
+              <div class="chart-header">
+                <div>
+                  <span class="card-label">Cash conversion</span>
+                  <h3>CFO, capex and free cash flow · Annual · USD bn</h3>
+                </div>
+              </div>
+              <canvas id="cash-chart" height="260"></canvas>
+              <p class="chart-fallback" data-fallback="cash-chart"></p>
+            </article>
+          </div>
+        </section>
+
+        <section id="valuation" class="tab-panel">
+          <div class="section-heading">
+            <p class="eyebrow">Valuation</p>
+            <h2>Absolute level versus peer context</h2>
+          </div>
+          <div id="valuation-metrics" class="metric-strip"></div>
+          <div class="valuation-grid">
+            <article class="card">
+              <span class="card-label">Absolute valuation</span>
+              <h3 id="absolute-label"></h3>
+              <p id="absolute-evidence"></p>
+            </article>
+            <article class="card">
+              <span class="card-label">Relative valuation</span>
+              <h3 id="relative-label"></h3>
+              <p id="relative-evidence"></p>
+            </article>
+            <article class="card span-2">
+              <span class="card-label">Interpretation</span>
+              <p id="valuation-interpretation"></p>
+            </article>
+          </div>
+        </section>
+
+        <section id="peers" class="tab-panel">
+          <div class="section-heading">
+            <p class="eyebrow">Peers</p>
+            <h2>Selected AI infrastructure peer set</h2>
+          </div>
+          <div class="table-card">
+            <div class="table-scroll">
+              <table id="peer-table">
+                <thead></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="risks" class="tab-panel">
+          <div class="section-heading">
+            <p class="eyebrow">Risk review</p>
+            <h2>Structured risks and catalysts</h2>
+          </div>
+          <div class="two-col">
+            <article class="card">
+              <span class="card-label">Main risks</span>
+              <ul id="risk-list" class="stack-list"></ul>
+            </article>
+            <article class="card">
+              <span class="card-label">Main catalysts</span>
+              <ul id="catalyst-list" class="stack-list"></ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="analyst" class="tab-panel">
+          <div class="section-heading">
+            <p class="eyebrow">Analyst view</p>
+            <h2>Generated preliminary note</h2>
+          </div>
+          <article class="card note-card" id="analyst-note"></article>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>Demo dataset · <span id="footer-updated">Last updated pending</span></span>
+        <span>Unofficial product POC · No investment advice · Static JSON only</span>
+      </footer>
+    </div>
+  </body>
+</html>
