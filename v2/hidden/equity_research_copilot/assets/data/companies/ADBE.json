@@ -1,0 +1,510 @@
+{
+  "ticker": "ADBE",
+  "name": "Adobe",
+  "exchange": "",
+  "industry": "Creative and document software",
+  "sector": "Software and data",
+  "currency": "USD",
+  "dataStatus": "Sample data",
+  "profile": {
+    "summary": "Provides creative, document, and marketing software subscriptions.",
+    "segments": [
+      "Creative Cloud",
+      "Document Cloud",
+      "Experience Cloud"
+    ],
+    "customers": [
+      "Enterprise customers",
+      "Cloud platforms",
+      "Technology buyers"
+    ],
+    "moat": [
+      "Creative workflow standard",
+      "Brand",
+      "Switching costs"
+    ],
+    "geography": "Global revenue base. Static geography note for interview preparation."
+  },
+  "caseStudy": {
+    "company": "Adobe",
+    "ticker": "ADBE",
+    "sector": "Software and data",
+    "oneSentenceBusiness": "Provides creative, document, and marketing software subscriptions.",
+    "keySegments": [
+      "Creative Cloud",
+      "Document Cloud",
+      "Experience Cloud"
+    ],
+    "whyItMatters": "Key test of generative AI risk versus product enhancement in software.",
+    "moat": "Creative workflow standard; Brand; Switching costs",
+    "growthQuality": "Solid growth, confirm margin quality and durability.",
+    "cashQuality": "High cash conversion with limited capex intensity.",
+    "valuationView": "Valuation needs peer and business-quality context.",
+    "mainRisks": [
+      "AI disruption",
+      "Growth deceleration",
+      "Competition"
+    ],
+    "mainCatalysts": [
+      "Firefly monetization",
+      "Seat expansion",
+      "Enterprise upsell"
+    ],
+    "caseStudyAngle": "Does AI expand Adobe's market or pressure pricing?",
+    "possibleConclusion": "High-quality software franchise, but AI narrative and growth reacceleration matter."
+  },
+  "financials": {
+    "annual": {
+      "periods": [
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025E"
+      ],
+      "revenue": [
+        12.7,
+        13.6,
+        14.4,
+        13.6,
+        14.5
+      ],
+      "revenueGrowth": [
+        2,
+        7,
+        12,
+        11,
+        10
+      ],
+      "grossMargin": [
+        85.0,
+        85.8,
+        86.5,
+        87.2,
+        88.0
+      ],
+      "operatingMargin": [
+        42.5,
+        43.1,
+        43.8,
+        44.4,
+        45.0
+      ],
+      "netMargin": [
+        28.0,
+        28.5,
+        29.0,
+        29.5,
+        30.0
+      ],
+      "cashFlowOperations": [
+        7.3,
+        7.6,
+        8.0,
+        7.6,
+        8
+      ],
+      "capex": [
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6
+      ],
+      "freeCashFlow": [
+        6.7,
+        7.0,
+        7.4,
+        7.0,
+        7.4
+      ],
+      "fcfMargin": [
+        52.8,
+        51.5,
+        51.4,
+        51.5,
+        51.0
+      ],
+      "roic": [
+        30.0,
+        30.5,
+        31.0,
+        31.5,
+        32.0
+      ],
+      "source": {
+        "name": "ADBE annual sample model",
+        "url": "",
+        "as_of": "2025E",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "quarterly": {
+      "periods": [
+        "Q1 2025",
+        "Q2 2025",
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "revenue": [
+        3.2,
+        3.4,
+        3.6,
+        3.4,
+        3.6
+      ],
+      "revenueGrowth": [
+        2,
+        7,
+        12,
+        11,
+        10
+      ],
+      "grossMargin": [
+        85.0,
+        85.8,
+        86.5,
+        87.2,
+        88.0
+      ],
+      "operatingMargin": [
+        42.5,
+        43.1,
+        43.8,
+        44.4,
+        45.0
+      ],
+      "netMargin": [
+        28.0,
+        28.5,
+        29.0,
+        29.5,
+        30.0
+      ],
+      "cashFlowOperations": [
+        1.8,
+        1.9,
+        2.0,
+        1.9,
+        2.0
+      ],
+      "capex": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "freeCashFlow": [
+        1.7,
+        1.8,
+        1.9,
+        1.8,
+        1.9
+      ],
+      "fcfMargin": [
+        53.1,
+        52.9,
+        52.8,
+        52.9,
+        52.8
+      ],
+      "roic": [
+        30.0,
+        30.5,
+        31.0,
+        31.5,
+        32.0
+      ],
+      "source": {
+        "name": "ADBE quarterly sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "ttm": {
+      "periods": [
+        "TTM"
+      ],
+      "revenue": [
+        14.0
+      ],
+      "revenueGrowth": [
+        10
+      ],
+      "grossMargin": [
+        88.0
+      ],
+      "operatingMargin": [
+        45.0
+      ],
+      "netMargin": [
+        30.0
+      ],
+      "cashFlowOperations": [
+        7.8
+      ],
+      "capex": [
+        0.4
+      ],
+      "freeCashFlow": [
+        7.4
+      ],
+      "fcfMargin": [
+        52.9
+      ],
+      "roic": [
+        32.0
+      ],
+      "source": {
+        "name": "ADBE rolling TTM sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Derived from quarterly sample data."
+      }
+    }
+  },
+  "valuation": {
+    "metrics": {
+      "revenueGrowth": 10,
+      "grossMargin": 88,
+      "operatingMargin": 45,
+      "netMargin": 30,
+      "cashFlowOperations": 8,
+      "capex": 0.6,
+      "freeCashFlow": 7.4,
+      "fcfMargin": 34,
+      "pe": 28,
+      "forwardPe": 23,
+      "evSales": 9,
+      "evEbitda": 20,
+      "evFcf": 27,
+      "pFcf": 26,
+      "roic": 32,
+      "debt": 4,
+      "netDebt": -3,
+      "capexIntensity": 3
+    },
+    "source": {
+      "name": "Manual sample valuation model",
+      "url": "",
+      "as_of": "May 2026",
+      "retrieved_at": "2026-05-05",
+      "notes": "Approximate valuation multiples for static demo only."
+    }
+  },
+  "metrics": {
+    "revenueGrowth": 10,
+    "grossMargin": 88,
+    "operatingMargin": 45,
+    "netMargin": 30,
+    "cashFlowOperations": 8,
+    "capex": 0.6,
+    "freeCashFlow": 7.4,
+    "fcfMargin": 34,
+    "pe": 28,
+    "forwardPe": 23,
+    "evSales": 9,
+    "evEbitda": 20,
+    "evFcf": 27,
+    "pFcf": 26,
+    "roic": 32,
+    "debt": 4,
+    "netDebt": -3,
+    "capexIntensity": 3
+  },
+  "stockPerformance": {
+    "note": "Sample market data for demo purposes.",
+    "horizons": {
+      "1M": 1.3,
+      "3M": 4.0,
+      "6M": 8.0,
+      "YTD": 6.7,
+      "1Y": 16.0,
+      "3Y": 33.6,
+      "5Y": 48.0,
+      "10Y": 76.8,
+      "MAX": 120.0
+    },
+    "series": {
+      "1M": {
+        "periods": [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4"
+        ],
+        "price": [
+          99.0,
+          100.4,
+          101.9,
+          101.3
+        ]
+      },
+      "3M": {
+        "periods": [
+          "Month 1",
+          "Month 2",
+          "Month 3"
+        ],
+        "price": [
+          99.0,
+          102.0,
+          104.0
+        ]
+      },
+      "6M": {
+        "periods": [
+          "Oct",
+          "Nov",
+          "Dec",
+          "Jan",
+          "Feb",
+          "Mar"
+        ],
+        "price": [
+          98.5,
+          101.6,
+          104.7,
+          103.2,
+          106.4,
+          108.0
+        ]
+      },
+      "YTD": {
+        "periods": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "price": [
+          98.5,
+          101.7,
+          104.9,
+          103.4,
+          106.7
+        ]
+      },
+      "1Y": {
+        "periods": [
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "price": [
+          98.0,
+          105.3,
+          112.9,
+          116.0
+        ]
+      },
+      "3Y": {
+        "periods": [
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          97.0,
+          111.2,
+          126.1,
+          133.6
+        ]
+      },
+      "5Y": {
+        "periods": [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          109.6,
+          124.0,
+          123.6,
+          138.4,
+          148.0
+        ]
+      },
+      "10Y": {
+        "periods": [
+          "2016",
+          "2018",
+          "2020",
+          "2022",
+          "2024",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          115.4,
+          135.9,
+          140.2,
+          161.4,
+          176.8
+        ]
+      },
+      "MAX": {
+        "periods": [
+          "2010",
+          "2013",
+          "2016",
+          "2019",
+          "2022",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          124.0,
+          153.9,
+          165.1,
+          196.0,
+          220.0
+        ]
+      }
+    }
+  },
+  "risks": [
+    "AI disruption",
+    "Growth deceleration",
+    "Competition"
+  ],
+  "catalysts": [
+    "Firefly monetization",
+    "Seat expansion",
+    "Enterprise upsell"
+  ],
+  "analystFlags": [
+    "Sample data for preparation only.",
+    "Verify all metrics before professional use."
+  ],
+  "data_status": {
+    "last_updated": "2026-05-05",
+    "source_type": "sample_manual",
+    "source_notes": "Static sample data for interview preparation. Figures are approximate and not live.",
+    "latest_annual_period": "2025E",
+    "latest_quarterly_period": "Q1 2026",
+    "latest_market_period": "May 2026",
+    "latest_valuation_period": "May 2026",
+    "has_mixed_freshness": false
+  },
+  "market_source": {
+    "name": "ADBE sample market performance",
+    "url": "",
+    "as_of": "May 2026",
+    "retrieved_at": "2026-05-05",
+    "notes": "Sample market data for demo purposes, not live pricing."
+  }
+}

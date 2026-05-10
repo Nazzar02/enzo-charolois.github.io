@@ -1,0 +1,510 @@
+{
+  "ticker": "MU",
+  "name": "Micron Technology",
+  "exchange": "",
+  "industry": "Memory",
+  "sector": "Semiconductors",
+  "currency": "USD",
+  "dataStatus": "Sample data",
+  "profile": {
+    "summary": "Produces DRAM and NAND memory used in data center, PCs, mobile, and industrial systems.",
+    "segments": [
+      "DRAM",
+      "NAND",
+      "HBM"
+    ],
+    "customers": [
+      "Enterprise customers",
+      "Cloud platforms",
+      "Technology buyers"
+    ],
+    "moat": [
+      "Scale",
+      "Process know-how",
+      "HBM positioning"
+    ],
+    "geography": "Global revenue base. Static geography note for interview preparation."
+  },
+  "caseStudy": {
+    "company": "Micron Technology",
+    "ticker": "MU",
+    "sector": "Semiconductors",
+    "oneSentenceBusiness": "Produces DRAM and NAND memory used in data center, PCs, mobile, and industrial systems.",
+    "keySegments": [
+      "DRAM",
+      "NAND",
+      "HBM"
+    ],
+    "whyItMatters": "Memory cycle and HBM demand are important AI infrastructure indicators.",
+    "moat": "Scale; Process know-how; HBM positioning",
+    "growthQuality": "Solid growth, confirm margin quality and durability.",
+    "cashQuality": "Cash quality constrained by high capex intensity.",
+    "valuationView": "Valuation appears more reasonable versus growth profile.",
+    "mainRisks": [
+      "Memory cyclicality",
+      "Capex discipline",
+      "Commodity pricing"
+    ],
+    "mainCatalysts": [
+      "HBM demand",
+      "Supply discipline",
+      "AI server memory content"
+    ],
+    "caseStudyAngle": "Where is the company in the memory cycle and how durable is HBM pricing?",
+    "possibleConclusion": "Cyclical recovery story, quality depends on pricing discipline and capex."
+  },
+  "financials": {
+    "annual": {
+      "periods": [
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025E"
+      ],
+      "revenue": [
+        10.8,
+        12.6,
+        14.4,
+        14.5,
+        16.4
+      ],
+      "revenueGrowth": [
+        37,
+        42,
+        47,
+        46,
+        45
+      ],
+      "grossMargin": [
+        32.0,
+        32.8,
+        33.5,
+        34.2,
+        35.0
+      ],
+      "operatingMargin": [
+        15.5,
+        16.1,
+        16.8,
+        17.4,
+        18.0
+      ],
+      "netMargin": [
+        10.0,
+        10.5,
+        11.0,
+        11.5,
+        12.0
+      ],
+      "cashFlowOperations": [
+        6.6,
+        7.4,
+        8.2,
+        8.2,
+        9
+      ],
+      "capex": [
+        6.5,
+        7.0,
+        7.5,
+        7.5,
+        8
+      ],
+      "freeCashFlow": [
+        0.1,
+        0.4,
+        0.7,
+        0.7,
+        1
+      ],
+      "fcfMargin": [
+        0.9,
+        3.2,
+        4.9,
+        4.8,
+        6.1
+      ],
+      "roic": [
+        6.0,
+        6.5,
+        7.0,
+        7.5,
+        8.0
+      ],
+      "source": {
+        "name": "MU annual sample model",
+        "url": "",
+        "as_of": "2025E",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "quarterly": {
+      "periods": [
+        "Q1 2025",
+        "Q2 2025",
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "revenue": [
+        2.7,
+        3.1,
+        3.6,
+        3.6,
+        4.1
+      ],
+      "revenueGrowth": [
+        37,
+        42,
+        47,
+        46,
+        45
+      ],
+      "grossMargin": [
+        32.0,
+        32.8,
+        33.5,
+        34.2,
+        35.0
+      ],
+      "operatingMargin": [
+        15.5,
+        16.1,
+        16.8,
+        17.4,
+        18.0
+      ],
+      "netMargin": [
+        10.0,
+        10.5,
+        11.0,
+        11.5,
+        12.0
+      ],
+      "cashFlowOperations": [
+        1.7,
+        1.8,
+        2.0,
+        2.1,
+        2.2
+      ],
+      "capex": [
+        1.6,
+        1.7,
+        1.9,
+        1.9,
+        2.0
+      ],
+      "freeCashFlow": [
+        0.1,
+        0.1,
+        0.1,
+        0.2,
+        0.2
+      ],
+      "fcfMargin": [
+        3.7,
+        3.2,
+        2.8,
+        5.6,
+        4.9
+      ],
+      "roic": [
+        6.0,
+        6.5,
+        7.0,
+        7.5,
+        8.0
+      ],
+      "source": {
+        "name": "MU quarterly sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "ttm": {
+      "periods": [
+        "TTM"
+      ],
+      "revenue": [
+        14.4
+      ],
+      "revenueGrowth": [
+        45
+      ],
+      "grossMargin": [
+        35.0
+      ],
+      "operatingMargin": [
+        18.0
+      ],
+      "netMargin": [
+        12.0
+      ],
+      "cashFlowOperations": [
+        8.1
+      ],
+      "capex": [
+        7.5
+      ],
+      "freeCashFlow": [
+        0.6
+      ],
+      "fcfMargin": [
+        4.2
+      ],
+      "roic": [
+        8.0
+      ],
+      "source": {
+        "name": "MU rolling TTM sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Derived from quarterly sample data."
+      }
+    }
+  },
+  "valuation": {
+    "metrics": {
+      "revenueGrowth": 45,
+      "grossMargin": 35,
+      "operatingMargin": 18,
+      "netMargin": 12,
+      "cashFlowOperations": 9,
+      "capex": 8,
+      "freeCashFlow": 1,
+      "fcfMargin": 4,
+      "pe": 30,
+      "forwardPe": 18,
+      "evSales": 5,
+      "evEbitda": 10,
+      "evFcf": 70,
+      "pFcf": 68,
+      "roic": 8,
+      "debt": 14,
+      "netDebt": 6,
+      "capexIntensity": 30
+    },
+    "source": {
+      "name": "Manual sample valuation model",
+      "url": "",
+      "as_of": "May 2026",
+      "retrieved_at": "2026-05-05",
+      "notes": "Approximate valuation multiples for static demo only."
+    }
+  },
+  "metrics": {
+    "revenueGrowth": 45,
+    "grossMargin": 35,
+    "operatingMargin": 18,
+    "netMargin": 12,
+    "cashFlowOperations": 9,
+    "capex": 8,
+    "freeCashFlow": 1,
+    "fcfMargin": 4,
+    "pe": 30,
+    "forwardPe": 18,
+    "evSales": 5,
+    "evEbitda": 10,
+    "evFcf": 70,
+    "pFcf": 68,
+    "roic": 8,
+    "debt": 14,
+    "netDebt": 6,
+    "capexIntensity": 30
+  },
+  "stockPerformance": {
+    "note": "Sample market data for demo purposes.",
+    "horizons": {
+      "1M": 6.0,
+      "3M": 18.0,
+      "6M": 36.0,
+      "YTD": 30.0,
+      "1Y": 72.0,
+      "3Y": 151.2,
+      "5Y": 216.0,
+      "10Y": 345.6,
+      "MAX": 540.0
+    },
+    "series": {
+      "1M": {
+        "periods": [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4"
+        ],
+        "price": [
+          99.0,
+          102.0,
+          105.0,
+          106.0
+        ]
+      },
+      "3M": {
+        "periods": [
+          "Month 1",
+          "Month 2",
+          "Month 3"
+        ],
+        "price": [
+          99.0,
+          109.0,
+          118.0
+        ]
+      },
+      "6M": {
+        "periods": [
+          "Oct",
+          "Nov",
+          "Dec",
+          "Jan",
+          "Feb",
+          "Mar"
+        ],
+        "price": [
+          98.5,
+          107.2,
+          116.1,
+          119.8,
+          128.8,
+          136.0
+        ]
+      },
+      "YTD": {
+        "periods": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "price": [
+          98.5,
+          107.5,
+          116.7,
+          120.7,
+          130.0
+        ]
+      },
+      "1Y": {
+        "periods": [
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "price": [
+          98.0,
+          124.0,
+          151.0,
+          172.0
+        ]
+      },
+      "3Y": {
+        "periods": [
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          97.0,
+          150.4,
+          206.8,
+          251.2
+        ]
+      },
+      "5Y": {
+        "periods": [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          143.2,
+          193.9,
+          220.4,
+          272.8,
+          316.0
+        ]
+      },
+      "10Y": {
+        "periods": [
+          "2016",
+          "2018",
+          "2020",
+          "2022",
+          "2024",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          169.1,
+          247.8,
+          295.1,
+          376.5,
+          445.6
+        ]
+      },
+      "MAX": {
+        "periods": [
+          "2010",
+          "2013",
+          "2016",
+          "2019",
+          "2022",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          208.0,
+          328.6,
+          407.0,
+          532.0,
+          640.0
+        ]
+      }
+    }
+  },
+  "risks": [
+    "Memory cyclicality",
+    "Capex discipline",
+    "Commodity pricing"
+  ],
+  "catalysts": [
+    "HBM demand",
+    "Supply discipline",
+    "AI server memory content"
+  ],
+  "analystFlags": [
+    "Sample data for preparation only.",
+    "Verify all metrics before professional use."
+  ],
+  "data_status": {
+    "last_updated": "2026-05-05",
+    "source_type": "sample_manual",
+    "source_notes": "Static sample data for interview preparation. Figures are approximate and not live.",
+    "latest_annual_period": "2025E",
+    "latest_quarterly_period": "Q1 2026",
+    "latest_market_period": "May 2026",
+    "latest_valuation_period": "May 2026",
+    "has_mixed_freshness": false
+  },
+  "market_source": {
+    "name": "MU sample market performance",
+    "url": "",
+    "as_of": "May 2026",
+    "retrieved_at": "2026-05-05",
+    "notes": "Sample market data for demo purposes, not live pricing."
+  }
+}

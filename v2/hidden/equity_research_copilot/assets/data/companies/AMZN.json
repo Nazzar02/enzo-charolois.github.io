@@ -1,0 +1,512 @@
+{
+  "ticker": "AMZN",
+  "name": "Amazon",
+  "exchange": "",
+  "industry": "E-commerce, cloud, and advertising",
+  "sector": "Cloud and big tech",
+  "currency": "USD",
+  "dataStatus": "Sample data",
+  "profile": {
+    "summary": "Operates marketplace, logistics, AWS, ads, and subscription ecosystems.",
+    "segments": [
+      "AWS",
+      "North America retail",
+      "International retail",
+      "Advertising"
+    ],
+    "customers": [
+      "Enterprise customers",
+      "Cloud platforms",
+      "Technology buyers"
+    ],
+    "moat": [
+      "Scale",
+      "Logistics network",
+      "AWS ecosystem"
+    ],
+    "geography": "Global revenue base. Static geography note for interview preparation."
+  },
+  "caseStudy": {
+    "company": "Amazon",
+    "ticker": "AMZN",
+    "sector": "Cloud and big tech",
+    "oneSentenceBusiness": "Operates marketplace, logistics, AWS, ads, and subscription ecosystems.",
+    "keySegments": [
+      "AWS",
+      "North America retail",
+      "International retail",
+      "Advertising"
+    ],
+    "whyItMatters": "Shows interaction between cloud AI demand, retail margins, and capex.",
+    "moat": "Scale; Logistics network; AWS ecosystem",
+    "growthQuality": "Solid growth, confirm margin quality and durability.",
+    "cashQuality": "Cash conversion needs deeper review.",
+    "valuationView": "Valuation needs peer and business-quality context.",
+    "mainRisks": [
+      "Retail margin pressure",
+      "Cloud competition",
+      "Capex"
+    ],
+    "mainCatalysts": [
+      "AWS AI demand",
+      "Advertising growth",
+      "Logistics efficiency"
+    ],
+    "caseStudyAngle": "Can AWS and ads margin expansion offset heavy infrastructure investment?",
+    "possibleConclusion": "Powerful platform, conclusion depends on margin trajectory and capex payback."
+  },
+  "financials": {
+    "annual": {
+      "periods": [
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025E"
+      ],
+      "revenue": [
+        173.0,
+        185.1,
+        197.7,
+        187.2,
+        200.0
+      ],
+      "revenueGrowth": [
+        3,
+        8,
+        13,
+        12,
+        11
+      ],
+      "grossMargin": [
+        45.0,
+        45.8,
+        46.5,
+        47.2,
+        48.0
+      ],
+      "operatingMargin": [
+        8.5,
+        9.1,
+        9.8,
+        10.4,
+        11.0
+      ],
+      "netMargin": [
+        6.0,
+        6.5,
+        7.0,
+        7.5,
+        8.0
+      ],
+      "cashFlowOperations": [
+        99.1,
+        104.1,
+        109.2,
+        104.8,
+        110
+      ],
+      "capex": [
+        65.4,
+        67.5,
+        69.7,
+        67.8,
+        70
+      ],
+      "freeCashFlow": [
+        33.7,
+        36.6,
+        39.5,
+        37.0,
+        40
+      ],
+      "fcfMargin": [
+        19.5,
+        19.8,
+        20.0,
+        19.8,
+        20.0
+      ],
+      "roic": [
+        12.0,
+        12.5,
+        13.0,
+        13.5,
+        14.0
+      ],
+      "source": {
+        "name": "AMZN annual sample model",
+        "url": "",
+        "as_of": "2025E",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "quarterly": {
+      "periods": [
+        "Q1 2025",
+        "Q2 2025",
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "revenue": [
+        43.2,
+        46.3,
+        49.4,
+        46.8,
+        50.0
+      ],
+      "revenueGrowth": [
+        3,
+        8,
+        13,
+        12,
+        11
+      ],
+      "grossMargin": [
+        45.0,
+        45.8,
+        46.5,
+        47.2,
+        48.0
+      ],
+      "operatingMargin": [
+        8.5,
+        9.1,
+        9.8,
+        10.4,
+        11.0
+      ],
+      "netMargin": [
+        6.0,
+        6.5,
+        7.0,
+        7.5,
+        8.0
+      ],
+      "cashFlowOperations": [
+        24.8,
+        26.0,
+        27.3,
+        26.2,
+        27.5
+      ],
+      "capex": [
+        16.3,
+        16.9,
+        17.4,
+        16.9,
+        17.5
+      ],
+      "freeCashFlow": [
+        8.5,
+        9.1,
+        9.9,
+        9.3,
+        10.0
+      ],
+      "fcfMargin": [
+        19.7,
+        19.7,
+        20.0,
+        19.9,
+        20.0
+      ],
+      "roic": [
+        12.0,
+        12.5,
+        13.0,
+        13.5,
+        14.0
+      ],
+      "source": {
+        "name": "AMZN quarterly sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "ttm": {
+      "periods": [
+        "TTM"
+      ],
+      "revenue": [
+        192.5
+      ],
+      "revenueGrowth": [
+        11
+      ],
+      "grossMargin": [
+        48.0
+      ],
+      "operatingMargin": [
+        11.0
+      ],
+      "netMargin": [
+        8.0
+      ],
+      "cashFlowOperations": [
+        107.0
+      ],
+      "capex": [
+        68.7
+      ],
+      "freeCashFlow": [
+        38.3
+      ],
+      "fcfMargin": [
+        19.9
+      ],
+      "roic": [
+        14.0
+      ],
+      "source": {
+        "name": "AMZN rolling TTM sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Derived from quarterly sample data."
+      }
+    }
+  },
+  "valuation": {
+    "metrics": {
+      "revenueGrowth": 11,
+      "grossMargin": 48,
+      "operatingMargin": 11,
+      "netMargin": 8,
+      "cashFlowOperations": 110,
+      "capex": 70,
+      "freeCashFlow": 40,
+      "fcfMargin": 6,
+      "pe": 40,
+      "forwardPe": 31,
+      "evSales": 4,
+      "evEbitda": 19,
+      "evFcf": 42,
+      "pFcf": 41,
+      "roic": 14,
+      "debt": 135,
+      "netDebt": 55,
+      "capexIntensity": 11
+    },
+    "source": {
+      "name": "Manual sample valuation model",
+      "url": "",
+      "as_of": "May 2026",
+      "retrieved_at": "2026-05-05",
+      "notes": "Approximate valuation multiples for static demo only."
+    }
+  },
+  "metrics": {
+    "revenueGrowth": 11,
+    "grossMargin": 48,
+    "operatingMargin": 11,
+    "netMargin": 8,
+    "cashFlowOperations": 110,
+    "capex": 70,
+    "freeCashFlow": 40,
+    "fcfMargin": 6,
+    "pe": 40,
+    "forwardPe": 31,
+    "evSales": 4,
+    "evEbitda": 19,
+    "evFcf": 42,
+    "pFcf": 41,
+    "roic": 14,
+    "debt": 135,
+    "netDebt": 55,
+    "capexIntensity": 11
+  },
+  "stockPerformance": {
+    "note": "Sample market data for demo purposes.",
+    "horizons": {
+      "1M": 1.5,
+      "3M": 4.4,
+      "6M": 8.8,
+      "YTD": 7.3,
+      "1Y": 17.6,
+      "3Y": 37.0,
+      "5Y": 52.8,
+      "10Y": 84.5,
+      "MAX": 132.0
+    },
+    "series": {
+      "1M": {
+        "periods": [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4"
+        ],
+        "price": [
+          99.0,
+          100.5,
+          102.0,
+          101.5
+        ]
+      },
+      "3M": {
+        "periods": [
+          "Month 1",
+          "Month 2",
+          "Month 3"
+        ],
+        "price": [
+          99.0,
+          102.2,
+          104.4
+        ]
+      },
+      "6M": {
+        "periods": [
+          "Oct",
+          "Nov",
+          "Dec",
+          "Jan",
+          "Feb",
+          "Mar"
+        ],
+        "price": [
+          98.5,
+          101.8,
+          105.1,
+          103.7,
+          107.0,
+          108.8
+        ]
+      },
+      "YTD": {
+        "periods": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "price": [
+          98.5,
+          101.8,
+          105.2,
+          103.9,
+          107.3
+        ]
+      },
+      "1Y": {
+        "periods": [
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "price": [
+          98.0,
+          105.9,
+          114.0,
+          117.6
+        ]
+      },
+      "3Y": {
+        "periods": [
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          97.0,
+          112.3,
+          128.4,
+          137.0
+        ]
+      },
+      "5Y": {
+        "periods": [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          110.6,
+          126.0,
+          126.4,
+          142.2,
+          152.8
+        ]
+      },
+      "10Y": {
+        "periods": [
+          "2016",
+          "2018",
+          "2020",
+          "2022",
+          "2024",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          116.9,
+          139.1,
+          144.7,
+          167.6,
+          184.5
+        ]
+      },
+      "MAX": {
+        "periods": [
+          "2010",
+          "2013",
+          "2016",
+          "2019",
+          "2022",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          126.4,
+          158.9,
+          172.0,
+          205.6,
+          232.0
+        ]
+      }
+    }
+  },
+  "risks": [
+    "Retail margin pressure",
+    "Cloud competition",
+    "Capex"
+  ],
+  "catalysts": [
+    "AWS AI demand",
+    "Advertising growth",
+    "Logistics efficiency"
+  ],
+  "analystFlags": [
+    "Sample data for preparation only.",
+    "Verify all metrics before professional use."
+  ],
+  "data_status": {
+    "last_updated": "2026-05-05",
+    "source_type": "sample_manual",
+    "source_notes": "Static sample data for interview preparation. Figures are approximate and not live.",
+    "latest_annual_period": "2025E",
+    "latest_quarterly_period": "Q1 2026",
+    "latest_market_period": "May 2026",
+    "latest_valuation_period": "May 2026",
+    "has_mixed_freshness": false
+  },
+  "market_source": {
+    "name": "AMZN sample market performance",
+    "url": "",
+    "as_of": "May 2026",
+    "retrieved_at": "2026-05-05",
+    "notes": "Sample market data for demo purposes, not live pricing."
+  }
+}

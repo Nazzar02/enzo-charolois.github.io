@@ -1,0 +1,512 @@
+{
+  "ticker": "ORCL",
+  "name": "Oracle",
+  "exchange": "",
+  "industry": "Enterprise software and cloud infrastructure",
+  "sector": "Cloud and big tech",
+  "currency": "USD",
+  "dataStatus": "Sample data",
+  "profile": {
+    "summary": "Enterprise software company expanding cloud infrastructure and database services.",
+    "segments": [
+      "Cloud services",
+      "License support",
+      "Hardware",
+      "Services"
+    ],
+    "customers": [
+      "Enterprise customers",
+      "Cloud platforms",
+      "Technology buyers"
+    ],
+    "moat": [
+      "Database installed base",
+      "Enterprise relationships",
+      "Switching costs"
+    ],
+    "geography": "Global revenue base. Static geography note for interview preparation."
+  },
+  "caseStudy": {
+    "company": "Oracle",
+    "ticker": "ORCL",
+    "sector": "Cloud and big tech",
+    "oneSentenceBusiness": "Enterprise software company expanding cloud infrastructure and database services.",
+    "keySegments": [
+      "Cloud services",
+      "License support",
+      "Hardware",
+      "Services"
+    ],
+    "whyItMatters": "Infrastructure cloud challenger with database lock-in and AI capacity demand.",
+    "moat": "Database installed base; Enterprise relationships; Switching costs",
+    "growthQuality": "Moderate growth; focus on drivers and cycle position.",
+    "cashQuality": "Cash quality constrained by high capex intensity.",
+    "valuationView": "Valuation needs peer and business-quality context.",
+    "mainRisks": [
+      "Debt load",
+      "Cloud competition",
+      "Capex execution"
+    ],
+    "mainCatalysts": [
+      "OCI demand",
+      "Database cloud migration",
+      "AI infrastructure contracts"
+    ],
+    "caseStudyAngle": "Can cloud infrastructure growth offset leverage and mature license exposure?",
+    "possibleConclusion": "Useful enterprise cloud story, but leverage and capex need attention."
+  },
+  "financials": {
+    "annual": {
+      "periods": [
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025E"
+      ],
+      "revenue": [
+        32.3,
+        34.3,
+        36.4,
+        34.3,
+        36.4
+      ],
+      "revenueGrowth": [
+        0,
+        5,
+        10,
+        9,
+        8
+      ],
+      "grossMargin": [
+        69.0,
+        69.8,
+        70.5,
+        71.2,
+        72.0
+      ],
+      "operatingMargin": [
+        38.5,
+        39.1,
+        39.8,
+        40.4,
+        41.0
+      ],
+      "netMargin": [
+        18.0,
+        18.5,
+        19.0,
+        19.5,
+        20.0
+      ],
+      "cashFlowOperations": [
+        18.4,
+        19.2,
+        20.1,
+        19.1,
+        20
+      ],
+      "capex": [
+        13.2,
+        13.6,
+        14.0,
+        13.6,
+        14
+      ],
+      "freeCashFlow": [
+        5.2,
+        5.6,
+        6.1,
+        5.5,
+        6
+      ],
+      "fcfMargin": [
+        16.1,
+        16.3,
+        16.8,
+        16.0,
+        16.5
+      ],
+      "roic": [
+        15.0,
+        15.5,
+        16.0,
+        16.5,
+        17.0
+      ],
+      "source": {
+        "name": "ORCL annual sample model",
+        "url": "",
+        "as_of": "2025E",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "quarterly": {
+      "periods": [
+        "Q1 2025",
+        "Q2 2025",
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "revenue": [
+        8.1,
+        8.6,
+        9.1,
+        8.6,
+        9.1
+      ],
+      "revenueGrowth": [
+        0,
+        5,
+        10,
+        9,
+        8
+      ],
+      "grossMargin": [
+        69.0,
+        69.8,
+        70.5,
+        71.2,
+        72.0
+      ],
+      "operatingMargin": [
+        38.5,
+        39.1,
+        39.8,
+        40.4,
+        41.0
+      ],
+      "netMargin": [
+        18.0,
+        18.5,
+        19.0,
+        19.5,
+        20.0
+      ],
+      "cashFlowOperations": [
+        4.6,
+        4.8,
+        5.0,
+        4.8,
+        5.0
+      ],
+      "capex": [
+        3.3,
+        3.4,
+        3.5,
+        3.4,
+        3.5
+      ],
+      "freeCashFlow": [
+        1.3,
+        1.4,
+        1.5,
+        1.4,
+        1.5
+      ],
+      "fcfMargin": [
+        16.0,
+        16.3,
+        16.5,
+        16.3,
+        16.5
+      ],
+      "roic": [
+        15.0,
+        15.5,
+        16.0,
+        16.5,
+        17.0
+      ],
+      "source": {
+        "name": "ORCL quarterly sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "ttm": {
+      "periods": [
+        "TTM"
+      ],
+      "revenue": [
+        35.4
+      ],
+      "revenueGrowth": [
+        8
+      ],
+      "grossMargin": [
+        72.0
+      ],
+      "operatingMargin": [
+        41.0
+      ],
+      "netMargin": [
+        20.0
+      ],
+      "cashFlowOperations": [
+        19.6
+      ],
+      "capex": [
+        13.8
+      ],
+      "freeCashFlow": [
+        5.8
+      ],
+      "fcfMargin": [
+        16.4
+      ],
+      "roic": [
+        17.0
+      ],
+      "source": {
+        "name": "ORCL rolling TTM sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Derived from quarterly sample data."
+      }
+    }
+  },
+  "valuation": {
+    "metrics": {
+      "revenueGrowth": 8,
+      "grossMargin": 72,
+      "operatingMargin": 41,
+      "netMargin": 20,
+      "cashFlowOperations": 20,
+      "capex": 14,
+      "freeCashFlow": 6,
+      "fcfMargin": 11,
+      "pe": 36,
+      "forwardPe": 28,
+      "evSales": 9,
+      "evEbitda": 20,
+      "evFcf": 55,
+      "pFcf": 48,
+      "roic": 17,
+      "debt": 88,
+      "netDebt": 76,
+      "capexIntensity": 25
+    },
+    "source": {
+      "name": "Manual sample valuation model",
+      "url": "",
+      "as_of": "May 2026",
+      "retrieved_at": "2026-05-05",
+      "notes": "Approximate valuation multiples for static demo only."
+    }
+  },
+  "metrics": {
+    "revenueGrowth": 8,
+    "grossMargin": 72,
+    "operatingMargin": 41,
+    "netMargin": 20,
+    "cashFlowOperations": 20,
+    "capex": 14,
+    "freeCashFlow": 6,
+    "fcfMargin": 11,
+    "pe": 36,
+    "forwardPe": 28,
+    "evSales": 9,
+    "evEbitda": 20,
+    "evFcf": 55,
+    "pFcf": 48,
+    "roic": 17,
+    "debt": 88,
+    "netDebt": 76,
+    "capexIntensity": 25
+  },
+  "stockPerformance": {
+    "note": "Sample market data for demo purposes.",
+    "horizons": {
+      "1M": 1.1,
+      "3M": 3.2,
+      "6M": 6.4,
+      "YTD": 5.3,
+      "1Y": 12.8,
+      "3Y": 26.9,
+      "5Y": 38.4,
+      "10Y": 61.4,
+      "MAX": 96.0
+    },
+    "series": {
+      "1M": {
+        "periods": [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4"
+        ],
+        "price": [
+          99.0,
+          100.4,
+          101.7,
+          101.1
+        ]
+      },
+      "3M": {
+        "periods": [
+          "Month 1",
+          "Month 2",
+          "Month 3"
+        ],
+        "price": [
+          99.0,
+          101.6,
+          103.2
+        ]
+      },
+      "6M": {
+        "periods": [
+          "Oct",
+          "Nov",
+          "Dec",
+          "Jan",
+          "Feb",
+          "Mar"
+        ],
+        "price": [
+          98.5,
+          101.3,
+          104.1,
+          102.3,
+          105.1,
+          106.4
+        ]
+      },
+      "YTD": {
+        "periods": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "price": [
+          98.5,
+          101.3,
+          104.2,
+          102.4,
+          105.3
+        ]
+      },
+      "1Y": {
+        "periods": [
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "price": [
+          98.0,
+          104.3,
+          110.7,
+          112.8
+        ]
+      },
+      "3Y": {
+        "periods": [
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          97.0,
+          109.0,
+          121.5,
+          126.9
+        ]
+      },
+      "5Y": {
+        "periods": [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          107.7,
+          120.0,
+          118.1,
+          130.7,
+          138.4
+        ]
+      },
+      "10Y": {
+        "periods": [
+          "2016",
+          "2018",
+          "2020",
+          "2022",
+          "2024",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          112.3,
+          129.6,
+          131.4,
+          149.2,
+          161.4
+        ]
+      },
+      "MAX": {
+        "periods": [
+          "2010",
+          "2013",
+          "2016",
+          "2019",
+          "2022",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          119.2,
+          143.9,
+          151.3,
+          176.8,
+          196.0
+        ]
+      }
+    }
+  },
+  "risks": [
+    "Debt load",
+    "Cloud competition",
+    "Capex execution"
+  ],
+  "catalysts": [
+    "OCI demand",
+    "Database cloud migration",
+    "AI infrastructure contracts"
+  ],
+  "analystFlags": [
+    "Sample data for preparation only.",
+    "Verify all metrics before professional use."
+  ],
+  "data_status": {
+    "last_updated": "2026-05-05",
+    "source_type": "sample_manual",
+    "source_notes": "Static sample data for interview preparation. Figures are approximate and not live.",
+    "latest_annual_period": "2025E",
+    "latest_quarterly_period": "Q1 2026",
+    "latest_market_period": "May 2026",
+    "latest_valuation_period": "May 2026",
+    "has_mixed_freshness": false
+  },
+  "market_source": {
+    "name": "ORCL sample market performance",
+    "url": "",
+    "as_of": "May 2026",
+    "retrieved_at": "2026-05-05",
+    "notes": "Sample market data for demo purposes, not live pricing."
+  }
+}

@@ -1,0 +1,510 @@
+{
+  "ticker": "MDB",
+  "name": "MongoDB",
+  "exchange": "",
+  "industry": "Developer data platform",
+  "sector": "Software and data",
+  "currency": "USD",
+  "dataStatus": "Sample data",
+  "profile": {
+    "summary": "Database platform for modern applications with cloud-hosted Atlas as growth engine.",
+    "segments": [
+      "Atlas",
+      "Enterprise Advanced",
+      "Services"
+    ],
+    "customers": [
+      "Enterprise customers",
+      "Cloud platforms",
+      "Technology buyers"
+    ],
+    "moat": [
+      "Developer adoption",
+      "Document database model",
+      "Cloud platform"
+    ],
+    "geography": "Global revenue base. Static geography note for interview preparation."
+  },
+  "caseStudy": {
+    "company": "MongoDB",
+    "ticker": "MDB",
+    "sector": "Software and data",
+    "oneSentenceBusiness": "Database platform for modern applications with cloud-hosted Atlas as growth engine.",
+    "keySegments": [
+      "Atlas",
+      "Enterprise Advanced",
+      "Services"
+    ],
+    "whyItMatters": "Database modernization and AI application data infrastructure case.",
+    "moat": "Developer adoption; Document database model; Cloud platform",
+    "growthQuality": "Solid growth, confirm margin quality and durability.",
+    "cashQuality": "Good cash conversion; review reinvestment needs.",
+    "valuationView": "Valuation demanding; requires strong growth justification.",
+    "mainRisks": [
+      "Database competition",
+      "Consumption volatility",
+      "Profitability"
+    ],
+    "mainCatalysts": [
+      "Atlas expansion",
+      "AI app development",
+      "Enterprise migrations"
+    ],
+    "caseStudyAngle": "Can Atlas growth offset macro and competitive database pressure?",
+    "possibleConclusion": "Good platform, but profitability and valuation require scrutiny."
+  },
+  "financials": {
+    "annual": {
+      "periods": [
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025E"
+      ],
+      "revenue": [
+        0.8,
+        0.9,
+        1.0,
+        0.9,
+        1.0
+      ],
+      "revenueGrowth": [
+        11,
+        16,
+        21,
+        20,
+        19
+      ],
+      "grossMargin": [
+        72.0,
+        72.8,
+        73.5,
+        74.2,
+        75.0
+      ],
+      "operatingMargin": [
+        5.5,
+        6.1,
+        6.8,
+        7.4,
+        8.0
+      ],
+      "netMargin": [
+        0.0,
+        0.5,
+        1.0,
+        1.5,
+        2.0
+      ],
+      "cashFlowOperations": [
+        0.3,
+        0.4,
+        0.4,
+        0.4,
+        0.4
+      ],
+      "capex": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "freeCashFlow": [
+        0.2,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "fcfMargin": [
+        25.0,
+        33.3,
+        30.0,
+        33.3,
+        30.0
+      ],
+      "roic": [
+        1.0,
+        1.5,
+        2.0,
+        2.5,
+        3.0
+      ],
+      "source": {
+        "name": "MDB annual sample model",
+        "url": "",
+        "as_of": "2025E",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "quarterly": {
+      "periods": [
+        "Q1 2025",
+        "Q2 2025",
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "revenue": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "revenueGrowth": [
+        11,
+        16,
+        21,
+        20,
+        19
+      ],
+      "grossMargin": [
+        72.0,
+        72.8,
+        73.5,
+        74.2,
+        75.0
+      ],
+      "operatingMargin": [
+        5.5,
+        6.1,
+        6.8,
+        7.4,
+        8.0
+      ],
+      "netMargin": [
+        0.0,
+        0.5,
+        1.0,
+        1.5,
+        2.0
+      ],
+      "cashFlowOperations": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "capex": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "freeCashFlow": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "fcfMargin": [
+        50.0,
+        50.0,
+        50.0,
+        50.0,
+        50.0
+      ],
+      "roic": [
+        1.0,
+        1.5,
+        2.0,
+        2.5,
+        3.0
+      ],
+      "source": {
+        "name": "MDB quarterly sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "ttm": {
+      "periods": [
+        "TTM"
+      ],
+      "revenue": [
+        0.8
+      ],
+      "revenueGrowth": [
+        19
+      ],
+      "grossMargin": [
+        75.0
+      ],
+      "operatingMargin": [
+        8.0
+      ],
+      "netMargin": [
+        2.0
+      ],
+      "cashFlowOperations": [
+        0.4
+      ],
+      "capex": [
+        0.0
+      ],
+      "freeCashFlow": [
+        0.4
+      ],
+      "fcfMargin": [
+        50.0
+      ],
+      "roic": [
+        3.0
+      ],
+      "source": {
+        "name": "MDB rolling TTM sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Derived from quarterly sample data."
+      }
+    }
+  },
+  "valuation": {
+    "metrics": {
+      "revenueGrowth": 19,
+      "grossMargin": 75,
+      "operatingMargin": 8,
+      "netMargin": 2,
+      "cashFlowOperations": 0.4,
+      "capex": 0.1,
+      "freeCashFlow": 0.3,
+      "fcfMargin": 16,
+      "pe": 0,
+      "forwardPe": 70,
+      "evSales": 10,
+      "evEbitda": 65,
+      "evFcf": 55,
+      "pFcf": 54,
+      "roic": 3,
+      "debt": 1.2,
+      "netDebt": -0.8,
+      "capexIntensity": 4
+    },
+    "source": {
+      "name": "Manual sample valuation model",
+      "url": "",
+      "as_of": "May 2026",
+      "retrieved_at": "2026-05-05",
+      "notes": "Approximate valuation multiples for static demo only."
+    }
+  },
+  "metrics": {
+    "revenueGrowth": 19,
+    "grossMargin": 75,
+    "operatingMargin": 8,
+    "netMargin": 2,
+    "cashFlowOperations": 0.4,
+    "capex": 0.1,
+    "freeCashFlow": 0.3,
+    "fcfMargin": 16,
+    "pe": 0,
+    "forwardPe": 70,
+    "evSales": 10,
+    "evEbitda": 65,
+    "evFcf": 55,
+    "pFcf": 54,
+    "roic": 3,
+    "debt": 1.2,
+    "netDebt": -0.8,
+    "capexIntensity": 4
+  },
+  "stockPerformance": {
+    "note": "Sample market data for demo purposes.",
+    "horizons": {
+      "1M": 2.5,
+      "3M": 7.6,
+      "6M": 15.2,
+      "YTD": 12.7,
+      "1Y": 30.4,
+      "3Y": 63.8,
+      "5Y": 91.2,
+      "10Y": 145.9,
+      "MAX": 228.0
+    },
+    "series": {
+      "1M": {
+        "periods": [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4"
+        ],
+        "price": [
+          99.0,
+          100.8,
+          102.7,
+          102.5
+        ]
+      },
+      "3M": {
+        "periods": [
+          "Month 1",
+          "Month 2",
+          "Month 3"
+        ],
+        "price": [
+          99.0,
+          103.8,
+          107.6
+        ]
+      },
+      "6M": {
+        "periods": [
+          "Oct",
+          "Nov",
+          "Dec",
+          "Jan",
+          "Feb",
+          "Mar"
+        ],
+        "price": [
+          98.5,
+          103.0,
+          107.7,
+          107.5,
+          112.2,
+          115.2
+        ]
+      },
+      "YTD": {
+        "periods": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "price": [
+          98.5,
+          103.2,
+          107.9,
+          107.9,
+          112.7
+        ]
+      },
+      "1Y": {
+        "periods": [
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "price": [
+          98.0,
+          110.1,
+          122.7,
+          130.4
+        ]
+      },
+      "3Y": {
+        "periods": [
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          97.0,
+          121.3,
+          146.8,
+          163.8
+        ]
+      },
+      "5Y": {
+        "periods": [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          118.2,
+          141.9,
+          148.5,
+          173.0,
+          191.2
+        ]
+      },
+      "10Y": {
+        "periods": [
+          "2016",
+          "2018",
+          "2020",
+          "2022",
+          "2024",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          129.2,
+          164.7,
+          180.0,
+          216.7,
+          245.9
+        ]
+      },
+      "MAX": {
+        "periods": [
+          "2010",
+          "2013",
+          "2016",
+          "2019",
+          "2022",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          145.6,
+          198.8,
+          227.3,
+          282.4,
+          328.0
+        ]
+      }
+    }
+  },
+  "risks": [
+    "Database competition",
+    "Consumption volatility",
+    "Profitability"
+  ],
+  "catalysts": [
+    "Atlas expansion",
+    "AI app development",
+    "Enterprise migrations"
+  ],
+  "analystFlags": [
+    "Sample data for preparation only.",
+    "Verify all metrics before professional use."
+  ],
+  "data_status": {
+    "last_updated": "2026-05-05",
+    "source_type": "sample_manual",
+    "source_notes": "Static sample data for interview preparation. Figures are approximate and not live.",
+    "latest_annual_period": "2025E",
+    "latest_quarterly_period": "Q1 2026",
+    "latest_market_period": "May 2026",
+    "latest_valuation_period": "May 2026",
+    "has_mixed_freshness": false
+  },
+  "market_source": {
+    "name": "MDB sample market performance",
+    "url": "",
+    "as_of": "May 2026",
+    "retrieved_at": "2026-05-05",
+    "notes": "Sample market data for demo purposes, not live pricing."
+  }
+}

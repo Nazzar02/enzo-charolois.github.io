@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Equity Research Copilot</title>
+    <link rel="stylesheet" href="assets/css/equity_copilot.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.2.0/dist/chartjs-plugin-zoom.min.js" defer></script>
+    <script type="module" src="assets/js/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#dashboard">Skip to dashboard</a>
+    <main class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Hidden interview preparation project</p>
+          <h1>Equity Research Copilot</h1>
+          <p class="hero-copy">A static analyst cockpit for first-pass bottom-up reviews of listed technology companies.</p>
+        </div>
+        <aside class="status-panel" aria-label="Project status">
+          <span class="badge badge-info" id="data-status">Static sample data</span>
+          <p id="metadata-copy">Loading metadata...</p>
+          <div class="import-tools">
+            <label class="file-button" for="company-import-input">Import JSON</label>
+            <input id="company-import-input" type="file" accept="application/json,.json" hidden>
+            <button class="mode-button" id="export-company-button" type="button">Export current company JSON</button>
+          </div>
+        </aside>
+      </header>
+
+      <section class="control-deck" aria-label="Analysis controls">
+        <div class="control-card mobile-prep-control">
+          <label for="company-search">Search by ticker or company name</label>
+          <input id="company-search" type="search" placeholder="TSM, Nvidia, SAP...">
+          <label for="sector-filter">Sector filter</label>
+          <select id="sector-filter">
+            <option value="All">All</option>
+            <option value="Semiconductors">Semiconductors</option>
+            <option value="Semiconductor equipment">Semiconductor equipment</option>
+            <option value="Cloud and big tech">Cloud and big tech</option>
+            <option value="Software and data">Software and data</option>
+            <option value="Cybersecurity">Cybersecurity</option>
+            <option value="European technology">European technology</option>
+          </select>
+          <label class="toggle-control prep-toggle"><input type="checkbox" id="case-mode-toggle"> Case Study Prep Mode</label>
+        </div>
+        <div class="control-card primary-control">
+          <label for="ticker-select">Main company</label>
+          <select id="ticker-select" name="ticker"></select>
+        </div>
+        <div class="control-card peer-control">
+          <span class="control-label">Comparison set</span>
+          <div class="peer-grid">
+            <label>Peer 1<select id="peer-1"></select></label>
+            <label>Peer 2<select id="peer-2"></select></label>
+            <label>Peer 3<select id="peer-3"></select></label>
+          </div>
+        </div>
+        <div class="control-card">
+          <span class="control-label">Fundamental period</span>
+          <p class="helper-text">Fundamental period controls the aggregation of financial data.</p>
+          <div class="segmented" id="period-controls" role="group" aria-label="Financial period"></div>
+        </div>
+        <div class="control-card">
+          <span class="control-label">Chart window</span>
+          <p class="helper-text">Chart window controls the displayed time range. Interactive zoom lets you inspect a subperiod inside the selected range.</p>
+          <div class="segmented horizon-grid" id="horizon-controls" role="group" aria-label="Chart window"></div>
+        </div>
+      </section>
+
+      <section class="alert" id="load-alert" hidden></section>
+      <section class="alert subtle-alert" id="state-message" hidden></section>
+      <section class="debug-line" id="debug-line" hidden></section>
+
+      <section class="diagnosis-strip" id="diagnosis-strip" aria-label="Quick diagnosis"></section>
+
+      <section class="case-prep-panel" id="case-prep-panel" aria-label="Case study prep mode">
+        <article class="case-company-card" id="case-company-card"></article>
+        <article class="case-compare-card" id="case-compare-card"></article>
+      </section>
+
+      <nav class="tabs" aria-label="Dashboard sections">
+        <button class="tab-button active" data-tab="overview">Overview</button>
+        <button class="tab-button" data-tab="framework">Framework</button>
+        <button class="tab-button" data-tab="growth">Growth</button>
+        <button class="tab-button" data-tab="margins">Margins</button>
+        <button class="tab-button" data-tab="cash">Cash</button>
+        <button class="tab-button" data-tab="valuation">Valuation</button>
+        <button class="tab-button" data-tab="peers">Peers</button>
+        <button class="tab-button" data-tab="risks">Risks</button>
+        <button class="tab-button" data-tab="note">Note</button>
+        <button class="tab-button" data-tab="data">Data Manager</button>
+      </nav>
+
+      <div class="dashboard" id="dashboard">
+        <section class="tab-panel active" data-panel="overview">
+          <div class="card span-7">
+            <div class="section-heading"><p>Business overview</p><h2 id="company-name">Loading...</h2></div>
+            <div class="editable-block" data-editable-block="business">
+              <div class="editable-toolbar"><span>Generated suggestion, editable</span><button class="mode-button" data-edit-action="edit" data-edit-key="business" type="button">Edit</button><button class="mode-button" data-edit-action="save" data-edit-key="business" type="button">Save</button><button class="mode-button" data-edit-action="reset" data-edit-key="business" type="button">Reset to generated</button><button class="mode-button" data-edit-action="clear" data-edit-key="business" type="button">Clear</button></div>
+              <p class="body-copy editable-display" id="business-summary"></p>
+              <textarea class="editable-editor" id="business-editor" rows="5" hidden></textarea>
+            </div>
+            <div class="overview-grid">
+              <div class="editable-block" data-editable-block="segments">
+                <h3>Segments</h3>
+                <div class="editable-toolbar"><button class="mode-button" data-edit-action="edit" data-edit-key="segments" type="button">Edit</button><button class="mode-button" data-edit-action="save" data-edit-key="segments" type="button">Save</button><button class="mode-button" data-edit-action="reset" data-edit-key="segments" type="button">Reset to generated</button><button class="mode-button" data-edit-action="clear" data-edit-key="segments" type="button">Clear</button></div>
+                <ul class="editable-display" id="segments-list"></ul>
+                <textarea class="editable-editor" id="segments-editor" rows="5" hidden></textarea>
+              </div>
+              <div class="editable-block" data-editable-block="moat">
+                <h3>Moat indicators</h3>
+                <div class="editable-toolbar"><button class="mode-button" data-edit-action="edit" data-edit-key="moat" type="button">Edit</button><button class="mode-button" data-edit-action="save" data-edit-key="moat" type="button">Save</button><button class="mode-button" data-edit-action="reset" data-edit-key="moat" type="button">Reset to generated</button><button class="mode-button" data-edit-action="clear" data-edit-key="moat" type="button">Clear</button></div>
+                <ul class="editable-display" id="moat-list"></ul>
+                <textarea class="editable-editor" id="moat-editor" rows="5" hidden></textarea>
+              </div>
+            </div>
+            <p class="source-note" id="business-source-note"></p>
+          </div>
+          <div class="card span-5">
+            <div class="section-heading"><p>Data freshness</p><h2>Coverage and source notes</h2></div>
+            <div class="freshness-grid" id="freshness-card"></div>
+            <p class="source-note warning-note" id="freshness-warning"></p>
+            <p class="source-note" id="source-notes"></p>
+          </div>
+          <div class="card span-12">
+            <div class="section-heading"><p>Market performance</p><h2>Market perception versus fundamentals</h2></div>
+            <p class="mini-note">Sample market data for demo purposes.</p>
+            <div class="metric-grid" id="market-performance"></div>
+            <div class="chart-tools">
+              <span class="control-label inline-label">Market performance window</span>
+              <button class="mode-button active" data-stock-mode="indexed">Indexed to 100</button>
+              <button class="mode-button" data-stock-mode="percent">Percent change</button>
+              <label class="toggle-control"><input type="checkbox" id="benchmark-toggle"> Benchmark sample data</label>
+            </div>
+            <div class="chart-header"><h3 id="market-chart-title">Market performance</h3><button class="mode-button reset-zoom" data-reset-chart="market">Reset zoom</button></div>
+            <div class="chart-wrap"><canvas id="stock-chart"></canvas><p class="chart-fallback" id="stock-fallback" hidden></p></div>
+          </div>
+        </section>
+
+        <section class="tab-panel framework-panel" data-panel="framework">
+          <div class="framework-title card">
+            <div class="section-heading"><p>Interview preparation</p><h2>Case Study Framework</h2></div>
+            <p class="body-copy">A compact revision sheet for structuring a first-pass equity case when the clock is running. Use it to keep the answer balanced across business quality, financial quality, valuation, risks, and catalysts.</p>
+          </div>
+          <div class="framework-grid">
+          <article class="card framework-card">
+            <div class="section-heading"><p>Case framework</p><h2>First-pass analysis checklist</h2></div>
+            <p class="framework-intro">Work from business model to conclusion. Do not let a strong business story replace valuation and risk judgment.</p>
+            <ol class="framework-list">
+              <li><strong>Understand business</strong><span>What does the company sell, to whom, and why now?</span></li>
+              <li><strong>Segment mix</strong><span>Identify growth engines versus mature or cyclical lines.</span></li>
+              <li><strong>Moat</strong><span>Switching costs, scale, IP, network effects, or distribution.</span></li>
+              <li><strong>Growth</strong><span>Separate reported growth, window growth, and cycle recovery.</span></li>
+              <li><strong>Quality of growth</strong><span>Check gross margin, operating margin, FCF margin, and ROIC.</span></li>
+              <li><strong>Cash and capex</strong><span>Does growth convert to free cash flow?</span></li>
+              <li><strong>Balance sheet</strong><span>Cash, debt, net debt, and strategic flexibility.</span></li>
+              <li><strong>Valuation</strong><span>Separate absolute multiples from peer-relative screening.</span></li>
+              <li><strong>Risks</strong><span>What can break the thesis?</span></li>
+              <li><strong>Catalysts</strong><span>What could change market perception?</span></li>
+              <li><strong>Conclusion</strong><span>Conclude on quality, price, risks, and catalysts.</span></li>
+            </ol>
+          </article>
+          <article class="card framework-card">
+            <div class="section-heading"><p>30 minute plan</p><h2>Case study timebox</h2></div>
+            <p class="framework-intro">Use the timebox to avoid over-reading. The goal is a defendable first view, not a perfect model.</p>
+            <div class="timeline-list">
+              <div><strong>0 to 5 min</strong><span>Understand business and documents.</span></div>
+              <div><strong>5 to 12 min</strong><span>Read revenue, segments, and margins.</span></div>
+              <div><strong>12 to 18 min</strong><span>Cash, capex, and balance sheet.</span></div>
+              <div><strong>18 to 23 min</strong><span>Valuation and peers.</span></div>
+              <div><strong>23 to 27 min</strong><span>Risks and catalysts.</span></div>
+              <div><strong>27 to 30 min</strong><span>Prepare oral conclusion.</span></div>
+            </div>
+          </article>
+          <article class="card framework-card">
+            <div class="section-heading"><p>5 minute oral answer</p><h2>Interview structure</h2></div>
+            <p class="framework-intro">Give the interviewer a clean path through the debate. Be explicit where judgment is still required.</p>
+            <ol class="framework-list compact-framework">
+              <li><strong>Company overview</strong><span>What it does and where value is created.</span></li>
+              <li><strong>What happened</strong><span>Key financial or market development.</span></li>
+              <li><strong>Financial quality</strong><span>Growth, margins, cash, and balance sheet.</span></li>
+              <li><strong>Valuation</strong><span>Absolute view and peer-relative view.</span></li>
+              <li><strong>Risks</strong><span>Main downside and what to monitor.</span></li>
+              <li><strong>Conclusion</strong><span>Quality, price, risks, catalysts. No automatic buy or sell.</span></li>
+            </ol>
+          </article>
+          <article class="card framework-card">
+            <div class="section-heading"><p>Stock pitch template</p><h2>Mobile revision prompt</h2></div>
+            <p class="framework-intro">Use this as a speaking scaffold. Keep each section short and evidence-led.</p>
+            <div class="pitch-template">
+              <p><strong>Company overview</strong> - business model and segment mix.</p>
+              <p><strong>Investment thesis</strong> - why the market may be wrong or underappreciating something.</p>
+              <p><strong>Why now</strong> - catalyst, inflection, or debate.</p>
+              <p><strong>Financial quality</strong> - growth, margins, cash, ROIC, balance sheet.</p>
+              <p><strong>Valuation</strong> - absolute multiples and relative peer context.</p>
+              <p><strong>Risks</strong> - what breaks the thesis.</p>
+              <p><strong>Catalysts</strong> - what changes perception.</p>
+              <p><strong>Conclusion</strong> - do not conclude only on business quality. Conclude on quality, price, risks, and catalysts.</p>
+            </div>
+          </article>
+          </div>
+        </section>
+
+        <section class="tab-panel" data-panel="growth">
+          <div class="card span-12">
+            <div class="section-heading"><p>Growth</p><h2>Revenue trend comparison</h2></div>
+            <div class="chart-tools"><button class="mode-button active" data-revenue-mode="absolute" title="Absolute value: shows raw values.">Absolute value</button><button class="mode-button" data-revenue-mode="indexed" title="Indexed to 100: rebases each company to 100 at the first visible point to compare relative evolution.">Indexed to 100</button></div>
+            <div class="metric-grid compact" id="growth-metrics"></div>
+            <div class="chart-header"><h3 id="growth-chart-title">Revenue comparison</h3><button class="mode-button reset-zoom" data-reset-chart="growth">Reset zoom</button></div>
+            <div class="chart-wrap tall"><canvas id="revenue-chart"></canvas><p class="chart-fallback" id="revenue-fallback" hidden></p></div>
+          </div>
+        </section>
+
+        <section class="tab-panel" data-panel="margins">
+          <div class="card span-12">
+            <div class="section-heading"><p>Quality of growth</p><h2>Margin and ROIC trends</h2></div>
+            <div class="chart-tools"><label class="inline-select" for="margin-metric-select">Metric type<select id="margin-metric-select"></select></label><span class="helper-pill">Margins show absolute percentage points.</span></div>
+            <div class="metric-grid compact" id="quality-metrics"></div>
+            <div class="chart-header"><h3 id="margin-chart-title">Margin comparison</h3><button class="mode-button reset-zoom" data-reset-chart="margins">Reset zoom</button></div>
+            <div class="chart-wrap tall"><canvas id="margin-chart"></canvas><p class="chart-fallback" id="margin-fallback" hidden></p></div>
+          </div>
+        </section>
+
+        <section class="tab-panel" data-panel="cash">
+          <div class="card span-12">
+            <div class="section-heading"><p>Cash and capex</p><h2>Cash conversion comparison</h2></div>
+            <div class="chart-tools"><button class="mode-button active" data-fcf-mode="absolute" title="Absolute value: shows raw values.">Absolute FCF</button><button class="mode-button" data-fcf-mode="indexed" title="Indexed to 100: rebases each company to 100 at the first visible point to compare relative evolution.">Indexed to 100</button></div>
+            <div class="metric-grid compact" id="cash-metrics"></div>
+            <div class="chart-header"><h3 id="cash-chart-title">FCF comparison</h3><button class="mode-button reset-zoom" data-reset-chart="cash">Reset zoom</button></div>
+            <div class="chart-wrap tall"><canvas id="cash-chart"></canvas><p class="chart-fallback" id="cash-fallback" hidden></p></div>
+          </div>
+        </section>
+
+        <section class="tab-panel" data-panel="valuation">
+          <div class="valuation-grid-panel">
+            <article class="card valuation-card"><div class="section-heading"><p>Valuation diagnosis</p><h2>Absolute valuation</h2></div><div id="absolute-valuation"></div></article>
+            <article class="card valuation-card"><div class="section-heading"><p>Valuation diagnosis</p><h2>Relative valuation</h2></div><div id="relative-valuation"></div></article>
+            <article class="card valuation-card"><div class="section-heading"><p>Valuation diagnosis</p><h2>Interpretation</h2></div><div id="valuation-interpretation"></div></article>
+          </div>
+        </section>
+
+        <section class="tab-panel" data-panel="peers">
+          <div class="card span-12">
+            <div class="section-heading"><p>Peer comparison</p><h2>Interactive peer table</h2></div>
+            <div class="peer-tools">
+              <label for="peer-metric-focus">Metric selector<select id="peer-metric-focus"></select></label>
+              <details>
+                <summary>Column visibility</summary>
+                <div class="column-picker" id="column-picker"></div>
+              </details>
+              <details>
+                <summary>Customize columns</summary>
+                <div class="column-order" id="column-order"></div>
+              </details>
+            </div>
+            <div class="table-wrap">
+              <table id="peer-table">
+                <thead id="peer-table-head"></thead>
+                <tbody id="peer-table-body"></tbody>
+              </table>
+            </div>
+            <div class="peer-card-list" id="peer-card-list"></div>
+          </div>
+        </section>
+
+        <section class="tab-panel" data-panel="risks">
+          <div class="card span-12">
+            <div class="section-heading"><p>Risks and catalysts</p><h2>What to test next</h2></div>
+            <div class="overview-grid">
+              <div class="editable-block" data-editable-block="risks">
+                <h3>Main risks</h3>
+                <div class="editable-toolbar"><button class="mode-button" data-edit-action="edit" data-edit-key="risks" type="button">Edit</button><button class="mode-button" data-edit-action="save" data-edit-key="risks" type="button">Save</button><button class="mode-button" data-edit-action="reset" data-edit-key="risks" type="button">Reset to generated</button><button class="mode-button" data-edit-action="clear" data-edit-key="risks" type="button">Clear</button></div>
+                <ul class="editable-display" id="risks-list"></ul>
+                <textarea class="editable-editor" id="risks-editor" rows="6" hidden></textarea>
+              </div>
+              <div class="editable-block" data-editable-block="catalysts">
+                <h3>Main catalysts</h3>
+                <div class="editable-toolbar"><button class="mode-button" data-edit-action="edit" data-edit-key="catalysts" type="button">Edit</button><button class="mode-button" data-edit-action="save" data-edit-key="catalysts" type="button">Save</button><button class="mode-button" data-edit-action="reset" data-edit-key="catalysts" type="button">Reset to generated</button><button class="mode-button" data-edit-action="clear" data-edit-key="catalysts" type="button">Clear</button></div>
+                <ul class="editable-display" id="catalysts-list"></ul>
+                <textarea class="editable-editor" id="catalysts-editor" rows="6" hidden></textarea>
+              </div>
+            </div>
+            <div class="analyst-panel">
+              <h3>Analyst risk checklist</h3>
+              <div id="risk-checklist"></div>
+              <div class="inline-form">
+                <input id="custom-risk-input" type="text" placeholder="Add a custom risk">
+                <select id="custom-risk-severity">
+                  <option value="Low">Low</option>
+                  <option value="Medium" selected>Medium</option>
+                  <option value="High">High</option>
+                </select>
+                <button class="mode-button" id="add-risk-button" type="button">Add risk</button>
+              </div>
+              <label for="analyst-risk-notes">Analyst risk notes</label>
+              <textarea id="analyst-risk-notes" rows="5" placeholder="Write risk-specific observations, mitigants, or interview talking points."></textarea>
+              <div class="chart-tools"><button class="mode-button" data-save-risks type="button">Save risks</button><button class="mode-button" data-clear-risks type="button">Clear risks</button><button class="mode-button" data-export-risks type="button">Export risks as text</button></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="tab-panel" data-panel="note">
+          <div class="card span-12 note-card">
+            <div class="section-heading"><p>Preliminary investment note</p><h2>No automatic recommendation</h2></div>
+            <div class="editable-block" data-editable-block="note">
+              <div class="editable-toolbar"><span>Generated suggestion, editable</span><button class="mode-button" data-edit-action="edit" data-edit-key="note" type="button">Edit</button><button class="mode-button" data-edit-action="save" data-edit-key="note" type="button">Save</button><button class="mode-button" data-edit-action="reset" data-edit-key="note" type="button">Reset to generated</button><button class="mode-button" data-edit-action="clear" data-edit-key="note" type="button">Clear</button></div>
+              <div class="editable-display" id="investment-note"></div>
+              <textarea class="editable-editor" id="note-editor" rows="14" hidden></textarea>
+            </div>
+            <div class="analyst-panel">
+              <h3>Manual interview notes</h3>
+              <label for="thesis-notes">Investment thesis notes</label>
+              <textarea id="thesis-notes" rows="4"></textarea>
+              <label for="moat-notes">Moat notes</label>
+              <textarea id="moat-notes" rows="4"></textarea>
+              <label for="questions-notes">Questions to ask</label>
+              <textarea id="questions-notes" rows="4"></textarea>
+              <label for="followup-notes">Follow up points</label>
+              <textarea id="followup-notes" rows="4"></textarea>
+              <label for="final-notes">Final interview notes</label>
+              <textarea id="final-notes" rows="4"></textarea>
+              <div class="chart-tools"><button class="mode-button" data-save-notes type="button">Save notes</button><button class="mode-button" data-clear-notes type="button">Clear notes</button><button class="mode-button" data-export-notes type="button">Export notes as text</button></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="tab-panel" data-panel="data">
+          <div class="card span-12">
+            <div class="section-heading"><p>Data manager</p><h2>Generate company JSON locally</h2></div>
+            <p class="body-copy">Use this workflow to add fresher sample data or a new company while keeping the GitHub Pages dashboard fully static. The browser only imports local JSON files; the Python companion script is run on your machine, outside the frontend.</p>
+            <ol class="workflow-list">
+              <li>Download the empty company template.</li>
+              <li>Download the Python JSON generator.</li>
+              <li>Run the generator locally with a mock or manual provider.</li>
+              <li>Import the generated JSON into the dashboard.</li>
+            </ol>
+            <div class="data-manager-actions">
+              <button class="mode-button" id="download-template-button" type="button">Download empty JSON template</button>
+              <button class="mode-button" id="download-generator-button" type="button">Download Python generator script</button>
+              <button class="mode-button" id="download-example-button" type="button">Download example TSM JSON</button>
+              <label class="file-button" for="company-import-input">Import generated JSON</label>
+              <button class="mode-button" id="export-company-button-secondary" type="button">Export current company JSON</button>
+            </div>
+            <p class="source-note">This dashboard is static. To add a new company, generate or prepare a JSON locally, then import it here. No data is uploaded.</p>
+            <div class="imported-manager">
+              <h3>Imported companies</h3>
+              <div id="imported-company-list" class="imported-company-list"></div>
+              <button class="mode-button" id="reset-imported-button" type="button">Reset imported companies</button>
+            </div>
+            <p class="source-note">Local command example: <code>python build_company_json.py --ticker TSM --provider mock --output TSM.json</code></p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
