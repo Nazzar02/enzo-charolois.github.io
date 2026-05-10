@@ -1,0 +1,512 @@
+{
+  "ticker": "STM",
+  "name": "STMicroelectronics",
+  "exchange": "",
+  "industry": "Analog and embedded semiconductors",
+  "sector": "European technology",
+  "currency": "USD",
+  "dataStatus": "Sample data",
+  "profile": {
+    "summary": "European chipmaker serving automotive, industrial, personal electronics, and embedded markets.",
+    "segments": [
+      "Automotive",
+      "Industrial",
+      "Personal electronics",
+      "Microcontrollers"
+    ],
+    "customers": [
+      "Enterprise customers",
+      "Cloud platforms",
+      "Technology buyers"
+    ],
+    "moat": [
+      "Customer breadth",
+      "Manufacturing know-how",
+      "European footprint"
+    ],
+    "geography": "Global revenue base. Static geography note for interview preparation."
+  },
+  "caseStudy": {
+    "company": "STMicroelectronics",
+    "ticker": "STM",
+    "sector": "European technology",
+    "oneSentenceBusiness": "European chipmaker serving automotive, industrial, personal electronics, and embedded markets.",
+    "keySegments": [
+      "Automotive",
+      "Industrial",
+      "Personal electronics",
+      "Microcontrollers"
+    ],
+    "whyItMatters": "European semiconductor cycle and auto/industrial demand read-through.",
+    "moat": "Customer breadth; Manufacturing know-how; European footprint",
+    "growthQuality": "Weak reported growth; separate cycle from structural decline.",
+    "cashQuality": "Cash conversion needs deeper review.",
+    "valuationView": "Valuation appears more reasonable versus growth profile.",
+    "mainRisks": [
+      "Auto slowdown",
+      "Industrial destocking",
+      "China competition"
+    ],
+    "mainCatalysts": [
+      "Inventory normalization",
+      "SiC demand",
+      "Industrial recovery"
+    ],
+    "caseStudyAngle": "Is weakness cyclical or structural in auto and industrial chips?",
+    "possibleConclusion": "Cyclical quality business, timing and end-market recovery are key."
+  },
+  "financials": {
+    "annual": {
+      "periods": [
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025E"
+      ],
+      "revenue": [
+        7.5,
+        7.4,
+        7.3,
+        6.4,
+        6.4
+      ],
+      "revenueGrowth": [
+        -26,
+        -21,
+        -16,
+        -17,
+        -18
+      ],
+      "grossMargin": [
+        35.0,
+        35.8,
+        36.5,
+        37.2,
+        38.0
+      ],
+      "operatingMargin": [
+        12.5,
+        13.1,
+        13.8,
+        14.4,
+        15.0
+      ],
+      "netMargin": [
+        10.0,
+        10.5,
+        11.0,
+        11.5,
+        12.0
+      ],
+      "cashFlowOperations": [
+        3.9,
+        3.9,
+        3.9,
+        3.5,
+        3.5
+      ],
+      "capex": [
+        2.7,
+        2.7,
+        2.7,
+        2.5,
+        2.5
+      ],
+      "freeCashFlow": [
+        1.2,
+        1.2,
+        1.2,
+        1.0,
+        1.0
+      ],
+      "fcfMargin": [
+        16.0,
+        16.2,
+        16.4,
+        15.6,
+        15.6
+      ],
+      "roic": [
+        9.0,
+        9.5,
+        10.0,
+        10.5,
+        11.0
+      ],
+      "source": {
+        "name": "STM annual sample model",
+        "url": "",
+        "as_of": "2025E",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "quarterly": {
+      "periods": [
+        "Q1 2025",
+        "Q2 2025",
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "revenue": [
+        1.9,
+        1.9,
+        1.8,
+        1.6,
+        1.6
+      ],
+      "revenueGrowth": [
+        -26,
+        -21,
+        -16,
+        -17,
+        -18
+      ],
+      "grossMargin": [
+        35.0,
+        35.8,
+        36.5,
+        37.2,
+        38.0
+      ],
+      "operatingMargin": [
+        12.5,
+        13.1,
+        13.8,
+        14.4,
+        15.0
+      ],
+      "netMargin": [
+        10.0,
+        10.5,
+        11.0,
+        11.5,
+        12.0
+      ],
+      "cashFlowOperations": [
+        1.0,
+        1.0,
+        1.0,
+        0.9,
+        0.9
+      ],
+      "capex": [
+        0.7,
+        0.7,
+        0.7,
+        0.6,
+        0.6
+      ],
+      "freeCashFlow": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "fcfMargin": [
+        15.8,
+        15.8,
+        16.7,
+        18.7,
+        18.7
+      ],
+      "roic": [
+        9.0,
+        9.5,
+        10.0,
+        10.5,
+        11.0
+      ],
+      "source": {
+        "name": "STM quarterly sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "ttm": {
+      "periods": [
+        "TTM"
+      ],
+      "revenue": [
+        6.9
+      ],
+      "revenueGrowth": [
+        -18
+      ],
+      "grossMargin": [
+        38.0
+      ],
+      "operatingMargin": [
+        15.0
+      ],
+      "netMargin": [
+        12.0
+      ],
+      "cashFlowOperations": [
+        3.8
+      ],
+      "capex": [
+        2.6
+      ],
+      "freeCashFlow": [
+        1.2
+      ],
+      "fcfMargin": [
+        17.4
+      ],
+      "roic": [
+        11.0
+      ],
+      "source": {
+        "name": "STM rolling TTM sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Derived from quarterly sample data."
+      }
+    }
+  },
+  "valuation": {
+    "metrics": {
+      "revenueGrowth": -18,
+      "grossMargin": 38,
+      "operatingMargin": 15,
+      "netMargin": 12,
+      "cashFlowOperations": 3.5,
+      "capex": 2.5,
+      "freeCashFlow": 1.0,
+      "fcfMargin": 7,
+      "pe": 22,
+      "forwardPe": 18,
+      "evSales": 2.5,
+      "evEbitda": 8,
+      "evFcf": 28,
+      "pFcf": 26,
+      "roic": 11,
+      "debt": 3,
+      "netDebt": -1,
+      "capexIntensity": 18
+    },
+    "source": {
+      "name": "Manual sample valuation model",
+      "url": "",
+      "as_of": "May 2026",
+      "retrieved_at": "2026-05-05",
+      "notes": "Approximate valuation multiples for static demo only."
+    }
+  },
+  "metrics": {
+    "revenueGrowth": -18,
+    "grossMargin": 38,
+    "operatingMargin": 15,
+    "netMargin": 12,
+    "cashFlowOperations": 3.5,
+    "capex": 2.5,
+    "freeCashFlow": 1.0,
+    "fcfMargin": 7,
+    "pe": 22,
+    "forwardPe": 18,
+    "evSales": 2.5,
+    "evEbitda": 8,
+    "evFcf": 28,
+    "pFcf": 26,
+    "roic": 11,
+    "debt": 3,
+    "netDebt": -1,
+    "capexIntensity": 18
+  },
+  "stockPerformance": {
+    "note": "Sample market data for demo purposes.",
+    "horizons": {
+      "1M": -2.4,
+      "3M": -7.2,
+      "6M": -14.4,
+      "YTD": -12.0,
+      "1Y": -28.8,
+      "3Y": -60.5,
+      "5Y": -86.4,
+      "10Y": -138.2,
+      "MAX": -216.0
+    },
+    "series": {
+      "1M": {
+        "periods": [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4"
+        ],
+        "price": [
+          99.0,
+          99.2,
+          99.4,
+          97.6
+        ]
+      },
+      "3M": {
+        "periods": [
+          "Month 1",
+          "Month 2",
+          "Month 3"
+        ],
+        "price": [
+          99.0,
+          96.4,
+          92.8
+        ]
+      },
+      "6M": {
+        "periods": [
+          "Oct",
+          "Nov",
+          "Dec",
+          "Jan",
+          "Feb",
+          "Mar"
+        ],
+        "price": [
+          98.5,
+          97.1,
+          95.7,
+          90.0,
+          88.5,
+          85.6
+        ]
+      },
+      "YTD": {
+        "periods": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "price": [
+          98.5,
+          97.0,
+          95.4,
+          89.6,
+          88.0
+        ]
+      },
+      "1Y": {
+        "periods": [
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "price": [
+          98.0,
+          90.4,
+          82.4,
+          71.2
+        ]
+      },
+      "3Y": {
+        "periods": [
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          97.0,
+          79.8,
+          61.5,
+          39.5
+        ]
+      },
+      "5Y": {
+        "periods": [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          72.5,
+          63.2,
+          52.8,
+          36.8,
+          26.0,
+          13.6
+        ]
+      },
+      "10Y": {
+        "periods": [
+          "2016",
+          "2018",
+          "2020",
+          "2022",
+          "2024",
+          "2026E"
+        ],
+        "price": [
+          -203.9,
+          -177.6,
+          -148.5,
+          -103.6,
+          -73.1,
+          -38.2
+        ]
+      },
+      "MAX": {
+        "periods": [
+          "2010",
+          "2013",
+          "2016",
+          "2019",
+          "2022",
+          "2026E"
+        ],
+        "price": [
+          -618.7,
+          -538.8,
+          -450.4,
+          -314.3,
+          -221.7,
+          -116.0
+        ]
+      }
+    }
+  },
+  "risks": [
+    "Auto slowdown",
+    "Industrial destocking",
+    "China competition"
+  ],
+  "catalysts": [
+    "Inventory normalization",
+    "SiC demand",
+    "Industrial recovery"
+  ],
+  "analystFlags": [
+    "Sample data for preparation only.",
+    "Verify all metrics before professional use."
+  ],
+  "data_status": {
+    "last_updated": "2026-05-05",
+    "source_type": "sample_manual",
+    "source_notes": "Static sample data for interview preparation. Figures are approximate and not live.",
+    "latest_annual_period": "2025E",
+    "latest_quarterly_period": "Q1 2026",
+    "latest_market_period": "May 2026",
+    "latest_valuation_period": "May 2026",
+    "has_mixed_freshness": false
+  },
+  "market_source": {
+    "name": "STM sample market performance",
+    "url": "",
+    "as_of": "May 2026",
+    "retrieved_at": "2026-05-05",
+    "notes": "Sample market data for demo purposes, not live pricing."
+  }
+}

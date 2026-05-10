@@ -1,0 +1,512 @@
+{
+  "ticker": "NOW",
+  "name": "ServiceNow",
+  "exchange": "",
+  "industry": "Workflow automation",
+  "sector": "Software and data",
+  "currency": "USD",
+  "dataStatus": "Sample data",
+  "profile": {
+    "summary": "Cloud platform for enterprise workflow automation and IT service management.",
+    "segments": [
+      "IT workflows",
+      "Employee workflows",
+      "Customer workflows",
+      "Creator workflows"
+    ],
+    "customers": [
+      "Enterprise customers",
+      "Cloud platforms",
+      "Technology buyers"
+    ],
+    "moat": [
+      "Workflow depth",
+      "Platform expansion",
+      "Enterprise trust"
+    ],
+    "geography": "Global revenue base. Static geography note for interview preparation."
+  },
+  "caseStudy": {
+    "company": "ServiceNow",
+    "ticker": "NOW",
+    "sector": "Software and data",
+    "oneSentenceBusiness": "Cloud platform for enterprise workflow automation and IT service management.",
+    "keySegments": [
+      "IT workflows",
+      "Employee workflows",
+      "Customer workflows",
+      "Creator workflows"
+    ],
+    "whyItMatters": "Premium software compounder tied to workflow automation and AI agents.",
+    "moat": "Workflow depth; Platform expansion; Enterprise trust",
+    "growthQuality": "Solid growth, confirm margin quality and durability.",
+    "cashQuality": "High cash conversion with limited capex intensity.",
+    "valuationView": "Valuation demanding; requires strong growth justification.",
+    "mainRisks": [
+      "High valuation",
+      "Enterprise budget cycles",
+      "Platform competition"
+    ],
+    "mainCatalysts": [
+      "AI workflow adoption",
+      "Expansion deals",
+      "Public sector"
+    ],
+    "caseStudyAngle": "Can premium growth remain durable enough for the valuation?",
+    "possibleConclusion": "Excellent software quality, valuation requires durable high growth."
+  },
+  "financials": {
+    "annual": {
+      "periods": [
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025E"
+      ],
+      "revenue": [
+        6.0,
+        6.6,
+        7.2,
+        7.0,
+        7.6
+      ],
+      "revenueGrowth": [
+        14,
+        19,
+        24,
+        23,
+        22
+      ],
+      "grossMargin": [
+        76.0,
+        76.8,
+        77.5,
+        78.2,
+        79.0
+      ],
+      "operatingMargin": [
+        27.5,
+        28.1,
+        28.8,
+        29.4,
+        30.0
+      ],
+      "netMargin": [
+        18.0,
+        18.5,
+        19.0,
+        19.5,
+        20.0
+      ],
+      "cashFlowOperations": [
+        3.5,
+        3.8,
+        4.0,
+        3.9,
+        4.2
+      ],
+      "capex": [
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4
+      ],
+      "freeCashFlow": [
+        3.1,
+        3.4,
+        3.6,
+        3.5,
+        3.8
+      ],
+      "fcfMargin": [
+        51.7,
+        51.5,
+        50.0,
+        50.0,
+        50.0
+      ],
+      "roic": [
+        17.0,
+        17.5,
+        18.0,
+        18.5,
+        19.0
+      ],
+      "source": {
+        "name": "NOW annual sample model",
+        "url": "",
+        "as_of": "2025E",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "quarterly": {
+      "periods": [
+        "Q1 2025",
+        "Q2 2025",
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "revenue": [
+        1.5,
+        1.7,
+        1.8,
+        1.8,
+        1.9
+      ],
+      "revenueGrowth": [
+        14,
+        19,
+        24,
+        23,
+        22
+      ],
+      "grossMargin": [
+        76.0,
+        76.8,
+        77.5,
+        78.2,
+        79.0
+      ],
+      "operatingMargin": [
+        27.5,
+        28.1,
+        28.8,
+        29.4,
+        30.0
+      ],
+      "netMargin": [
+        18.0,
+        18.5,
+        19.0,
+        19.5,
+        20.0
+      ],
+      "cashFlowOperations": [
+        0.9,
+        0.9,
+        1.0,
+        1.0,
+        1.1
+      ],
+      "capex": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "freeCashFlow": [
+        0.8,
+        0.8,
+        0.9,
+        0.9,
+        1.0
+      ],
+      "fcfMargin": [
+        53.3,
+        47.1,
+        50.0,
+        50.0,
+        52.6
+      ],
+      "roic": [
+        17.0,
+        17.5,
+        18.0,
+        18.5,
+        19.0
+      ],
+      "source": {
+        "name": "NOW quarterly sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "ttm": {
+      "periods": [
+        "TTM"
+      ],
+      "revenue": [
+        7.2
+      ],
+      "revenueGrowth": [
+        22
+      ],
+      "grossMargin": [
+        79.0
+      ],
+      "operatingMargin": [
+        30.0
+      ],
+      "netMargin": [
+        20.0
+      ],
+      "cashFlowOperations": [
+        4.0
+      ],
+      "capex": [
+        0.4
+      ],
+      "freeCashFlow": [
+        3.6
+      ],
+      "fcfMargin": [
+        50.0
+      ],
+      "roic": [
+        19.0
+      ],
+      "source": {
+        "name": "NOW rolling TTM sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Derived from quarterly sample data."
+      }
+    }
+  },
+  "valuation": {
+    "metrics": {
+      "revenueGrowth": 22,
+      "grossMargin": 79,
+      "operatingMargin": 30,
+      "netMargin": 20,
+      "cashFlowOperations": 4.2,
+      "capex": 0.4,
+      "freeCashFlow": 3.8,
+      "fcfMargin": 35,
+      "pe": 72,
+      "forwardPe": 52,
+      "evSales": 16,
+      "evEbitda": 42,
+      "evFcf": 50,
+      "pFcf": 49,
+      "roic": 19,
+      "debt": 2,
+      "netDebt": -5,
+      "capexIntensity": 4
+    },
+    "source": {
+      "name": "Manual sample valuation model",
+      "url": "",
+      "as_of": "May 2026",
+      "retrieved_at": "2026-05-05",
+      "notes": "Approximate valuation multiples for static demo only."
+    }
+  },
+  "metrics": {
+    "revenueGrowth": 22,
+    "grossMargin": 79,
+    "operatingMargin": 30,
+    "netMargin": 20,
+    "cashFlowOperations": 4.2,
+    "capex": 0.4,
+    "freeCashFlow": 3.8,
+    "fcfMargin": 35,
+    "pe": 72,
+    "forwardPe": 52,
+    "evSales": 16,
+    "evEbitda": 42,
+    "evFcf": 50,
+    "pFcf": 49,
+    "roic": 19,
+    "debt": 2,
+    "netDebt": -5,
+    "capexIntensity": 4
+  },
+  "stockPerformance": {
+    "note": "Sample market data for demo purposes.",
+    "horizons": {
+      "1M": 2.9,
+      "3M": 8.8,
+      "6M": 17.6,
+      "YTD": 14.7,
+      "1Y": 35.2,
+      "3Y": 73.9,
+      "5Y": 105.6,
+      "10Y": 169.0,
+      "MAX": 264.0
+    },
+    "series": {
+      "1M": {
+        "periods": [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4"
+        ],
+        "price": [
+          99.0,
+          101.0,
+          103.0,
+          102.9
+        ]
+      },
+      "3M": {
+        "periods": [
+          "Month 1",
+          "Month 2",
+          "Month 3"
+        ],
+        "price": [
+          99.0,
+          104.4,
+          108.8
+        ]
+      },
+      "6M": {
+        "periods": [
+          "Oct",
+          "Nov",
+          "Dec",
+          "Jan",
+          "Feb",
+          "Mar"
+        ],
+        "price": [
+          98.5,
+          103.5,
+          108.6,
+          108.9,
+          114.1,
+          117.6
+        ]
+      },
+      "YTD": {
+        "periods": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "price": [
+          98.5,
+          103.7,
+          108.9,
+          109.3,
+          114.7
+        ]
+      },
+      "1Y": {
+        "periods": [
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "price": [
+          98.0,
+          111.7,
+          125.9,
+          135.2
+        ]
+      },
+      "3Y": {
+        "periods": [
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          97.0,
+          124.6,
+          153.8,
+          173.9
+        ]
+      },
+      "5Y": {
+        "periods": [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          121.1,
+          147.9,
+          156.8,
+          184.5,
+          205.6
+        ]
+      },
+      "10Y": {
+        "periods": [
+          "2016",
+          "2018",
+          "2020",
+          "2022",
+          "2024",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          133.8,
+          174.3,
+          193.3,
+          235.2,
+          269.0
+        ]
+      },
+      "MAX": {
+        "periods": [
+          "2010",
+          "2013",
+          "2016",
+          "2019",
+          "2022",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          152.8,
+          213.8,
+          248.1,
+          311.2,
+          364.0
+        ]
+      }
+    }
+  },
+  "risks": [
+    "High valuation",
+    "Enterprise budget cycles",
+    "Platform competition"
+  ],
+  "catalysts": [
+    "AI workflow adoption",
+    "Expansion deals",
+    "Public sector"
+  ],
+  "analystFlags": [
+    "Sample data for preparation only.",
+    "Verify all metrics before professional use."
+  ],
+  "data_status": {
+    "last_updated": "2026-05-05",
+    "source_type": "sample_manual",
+    "source_notes": "Static sample data for interview preparation. Figures are approximate and not live.",
+    "latest_annual_period": "2025E",
+    "latest_quarterly_period": "Q1 2026",
+    "latest_market_period": "May 2026",
+    "latest_valuation_period": "May 2026",
+    "has_mixed_freshness": false
+  },
+  "market_source": {
+    "name": "NOW sample market performance",
+    "url": "",
+    "as_of": "May 2026",
+    "retrieved_at": "2026-05-05",
+    "notes": "Sample market data for demo purposes, not live pricing."
+  }
+}

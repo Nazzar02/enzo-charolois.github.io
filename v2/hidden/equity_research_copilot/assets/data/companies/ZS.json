@@ -1,0 +1,510 @@
+{
+  "ticker": "ZS",
+  "name": "Zscaler",
+  "exchange": "",
+  "industry": "Zero trust security",
+  "sector": "Cybersecurity",
+  "currency": "USD",
+  "dataStatus": "Sample data",
+  "profile": {
+    "summary": "Cloud security platform for secure internet access, private access, and data protection.",
+    "segments": [
+      "ZIA",
+      "ZPA",
+      "Data protection"
+    ],
+    "customers": [
+      "Enterprise customers",
+      "Cloud platforms",
+      "Technology buyers"
+    ],
+    "moat": [
+      "Cloud architecture",
+      "Zero trust focus",
+      "Enterprise base"
+    ],
+    "geography": "Global revenue base. Static geography note for interview preparation."
+  },
+  "caseStudy": {
+    "company": "Zscaler",
+    "ticker": "ZS",
+    "sector": "Cybersecurity",
+    "oneSentenceBusiness": "Cloud security platform for secure internet access, private access, and data protection.",
+    "keySegments": [
+      "ZIA",
+      "ZPA",
+      "Data protection"
+    ],
+    "whyItMatters": "Zero trust adoption and security architecture transition case.",
+    "moat": "Cloud architecture; Zero trust focus; Enterprise base",
+    "growthQuality": "Solid growth, confirm margin quality and durability.",
+    "cashQuality": "High cash conversion with limited capex intensity.",
+    "valuationView": "Valuation demanding; requires strong growth justification.",
+    "mainRisks": [
+      "Competition",
+      "Sales cycles",
+      "Valuation"
+    ],
+    "mainCatalysts": [
+      "Zero trust demand",
+      "Data security",
+      "Large enterprise expansion"
+    ],
+    "caseStudyAngle": "Can Zscaler maintain growth as zero trust matures?",
+    "possibleConclusion": "Strong security platform, but growth and valuation need proof."
+  },
+  "financials": {
+    "annual": {
+      "periods": [
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025E"
+      ],
+      "revenue": [
+        1.1,
+        1.2,
+        1.4,
+        1.3,
+        1.5
+      ],
+      "revenueGrowth": [
+        18,
+        23,
+        28,
+        27,
+        26
+      ],
+      "grossMargin": [
+        75.0,
+        75.8,
+        76.5,
+        77.2,
+        78.0
+      ],
+      "operatingMargin": [
+        14.5,
+        15.1,
+        15.8,
+        16.4,
+        17.0
+      ],
+      "netMargin": [
+        4.0,
+        4.5,
+        5.0,
+        5.5,
+        6.0
+      ],
+      "cashFlowOperations": [
+        0.7,
+        0.7,
+        0.8,
+        0.7,
+        0.8
+      ],
+      "capex": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "freeCashFlow": [
+        0.6,
+        0.6,
+        0.7,
+        0.6,
+        0.7
+      ],
+      "fcfMargin": [
+        54.5,
+        50.0,
+        50.0,
+        46.2,
+        46.7
+      ],
+      "roic": [
+        6.0,
+        6.5,
+        7.0,
+        7.5,
+        8.0
+      ],
+      "source": {
+        "name": "ZS annual sample model",
+        "url": "",
+        "as_of": "2025E",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "quarterly": {
+      "periods": [
+        "Q1 2025",
+        "Q2 2025",
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "revenue": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.4
+      ],
+      "revenueGrowth": [
+        18,
+        23,
+        28,
+        27,
+        26
+      ],
+      "grossMargin": [
+        75.0,
+        75.8,
+        76.5,
+        77.2,
+        78.0
+      ],
+      "operatingMargin": [
+        14.5,
+        15.1,
+        15.8,
+        16.4,
+        17.0
+      ],
+      "netMargin": [
+        4.0,
+        4.5,
+        5.0,
+        5.5,
+        6.0
+      ],
+      "cashFlowOperations": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "capex": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "freeCashFlow": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "fcfMargin": [
+        66.7,
+        66.7,
+        66.7,
+        66.7,
+        50.0
+      ],
+      "roic": [
+        6.0,
+        6.5,
+        7.0,
+        7.5,
+        8.0
+      ],
+      "source": {
+        "name": "ZS quarterly sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "ttm": {
+      "periods": [
+        "TTM"
+      ],
+      "revenue": [
+        1.3
+      ],
+      "revenueGrowth": [
+        26
+      ],
+      "grossMargin": [
+        78.0
+      ],
+      "operatingMargin": [
+        17.0
+      ],
+      "netMargin": [
+        6.0
+      ],
+      "cashFlowOperations": [
+        0.8
+      ],
+      "capex": [
+        0.0
+      ],
+      "freeCashFlow": [
+        0.8
+      ],
+      "fcfMargin": [
+        61.5
+      ],
+      "roic": [
+        8.0
+      ],
+      "source": {
+        "name": "ZS rolling TTM sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Derived from quarterly sample data."
+      }
+    }
+  },
+  "valuation": {
+    "metrics": {
+      "revenueGrowth": 26,
+      "grossMargin": 78,
+      "operatingMargin": 17,
+      "netMargin": 6,
+      "cashFlowOperations": 0.8,
+      "capex": 0.1,
+      "freeCashFlow": 0.7,
+      "fcfMargin": 25,
+      "pe": 0,
+      "forwardPe": 70,
+      "evSales": 13,
+      "evEbitda": 55,
+      "evFcf": 45,
+      "pFcf": 44,
+      "roic": 8,
+      "debt": 1.1,
+      "netDebt": -1.5,
+      "capexIntensity": 4
+    },
+    "source": {
+      "name": "Manual sample valuation model",
+      "url": "",
+      "as_of": "May 2026",
+      "retrieved_at": "2026-05-05",
+      "notes": "Approximate valuation multiples for static demo only."
+    }
+  },
+  "metrics": {
+    "revenueGrowth": 26,
+    "grossMargin": 78,
+    "operatingMargin": 17,
+    "netMargin": 6,
+    "cashFlowOperations": 0.8,
+    "capex": 0.1,
+    "freeCashFlow": 0.7,
+    "fcfMargin": 25,
+    "pe": 0,
+    "forwardPe": 70,
+    "evSales": 13,
+    "evEbitda": 55,
+    "evFcf": 45,
+    "pFcf": 44,
+    "roic": 8,
+    "debt": 1.1,
+    "netDebt": -1.5,
+    "capexIntensity": 4
+  },
+  "stockPerformance": {
+    "note": "Sample market data for demo purposes.",
+    "horizons": {
+      "1M": 3.5,
+      "3M": 10.4,
+      "6M": 20.8,
+      "YTD": 17.3,
+      "1Y": 41.6,
+      "3Y": 87.4,
+      "5Y": 124.8,
+      "10Y": 199.7,
+      "MAX": 312.0
+    },
+    "series": {
+      "1M": {
+        "periods": [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4"
+        ],
+        "price": [
+          99.0,
+          101.2,
+          103.3,
+          103.5
+        ]
+      },
+      "3M": {
+        "periods": [
+          "Month 1",
+          "Month 2",
+          "Month 3"
+        ],
+        "price": [
+          99.0,
+          105.2,
+          110.4
+        ]
+      },
+      "6M": {
+        "periods": [
+          "Oct",
+          "Nov",
+          "Dec",
+          "Jan",
+          "Feb",
+          "Mar"
+        ],
+        "price": [
+          98.5,
+          104.2,
+          109.9,
+          110.8,
+          116.6,
+          120.8
+        ]
+      },
+      "YTD": {
+        "periods": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "price": [
+          98.5,
+          104.3,
+          110.3,
+          111.3,
+          117.3
+        ]
+      },
+      "1Y": {
+        "periods": [
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "price": [
+          98.0,
+          113.9,
+          130.3,
+          141.6
+        ]
+      },
+      "3Y": {
+        "periods": [
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          97.0,
+          129.1,
+          163.0,
+          187.4
+        ]
+      },
+      "5Y": {
+        "periods": [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          125.0,
+          155.9,
+          167.9,
+          199.8,
+          224.8
+        ]
+      },
+      "10Y": {
+        "periods": [
+          "2016",
+          "2018",
+          "2020",
+          "2022",
+          "2024",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          139.9,
+          187.1,
+          211.0,
+          259.7,
+          299.7
+        ]
+      },
+      "MAX": {
+        "periods": [
+          "2010",
+          "2013",
+          "2016",
+          "2019",
+          "2022",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          162.4,
+          233.8,
+          275.7,
+          349.6,
+          412.0
+        ]
+      }
+    }
+  },
+  "risks": [
+    "Competition",
+    "Sales cycles",
+    "Valuation"
+  ],
+  "catalysts": [
+    "Zero trust demand",
+    "Data security",
+    "Large enterprise expansion"
+  ],
+  "analystFlags": [
+    "Sample data for preparation only.",
+    "Verify all metrics before professional use."
+  ],
+  "data_status": {
+    "last_updated": "2026-05-05",
+    "source_type": "sample_manual",
+    "source_notes": "Static sample data for interview preparation. Figures are approximate and not live.",
+    "latest_annual_period": "2025E",
+    "latest_quarterly_period": "Q1 2026",
+    "latest_market_period": "May 2026",
+    "latest_valuation_period": "May 2026",
+    "has_mixed_freshness": false
+  },
+  "market_source": {
+    "name": "ZS sample market performance",
+    "url": "",
+    "as_of": "May 2026",
+    "retrieved_at": "2026-05-05",
+    "notes": "Sample market data for demo purposes, not live pricing."
+  }
+}

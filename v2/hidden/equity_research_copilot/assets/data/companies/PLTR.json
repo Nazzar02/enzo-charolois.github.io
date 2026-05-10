@@ -1,0 +1,510 @@
+{
+  "ticker": "PLTR",
+  "name": "Palantir",
+  "exchange": "",
+  "industry": "Data analytics and AI platforms",
+  "sector": "Software and data",
+  "currency": "USD",
+  "dataStatus": "Sample data",
+  "profile": {
+    "summary": "Provides data operating systems and AI platforms for government and commercial customers.",
+    "segments": [
+      "Government",
+      "Commercial",
+      "AIP"
+    ],
+    "customers": [
+      "Enterprise customers",
+      "Cloud platforms",
+      "Technology buyers"
+    ],
+    "moat": [
+      "Deployment depth",
+      "Ontology",
+      "Security clearance"
+    ],
+    "geography": "Global revenue base. Static geography note for interview preparation."
+  },
+  "caseStudy": {
+    "company": "Palantir",
+    "ticker": "PLTR",
+    "sector": "Software and data",
+    "oneSentenceBusiness": "Provides data operating systems and AI platforms for government and commercial customers.",
+    "keySegments": [
+      "Government",
+      "Commercial",
+      "AIP"
+    ],
+    "whyItMatters": "AI software adoption case with strong government and commercial momentum.",
+    "moat": "Deployment depth; Ontology; Security clearance",
+    "growthQuality": "Solid growth, confirm margin quality and durability.",
+    "cashQuality": "High cash conversion with limited capex intensity.",
+    "valuationView": "Valuation demanding; requires strong growth justification.",
+    "mainRisks": [
+      "High valuation",
+      "Lumpy contracts",
+      "Government concentration"
+    ],
+    "mainCatalysts": [
+      "AIP adoption",
+      "Commercial expansion",
+      "Margin leverage"
+    ],
+    "caseStudyAngle": "Is AIP growth durable enough for the valuation?",
+    "possibleConclusion": "Strong narrative and improving quality, but valuation demands execution."
+  },
+  "financials": {
+    "annual": {
+      "periods": [
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025E"
+      ],
+      "revenue": [
+        1.7,
+        1.9,
+        2.0,
+        2.0,
+        2.2
+      ],
+      "revenueGrowth": [
+        16,
+        21,
+        26,
+        25,
+        24
+      ],
+      "grossMargin": [
+        78.0,
+        78.8,
+        79.5,
+        80.2,
+        81.0
+      ],
+      "operatingMargin": [
+        19.5,
+        20.1,
+        20.8,
+        21.4,
+        22.0
+      ],
+      "netMargin": [
+        16.0,
+        16.5,
+        17.0,
+        17.5,
+        18.0
+      ],
+      "cashFlowOperations": [
+        1.0,
+        1.1,
+        1.1,
+        1.1,
+        1.2
+      ],
+      "capex": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "freeCashFlow": [
+        0.9,
+        1.0,
+        1.0,
+        1.0,
+        1.1
+      ],
+      "fcfMargin": [
+        52.9,
+        52.6,
+        50.0,
+        50.0,
+        50.0
+      ],
+      "roic": [
+        16.0,
+        16.5,
+        17.0,
+        17.5,
+        18.0
+      ],
+      "source": {
+        "name": "PLTR annual sample model",
+        "url": "",
+        "as_of": "2025E",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "quarterly": {
+      "periods": [
+        "Q1 2025",
+        "Q2 2025",
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "revenue": [
+        0.4,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "revenueGrowth": [
+        16,
+        21,
+        26,
+        25,
+        24
+      ],
+      "grossMargin": [
+        78.0,
+        78.8,
+        79.5,
+        80.2,
+        81.0
+      ],
+      "operatingMargin": [
+        19.5,
+        20.1,
+        20.8,
+        21.4,
+        22.0
+      ],
+      "netMargin": [
+        16.0,
+        16.5,
+        17.0,
+        17.5,
+        18.0
+      ],
+      "cashFlowOperations": [
+        0.2,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "capex": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "freeCashFlow": [
+        0.2,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "fcfMargin": [
+        50.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0
+      ],
+      "roic": [
+        16.0,
+        16.5,
+        17.0,
+        17.5,
+        18.0
+      ],
+      "source": {
+        "name": "PLTR quarterly sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "ttm": {
+      "periods": [
+        "TTM"
+      ],
+      "revenue": [
+        2.0
+      ],
+      "revenueGrowth": [
+        24
+      ],
+      "grossMargin": [
+        81.0
+      ],
+      "operatingMargin": [
+        22.0
+      ],
+      "netMargin": [
+        18.0
+      ],
+      "cashFlowOperations": [
+        1.2
+      ],
+      "capex": [
+        0.0
+      ],
+      "freeCashFlow": [
+        1.2
+      ],
+      "fcfMargin": [
+        60.0
+      ],
+      "roic": [
+        18.0
+      ],
+      "source": {
+        "name": "PLTR rolling TTM sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Derived from quarterly sample data."
+      }
+    }
+  },
+  "valuation": {
+    "metrics": {
+      "revenueGrowth": 24,
+      "grossMargin": 81,
+      "operatingMargin": 22,
+      "netMargin": 18,
+      "cashFlowOperations": 1.2,
+      "capex": 0.1,
+      "freeCashFlow": 1.1,
+      "fcfMargin": 38,
+      "pe": 140,
+      "forwardPe": 85,
+      "evSales": 32,
+      "evEbitda": 80,
+      "evFcf": 75,
+      "pFcf": 73,
+      "roic": 18,
+      "debt": 0.2,
+      "netDebt": -3.5,
+      "capexIntensity": 2
+    },
+    "source": {
+      "name": "Manual sample valuation model",
+      "url": "",
+      "as_of": "May 2026",
+      "retrieved_at": "2026-05-05",
+      "notes": "Approximate valuation multiples for static demo only."
+    }
+  },
+  "metrics": {
+    "revenueGrowth": 24,
+    "grossMargin": 81,
+    "operatingMargin": 22,
+    "netMargin": 18,
+    "cashFlowOperations": 1.2,
+    "capex": 0.1,
+    "freeCashFlow": 1.1,
+    "fcfMargin": 38,
+    "pe": 140,
+    "forwardPe": 85,
+    "evSales": 32,
+    "evEbitda": 80,
+    "evFcf": 75,
+    "pFcf": 73,
+    "roic": 18,
+    "debt": 0.2,
+    "netDebt": -3.5,
+    "capexIntensity": 2
+  },
+  "stockPerformance": {
+    "note": "Sample market data for demo purposes.",
+    "horizons": {
+      "1M": 3.2,
+      "3M": 9.6,
+      "6M": 19.2,
+      "YTD": 16.0,
+      "1Y": 38.4,
+      "3Y": 80.6,
+      "5Y": 115.2,
+      "10Y": 184.3,
+      "MAX": 288.0
+    },
+    "series": {
+      "1M": {
+        "periods": [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4"
+        ],
+        "price": [
+          99.0,
+          101.1,
+          103.2,
+          103.2
+        ]
+      },
+      "3M": {
+        "periods": [
+          "Month 1",
+          "Month 2",
+          "Month 3"
+        ],
+        "price": [
+          99.0,
+          104.8,
+          109.6
+        ]
+      },
+      "6M": {
+        "periods": [
+          "Oct",
+          "Nov",
+          "Dec",
+          "Jan",
+          "Feb",
+          "Mar"
+        ],
+        "price": [
+          98.5,
+          103.8,
+          109.3,
+          109.8,
+          115.4,
+          119.2
+        ]
+      },
+      "YTD": {
+        "periods": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "price": [
+          98.5,
+          104.0,
+          109.6,
+          110.3,
+          116.0
+        ]
+      },
+      "1Y": {
+        "periods": [
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "price": [
+          98.0,
+          112.8,
+          128.1,
+          138.4
+        ]
+      },
+      "3Y": {
+        "periods": [
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          97.0,
+          126.9,
+          158.4,
+          180.6
+        ]
+      },
+      "5Y": {
+        "periods": [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          123.0,
+          151.9,
+          162.4,
+          192.2,
+          215.2
+        ]
+      },
+      "10Y": {
+        "periods": [
+          "2016",
+          "2018",
+          "2020",
+          "2022",
+          "2024",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          136.9,
+          180.7,
+          202.2,
+          247.5,
+          284.3
+        ]
+      },
+      "MAX": {
+        "periods": [
+          "2010",
+          "2013",
+          "2016",
+          "2019",
+          "2022",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          157.6,
+          223.8,
+          261.9,
+          330.4,
+          388.0
+        ]
+      }
+    }
+  },
+  "risks": [
+    "High valuation",
+    "Lumpy contracts",
+    "Government concentration"
+  ],
+  "catalysts": [
+    "AIP adoption",
+    "Commercial expansion",
+    "Margin leverage"
+  ],
+  "analystFlags": [
+    "Sample data for preparation only.",
+    "Verify all metrics before professional use."
+  ],
+  "data_status": {
+    "last_updated": "2026-05-05",
+    "source_type": "sample_manual",
+    "source_notes": "Static sample data for interview preparation. Figures are approximate and not live.",
+    "latest_annual_period": "2025E",
+    "latest_quarterly_period": "Q1 2026",
+    "latest_market_period": "May 2026",
+    "latest_valuation_period": "May 2026",
+    "has_mixed_freshness": false
+  },
+  "market_source": {
+    "name": "PLTR sample market performance",
+    "url": "",
+    "as_of": "May 2026",
+    "retrieved_at": "2026-05-05",
+    "notes": "Sample market data for demo purposes, not live pricing."
+  }
+}

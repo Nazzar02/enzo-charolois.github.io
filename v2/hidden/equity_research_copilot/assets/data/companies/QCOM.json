@@ -1,0 +1,512 @@
+{
+  "ticker": "QCOM",
+  "name": "Qualcomm",
+  "exchange": "",
+  "industry": "Mobile and connectivity chips",
+  "sector": "Semiconductors",
+  "currency": "USD",
+  "dataStatus": "Sample data",
+  "profile": {
+    "summary": "Supplies mobile processors, modems, and connectivity IP with licensing income.",
+    "segments": [
+      "Handsets",
+      "Automotive",
+      "IoT",
+      "Licensing"
+    ],
+    "customers": [
+      "Enterprise customers",
+      "Cloud platforms",
+      "Technology buyers"
+    ],
+    "moat": [
+      "Patent portfolio",
+      "Connectivity expertise",
+      "OEM relationships"
+    ],
+    "geography": "Global revenue base. Static geography note for interview preparation."
+  },
+  "caseStudy": {
+    "company": "Qualcomm",
+    "ticker": "QCOM",
+    "sector": "Semiconductors",
+    "oneSentenceBusiness": "Supplies mobile processors, modems, and connectivity IP with licensing income.",
+    "keySegments": [
+      "Handsets",
+      "Automotive",
+      "IoT",
+      "Licensing"
+    ],
+    "whyItMatters": "Important read-through for smartphones, edge AI, and automotive silicon.",
+    "moat": "Patent portfolio; Connectivity expertise; OEM relationships",
+    "growthQuality": "Moderate growth; focus on drivers and cycle position.",
+    "cashQuality": "High cash conversion with limited capex intensity.",
+    "valuationView": "Valuation appears more reasonable versus growth profile.",
+    "mainRisks": [
+      "Apple modem risk",
+      "Smartphone cycles",
+      "China competition"
+    ],
+    "mainCatalysts": [
+      "Automotive backlog",
+      "Edge AI phones",
+      "Licensing resilience"
+    ],
+    "caseStudyAngle": "Can diversification offset smartphone maturity?",
+    "possibleConclusion": "Cash-generative franchise, but growth depends on diversification beyond handsets."
+  },
+  "financials": {
+    "annual": {
+      "periods": [
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025E"
+      ],
+      "revenue": [
+        19.2,
+        20.5,
+        21.8,
+        20.5,
+        21.8
+      ],
+      "revenueGrowth": [
+        1,
+        6,
+        11,
+        10,
+        9
+      ],
+      "grossMargin": [
+        53.0,
+        53.8,
+        54.5,
+        55.2,
+        56.0
+      ],
+      "operatingMargin": [
+        25.5,
+        26.1,
+        26.8,
+        27.4,
+        28.0
+      ],
+      "netMargin": [
+        22.0,
+        22.5,
+        23.0,
+        23.5,
+        24.0
+      ],
+      "cashFlowOperations": [
+        11.0,
+        11.5,
+        12.0,
+        11.5,
+        12
+      ],
+      "capex": [
+        0.9,
+        1.0,
+        1.0,
+        1.0,
+        1
+      ],
+      "freeCashFlow": [
+        10.1,
+        10.5,
+        11.0,
+        10.5,
+        11
+      ],
+      "fcfMargin": [
+        52.6,
+        51.2,
+        50.5,
+        51.2,
+        50.5
+      ],
+      "roic": [
+        26.0,
+        26.5,
+        27.0,
+        27.5,
+        28.0
+      ],
+      "source": {
+        "name": "QCOM annual sample model",
+        "url": "",
+        "as_of": "2025E",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "quarterly": {
+      "periods": [
+        "Q1 2025",
+        "Q2 2025",
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "revenue": [
+        4.8,
+        5.1,
+        5.4,
+        5.1,
+        5.5
+      ],
+      "revenueGrowth": [
+        1,
+        6,
+        11,
+        10,
+        9
+      ],
+      "grossMargin": [
+        53.0,
+        53.8,
+        54.5,
+        55.2,
+        56.0
+      ],
+      "operatingMargin": [
+        25.5,
+        26.1,
+        26.8,
+        27.4,
+        28.0
+      ],
+      "netMargin": [
+        22.0,
+        22.5,
+        23.0,
+        23.5,
+        24.0
+      ],
+      "cashFlowOperations": [
+        2.7,
+        2.9,
+        3.0,
+        2.9,
+        3.0
+      ],
+      "capex": [
+        0.2,
+        0.2,
+        0.3,
+        0.2,
+        0.2
+      ],
+      "freeCashFlow": [
+        2.5,
+        2.7,
+        2.7,
+        2.7,
+        2.8
+      ],
+      "fcfMargin": [
+        52.1,
+        52.9,
+        50.0,
+        52.9,
+        50.9
+      ],
+      "roic": [
+        26.0,
+        26.5,
+        27.0,
+        27.5,
+        28.0
+      ],
+      "source": {
+        "name": "QCOM quarterly sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "ttm": {
+      "periods": [
+        "TTM"
+      ],
+      "revenue": [
+        21.1
+      ],
+      "revenueGrowth": [
+        9
+      ],
+      "grossMargin": [
+        56.0
+      ],
+      "operatingMargin": [
+        28.0
+      ],
+      "netMargin": [
+        24.0
+      ],
+      "cashFlowOperations": [
+        11.8
+      ],
+      "capex": [
+        0.9
+      ],
+      "freeCashFlow": [
+        10.9
+      ],
+      "fcfMargin": [
+        51.7
+      ],
+      "roic": [
+        28.0
+      ],
+      "source": {
+        "name": "QCOM rolling TTM sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Derived from quarterly sample data."
+      }
+    }
+  },
+  "valuation": {
+    "metrics": {
+      "revenueGrowth": 9,
+      "grossMargin": 56,
+      "operatingMargin": 28,
+      "netMargin": 24,
+      "cashFlowOperations": 12,
+      "capex": 1,
+      "freeCashFlow": 11,
+      "fcfMargin": 29,
+      "pe": 20,
+      "forwardPe": 17,
+      "evSales": 5,
+      "evEbitda": 13,
+      "evFcf": 18,
+      "pFcf": 17,
+      "roic": 28,
+      "debt": 15,
+      "netDebt": 5,
+      "capexIntensity": 3
+    },
+    "source": {
+      "name": "Manual sample valuation model",
+      "url": "",
+      "as_of": "May 2026",
+      "retrieved_at": "2026-05-05",
+      "notes": "Approximate valuation multiples for static demo only."
+    }
+  },
+  "metrics": {
+    "revenueGrowth": 9,
+    "grossMargin": 56,
+    "operatingMargin": 28,
+    "netMargin": 24,
+    "cashFlowOperations": 12,
+    "capex": 1,
+    "freeCashFlow": 11,
+    "fcfMargin": 29,
+    "pe": 20,
+    "forwardPe": 17,
+    "evSales": 5,
+    "evEbitda": 13,
+    "evFcf": 18,
+    "pFcf": 17,
+    "roic": 28,
+    "debt": 15,
+    "netDebt": 5,
+    "capexIntensity": 3
+  },
+  "stockPerformance": {
+    "note": "Sample market data for demo purposes.",
+    "horizons": {
+      "1M": 1.2,
+      "3M": 3.6,
+      "6M": 7.2,
+      "YTD": 6.0,
+      "1Y": 14.4,
+      "3Y": 30.2,
+      "5Y": 43.2,
+      "10Y": 69.1,
+      "MAX": 108.0
+    },
+    "series": {
+      "1M": {
+        "periods": [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4"
+        ],
+        "price": [
+          99.0,
+          100.4,
+          101.8,
+          101.2
+        ]
+      },
+      "3M": {
+        "periods": [
+          "Month 1",
+          "Month 2",
+          "Month 3"
+        ],
+        "price": [
+          99.0,
+          101.8,
+          103.6
+        ]
+      },
+      "6M": {
+        "periods": [
+          "Oct",
+          "Nov",
+          "Dec",
+          "Jan",
+          "Feb",
+          "Mar"
+        ],
+        "price": [
+          98.5,
+          101.4,
+          104.4,
+          102.8,
+          105.8,
+          107.2
+        ]
+      },
+      "YTD": {
+        "periods": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "price": [
+          98.5,
+          101.5,
+          104.5,
+          102.9,
+          106.0
+        ]
+      },
+      "1Y": {
+        "periods": [
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "price": [
+          98.0,
+          104.8,
+          111.8,
+          114.4
+        ]
+      },
+      "3Y": {
+        "periods": [
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          97.0,
+          110.1,
+          123.8,
+          130.2
+        ]
+      },
+      "5Y": {
+        "periods": [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          108.6,
+          122.0,
+          120.9,
+          134.6,
+          143.2
+        ]
+      },
+      "10Y": {
+        "periods": [
+          "2016",
+          "2018",
+          "2020",
+          "2022",
+          "2024",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          113.8,
+          132.8,
+          135.8,
+          155.3,
+          169.1
+        ]
+      },
+      "MAX": {
+        "periods": [
+          "2010",
+          "2013",
+          "2016",
+          "2019",
+          "2022",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          121.6,
+          148.9,
+          158.2,
+          186.4,
+          208.0
+        ]
+      }
+    }
+  },
+  "risks": [
+    "Apple modem risk",
+    "Smartphone cycles",
+    "China competition"
+  ],
+  "catalysts": [
+    "Automotive backlog",
+    "Edge AI phones",
+    "Licensing resilience"
+  ],
+  "analystFlags": [
+    "Sample data for preparation only.",
+    "Verify all metrics before professional use."
+  ],
+  "data_status": {
+    "last_updated": "2026-05-05",
+    "source_type": "sample_manual",
+    "source_notes": "Static sample data for interview preparation. Figures are approximate and not live.",
+    "latest_annual_period": "2025E",
+    "latest_quarterly_period": "Q1 2026",
+    "latest_market_period": "May 2026",
+    "latest_valuation_period": "May 2026",
+    "has_mixed_freshness": false
+  },
+  "market_source": {
+    "name": "QCOM sample market performance",
+    "url": "",
+    "as_of": "May 2026",
+    "retrieved_at": "2026-05-05",
+    "notes": "Sample market data for demo purposes, not live pricing."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "project": "Equity Research Copilot",
+  "version": "1.0.0",
+  "data_status": "sample",
+  "as_of": "2026-05-04",
+  "currency": "USD",
+  "disclaimer": "Static sample data for educational interview preparation only. Not investment advice.",
+  "coverage": ["TSM", "NVDA", "ASML", "AVGO"],
+  "peer_set": "semiconductors_ai",
+  "notes": [
+    "Figures are approximate, manually prepared examples for a version 1 static prototype.",
+    "No live financial API, scraping, backend, database, or automated data refresh is used.",
+    "Analyst judgment is still required for business model, moat, risks, and conclusion."
+  ]
+}

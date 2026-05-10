@@ -1,0 +1,510 @@
+{
+  "ticker": "IFX",
+  "name": "Infineon Technologies",
+  "exchange": "",
+  "industry": "Power and automotive semiconductors",
+  "sector": "European technology",
+  "currency": "USD",
+  "dataStatus": "Sample data",
+  "profile": {
+    "summary": "European semiconductor company focused on power, automotive, industrial, and IoT chips.",
+    "segments": [
+      "Automotive",
+      "Green industrial power",
+      "Power and sensor systems"
+    ],
+    "customers": [
+      "Enterprise customers",
+      "Cloud platforms",
+      "Technology buyers"
+    ],
+    "moat": [
+      "Power semiconductor expertise",
+      "Auto relationships",
+      "Scale"
+    ],
+    "geography": "Global revenue base. Static geography note for interview preparation."
+  },
+  "caseStudy": {
+    "company": "Infineon Technologies",
+    "ticker": "IFX",
+    "sector": "European technology",
+    "oneSentenceBusiness": "European semiconductor company focused on power, automotive, industrial, and IoT chips.",
+    "keySegments": [
+      "Automotive",
+      "Green industrial power",
+      "Power and sensor systems"
+    ],
+    "whyItMatters": "Important European power semiconductor and electrification case.",
+    "moat": "Power semiconductor expertise; Auto relationships; Scale",
+    "growthQuality": "Weak reported growth; separate cycle from structural decline.",
+    "cashQuality": "Cash conversion needs deeper review.",
+    "valuationView": "Valuation appears more reasonable versus growth profile.",
+    "mainRisks": [
+      "Auto cycle",
+      "Industrial weakness",
+      "China pricing"
+    ],
+    "mainCatalysts": [
+      "EV power content",
+      "Industrial recovery",
+      "Margin stabilization"
+    ],
+    "caseStudyAngle": "Can structural electrification offset cyclical auto weakness?",
+    "possibleConclusion": "Good structural exposure, but cycle and margins need care."
+  },
+  "financials": {
+    "annual": {
+      "periods": [
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025E"
+      ],
+      "revenue": [
+        8.9,
+        9.1,
+        9.4,
+        8.5,
+        8.7
+      ],
+      "revenueGrowth": [
+        -14,
+        -9,
+        -4,
+        -5,
+        -6
+      ],
+      "grossMargin": [
+        38.0,
+        38.8,
+        39.5,
+        40.2,
+        41.0
+      ],
+      "operatingMargin": [
+        17.5,
+        18.1,
+        18.8,
+        19.4,
+        20.0
+      ],
+      "netMargin": [
+        12.0,
+        12.5,
+        13.0,
+        13.5,
+        14.0
+      ],
+      "cashFlowOperations": [
+        4.9,
+        5.0,
+        5.1,
+        4.7,
+        4.8
+      ],
+      "capex": [
+        3.3,
+        3.4,
+        3.4,
+        3.3,
+        3.3
+      ],
+      "freeCashFlow": [
+        1.6,
+        1.6,
+        1.7,
+        1.4,
+        1.5
+      ],
+      "fcfMargin": [
+        18.0,
+        17.6,
+        18.1,
+        16.5,
+        17.2
+      ],
+      "roic": [
+        10.0,
+        10.5,
+        11.0,
+        11.5,
+        12.0
+      ],
+      "source": {
+        "name": "IFX annual sample model",
+        "url": "",
+        "as_of": "2025E",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "quarterly": {
+      "periods": [
+        "Q1 2025",
+        "Q2 2025",
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "revenue": [
+        2.2,
+        2.3,
+        2.3,
+        2.1,
+        2.2
+      ],
+      "revenueGrowth": [
+        -14,
+        -9,
+        -4,
+        -5,
+        -6
+      ],
+      "grossMargin": [
+        38.0,
+        38.8,
+        39.5,
+        40.2,
+        41.0
+      ],
+      "operatingMargin": [
+        17.5,
+        18.1,
+        18.8,
+        19.4,
+        20.0
+      ],
+      "netMargin": [
+        12.0,
+        12.5,
+        13.0,
+        13.5,
+        14.0
+      ],
+      "cashFlowOperations": [
+        1.2,
+        1.2,
+        1.3,
+        1.2,
+        1.2
+      ],
+      "capex": [
+        0.8,
+        0.8,
+        0.9,
+        0.8,
+        0.8
+      ],
+      "freeCashFlow": [
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4
+      ],
+      "fcfMargin": [
+        18.2,
+        17.4,
+        17.4,
+        19.0,
+        18.2
+      ],
+      "roic": [
+        10.0,
+        10.5,
+        11.0,
+        11.5,
+        12.0
+      ],
+      "source": {
+        "name": "IFX quarterly sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "ttm": {
+      "periods": [
+        "TTM"
+      ],
+      "revenue": [
+        8.9
+      ],
+      "revenueGrowth": [
+        -6
+      ],
+      "grossMargin": [
+        41.0
+      ],
+      "operatingMargin": [
+        20.0
+      ],
+      "netMargin": [
+        14.0
+      ],
+      "cashFlowOperations": [
+        4.9
+      ],
+      "capex": [
+        3.3
+      ],
+      "freeCashFlow": [
+        1.6
+      ],
+      "fcfMargin": [
+        18.0
+      ],
+      "roic": [
+        12.0
+      ],
+      "source": {
+        "name": "IFX rolling TTM sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Derived from quarterly sample data."
+      }
+    }
+  },
+  "valuation": {
+    "metrics": {
+      "revenueGrowth": -6,
+      "grossMargin": 41,
+      "operatingMargin": 20,
+      "netMargin": 14,
+      "cashFlowOperations": 4.8,
+      "capex": 3.3,
+      "freeCashFlow": 1.5,
+      "fcfMargin": 9,
+      "pe": 25,
+      "forwardPe": 20,
+      "evSales": 3.2,
+      "evEbitda": 10,
+      "evFcf": 30,
+      "pFcf": 28,
+      "roic": 12,
+      "debt": 7,
+      "netDebt": 3,
+      "capexIntensity": 20
+    },
+    "source": {
+      "name": "Manual sample valuation model",
+      "url": "",
+      "as_of": "May 2026",
+      "retrieved_at": "2026-05-05",
+      "notes": "Approximate valuation multiples for static demo only."
+    }
+  },
+  "metrics": {
+    "revenueGrowth": -6,
+    "grossMargin": 41,
+    "operatingMargin": 20,
+    "netMargin": 14,
+    "cashFlowOperations": 4.8,
+    "capex": 3.3,
+    "freeCashFlow": 1.5,
+    "fcfMargin": 9,
+    "pe": 25,
+    "forwardPe": 20,
+    "evSales": 3.2,
+    "evEbitda": 10,
+    "evFcf": 30,
+    "pFcf": 28,
+    "roic": 12,
+    "debt": 7,
+    "netDebt": 3,
+    "capexIntensity": 20
+  },
+  "stockPerformance": {
+    "note": "Sample market data for demo purposes.",
+    "horizons": {
+      "1M": -0.8,
+      "3M": -2.4,
+      "6M": -4.8,
+      "YTD": -4.0,
+      "1Y": -9.6,
+      "3Y": -20.2,
+      "5Y": -28.8,
+      "10Y": -46.1,
+      "MAX": -72.0
+    },
+    "series": {
+      "1M": {
+        "periods": [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4"
+        ],
+        "price": [
+          99.0,
+          99.7,
+          100.5,
+          99.2
+        ]
+      },
+      "3M": {
+        "periods": [
+          "Month 1",
+          "Month 2",
+          "Month 3"
+        ],
+        "price": [
+          99.0,
+          98.8,
+          97.6
+        ]
+      },
+      "6M": {
+        "periods": [
+          "Oct",
+          "Nov",
+          "Dec",
+          "Jan",
+          "Feb",
+          "Mar"
+        ],
+        "price": [
+          98.5,
+          99.0,
+          99.6,
+          95.7,
+          96.2,
+          95.2
+        ]
+      },
+      "YTD": {
+        "periods": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "price": [
+          98.5,
+          99.0,
+          99.5,
+          95.5,
+          96.0
+        ]
+      },
+      "1Y": {
+        "periods": [
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "price": [
+          98.0,
+          96.8,
+          95.5,
+          90.4
+        ]
+      },
+      "3Y": {
+        "periods": [
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          97.0,
+          93.3,
+          89.2,
+          79.8
+        ]
+      },
+      "5Y": {
+        "periods": [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          94.2,
+          92.0,
+          79.4,
+          77.0,
+          71.2
+        ]
+      },
+      "10Y": {
+        "periods": [
+          "2016",
+          "2018",
+          "2020",
+          "2022",
+          "2024",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          90.8,
+          84.8,
+          69.5,
+          63.1,
+          53.9
+        ]
+      },
+      "MAX": {
+        "periods": [
+          "2010",
+          "2013",
+          "2016",
+          "2019",
+          "2022",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          85.6,
+          74.0,
+          54.5,
+          42.4,
+          28.0
+        ]
+      }
+    }
+  },
+  "risks": [
+    "Auto cycle",
+    "Industrial weakness",
+    "China pricing"
+  ],
+  "catalysts": [
+    "EV power content",
+    "Industrial recovery",
+    "Margin stabilization"
+  ],
+  "analystFlags": [
+    "Sample data for preparation only.",
+    "Verify all metrics before professional use."
+  ],
+  "data_status": {
+    "last_updated": "2026-05-05",
+    "source_type": "sample_manual",
+    "source_notes": "Static sample data for interview preparation. Figures are approximate and not live.",
+    "latest_annual_period": "2025E",
+    "latest_quarterly_period": "Q1 2026",
+    "latest_market_period": "May 2026",
+    "latest_valuation_period": "May 2026",
+    "has_mixed_freshness": false
+  },
+  "market_source": {
+    "name": "IFX sample market performance",
+    "url": "",
+    "as_of": "May 2026",
+    "retrieved_at": "2026-05-05",
+    "notes": "Sample market data for demo purposes, not live pricing."
+  }
+}

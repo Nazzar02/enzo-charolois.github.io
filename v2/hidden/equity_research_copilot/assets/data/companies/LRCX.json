@@ -1,0 +1,510 @@
+{
+  "ticker": "LRCX",
+  "name": "Lam Research",
+  "exchange": "",
+  "industry": "Etch and deposition equipment",
+  "sector": "Semiconductor equipment",
+  "currency": "USD",
+  "dataStatus": "Sample data",
+  "profile": {
+    "summary": "Supplies etch and deposition tools critical to memory and logic manufacturing.",
+    "segments": [
+      "Systems",
+      "Customer support",
+      "Spares"
+    ],
+    "customers": [
+      "Enterprise customers",
+      "Cloud platforms",
+      "Technology buyers"
+    ],
+    "moat": [
+      "Process depth",
+      "Installed base",
+      "Memory relationships"
+    ],
+    "geography": "Global revenue base. Static geography note for interview preparation."
+  },
+  "caseStudy": {
+    "company": "Lam Research",
+    "ticker": "LRCX",
+    "sector": "Semiconductor equipment",
+    "oneSentenceBusiness": "Supplies etch and deposition tools critical to memory and logic manufacturing.",
+    "keySegments": [
+      "Systems",
+      "Customer support",
+      "Spares"
+    ],
+    "whyItMatters": "Key beneficiary of memory capex and advanced packaging complexity.",
+    "moat": "Process depth; Installed base; Memory relationships",
+    "growthQuality": "Solid growth, confirm margin quality and durability.",
+    "cashQuality": "High cash conversion with limited capex intensity.",
+    "valuationView": "Valuation appears more reasonable versus growth profile.",
+    "mainRisks": [
+      "Memory capex cycles",
+      "Export controls",
+      "Order volatility"
+    ],
+    "mainCatalysts": [
+      "HBM capex",
+      "NAND recovery",
+      "Services growth"
+    ],
+    "caseStudyAngle": "How much memory recovery is already reflected in valuation?",
+    "possibleConclusion": "Strong equipment quality with memory-cycle sensitivity."
+  },
+  "financials": {
+    "annual": {
+      "periods": [
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025E"
+      ],
+      "revenue": [
+        8.5,
+        9.1,
+        9.8,
+        9.3,
+        10.0
+      ],
+      "revenueGrowth": [
+        5,
+        10,
+        15,
+        14,
+        13
+      ],
+      "grossMargin": [
+        44.0,
+        44.8,
+        45.5,
+        46.2,
+        47.0
+      ],
+      "operatingMargin": [
+        28.5,
+        29.1,
+        29.8,
+        30.4,
+        31.0
+      ],
+      "netMargin": [
+        25.0,
+        25.5,
+        26.0,
+        26.5,
+        27.0
+      ],
+      "cashFlowOperations": [
+        4.9,
+        5.2,
+        5.4,
+        5.2,
+        5.5
+      ],
+      "capex": [
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4
+      ],
+      "freeCashFlow": [
+        4.5,
+        4.8,
+        5.0,
+        4.8,
+        5.1
+      ],
+      "fcfMargin": [
+        52.9,
+        52.7,
+        51.0,
+        51.6,
+        51.0
+      ],
+      "roic": [
+        40.0,
+        40.5,
+        41.0,
+        41.5,
+        42.0
+      ],
+      "source": {
+        "name": "LRCX annual sample model",
+        "url": "",
+        "as_of": "2025E",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "quarterly": {
+      "periods": [
+        "Q1 2025",
+        "Q2 2025",
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "revenue": [
+        2.1,
+        2.3,
+        2.5,
+        2.3,
+        2.5
+      ],
+      "revenueGrowth": [
+        5,
+        10,
+        15,
+        14,
+        13
+      ],
+      "grossMargin": [
+        44.0,
+        44.8,
+        45.5,
+        46.2,
+        47.0
+      ],
+      "operatingMargin": [
+        28.5,
+        29.1,
+        29.8,
+        30.4,
+        31.0
+      ],
+      "netMargin": [
+        25.0,
+        25.5,
+        26.0,
+        26.5,
+        27.0
+      ],
+      "cashFlowOperations": [
+        1.2,
+        1.3,
+        1.4,
+        1.3,
+        1.4
+      ],
+      "capex": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "freeCashFlow": [
+        1.1,
+        1.2,
+        1.3,
+        1.2,
+        1.3
+      ],
+      "fcfMargin": [
+        52.4,
+        52.2,
+        52.0,
+        52.2,
+        52.0
+      ],
+      "roic": [
+        40.0,
+        40.5,
+        41.0,
+        41.5,
+        42.0
+      ],
+      "source": {
+        "name": "LRCX quarterly sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "ttm": {
+      "periods": [
+        "TTM"
+      ],
+      "revenue": [
+        9.6
+      ],
+      "revenueGrowth": [
+        13
+      ],
+      "grossMargin": [
+        47.0
+      ],
+      "operatingMargin": [
+        31.0
+      ],
+      "netMargin": [
+        27.0
+      ],
+      "cashFlowOperations": [
+        5.4
+      ],
+      "capex": [
+        0.4
+      ],
+      "freeCashFlow": [
+        5.0
+      ],
+      "fcfMargin": [
+        52.1
+      ],
+      "roic": [
+        42.0
+      ],
+      "source": {
+        "name": "LRCX rolling TTM sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Derived from quarterly sample data."
+      }
+    }
+  },
+  "valuation": {
+    "metrics": {
+      "revenueGrowth": 13,
+      "grossMargin": 47,
+      "operatingMargin": 31,
+      "netMargin": 27,
+      "cashFlowOperations": 5.5,
+      "capex": 0.4,
+      "freeCashFlow": 5.1,
+      "fcfMargin": 29,
+      "pe": 26,
+      "forwardPe": 21,
+      "evSales": 7,
+      "evEbitda": 17,
+      "evFcf": 25,
+      "pFcf": 24,
+      "roic": 42,
+      "debt": 5,
+      "netDebt": 0,
+      "capexIntensity": 2
+    },
+    "source": {
+      "name": "Manual sample valuation model",
+      "url": "",
+      "as_of": "May 2026",
+      "retrieved_at": "2026-05-05",
+      "notes": "Approximate valuation multiples for static demo only."
+    }
+  },
+  "metrics": {
+    "revenueGrowth": 13,
+    "grossMargin": 47,
+    "operatingMargin": 31,
+    "netMargin": 27,
+    "cashFlowOperations": 5.5,
+    "capex": 0.4,
+    "freeCashFlow": 5.1,
+    "fcfMargin": 29,
+    "pe": 26,
+    "forwardPe": 21,
+    "evSales": 7,
+    "evEbitda": 17,
+    "evFcf": 25,
+    "pFcf": 24,
+    "roic": 42,
+    "debt": 5,
+    "netDebt": 0,
+    "capexIntensity": 2
+  },
+  "stockPerformance": {
+    "note": "Sample market data for demo purposes.",
+    "horizons": {
+      "1M": 1.7,
+      "3M": 5.2,
+      "6M": 10.4,
+      "YTD": 8.7,
+      "1Y": 20.8,
+      "3Y": 43.7,
+      "5Y": 62.4,
+      "10Y": 99.8,
+      "MAX": 156.0
+    },
+    "series": {
+      "1M": {
+        "periods": [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4"
+        ],
+        "price": [
+          99.0,
+          100.6,
+          102.2,
+          101.7
+        ]
+      },
+      "3M": {
+        "periods": [
+          "Month 1",
+          "Month 2",
+          "Month 3"
+        ],
+        "price": [
+          99.0,
+          102.6,
+          105.2
+        ]
+      },
+      "6M": {
+        "periods": [
+          "Oct",
+          "Nov",
+          "Dec",
+          "Jan",
+          "Feb",
+          "Mar"
+        ],
+        "price": [
+          98.5,
+          102.1,
+          105.7,
+          104.6,
+          108.3,
+          110.4
+        ]
+      },
+      "YTD": {
+        "periods": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "price": [
+          98.5,
+          102.2,
+          105.9,
+          104.9,
+          108.7
+        ]
+      },
+      "1Y": {
+        "periods": [
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "price": [
+          98.0,
+          106.9,
+          116.1,
+          120.8
+        ]
+      },
+      "3Y": {
+        "periods": [
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          97.0,
+          114.6,
+          133.0,
+          143.7
+        ]
+      },
+      "5Y": {
+        "periods": [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          112.5,
+          130.0,
+          131.9,
+          149.9,
+          162.4
+        ]
+      },
+      "10Y": {
+        "periods": [
+          "2016",
+          "2018",
+          "2020",
+          "2022",
+          "2024",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          120.0,
+          145.5,
+          153.5,
+          179.9,
+          199.8
+        ]
+      },
+      "MAX": {
+        "periods": [
+          "2010",
+          "2013",
+          "2016",
+          "2019",
+          "2022",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          131.2,
+          168.9,
+          185.9,
+          224.8,
+          256.0
+        ]
+      }
+    }
+  },
+  "risks": [
+    "Memory capex cycles",
+    "Export controls",
+    "Order volatility"
+  ],
+  "catalysts": [
+    "HBM capex",
+    "NAND recovery",
+    "Services growth"
+  ],
+  "analystFlags": [
+    "Sample data for preparation only.",
+    "Verify all metrics before professional use."
+  ],
+  "data_status": {
+    "last_updated": "2026-05-05",
+    "source_type": "sample_manual",
+    "source_notes": "Static sample data for interview preparation. Figures are approximate and not live.",
+    "latest_annual_period": "2025E",
+    "latest_quarterly_period": "Q1 2026",
+    "latest_market_period": "May 2026",
+    "latest_valuation_period": "May 2026",
+    "has_mixed_freshness": false
+  },
+  "market_source": {
+    "name": "LRCX sample market performance",
+    "url": "",
+    "as_of": "May 2026",
+    "retrieved_at": "2026-05-05",
+    "notes": "Sample market data for demo purposes, not live pricing."
+  }
+}

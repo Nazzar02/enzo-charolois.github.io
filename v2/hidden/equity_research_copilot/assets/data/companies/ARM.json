@@ -1,0 +1,510 @@
+{
+  "ticker": "ARM",
+  "name": "Arm Holdings",
+  "exchange": "",
+  "industry": "Processor IP",
+  "sector": "Semiconductors",
+  "currency": "USD",
+  "dataStatus": "Sample data",
+  "profile": {
+    "summary": "Licenses processor architectures and IP used across mobile, cloud, auto, and edge devices.",
+    "segments": [
+      "Royalties",
+      "Licensing",
+      "Compute subsystems"
+    ],
+    "customers": [
+      "Enterprise customers",
+      "Cloud platforms",
+      "Technology buyers"
+    ],
+    "moat": [
+      "Ecosystem standard",
+      "Asset-light model",
+      "High switching costs"
+    ],
+    "geography": "Global revenue base. Static geography note for interview preparation."
+  },
+  "caseStudy": {
+    "company": "Arm Holdings",
+    "ticker": "ARM",
+    "sector": "Semiconductors",
+    "oneSentenceBusiness": "Licenses processor architectures and IP used across mobile, cloud, auto, and edge devices.",
+    "keySegments": [
+      "Royalties",
+      "Licensing",
+      "Compute subsystems"
+    ],
+    "whyItMatters": "IP toll road for compute architectures across many end markets.",
+    "moat": "Ecosystem standard; Asset-light model; High switching costs",
+    "growthQuality": "Strong growth with attractive profitability.",
+    "cashQuality": "High cash conversion with limited capex intensity.",
+    "valuationView": "Valuation demanding; requires strong growth justification.",
+    "mainRisks": [
+      "High valuation",
+      "China exposure",
+      "RISC-V competition"
+    ],
+    "mainCatalysts": [
+      "Data center Arm adoption",
+      "Royalty rate uplift",
+      "AI edge devices"
+    ],
+    "caseStudyAngle": "Does royalty growth justify a premium multiple?",
+    "possibleConclusion": "High-quality asset-light model, valuation is the central constraint."
+  },
+  "financials": {
+    "annual": {
+      "periods": [
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025E"
+      ],
+      "revenue": [
+        1.8,
+        2.0,
+        2.2,
+        2.2,
+        2.4
+      ],
+      "revenueGrowth": [
+        17,
+        22,
+        27,
+        26,
+        25
+      ],
+      "grossMargin": [
+        93.0,
+        93.8,
+        94.5,
+        95.2,
+        96.0
+      ],
+      "operatingMargin": [
+        29.5,
+        30.1,
+        30.8,
+        31.4,
+        32.0
+      ],
+      "netMargin": [
+        22.0,
+        22.5,
+        23.0,
+        23.5,
+        24.0
+      ],
+      "cashFlowOperations": [
+        1.1,
+        1.2,
+        1.2,
+        1.2,
+        1.3
+      ],
+      "capex": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "freeCashFlow": [
+        1.0,
+        1.1,
+        1.1,
+        1.1,
+        1.2
+      ],
+      "fcfMargin": [
+        55.6,
+        55.0,
+        50.0,
+        50.0,
+        50.0
+      ],
+      "roic": [
+        20.0,
+        20.5,
+        21.0,
+        21.5,
+        22.0
+      ],
+      "source": {
+        "name": "ARM annual sample model",
+        "url": "",
+        "as_of": "2025E",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "quarterly": {
+      "periods": [
+        "Q1 2025",
+        "Q2 2025",
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "revenue": [
+        0.5,
+        0.5,
+        0.6,
+        0.5,
+        0.6
+      ],
+      "revenueGrowth": [
+        17,
+        22,
+        27,
+        26,
+        25
+      ],
+      "grossMargin": [
+        93.0,
+        93.8,
+        94.5,
+        95.2,
+        96.0
+      ],
+      "operatingMargin": [
+        29.5,
+        30.1,
+        30.8,
+        31.4,
+        32.0
+      ],
+      "netMargin": [
+        22.0,
+        22.5,
+        23.0,
+        23.5,
+        24.0
+      ],
+      "cashFlowOperations": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "capex": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "freeCashFlow": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "fcfMargin": [
+        60.0,
+        60.0,
+        50.0,
+        60.0,
+        50.0
+      ],
+      "roic": [
+        20.0,
+        20.5,
+        21.0,
+        21.5,
+        22.0
+      ],
+      "source": {
+        "name": "ARM quarterly sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "ttm": {
+      "periods": [
+        "TTM"
+      ],
+      "revenue": [
+        2.2
+      ],
+      "revenueGrowth": [
+        25
+      ],
+      "grossMargin": [
+        96.0
+      ],
+      "operatingMargin": [
+        32.0
+      ],
+      "netMargin": [
+        24.0
+      ],
+      "cashFlowOperations": [
+        1.2
+      ],
+      "capex": [
+        0.0
+      ],
+      "freeCashFlow": [
+        1.2
+      ],
+      "fcfMargin": [
+        54.5
+      ],
+      "roic": [
+        22.0
+      ],
+      "source": {
+        "name": "ARM rolling TTM sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Derived from quarterly sample data."
+      }
+    }
+  },
+  "valuation": {
+    "metrics": {
+      "revenueGrowth": 25,
+      "grossMargin": 96,
+      "operatingMargin": 32,
+      "netMargin": 24,
+      "cashFlowOperations": 1.3,
+      "capex": 0.1,
+      "freeCashFlow": 1.2,
+      "fcfMargin": 34,
+      "pe": 95,
+      "forwardPe": 70,
+      "evSales": 32,
+      "evEbitda": 65,
+      "evFcf": 80,
+      "pFcf": 78,
+      "roic": 22,
+      "debt": 0.2,
+      "netDebt": -2.0,
+      "capexIntensity": 2
+    },
+    "source": {
+      "name": "Manual sample valuation model",
+      "url": "",
+      "as_of": "May 2026",
+      "retrieved_at": "2026-05-05",
+      "notes": "Approximate valuation multiples for static demo only."
+    }
+  },
+  "metrics": {
+    "revenueGrowth": 25,
+    "grossMargin": 96,
+    "operatingMargin": 32,
+    "netMargin": 24,
+    "cashFlowOperations": 1.3,
+    "capex": 0.1,
+    "freeCashFlow": 1.2,
+    "fcfMargin": 34,
+    "pe": 95,
+    "forwardPe": 70,
+    "evSales": 32,
+    "evEbitda": 65,
+    "evFcf": 80,
+    "pFcf": 78,
+    "roic": 22,
+    "debt": 0.2,
+    "netDebt": -2.0,
+    "capexIntensity": 2
+  },
+  "stockPerformance": {
+    "note": "Sample market data for demo purposes.",
+    "horizons": {
+      "1M": 3.3,
+      "3M": 10.0,
+      "6M": 20.0,
+      "YTD": 16.7,
+      "1Y": 40.0,
+      "3Y": 84.0,
+      "5Y": 120.0,
+      "10Y": 192.0,
+      "MAX": 300.0
+    },
+    "series": {
+      "1M": {
+        "periods": [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4"
+        ],
+        "price": [
+          99.0,
+          101.1,
+          103.2,
+          103.3
+        ]
+      },
+      "3M": {
+        "periods": [
+          "Month 1",
+          "Month 2",
+          "Month 3"
+        ],
+        "price": [
+          99.0,
+          105.0,
+          110.0
+        ]
+      },
+      "6M": {
+        "periods": [
+          "Oct",
+          "Nov",
+          "Dec",
+          "Jan",
+          "Feb",
+          "Mar"
+        ],
+        "price": [
+          98.5,
+          104.0,
+          109.6,
+          110.3,
+          116.0,
+          120.0
+        ]
+      },
+      "YTD": {
+        "periods": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "price": [
+          98.5,
+          104.2,
+          110.0,
+          110.8,
+          116.7
+        ]
+      },
+      "1Y": {
+        "periods": [
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "price": [
+          98.0,
+          113.3,
+          129.2,
+          140.0
+        ]
+      },
+      "3Y": {
+        "periods": [
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          97.0,
+          128.0,
+          160.7,
+          184.0
+        ]
+      },
+      "5Y": {
+        "periods": [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          124.0,
+          153.9,
+          165.1,
+          196.0,
+          220.0
+        ]
+      },
+      "10Y": {
+        "periods": [
+          "2016",
+          "2018",
+          "2020",
+          "2022",
+          "2024",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          138.4,
+          183.9,
+          206.6,
+          253.6,
+          292.0
+        ]
+      },
+      "MAX": {
+        "periods": [
+          "2010",
+          "2013",
+          "2016",
+          "2019",
+          "2022",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          160.0,
+          228.8,
+          268.8,
+          340.0,
+          400.0
+        ]
+      }
+    }
+  },
+  "risks": [
+    "High valuation",
+    "China exposure",
+    "RISC-V competition"
+  ],
+  "catalysts": [
+    "Data center Arm adoption",
+    "Royalty rate uplift",
+    "AI edge devices"
+  ],
+  "analystFlags": [
+    "Sample data for preparation only.",
+    "Verify all metrics before professional use."
+  ],
+  "data_status": {
+    "last_updated": "2026-05-05",
+    "source_type": "sample_manual",
+    "source_notes": "Static sample data for interview preparation. Figures are approximate and not live.",
+    "latest_annual_period": "2025E",
+    "latest_quarterly_period": "Q1 2026",
+    "latest_market_period": "May 2026",
+    "latest_valuation_period": "May 2026",
+    "has_mixed_freshness": false
+  },
+  "market_source": {
+    "name": "ARM sample market performance",
+    "url": "",
+    "as_of": "May 2026",
+    "retrieved_at": "2026-05-05",
+    "notes": "Sample market data for demo purposes, not live pricing."
+  }
+}

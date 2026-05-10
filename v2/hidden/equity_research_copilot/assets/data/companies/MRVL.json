@@ -1,0 +1,512 @@
+{
+  "ticker": "MRVL",
+  "name": "Marvell Technology",
+  "exchange": "",
+  "industry": "Data infrastructure silicon",
+  "sector": "Semiconductors",
+  "currency": "USD",
+  "dataStatus": "Sample data",
+  "profile": {
+    "summary": "Designs data infrastructure chips for cloud, networking, storage, and custom silicon.",
+    "segments": [
+      "Data center",
+      "Carrier",
+      "Enterprise",
+      "Automotive"
+    ],
+    "customers": [
+      "Enterprise customers",
+      "Cloud platforms",
+      "Technology buyers"
+    ],
+    "moat": [
+      "Custom silicon relationships",
+      "Networking portfolio",
+      "Cloud exposure"
+    ],
+    "geography": "Global revenue base. Static geography note for interview preparation."
+  },
+  "caseStudy": {
+    "company": "Marvell Technology",
+    "ticker": "MRVL",
+    "sector": "Semiconductors",
+    "oneSentenceBusiness": "Designs data infrastructure chips for cloud, networking, storage, and custom silicon.",
+    "keySegments": [
+      "Data center",
+      "Carrier",
+      "Enterprise",
+      "Automotive"
+    ],
+    "whyItMatters": "AI custom silicon and optical connectivity supplier.",
+    "moat": "Custom silicon relationships; Networking portfolio; Cloud exposure",
+    "growthQuality": "Solid growth, confirm margin quality and durability.",
+    "cashQuality": "Good cash conversion; review reinvestment needs.",
+    "valuationView": "Valuation needs peer and business-quality context.",
+    "mainRisks": [
+      "Execution risk",
+      "Customer concentration",
+      "Cyclical legacy markets"
+    ],
+    "mainCatalysts": [
+      "Custom AI ASICs",
+      "Optical DSP demand",
+      "Margin recovery"
+    ],
+    "caseStudyAngle": "Can AI custom silicon scale fast enough to offset legacy weakness?",
+    "possibleConclusion": "AI upside is real, but valuation needs confidence in margin expansion."
+  },
+  "financials": {
+    "annual": {
+      "periods": [
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025E"
+      ],
+      "revenue": [
+        2.3,
+        2.5,
+        2.8,
+        2.7,
+        2.9
+      ],
+      "revenueGrowth": [
+        12,
+        17,
+        22,
+        21,
+        20
+      ],
+      "grossMargin": [
+        58.0,
+        58.8,
+        59.5,
+        60.2,
+        61.0
+      ],
+      "operatingMargin": [
+        16.5,
+        17.1,
+        17.8,
+        18.4,
+        19.0
+      ],
+      "netMargin": [
+        6.0,
+        6.5,
+        7.0,
+        7.5,
+        8.0
+      ],
+      "cashFlowOperations": [
+        1.4,
+        1.5,
+        1.5,
+        1.5,
+        1.6
+      ],
+      "capex": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "freeCashFlow": [
+        1.1,
+        1.2,
+        1.2,
+        1.2,
+        1.3
+      ],
+      "fcfMargin": [
+        47.8,
+        48.0,
+        42.9,
+        44.4,
+        44.8
+      ],
+      "roic": [
+        7.0,
+        7.5,
+        8.0,
+        8.5,
+        9.0
+      ],
+      "source": {
+        "name": "MRVL annual sample model",
+        "url": "",
+        "as_of": "2025E",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "quarterly": {
+      "periods": [
+        "Q1 2025",
+        "Q2 2025",
+        "Q3 2025",
+        "Q4 2025",
+        "Q1 2026"
+      ],
+      "revenue": [
+        0.6,
+        0.6,
+        0.7,
+        0.7,
+        0.7
+      ],
+      "revenueGrowth": [
+        12,
+        17,
+        22,
+        21,
+        20
+      ],
+      "grossMargin": [
+        58.0,
+        58.8,
+        59.5,
+        60.2,
+        61.0
+      ],
+      "operatingMargin": [
+        16.5,
+        17.1,
+        17.8,
+        18.4,
+        19.0
+      ],
+      "netMargin": [
+        6.0,
+        6.5,
+        7.0,
+        7.5,
+        8.0
+      ],
+      "cashFlowOperations": [
+        0.3,
+        0.4,
+        0.4,
+        0.4,
+        0.4
+      ],
+      "capex": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "freeCashFlow": [
+        0.2,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "fcfMargin": [
+        33.3,
+        50.0,
+        42.9,
+        42.9,
+        42.9
+      ],
+      "roic": [
+        7.0,
+        7.5,
+        8.0,
+        8.5,
+        9.0
+      ],
+      "source": {
+        "name": "MRVL quarterly sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Static sample data for interview preparation. Not live financial data."
+      }
+    },
+    "ttm": {
+      "periods": [
+        "TTM"
+      ],
+      "revenue": [
+        2.7
+      ],
+      "revenueGrowth": [
+        20
+      ],
+      "grossMargin": [
+        61.0
+      ],
+      "operatingMargin": [
+        19.0
+      ],
+      "netMargin": [
+        8.0
+      ],
+      "cashFlowOperations": [
+        1.6
+      ],
+      "capex": [
+        0.4
+      ],
+      "freeCashFlow": [
+        1.2
+      ],
+      "fcfMargin": [
+        44.4
+      ],
+      "roic": [
+        9.0
+      ],
+      "source": {
+        "name": "MRVL rolling TTM sample model",
+        "url": "",
+        "as_of": "Q1 2026",
+        "retrieved_at": "2026-05-05",
+        "notes": "Derived from quarterly sample data."
+      }
+    }
+  },
+  "valuation": {
+    "metrics": {
+      "revenueGrowth": 20,
+      "grossMargin": 61,
+      "operatingMargin": 19,
+      "netMargin": 8,
+      "cashFlowOperations": 1.6,
+      "capex": 0.3,
+      "freeCashFlow": 1.3,
+      "fcfMargin": 22,
+      "pe": 60,
+      "forwardPe": 36,
+      "evSales": 12,
+      "evEbitda": 30,
+      "evFcf": 48,
+      "pFcf": 46,
+      "roic": 9,
+      "debt": 4.2,
+      "netDebt": 3.1,
+      "capexIntensity": 5
+    },
+    "source": {
+      "name": "Manual sample valuation model",
+      "url": "",
+      "as_of": "May 2026",
+      "retrieved_at": "2026-05-05",
+      "notes": "Approximate valuation multiples for static demo only."
+    }
+  },
+  "metrics": {
+    "revenueGrowth": 20,
+    "grossMargin": 61,
+    "operatingMargin": 19,
+    "netMargin": 8,
+    "cashFlowOperations": 1.6,
+    "capex": 0.3,
+    "freeCashFlow": 1.3,
+    "fcfMargin": 22,
+    "pe": 60,
+    "forwardPe": 36,
+    "evSales": 12,
+    "evEbitda": 30,
+    "evFcf": 48,
+    "pFcf": 46,
+    "roic": 9,
+    "debt": 4.2,
+    "netDebt": 3.1,
+    "capexIntensity": 5
+  },
+  "stockPerformance": {
+    "note": "Sample market data for demo purposes.",
+    "horizons": {
+      "1M": 2.7,
+      "3M": 8.0,
+      "6M": 16.0,
+      "YTD": 13.3,
+      "1Y": 32.0,
+      "3Y": 67.2,
+      "5Y": 96.0,
+      "10Y": 153.6,
+      "MAX": 240.0
+    },
+    "series": {
+      "1M": {
+        "periods": [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4"
+        ],
+        "price": [
+          99.0,
+          100.9,
+          102.8,
+          102.7
+        ]
+      },
+      "3M": {
+        "periods": [
+          "Month 1",
+          "Month 2",
+          "Month 3"
+        ],
+        "price": [
+          99.0,
+          104.0,
+          108.0
+        ]
+      },
+      "6M": {
+        "periods": [
+          "Oct",
+          "Nov",
+          "Dec",
+          "Jan",
+          "Feb",
+          "Mar"
+        ],
+        "price": [
+          98.5,
+          103.2,
+          108.0,
+          108.0,
+          112.8,
+          116.0
+        ]
+      },
+      "YTD": {
+        "periods": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "price": [
+          98.5,
+          103.3,
+          108.3,
+          108.3,
+          113.3
+        ]
+      },
+      "1Y": {
+        "periods": [
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "price": [
+          98.0,
+          110.7,
+          123.8,
+          132.0
+        ]
+      },
+      "3Y": {
+        "periods": [
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          97.0,
+          122.4,
+          149.1,
+          167.2
+        ]
+      },
+      "5Y": {
+        "periods": [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          119.2,
+          143.9,
+          151.3,
+          176.8,
+          196.0
+        ]
+      },
+      "10Y": {
+        "periods": [
+          "2016",
+          "2018",
+          "2020",
+          "2022",
+          "2024",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          130.7,
+          167.9,
+          184.5,
+          222.9,
+          253.6
+        ]
+      },
+      "MAX": {
+        "periods": [
+          "2010",
+          "2013",
+          "2016",
+          "2019",
+          "2022",
+          "2026E"
+        ],
+        "price": [
+          96.0,
+          148.0,
+          203.8,
+          234.2,
+          292.0,
+          340.0
+        ]
+      }
+    }
+  },
+  "risks": [
+    "Execution risk",
+    "Customer concentration",
+    "Cyclical legacy markets"
+  ],
+  "catalysts": [
+    "Custom AI ASICs",
+    "Optical DSP demand",
+    "Margin recovery"
+  ],
+  "analystFlags": [
+    "Sample data for preparation only.",
+    "Verify all metrics before professional use."
+  ],
+  "data_status": {
+    "last_updated": "2026-05-05",
+    "source_type": "sample_manual",
+    "source_notes": "Static sample data for interview preparation. Figures are approximate and not live.",
+    "latest_annual_period": "2025E",
+    "latest_quarterly_period": "Q1 2026",
+    "latest_market_period": "May 2026",
+    "latest_valuation_period": "May 2026",
+    "has_mixed_freshness": false
+  },
+  "market_source": {
+    "name": "MRVL sample market performance",
+    "url": "",
+    "as_of": "May 2026",
+    "retrieved_at": "2026-05-05",
+    "notes": "Sample market data for demo purposes, not live pricing."
+  }
+}
