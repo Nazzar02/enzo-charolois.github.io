@@ -30,12 +30,12 @@ export const languages = {
     titles: [
       'Following a trade through the system.',
       'What can a playlist title tell us?',
-      'Finding structure in configurations.',
+      'Mapping Swiss exports.',
     ],
     descriptions: [
       'In a Geneva banking project team, I test FX options and reconcile trade data across applications. The work often starts with a discrepancy and a question about where it first appeared.',
-      'A student research project at EURECOM grew into three collaborative, peer-reviewed publications on generating playlists from their titles.',
-      'At smartTrade, I worked on a dashboard for comparing client environments before upgrades. A weighted distance measure made configuration differences easier to inspect.',
+      'At EURECOM, my coauthors and I worked on recommending music from a playlist title. The project led to two RecSys papers and a journal article.',
+      'Where do Swiss goods go? In Swiss Data Insights, I used customs data to map the country’s fifteen largest export markets.',
     ],
     notes: [
       'FX options testing and reconciliation across applications.',
@@ -86,12 +86,12 @@ export const languages = {
     titles: [
       'Suivre une opération de bout en bout.',
       'Que révèle le titre d’une playlist ?',
-      'Comparer des configurations complexes.',
+      'Cartographier les exportations suisses.',
     ],
     descriptions: [
       'Au sein d’une équipe projet bancaire à Genève, je teste des options de change et rapproche les données de plusieurs applications. Une divergence conduit souvent à rechercher le premier écart dans la chaîne.',
-      'À EURECOM, un projet de recherche étudiant a donné lieu à trois publications collectives évaluées par les pairs sur la génération de playlists à partir de leurs titres.',
-      'Chez smartTrade, j’ai travaillé sur un tableau de bord pour comparer des environnements clients avant leur mise à niveau. Une distance pondérée permet d’examiner les écarts de configuration.',
+      'À EURECOM, mes coauteurs et moi avons étudié comment recommander de la musique à partir d’un titre de playlist. Ce travail a donné lieu à deux publications à RecSys et à un article de revue.',
+      'Où vont les marchandises exportées par la Suisse ? Dans Swiss Data Insights, j’ai repris les tableaux de la douane pour cartographier les quinze premières destinations.',
     ],
     notes: [
       'Tests sur options de change et rapprochements entre applications.',

@@ -3,7 +3,7 @@ import { dirname, join, posix } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { ids, languages } from '../facets/content.js'
 import { mark, motif } from './graphics.mjs'
-import { world } from './worlds.mjs'
+import { exhibit, world } from './worlds.mjs'
 const root = fileURLToPath(new URL('../', import.meta.url))
 const publicBase = 'https://nazzar02.github.io/enzo-charolois.github.io/'
 const arrow = '<span aria-hidden="true">↗</span>'
@@ -38,7 +38,7 @@ function home(t, url, asset, lang) {
             i,
           ) => `<article class="preview-body" data-preview="${i}" ${i ? 'hidden' : ''}>
         <div><p class="eyebrow">${t.names[i]}</p><h2>${t.titles[i]}</h2><p class="prose">${t.descriptions[i]}</p><a class="text-link enter" href="${url(id)}">${t.explore[i]} ${arrow}</a></div>
-        <div class="print world-${id}" aria-hidden="true">${motif(i)}<img loading="lazy" src="${asset(stills + id + '.webp')}" width="640" height="560" alt=""><span>STRATA &nbsp; / &nbsp; 0${i + 1}</span></div>
+        ${exhibit(id, lang, asset, true)}
       </article>`,
         )
         .join('')}
@@ -80,9 +80,9 @@ export async function buildPage(lang, id, world) {
   <a href="#main" class="skip">${t.skip}</a><header><div class="shell header-inner"><a class="brand" href="${url()}">${mark}<span>Enzo Charolois</span></a>
   <nav class="wide-nav" aria-label="${t.nav}">${navLinks}</nav>${localeNav}
   <details class="compact-nav"><summary>${t.menu}</summary><nav aria-label="${t.nav}">${navLinks}</nav></details></div></header>
-  ${id ? world({ lang, id, t, url, asset, arrow, mark, motif }) : home(t, url, asset, lang)}
+  ${id ? world({ lang, id, t, url, asset }) : home(t, url, asset, lang)}
   <footer><div class="shell footer-inner"><a class="brand" href="${url()}">${mark} Enzo Charolois</a><a href="${url('about')}#contact">${t.contact} ${arrow}</a></div></footer>
-  <script type="module" src="${asset('facets/' + (id ? 'world' : 'home') + '.js')}"></script></body></html>`
+  ${id ? '' : `<script type="module" src="${asset('facets/home.js')}"></script>`}</body></html>`
   const file = join(root, folder, 'index.html')
   await mkdir(dirname(file), { recursive: true })
   await writeFile(file, html)

@@ -25,332 +25,252 @@ export const papers = [
     demo: true,
   },
 ]
-export const authorList = [
+export const authors = [
   'Enzo Charolois-Pasqua',
   'Eléa Vellard',
   'Youssra Rebboud',
   'Pasquale Lisena',
   'Raphaël Troncy',
 ]
-export const portfolioSource =
-  'https://github.com/Nazzar02/enzo-charolois.github.io/blob/8f77747/index.html'
+export const exportProject =
+  'https://github.com/Nazzar02/swiss-data-insights/tree/06ba474d850ce062358cb1fb54c330118ce47e05/projects/swiss_global_exports_video'
+export const playlistPrototype =
+  'https://playlist-recommendation.tools.eurecom.fr/'
+export const mapSource =
+  'https://map.geo.admin.ch/#/map?lang=fr&center=2500300,1117800&z=6.5&layers=ch.swisstopo.hiks-siegfried'
 export const copy = {
-  en: {
-    banking: {
-      lead: 'Testing FX options and following discrepancies across financial applications, within a project team in Geneva.',
-      section: 'Field notes',
-      title: 'Where does the first difference appear?',
-      paragraphs: [
-        [
-          'Fenixys · Union Bancaire Privée',
-          'As a Banking Technology Consultant with Fenixys, I work on assignment at UBP in Geneva as a junior Murex consultant. My work spans FX options test cases, booking-model checks, instrument setup and non-regression testing.',
-        ],
-        [
-          'Across applications',
-          'A discrepancy in a downstream view can originate earlier in the trade lifecycle. I compare observations in Murex, Kondor+ and other relevant sources, document the first divergence and retest with the project team. That also applies to market data and risk reconciliation.',
-        ],
-        [
-          'smartTrade Technologies',
-          'Earlier work at smartTrade included investigating production issues using logs and FIX messages, coordinating client project follow-up and developing internal Python tools.',
-        ],
-      ],
-      label: 'Synthetic case study',
-      demo: 'Trace the first mismatch.',
-      instruction:
-        'Follow ticket FX‑042 through four fictional checkpoints. Compare the recorded expiry with the original instruction.',
-      picks: ['Capture', 'Map', 'Value', 'Report'],
-      cap: [
-        'Source instruction',
-        'Field translation',
-        'Valuation input',
-        'Reporting copy',
-      ],
-      findings: [
-        'The original instruction sets the expiry to 18 June. Use it as the reference for the next checkpoint.',
-        'The mapping step copies the expiry correctly. The pair and amount also match the instruction.',
-        'First divergence. The valuation input carries 19 June while the instruction and mapping output both carry 18 June.',
-        'The reporting copy carries the same later expiry as valuation. The discrepancy is already present upstream.',
-      ],
-      fields: [
-        'Currency pair',
-        'Notional',
-        'Expected expiry',
-        'Recorded expiry',
-      ],
-      match: 'Aligned',
-      mismatch: 'Different expiry',
-      date: ['18 Jun 2027', '19 Jun 2027'],
-      safe: 'All field values, checkpoints and subsystem names in this exercise are fictional.',
-    },
-    research: {
-      lead: 'Three peer-reviewed papers on a small question with an open-ended answer. Which tracks belong under a title?',
-      section: 'Research notes',
-      title: 'Start with a few words.',
-      paragraphs: [
-        [
-          'From student project to journal',
-          'The work began as a collaborative student project at EURECOM. My involvement continued alongside full-time banking employment. Two RecSys contributions appeared in 2025, followed by a journal article in 2026.',
-        ],
-        [
-          'From titles to tracks',
-          'The team grouped playlists in an embedding space, fine-tuned a transformer and used title similarity to retrieve candidate tracks. The journal article explores voting and language-model ranking.',
-        ],
-      ],
-      label: 'Illustrative visualization',
-      demo: 'A neighbourhood of titles.',
-      instruction:
-        'Choose a seed title. Each point has two invented coordinates. The lines connect the seed to its three closest titles by cosine similarity.',
-      ranking: 'Nearest titles',
-      similarity: 'Cosine similarity',
-      pubs: 'Publications',
-      published: 'Published',
-      record: 'Institutional record',
-      pdf: 'Conference PDF',
-      demoLink: 'EURECOM playlist prototype',
-      note: 'The coordinates are illustrative. The published system uses learned representations and recommends tracks.',
-      equal:
-        'The two first-listed authors share equal contribution on the conference papers.',
-    },
-    engineering: {
-      lead: 'Tools for inspecting configurations, retrieving technical knowledge and exploring a working recommendation model.',
-      label: 'Project anatomy',
-      demo: 'Environment similarity dashboard.',
-      instruction:
-        'Follow the configuration comparison from a practical question to an inspectable result.',
-      tabs: ['Problem', 'Approach', 'Architecture', 'Output', 'Evidence'],
-      panels: [
-        [
-          'Before an upgrade',
-          'Which existing environments most closely resemble the one about to change? Reading configurations individually made it hard to see relationships across a collection.',
-        ],
-        [
-          'Choose a distance',
-          'At smartTrade, I evaluated machine-learning and language-processing approaches, then worked with a custom weighted distance to represent configuration differences.',
-        ],
-        [
-          'From comparison to a map',
-          'Weighted comparisons feed a multidimensional scaling (MDS) view. K-means groups offer a second way to inspect relationships in the same collection.',
-        ],
-        [
-          'Make neighbours visible',
-          'The dashboard provides an interactive view of related client environments for upgrade preparation. The diagram here shows the processing stages.',
-        ],
-        [
-          'Public project description',
-          'The original portfolio describes the comparison method, MDS, clustering and dashboard. Client configurations stay within their original environment.',
-        ],
-      ],
-      stages: [
-        'Configurations',
-        'Weighted distance',
-        'MDS and K-means',
-        'Dashboard',
-      ],
-      source: 'Original project account',
-      section: 'Selected work',
-      title: 'Two other applied projects.',
-      paragraphs: [
-        [
-          'Internal knowledge assistant · smartTrade',
-          'I contributed to an internal retrieval-augmented generation tool for technical knowledge. The project combined embeddings, structured retrieval and Python-oriented workflows.',
-        ],
-        [
-          'Playlist generation prototype · EURECOM',
-          'Our collaborative research demo turns a free-form title into a playlist. The demonstration paper and public prototype document the work.',
-        ],
-      ],
-      prototype: 'Open the playlist prototype',
-    },
-    about: {
-      lead: 'I’m Enzo Charolois, a Banking Technology Consultant in Geneva. I like to follow a system far enough to explain why it behaves the way it does.',
-      title: 'A path through engineering.',
-      label: 'Education & experience',
-      paragraphs: [
-        [
-          '2022–2025 · Mines Saint-Étienne',
-          'I studied computer science and engineering, including embedded systems. That breadth still shapes the questions I ask when software meets a real workflow.',
-        ],
-        [
-          '2024 · Siemens Healthineers',
-          'At OpenIT Studio, I worked on prototypes, turning user requirements into testable product concepts.',
-        ],
-        [
-          '2024–2025 · EURECOM',
-          'A double degree in AI and cybersecurity brought me into collaborative research on playlist recommendation. That work continued beyond graduation.',
-        ],
-        [
-          'smartTrade Technologies',
-          'I worked on banking technology delivery, production investigations and internal tools, including a dashboard for comparing client environments.',
-        ],
-        [
-          'Geneva · Fenixys for UBP',
-          'Today I work within a project team on a banking technology assignment, bringing functional testing and technical investigation together.',
-        ],
-      ],
-      contact: 'Get in touch.',
-      downloads: 'CVs & contact',
-      cv: ['AI-focused CV', 'Delivery-focused CV'],
-      portrait: 'Portrait of Enzo Charolois',
-      bio: 'About Enzo',
-    },
-  },
   fr: {
     banking: {
-      lead: 'Tester les options de change et remonter les écarts entre applications financières, au sein d’une équipe projet à Genève.',
-      section: 'Notes de terrain',
-      title: 'Où apparaît le premier écart ?',
-      paragraphs: [
+      title: 'Options de change et <em>systèmes bancaires.</em>',
+      intro:
+        'À Genève, je suis en mission pour Fenixys comme consultant Murex junior au sein d’une équipe projet de l’Union Bancaire Privée. Je teste les opérations de change et j’étudie les écarts qui apparaissent entre les applications.',
+      credit: 'Genève et le Rhône, carte Siegfried',
+      source: 'swisstopo',
+      alt: 'Extrait de la carte historique de Genève, entre le Léman, le Rhône et l’Arve.',
+      current: 'Mission à Genève',
+      role: 'Consultant en technologies bancaires',
+      assignment: 'Fenixys · Union Bancaire Privée',
+      work: [
         [
-          'Fenixys · Union Bancaire Privée',
-          'Consultant en technologies bancaires chez Fenixys, j’interviens à l’UBP à Genève comme consultant Murex junior. Je conçois et exécute des tests sur les options de change, vérifie les modèles de saisie et le paramétrage des instruments, et mène des tests de non-régression.',
+          'Tester la saisie d’une option',
+          'Je prépare et exécute des cas de test sur les options de change. Je vérifie le modèle de saisie, le paramétrage de l’instrument et le comportement de l’opération au fil de son cycle de vie. Les tests de non-régression permettent de contrôler à nouveau les cas déjà validés.',
         ],
         [
-          'D’une application à l’autre',
-          'Un écart visible en aval peut provenir d’une étape antérieure du cycle de vie. Je rapproche les observations dans Murex, Kondor+ et les sources pertinentes, documente la première divergence et reteste avec l’équipe projet. Cette démarche vaut aussi pour les données de marché et les rapprochements de risque.',
-        ],
-        [
-          'smartTrade Technologies',
-          'Chez smartTrade, j’ai étudié des incidents de production à partir de journaux et de messages FIX, participé au suivi de projets clients et développé des outils internes en Python.',
+          'Retrouver l’origine d’un écart',
+          'Quand Murex et Kondor+ présentent des valeurs différentes, je compare les observations aux étapes successives. Je documente le premier écart pour que l’équipe puisse reprendre l’enquête au bon endroit, puis je reteste après correction. Ces rapprochements portent aussi sur les données de marché et le risque.',
         ],
       ],
-      label: 'Cas entièrement fictif',
-      demo: 'Retrouver le premier écart.',
-      instruction:
-        'Suivez le ticket FX‑042 à travers quatre étapes fictives. Comparez l’échéance enregistrée à celle de l’instruction initiale.',
-      picks: ['Saisie', 'Conversion', 'Valorisation', 'Rapport'],
-      cap: [
-        'Instruction initiale',
-        'Traduction des champs',
-        'Données de valorisation',
-        'Copie de reporting',
-      ],
-      findings: [
-        'L’instruction initiale fixe l’échéance au 18 juin. Elle sert de référence pour les étapes suivantes.',
-        'La conversion conserve l’échéance. La paire de devises et le montant correspondent aussi à l’instruction.',
-        'Premier écart. La valorisation utilise le 19 juin, alors que l’instruction et la conversion indiquent le 18 juin.',
-        'Le rapport reprend l’échéance de valorisation. L’écart existait donc déjà à l’étape précédente.',
-      ],
-      fields: [
-        'Paire de devises',
-        'Montant nominal',
-        'Échéance attendue',
-        'Échéance enregistrée',
-      ],
-      match: 'Concordance',
-      mismatch: 'Échéance différente',
-      date: ['18 juin 2027', '19 juin 2027'],
-      safe: 'Les valeurs, les étapes et les noms de sous-systèmes de cet exercice sont fictifs.',
+      previous: 'Expérience précédente',
+      previousTitle: 'smartTrade Technologies',
+      previousText:
+        'Chez smartTrade, je m’appuyais sur les journaux applicatifs et les messages FIX pour étudier des incidents de production. Je participais aussi au suivi de projets clients et développais des outils internes en Python.',
     },
     research: {
-      lead: 'Trois publications évaluées par les pairs autour d’une question ouverte. Quels morceaux correspondent au titre d’une playlist ?',
-      section: 'Notes de recherche',
-      title: 'Partir de quelques mots.',
-      paragraphs: [
-        [
-          'Du projet étudiant à l’article de revue',
-          'Notre travail a commencé à EURECOM par un projet étudiant collectif. J’ai poursuivi cette recherche en parallèle d’un emploi à temps plein en technologies bancaires. Deux contributions à RecSys sont parues en 2025, puis un article de revue en 2026.',
-        ],
-        [
-          'Du titre aux morceaux',
-          'L’équipe a regroupé des playlists dans un espace vectoriel, affiné un transformeur puis utilisé la similarité des titres pour retrouver des morceaux candidats. L’article de revue étudie le classement par vote et par modèle de langage.',
-        ],
-      ],
-      label: 'Visualisation illustrative',
-      demo: 'Des titres dans un même voisinage.',
-      instruction:
-        'Choisissez un titre de départ. Chaque point possède deux coordonnées fictives. Les lignes le relient aux trois titres les plus proches selon la similarité cosinus.',
-      ranking: 'Titres les plus proches',
-      similarity: 'Similarité cosinus',
-      pubs: 'Publications',
-      published: 'Parution',
-      record: 'Notice institutionnelle',
-      pdf: 'PDF de la conférence',
-      demoLink: 'Prototype de playlists EURECOM',
-      note: 'Les coordonnées sont illustratives. Le système publié utilise des représentations apprises et recommande des morceaux.',
+      title: 'Des playlists à partir <em>d’un titre.</em>',
+      intro:
+        'À EURECOM, nous avons étudié ce qu’un titre de playlist permet de déduire des morceaux que l’on aimerait y entendre. Ce projet étudiant collectif a donné lieu à trois publications évaluées par les pairs. J’ai poursuivi cette collaboration en parallèle de mon emploi à temps plein en banque.',
+      credit: 'Article de recherche, RecSys 2025',
+      source: 'Lire le PDF',
+      alt: 'Première page de l’article de recherche RecSys, avec le titre et les cinq coauteurs.',
+      method: 'Du titre aux morceaux',
+      methodText:
+        'Nous avons regroupé les playlists selon leur contenu, puis affiné un transformeur sur ces groupes. Pour un nouveau titre, le modèle recherche les titres proches afin de proposer des morceaux. L’article de revue compare ensuite deux façons de les classer, par vote et par modèle de langage.',
+      publications: 'Publications',
       equal:
-        'Les deux auteurs cités en tête ont contribué à parts égales aux articles de conférence.',
+        'Pour les deux articles de conférence, les deux premiers signataires ont contribué à parts égales.',
+      record: 'Notice EURECOM',
+      pdf: 'Article en PDF',
+      prototype: 'Essayer le prototype EURECOM',
     },
     engineering: {
-      lead: 'Des outils pour examiner des configurations, retrouver des connaissances techniques et explorer un modèle de recommandation.',
-      label: 'Anatomie d’un projet',
-      demo: 'Comparer des environnements.',
-      instruction:
-        'Suivez la comparaison de configurations, de la question initiale au résultat consultable.',
-      tabs: ['Problème', 'Démarche', 'Architecture', 'Résultat', 'Sources'],
-      panels: [
+      title: 'Des données aux <em>outils métier.</em>',
+      intro:
+        'Pour Swiss Data Insights, je suis parti des tableaux de la douane suisse pour en faire une carte. Chez smartTrade, j’ai travaillé sur deux autres outils pour comparer des configurations clients et retrouver une réponse dans la documentation.',
+      credit: 'Les quinze premiers marchés d’exportation de la Suisse en 2024',
+      source: 'Source et données',
+      alt: 'Carte reliant la Suisse à ses quinze principaux marchés d’exportation de marchandises en 2024. Les traits les plus épais indiquent les parts les plus élevées.',
+      project: 'Swiss Data Insights',
+      feature: 'Cartographier les exportations suisses',
+      featureText:
+        'J’ai utilisé les tableaux de l’Office fédéral de la douane et de la sécurité des frontières pour relier la Suisse à ses principaux marchés. La carte reprend les quinze premières destinations de 2024. Les États-Unis arrivent en tête (18,6 % des exportations de marchandises), devant l’Allemagne (14,7 %) et la Slovénie (9,3 %).',
+      featureLink: 'Voir le projet et ses sources',
+      other: 'Autres projets',
+      projects: [
         [
-          'Avant une mise à niveau',
-          'Quels environnements existants ressemblent le plus à celui que l’on va modifier ? Une lecture individuelle des configurations faisait difficilement ressortir les ressemblances.',
-        ],
-        [
-          'Définir une distance',
-          'Chez smartTrade, j’ai évalué des approches d’apprentissage automatique et de traitement du langage avant de travailler avec une distance pondérée adaptée aux écarts de configuration.',
-        ],
-        [
-          'De la comparaison à la carte',
-          'Les comparaisons pondérées alimentent une projection par positionnement multidimensionnel (MDS). Les groupes issus de K-means offrent une autre lecture des relations dans la collection.',
-        ],
-        [
-          'Rendre les voisins visibles',
-          'Le tableau de bord permet d’explorer les environnements clients apparentés pour préparer une mise à niveau. Le schéma présente les étapes du traitement.',
-        ],
-        [
-          'Description publique du projet',
-          'Le portfolio d’origine décrit la méthode de comparaison, la projection MDS, le regroupement et le tableau de bord. Les configurations clients restent dans leur environnement d’origine.',
-        ],
-      ],
-      stages: [
-        'Configurations',
-        'Distance pondérée',
-        'MDS et K-means',
-        'Tableau de bord',
-      ],
-      source: 'Présentation initiale du projet',
-      section: 'Autres réalisations',
-      title: 'Deux autres projets appliqués.',
-      paragraphs: [
-        [
-          'Assistant documentaire interne · smartTrade',
-          'J’ai contribué à un outil interne de génération augmentée par la recherche documentaire. Il combinait représentations vectorielles, recherche structurée et traitements en Python.',
-        ],
-        [
-          'Génération de playlists · EURECOM',
-          'Notre démonstrateur collectif transforme un titre libre en playlist. L’article de démonstration et le prototype public documentent ce travail.',
-        ],
-      ],
-      prototype: 'Ouvrir le prototype de playlists',
-    },
-    about: {
-      lead: 'Je suis Enzo Charolois, consultant en technologies bancaires à Genève. J’aime suivre le fonctionnement d’un système jusqu’à pouvoir expliquer son comportement.',
-      title: 'Un parcours d’ingénieur.',
-      label: 'Formation et expérience',
-      paragraphs: [
-        [
-          '2022–2025 · Mines Saint-Étienne',
-          'J’ai étudié l’informatique et les sciences de l’ingénieur, notamment les systèmes embarqués. Cette formation nourrit toujours ma façon d’aborder les usages concrets du logiciel.',
-        ],
-        [
-          '2024 · Siemens Healthineers',
-          'Au sein d’OpenIT Studio, j’ai réalisé des prototypes en traduisant des besoins utilisateurs en concepts testables.',
-        ],
-        [
-          '2024–2025 · EURECOM',
-          'Un double diplôme en IA et cybersécurité m’a conduit à un projet collectif sur la recommandation de playlists. Ce travail s’est poursuivi après le diplôme.',
+          'smartTrade Technologies',
+          'Comparer les environnements clients',
+          'Avant une mise à niveau, quels environnements se ressemblent le plus ? J’ai travaillé sur une distance pondérée entre configurations. Le tableau de bord associe une projection multidimensionnelle (MDS) et un regroupement par K-means pour explorer ces ressemblances.',
         ],
         [
           'smartTrade Technologies',
-          'J’ai participé à des projets en technologies bancaires, étudié des incidents de production et développé des outils internes, dont un tableau de comparaison d’environnements clients.',
+          'Retrouver la documentation technique',
+          'J’ai contribué à un assistant documentaire interne en Python. La recherche par représentations vectorielles permettait de retrouver des passages pertinents avant la génération d’une réponse.',
         ],
         [
-          'Genève · Fenixys pour l’UBP',
-          'Aujourd’hui, au sein d’une équipe projet bancaire, mon travail associe tests fonctionnels et investigation technique.',
+          'EURECOM',
+          'Générer une playlist',
+          'Avec mes coauteurs, nous avons réalisé un prototype qui reçoit un titre libre et propose une sélection musicale. Son fonctionnement est décrit dans notre article de démonstration à RecSys.',
         ],
       ],
-      contact: 'Échanger.',
-      downloads: 'CV et contact',
+      researchLink: 'Lire la publication',
+    },
+    about: {
+      title: 'Enzo <em>Charolois.</em>',
+      intro:
+        'Je suis consultant en technologies bancaires à Genève. J’aime remonter le fil d’une opération, d’une recommandation musicale ou d’une ligne de code jusqu’à pouvoir expliquer ce qui se passe.',
+      portrait: 'Enzo Charolois en costume bleu et cravate.',
+      titlePath: 'Mon parcours',
+      contact: 'Me contacter',
       cv: ['CV orienté IA', 'CV orienté suivi de projet'],
-      portrait: 'Portrait d’Enzo Charolois',
-      bio: 'À propos d’Enzo',
+      timeline: [
+        [
+          'Aujourd’hui',
+          'Fenixys · Union Bancaire Privée',
+          'Consultant en technologies bancaires',
+          'À Genève, au sein d’une équipe projet, je teste les options de change et rapproche les données de plusieurs applications.',
+        ],
+        [
+          'Poste précédent',
+          'smartTrade Technologies',
+          'Technologies bancaires',
+          'J’ai étudié des incidents de production, participé au suivi de projets clients et développé des outils internes, dont un tableau de bord de comparaison des configurations.',
+        ],
+        [
+          '2024–2025',
+          'EURECOM',
+          'Double diplôme en IA et cybersécurité',
+          'C’est là que j’ai commencé, avec mes coauteurs, nos recherches sur la recommandation de playlists. Notre collaboration s’est poursuivie après le diplôme.',
+        ],
+        [
+          '2024',
+          'Siemens Healthineers',
+          'Stage en prototypage',
+          'Au sein d’OpenIT Studio, j’ai traduit des besoins utilisateurs en prototypes que l’équipe pouvait tester.',
+        ],
+        [
+          '2022–2025',
+          'Mines Saint-Étienne',
+          'Formation d’ingénieur en informatique',
+          'J’y ai étudié l’informatique et les systèmes embarqués.',
+        ],
+      ],
+    },
+  },
+  en: {
+    banking: {
+      title: 'FX options and <em>banking systems.</em>',
+      intro:
+        'In Geneva, I work for Fenixys as a junior Murex consultant on assignment with a project team at Union Bancaire Privée. I test FX trades and investigate differences between financial applications.',
+      credit: 'Geneva and the Rhône, Siegfried Map',
+      source: 'swisstopo',
+      alt: 'Historical map of Geneva where Lake Geneva meets the Rhône and the Arve.',
+      current: 'Geneva assignment',
+      role: 'Banking Technology Consultant',
+      assignment: 'Fenixys · Union Bancaire Privée',
+      work: [
+        [
+          'Testing an option booking',
+          'I design and run FX options test cases, checking the booking model, instrument setup and the trade’s behaviour throughout its lifecycle. Regression tests let us revisit cases the team has already validated.',
+        ],
+        [
+          'Tracing a discrepancy',
+          'When Murex and Kondor+ show different values, I compare observations at successive stages. I document the first divergence so the team can pick up the investigation there, then retest after a fix. This reconciliation work also covers market data and risk.',
+        ],
+      ],
+      previous: 'Previous experience',
+      previousTitle: 'smartTrade Technologies',
+      previousText:
+        'At smartTrade I used application logs and FIX messages to investigate production incidents. I also supported client project follow-up and built internal Python tools.',
+    },
+    research: {
+      title: 'A playlist from <em>its title.</em>',
+      intro:
+        'At EURECOM, we studied what a playlist title tells us about the tracks someone might want to hear. Our student collaboration grew into three peer-reviewed publications. I continued this work alongside full-time banking employment.',
+      credit: 'Research paper, RecSys 2025',
+      source: 'Read the PDF',
+      alt: 'Opening page of the RecSys research paper with its title and five coauthors.',
+      method: 'From titles to tracks',
+      methodText:
+        'We grouped playlists by their contents, then fine-tuned a transformer on those groups. Given a new title, the model retrieves similar titles to find candidate tracks. The journal article compares two ways of ranking them, voting and language-model ranking.',
+      publications: 'Publications',
+      equal:
+        'The first two listed authors contributed equally to each of the conference papers.',
+      record: 'EURECOM record',
+      pdf: 'Paper PDF',
+      prototype: 'Try the EURECOM prototype',
+    },
+    engineering: {
+      title: 'Working with <em>data and tools.</em>',
+      intro:
+        'For Swiss Data Insights, I turned tables of customs figures into a map of Swiss exports. At smartTrade, I worked on tools for comparing client configurations and finding answers in technical documentation.',
+      credit: 'Switzerland’s fifteen largest goods export markets in 2024',
+      source: 'Source and data',
+      alt: 'Map connecting Switzerland with its fifteen largest goods export markets in 2024. Thicker lines indicate larger shares.',
+      project: 'Swiss Data Insights',
+      feature: 'Mapping Swiss exports',
+      featureText:
+        'I used tables from the Federal Office for Customs and Border Security to connect Switzerland with its main export markets. The map shows the fifteen largest destinations in 2024. The United States was the largest market (18.6% of goods exports), followed by Germany (14.7%) and Slovenia (9.3%).',
+      featureLink: 'View the project and sources',
+      other: 'Other projects',
+      projects: [
+        [
+          'smartTrade Technologies',
+          'Comparing client environments',
+          'Which existing environments most closely resemble one about to be upgraded? I worked with a weighted distance between configurations. The dashboard combines multidimensional scaling (MDS) and K-means clustering to explore those relationships.',
+        ],
+        [
+          'smartTrade Technologies',
+          'Retrieving technical documentation',
+          'I contributed to an internal Python knowledge assistant. Vector search retrieved relevant passages from technical documentation before a response was generated.',
+        ],
+        [
+          'EURECOM',
+          'Generating a playlist',
+          'My coauthors and I built a prototype that accepts a free-form title and recommends music. Our RecSys demonstration paper documents how it works.',
+        ],
+      ],
+      researchLink: 'Read the publication',
+    },
+    about: {
+      title: 'Enzo <em>Charolois.</em>',
+      intro:
+        'I’m a Banking Technology Consultant in Geneva. I like following a trade, a music recommendation or a line of code far enough to explain what is happening.',
+      portrait: 'Enzo Charolois wearing a blue suit and tie.',
+      titlePath: 'My background',
+      contact: 'Get in touch',
+      cv: ['AI-focused CV', 'Delivery-focused CV'],
+      timeline: [
+        [
+          'Present',
+          'Fenixys · Union Bancaire Privée',
+          'Banking Technology Consultant',
+          'In a Geneva project team, I test FX options and reconcile data across financial applications.',
+        ],
+        [
+          'Previous role',
+          'smartTrade Technologies',
+          'Banking technology',
+          'I investigated production incidents, supported client project follow-up and developed internal tools, including a dashboard for comparing configurations.',
+        ],
+        [
+          '2024–2025',
+          'EURECOM',
+          'Double degree in AI and cybersecurity',
+          'My coauthors and I began our playlist recommendation research here. Our collaboration continued after graduation.',
+        ],
+        [
+          '2024',
+          'Siemens Healthineers',
+          'Prototyping internship',
+          'At OpenIT Studio, I turned user requirements into prototypes the team could test.',
+        ],
+        [
+          '2022–2025',
+          'Mines Saint-Étienne',
+          'Engineering degree in computer science',
+          'I studied computer science and embedded systems.',
+        ],
+      ],
     },
   },
 }

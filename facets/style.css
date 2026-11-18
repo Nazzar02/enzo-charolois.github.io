@@ -208,7 +208,6 @@ header {
 .eyebrow,
 .fig-id,
 .facet-no,
-.print > span,
 .plate-id {
   font-size: 10px;
   line-height: 1.4;
@@ -495,38 +494,98 @@ header {
   font-size: 13px;
   margin-top: 16px;
 }
-.print {
-  min-height: 210px;
-  aspect-ratio: 1.8;
-  background: #ccd0ce;
+.exhibit {
+  margin: 0;
+  min-width: 0;
+}
+.exhibit-art {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
+  aspect-ratio: 1.65;
 }
-.print .motif {
-  position: absolute;
-  inset: 0;
-  color: #6e7b7d;
-  opacity: 0.65;
-}
-.print img {
+.exhibit-art img {
+  display: block;
   width: 100%;
-  height: 110%;
+  height: 100%;
+  object-fit: cover;
+}
+.exhibit figcaption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding-top: 10px;
+  color: #4f5754;
+  font: 12px/1.45 var(--sans);
+}
+.exhibit figcaption a {
+  flex-shrink: 0;
+  text-decoration: underline;
+  text-decoration-color: #8d9289;
+  text-underline-offset: 3px;
+}
+.exhibit-banking .exhibit-art {
+  background: #e7e2d6;
+  border: 1px solid #b5b6a8;
+}
+.exhibit-banking img {
+  object-position: 48% 42%;
+}
+.exhibit-research .exhibit-art {
+  background: linear-gradient(118deg, #84513c 0%, #b88668 44%, #c29b7e 100%);
+}
+.exhibit-research .exhibit-art::before {
+  content: '';
+  position: absolute;
+  left: 18%;
+  top: 13%;
+  width: 76%;
+  height: 130%;
+  background: #e3d8c4;
+  transform: rotate(5.5deg);
+  box-shadow: 0 10px 22px #39281f44;
+}
+.exhibit-research img {
+  position: absolute;
+  left: 10%;
+  top: 13%;
+  width: 80%;
+  height: auto;
+  transform: rotate(-5deg);
+  box-shadow: 3px 8px 22px #49342566;
+}
+.exhibit-engineering .exhibit-art {
+  background: #172c2b;
+  display: grid;
+  align-items: center;
+}
+.exhibit-engineering img {
+  height: auto;
   object-fit: contain;
-  position: absolute;
-  inset: -7% 0;
 }
-.print > span {
-  position: absolute;
-  left: 16px;
-  bottom: 12px;
-  color: #4f5b5e;
-  font-size: 8px;
+.preview-body {
+  grid-template-columns: 0.86fr 1.14fr;
+  gap: clamp(28px, 7vw, 125px);
+  margin-top: 34px;
+  margin-bottom: 48px;
 }
-.world-research {
-  background: #d2c4b4;
+.preview-body h2 {
+  max-width: 14ch;
 }
-.world-engineering {
-  background: #c2cdc0;
+.preview .exhibit-art {
+  aspect-ratio: 1.72;
+}
+@media (max-width: 680px) {
+  .exhibit figcaption {
+    font-size: 11px;
+  }
+  .exhibit figcaption a {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    min-height: 32px;
+  }
 }
 .other {
   border-top: 1px solid #14212640;
@@ -711,10 +770,6 @@ header {
     grid-template-columns: 1fr;
     gap: 24px;
     margin-bottom: 26px;
-  }
-  .print {
-    aspect-ratio: 2;
-    min-height: 145px;
   }
   .other {
     display: grid;
