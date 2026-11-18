@@ -15,7 +15,7 @@ Run `node src/build.mjs` from the checkout after changing templates or content. 
 
 ## Content provenance
 
-The banking account uses the supplied brief. The Geneva excerpt comes from swisstopo’s Siegfried Map (WMS layer `ch.swisstopo.hiks-siegfried`). The research facsimile shows the opening page of the RecSys conference paper under CC BY 4.0. The export map uses the 2024 partner table and Natural Earth geography in [Swiss Data Insights](https://github.com/Nazzar02/swiss-data-insights/tree/06ba474d850ce062358cb1fb54c330118ce47e05/projects/swiss_global_exports_video). The remaining project descriptions and CVs come from the original portfolio at commit `8f77747`.
+The banking account uses the supplied brief. The Geneva photograph is a resized WebP of [Pont de la Machine at twilight by Benh](https://commons.wikimedia.org/wiki/File:Pont_de_la_Machine_Cr%C3%A9puscule_Panorama_Gen%C3%A8ve_BLS.jpg), licensed under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). The research facsimile shows the opening page of the RecSys conference paper under CC BY 4.0. The engineering page plays the original export film and uses a frame from [Swiss Data Insights](https://github.com/Nazzar02/swiss-data-insights/tree/06ba474d850ce062358cb1fb54c330118ce47e05/projects/swiss_global_exports_video). The remaining project descriptions come from the original portfolio at commit `8f77747`.
 
 Publication dates use the publisher’s Crossref deposits. The conference took place later in September 2025. EURECOM’s institutional deposit for the journal article predates ACM’s online publication date. Titles and author order follow the individual publications.
 

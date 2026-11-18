@@ -1004,3 +1004,94 @@ header {
     height: clamp(225px, 32svh, 310px);
   }
 }
+
+.home-nav {
+  display: inline-flex;
+  gap: 9px;
+  min-height: 44px;
+  align-items: center;
+  color: var(--ivory);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.home-nav span {
+  color: var(--gold);
+  font-size: 20px;
+  transition: transform 0.18s ease;
+}
+.home-nav:hover span {
+  transform: translateX(-3px);
+}
+.film-teaser {
+  min-height: 230px;
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  align-items: center;
+  gap: clamp(12px, 2vw, 30px);
+  padding: clamp(17px, 3vw, 42px);
+  overflow: hidden;
+  background: radial-gradient(ellipse at 80% 38%, #30473d, #132521 71%);
+  color: #f0ebdc;
+}
+.film-teaser > div {
+  display: grid;
+  gap: 13px;
+}
+.film-teaser .kicker {
+  color: #d4d3ab;
+  font-size: 9px;
+}
+.film-title {
+  font: clamp(26px, 4vw, 64px) / 0.96 var(--serif);
+  letter-spacing: -0.02em;
+}
+.film-watch {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: #f0e3c7;
+}
+.film-watch span {
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  border: 1px solid #d5c6a1;
+  border-radius: 50%;
+  font-size: 9px;
+  flex: 0 0 auto;
+}
+.film-teaser:hover .film-watch {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.film-teaser img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  box-shadow: 0 12px 24px #070e0990;
+}
+.exhibit-banking .exhibit-art {
+  background: #202e3b;
+}
+.exhibit-banking img {
+  object-position: center 64%;
+}
+@media (max-width: 680px) {
+  .film-teaser {
+    min-height: 178px;
+  }
+  .film-teaser > div {
+    gap: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-nav span {
+    transition: none;
+  }
+  .home-nav:hover span {
+    transform: none;
+  }
+}

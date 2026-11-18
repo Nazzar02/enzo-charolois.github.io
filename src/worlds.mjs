@@ -5,7 +5,7 @@ import {
   papers,
   exportProject,
   playlistPrototype,
-  mapSource,
+  genevaPhotoSource,
 } from './world-content.mjs'
 
 const arrow = '<span aria-hidden="true">↗</span>'
@@ -14,15 +14,25 @@ const link = (href, label) =>
 const paperPath = (type) =>
   'assets/docs/papers/my_research_paper-' + type + '.pdf'
 
-export function exhibit(id, lang, asset, lazy = false) {
+const filmTitle = 'Small Country, Global Exports'
+const filmPoster = 'facets/editorial/swiss-exports-poster.webp'
+const filmFile = 'facets/editorial/swiss-global-exports.mp4'
+
+export function exhibit(id, lang, asset, previewHref) {
   const entry = copy[lang][id]
+  if (id === 'engineering') return film(entry, asset, previewHref)
   const media = {
-    banking: ['geneve.webp', 1220, 759, mapSource],
+    banking: ['geneve-crepuscule.webp', 1280, 398, genevaPhotoSource],
     research: ['recsys.webp', 1000, 1294, asset(paperPath('Main_Conference'))],
-    engineering: ['export-markets.webp', 1320, 610, exportProject],
   }
   const [file, width, height, href] = media[id]
-  return `<figure class="exhibit exhibit-${id}"><div class="exhibit-art"><img src="${asset('facets/editorial/' + file)}" width="${width}" height="${height}" alt="${entry.alt}" ${lazy ? 'loading="lazy"' : ''} decoding="async"></div><figcaption><span>${entry.credit}</span><a href="${href}">${entry.source} ${arrow}</a></figcaption></figure>`
+  return `<figure class="exhibit exhibit-${id}"><div class="exhibit-art"><img src="${asset('facets/editorial/' + file)}" width="${width}" height="${height}" alt="${entry.alt}" ${previewHref ? 'loading="lazy"' : ''} decoding="async"></div><figcaption><span>${entry.credit}</span><a href="${href}">${entry.source} ${arrow}</a></figcaption></figure>`
+}
+function film(w, asset, previewHref) {
+  if (previewHref) {
+    return `<a class="film-teaser" href="${previewHref}"><div><span class="kicker">${w.project}</span><span class="film-title" lang="en">${filmTitle}</span><span class="film-watch"><span aria-hidden="true">▶</span> ${w.watch}</span></div><img src="${asset(filmPoster)}" width="540" height="675" loading="lazy" decoding="async" alt=""></a>`
+  }
+  return `<figure class="film-player" id="video"><video src="${asset(filmFile)}" poster="${asset(filmPoster)}" width="1080" height="1350" controls playsinline preload="none" aria-label="${filmTitle}"><a href="${asset(filmFile)}">${w.watch}</a></video><figcaption><span>${w.videoCredit}</span><a href="${exportProject}">GitHub ${arrow}</a></figcaption></figure>`
 }
 function masthead(id, t, w, lang, asset) {
   const about = id === 'about'
@@ -55,9 +65,9 @@ function engineering(w, url) {
   return `<section class="shell afterword featured"><div><p class="kicker">${w.project}</p><h2>${w.feature}</h2></div><div><p>${w.featureText}</p>${link(exportProject, w.featureLink)}</div></section>
   <section class="shell ledger"><div class="ledger-side"><h2>${w.other}</h2></div><div class="passages projects">${w.projects.map(([org, title, body], i) => `<article><p class="kicker">${org}</p><h3>${title}</h3><p>${body}</p>${i === 2 ? link(url('research') + '#paper-8318', w.researchLink) : ''}</article>`).join('')}</div></section>`
 }
-function about(w, asset) {
+function about(w) {
   return `<section class="shell biography"><h2 class="reading-title">${w.titlePath}</h2><ol>${w.timeline.map(([when, place, role, body]) => `<li><p class="when">${when}</p><div><h3>${place}</h3><p class="position">${role}</p></div><p class="history-text">${body}</p></li>`).join('')}</ol></section>
-  <section class="shell contact" id="contact"><h2>${w.contact}</h2><div>${link('mailto:enzo.charolois@gmail.com', 'enzo.charolois@gmail.com')}<div class="references">${link('https://www.linkedin.com/in/enzo-charolois', 'LinkedIn')}${link('https://github.com/Nazzar02', 'GitHub')}${['AI', 'PM'].map((s, i) => link(asset('assets/docs/cv/CV_Enzo_Charolois-CH-' + s + '.pdf'), w.cv[i])).join('')}</div></div></section>`
+  <section class="shell contact" id="contact"><h2>${w.contact}</h2><div>${link('mailto:enzo.charolois@gmail.com', 'enzo.charolois@gmail.com')}<div class="references">${link('https://www.linkedin.com/in/enzo-charolois', 'LinkedIn')}${link('https://github.com/Nazzar02', 'GitHub')}</div></div></section>`
 }
 export function world({ id, t, lang, url, asset }) {
   const w = copy[lang][id]
@@ -65,8 +75,9 @@ export function world({ id, t, lang, url, asset }) {
     banking: () => banking(w),
     research: () => research(w, lang, asset),
     engineering: () => engineering(w, url),
-    about: () => about(w, asset),
+    about: () => about(w),
   }
   const next = ids[(ids.indexOf(id) + 1) % ids.length]
-  return `<main id="main" class="edition">${masthead(id, t, w, lang, asset)}${content[id]()}<nav class="shell next-reading" aria-label="${t.next}"><span class="kicker">${t.next}</span><a href="${url(next)}">${t.names[ids.indexOf(next)]} ${arrow}</a></nav></main>`
+  const home = url() + (ids.includes(id) ? '#' + id : '')
+  return `<main id="main" class="edition">${masthead(id, t, w, lang, asset)}${content[id]()}<nav class="shell next-reading" aria-label="${t.nav}"><a class="return-home" href="${home}"><span aria-hidden="true">←</span>${t.backHome}</a><div><span class="kicker">${t.next}</span><a href="${url(next)}">${t.names[ids.indexOf(next)]} ${arrow}</a></div></nav></main>`
 }

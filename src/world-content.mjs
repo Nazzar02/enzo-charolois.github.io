@@ -36,24 +36,24 @@ export const exportProject =
   'https://github.com/Nazzar02/swiss-data-insights/tree/06ba474d850ce062358cb1fb54c330118ce47e05/projects/swiss_global_exports_video'
 export const playlistPrototype =
   'https://playlist-recommendation.tools.eurecom.fr/'
-export const mapSource =
-  'https://map.geo.admin.ch/#/map?lang=fr&center=2500300,1117800&z=6.5&layers=ch.swisstopo.hiks-siegfried'
+export const genevaPhotoSource =
+  'https://commons.wikimedia.org/wiki/File:Pont_de_la_Machine_Cr%C3%A9puscule_Panorama_Gen%C3%A8ve_BLS.jpg'
 export const copy = {
   fr: {
     banking: {
-      title: 'Options de change et <em>systèmes bancaires.</em>',
+      title: 'Les systèmes du <em>marché des changes.</em>',
       intro:
-        'À Genève, je suis en mission pour Fenixys comme consultant Murex junior au sein d’une équipe projet de l’Union Bancaire Privée. Je teste les opérations de change et j’étudie les écarts qui apparaissent entre les applications.',
-      credit: 'Genève et le Rhône, carte Siegfried',
-      source: 'swisstopo',
-      alt: 'Extrait de la carte historique de Genève, entre le Léman, le Rhône et l’Arve.',
+        'À Genève, je suis en mission pour Fenixys comme consultant Murex junior au sein d’une équipe projet de l’Union Bancaire Privée. J’interviens sur les systèmes de marché, avec un périmètre centré sur le change (FX), y compris les options de change (FXO). Je prépare les tests, documente les écarts et vérifie les corrections avec l’équipe.',
+      credit: 'Pont de la Machine, Genève · Benh, CC BY-SA 3.0',
+      source: 'Wikimedia Commons',
+      alt: 'Le pont de la Machine et les quais de Genève au crépuscule, avec leurs lumières reflétées sur le Rhône.',
       current: 'Mission à Genève',
       role: 'Consultant en technologies bancaires',
       assignment: 'Fenixys · Union Bancaire Privée',
       work: [
         [
-          'Tester la saisie d’une option',
-          'Je prépare et exécute des cas de test sur les options de change. Je vérifie le modèle de saisie, le paramétrage de l’instrument et le comportement de l’opération au fil de son cycle de vie. Les tests de non-régression permettent de contrôler à nouveau les cas déjà validés.',
+          'Tester les opérations de change',
+          'Je prépare et exécute des scénarios sur le FX et le FXO. Ils couvrent la saisie, le paramétrage des instruments et le comportement des opérations au fil de leur cycle de vie. Les tests de non-régression permettent à l’équipe de s’assurer que les cas déjà validés fonctionnent toujours après un changement.',
         ],
         [
           'Retrouver l’origine d’un écart',
@@ -66,9 +66,9 @@ export const copy = {
         'Chez smartTrade, je m’appuyais sur les journaux applicatifs et les messages FIX pour étudier des incidents de production. Je participais aussi au suivi de projets clients et développais des outils internes en Python.',
     },
     research: {
-      title: 'Des playlists à partir <em>d’un titre.</em>',
+      title: 'Un projet étudiant. <em>Trois publications.</em>',
       intro:
-        'À EURECOM, nous avons étudié ce qu’un titre de playlist permet de déduire des morceaux que l’on aimerait y entendre. Ce projet étudiant collectif a donné lieu à trois publications évaluées par les pairs. J’ai poursuivi cette collaboration en parallèle de mon emploi à temps plein en banque.',
+        'Mon premier projet de recherche a commencé à EURECOM. Avec mes coauteurs, nous avons cherché à recommander des morceaux à partir d’un titre de playlist. Nous avons publié deux articles à RecSys, puis un article de revue. J’ai poursuivi cette collaboration en parallèle de mon emploi à temps plein dans les technologies bancaires.',
       credit: 'Article de recherche, RecSys 2025',
       source: 'Lire le PDF',
       alt: 'Première page de l’article de recherche RecSys, avec le titre et les cinq coauteurs.',
@@ -85,14 +85,13 @@ export const copy = {
     engineering: {
       title: 'Des données aux <em>outils métier.</em>',
       intro:
-        'Pour Swiss Data Insights, je suis parti des tableaux de la douane suisse pour en faire une carte. Chez smartTrade, j’ai travaillé sur deux autres outils pour comparer des configurations clients et retrouver une réponse dans la documentation.',
-      credit: 'Les quinze premiers marchés d’exportation de la Suisse en 2024',
-      source: 'Source et données',
-      alt: 'Carte reliant la Suisse à ses quinze principaux marchés d’exportation de marchandises en 2024. Les traits les plus épais indiquent les parts les plus élevées.',
+        'Pour Swiss Data Insights, j’ai mis en images les exportations suisses à partir des tableaux de la douane. Chez smartTrade, j’ai travaillé sur deux autres outils pour comparer des configurations clients et retrouver une réponse dans la documentation.',
+      watch: 'Voir le film',
+      videoCredit: '35 s · Texte en anglais',
       project: 'Swiss Data Insights',
-      feature: 'Cartographier les exportations suisses',
+      feature: 'Les exportations suisses en 35 secondes',
       featureText:
-        'J’ai utilisé les tableaux de l’Office fédéral de la douane et de la sécurité des frontières pour relier la Suisse à ses principaux marchés. La carte reprend les quinze premières destinations de 2024. Les États-Unis arrivent en tête (18,6 % des exportations de marchandises), devant l’Allemagne (14,7 %) et la Slovénie (9,3 %).',
+        'J’ai utilisé les tableaux de l’Office fédéral de la douane et de la sécurité des frontières pour relier la Suisse à ses principaux marchés. Le film présente le total de 2025 et les quinze premières destinations de 2024. Les États-Unis arrivent en tête (18,6 % des exportations de marchandises), devant l’Allemagne (14,7 %) et la Slovénie (9,3 %).',
       featureLink: 'Voir le projet et ses sources',
       other: 'Autres projets',
       projects: [
@@ -121,13 +120,12 @@ export const copy = {
       portrait: 'Enzo Charolois en costume bleu et cravate.',
       titlePath: 'Mon parcours',
       contact: 'Me contacter',
-      cv: ['CV orienté IA', 'CV orienté suivi de projet'],
       timeline: [
         [
           'Aujourd’hui',
           'Fenixys · Union Bancaire Privée',
           'Consultant en technologies bancaires',
-          'À Genève, au sein d’une équipe projet, je teste les options de change et rapproche les données de plusieurs applications.',
+          'À Genève, au sein d’une équipe projet, je teste les systèmes de change (FX et FXO) et rapproche les données de plusieurs applications.',
         ],
         [
           'Poste précédent',
@@ -158,19 +156,19 @@ export const copy = {
   },
   en: {
     banking: {
-      title: 'FX options and <em>banking systems.</em>',
+      title: 'The systems behind <em>foreign exchange.</em>',
       intro:
-        'In Geneva, I work for Fenixys as a junior Murex consultant on assignment with a project team at Union Bancaire Privée. I test FX trades and investigate differences between financial applications.',
-      credit: 'Geneva and the Rhône, Siegfried Map',
-      source: 'swisstopo',
-      alt: 'Historical map of Geneva where Lake Geneva meets the Rhône and the Arve.',
+        'In Geneva, I work for Fenixys as a junior Murex consultant on assignment with a project team at Union Bancaire Privée. My work focuses on foreign exchange systems across FX and FX options (FXO). I prepare tests, document differences between applications and verify fixes with the project team.',
+      credit: 'Pont de la Machine, Geneva · Benh, CC BY-SA 3.0',
+      source: 'Wikimedia Commons',
+      alt: 'Twilight at the Pont de la Machine, with lights from the Geneva waterfront reflected in the Rhône.',
       current: 'Geneva assignment',
       role: 'Banking Technology Consultant',
       assignment: 'Fenixys · Union Bancaire Privée',
       work: [
         [
-          'Testing an option booking',
-          'I design and run FX options test cases, checking the booking model, instrument setup and the trade’s behaviour throughout its lifecycle. Regression tests let us revisit cases the team has already validated.',
+          'Testing foreign exchange trades',
+          'I design and run FX and FXO scenarios covering booking, instrument configuration and trade behaviour throughout the lifecycle. Regression tests help the team check that previously validated cases still work after a change.',
         ],
         [
           'Tracing a discrepancy',
@@ -183,9 +181,9 @@ export const copy = {
         'At smartTrade I used application logs and FIX messages to investigate production incidents. I also supported client project follow-up and built internal Python tools.',
     },
     research: {
-      title: 'A playlist from <em>its title.</em>',
+      title: 'One student project. <em>Three publications.</em>',
       intro:
-        'At EURECOM, we studied what a playlist title tells us about the tracks someone might want to hear. Our student collaboration grew into three peer-reviewed publications. I continued this work alongside full-time banking employment.',
+        'My first research project started at EURECOM. My coauthors and I explored whether we could recommend music from a playlist title alone. We published two RecSys papers and a journal article. I continued the collaboration alongside my full-time work in banking technology.',
       credit: 'Research paper, RecSys 2025',
       source: 'Read the PDF',
       alt: 'Opening page of the RecSys research paper with its title and five coauthors.',
@@ -202,14 +200,13 @@ export const copy = {
     engineering: {
       title: 'Working with <em>data and tools.</em>',
       intro:
-        'For Swiss Data Insights, I turned tables of customs figures into a map of Swiss exports. At smartTrade, I worked on tools for comparing client configurations and finding answers in technical documentation.',
-      credit: 'Switzerland’s fifteen largest goods export markets in 2024',
-      source: 'Source and data',
-      alt: 'Map connecting Switzerland with its fifteen largest goods export markets in 2024. Thicker lines indicate larger shares.',
+        'For Swiss Data Insights, I turned customs tables into a short film about Swiss exports. At smartTrade, I worked on tools for comparing client configurations and finding answers in technical documentation.',
+      watch: 'Watch the film',
+      videoCredit: '35 sec · Swiss Data Insights',
       project: 'Swiss Data Insights',
-      feature: 'Mapping Swiss exports',
+      feature: 'Swiss exports in 35 seconds',
       featureText:
-        'I used tables from the Federal Office for Customs and Border Security to connect Switzerland with its main export markets. The map shows the fifteen largest destinations in 2024. The United States was the largest market (18.6% of goods exports), followed by Germany (14.7%) and Slovenia (9.3%).',
+        'I used tables from the Federal Office for Customs and Border Security to connect Switzerland with its main export markets. The film shows the 2025 total and the fifteen largest markets in 2024. The United States was the largest market (18.6% of goods exports), followed by Germany (14.7%) and Slovenia (9.3%).',
       featureLink: 'View the project and sources',
       other: 'Other projects',
       projects: [
@@ -238,13 +235,12 @@ export const copy = {
       portrait: 'Enzo Charolois wearing a blue suit and tie.',
       titlePath: 'My background',
       contact: 'Get in touch',
-      cv: ['AI-focused CV', 'Delivery-focused CV'],
       timeline: [
         [
           'Present',
           'Fenixys · Union Bancaire Privée',
           'Banking Technology Consultant',
-          'In a Geneva project team, I test FX options and reconcile data across financial applications.',
+          'In a Geneva project team, I test foreign exchange systems (FX and FXO) and reconcile data across financial applications.',
         ],
         [
           'Previous role',

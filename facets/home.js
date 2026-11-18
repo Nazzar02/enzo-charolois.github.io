@@ -15,6 +15,7 @@ const stillBase = new URL(
 const tiltControl = document.querySelector('.tilt-control'),
   slider = tiltControl.querySelector('input')
 const step = (Math.PI * 2) / 3
+const idleDuration = 4700
 const wrap = (n) => ((n % 3) + 3) % 3
 const clamp = (x, min, max) => Math.min(max, Math.max(min, x))
 const palette = [
@@ -41,6 +42,7 @@ let gesture = null,
   renderer = null,
   frame = 0,
   idleTimer = 0,
+  idleStart = 0,
   revision = 0
 function select(index) {
   if (state.active === index) return
@@ -68,6 +70,9 @@ function select(index) {
     .querySelectorAll('[data-language]')
     .forEach((a) => (a.hash = ids[index]))
   posters.src = new URL(ids[index] + '.webp', stillBase)
+}
+function idleProgress(now) {
+  return clamp((now - idleStart) / idleDuration, 0, 1)
 }
 function paint(now = performance.now()) {
   const position = state.angle / step,
@@ -101,9 +106,16 @@ function paint(now = performance.now()) {
     )
   if (renderer && state.visible && !document.hidden) {
     try {
+      const progress = idleProgress(now)
+      const sway = !motion && !gesture ? Math.sin(Math.PI * progress) ** 2 : 0
+      // Move the rendered pose only. Selection still uses the exact magnetic stop.
       renderer(
-        state.angle,
-        state.tilt,
+        state.angle + sway * 0.082 * Math.sin(progress * 2 * Math.PI),
+        clamp(
+          state.tilt - sway * 0.038,
+          (-38 * Math.PI) / 180,
+          (38 * Math.PI) / 180,
+        ),
         color.map((c) => c / 255),
         Math.sin(now / 4800) * 0.014,
       )
@@ -148,9 +160,10 @@ function tick(now) {
   paint(now)
   if (motion) schedule()
   else if (renderer && !gesture && state.visible && !document.hidden)
-    idleTimer = setTimeout(schedule, 320)
+    idleTimer = setTimeout(schedule, idleProgress(now) < 1 ? 21 : 320)
 }
 function settled() {
+  idleStart = performance.now()
   state.phase = state.preview ? 'previewRevealed' : 'facetSelected'
   select(wrap(Math.round(state.angle / step)))
   const locationState = new URL(location.href)
@@ -177,6 +190,7 @@ function snap(to, velocity = 0) {
     state.angle = to
     settled()
     paint()
+    schedule()
     return
   }
   state.phase = 'snapping'
@@ -298,11 +312,15 @@ function release(e) {
       Math.round(state.angle / step) * step,
       e.timeStamp - drag.time < 90 ? drag.speed : 0,
     )
+  else schedule()
 }
 for (const type of ['pointerup', 'pointercancel', 'lostpointercapture'])
   stage.addEventListener(type, release)
 stage.addEventListener('pointerleave', () => {
-  if (gesture && !gesture.locked) gesture = null
+  if (gesture && !gesture.locked) {
+    gesture = null
+    schedule()
+  }
 })
 function stopFrames() {
   cancelAnimationFrame(frame)
@@ -310,7 +328,9 @@ function stopFrames() {
   clearTimeout(idleTimer)
 }
 new IntersectionObserver(([entry]) => {
+  const wasVisible = state.visible
   state.visible = entry.isIntersecting
+  if (state.visible && !wasVisible) idleStart = performance.now()
   if (state.visible) schedule()
   else stopFrames()
 }).observe(stage)
@@ -367,6 +387,7 @@ async function setup() {
     document.querySelector('.drag-hint').innerHTML =
       '<span aria-hidden="true">↔</span> ' + t.drag
     state.phase = 'idle'
+    idleStart = performance.now()
     schedule()
   } catch (err) {
     console.warn('Static sculpture selected.', err)

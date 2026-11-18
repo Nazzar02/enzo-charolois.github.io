@@ -404,3 +404,63 @@
     align-items: baseline;
   }
 }
+
+.film-player {
+  width: min(100%, 360px);
+  justify-self: center;
+  scroll-margin-top: 86px;
+}
+.film-player video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  background: #101717;
+  box-shadow: 0 16px 42px #0813108c;
+}
+.film-player figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 3px;
+  font-size: 12px;
+  color: #c3cfc4;
+}
+.film-player figcaption a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.next-reading {
+  align-items: center;
+}
+.next-reading a.return-home {
+  font: 14px/1.2 var(--sans);
+  gap: 9px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-color: #8e9688;
+}
+.next-reading > div {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+@media (max-width: 680px) {
+  .film-player {
+    width: min(100%, 320px);
+    scroll-margin-top: 66px;
+  }
+  .next-reading {
+    flex-wrap: wrap;
+  }
+  .next-reading > div {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+}

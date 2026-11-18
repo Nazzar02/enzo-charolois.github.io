@@ -38,7 +38,7 @@ function home(t, url, asset, lang) {
             i,
           ) => `<article class="preview-body" data-preview="${i}" ${i ? 'hidden' : ''}>
         <div><p class="eyebrow">${t.names[i]}</p><h2>${t.titles[i]}</h2><p class="prose">${t.descriptions[i]}</p><a class="text-link enter" href="${url(id)}">${t.explore[i]} ${arrow}</a></div>
-        ${exhibit(id, lang, asset, true)}
+        ${exhibit(id, lang, asset, url(id) + '#video')}
       </article>`,
         )
         .join('')}
@@ -77,7 +77,7 @@ export async function buildPage(lang, id, world) {
   <link rel="canonical" href="${publicBase + folder}">${['en', 'fr'].map((l) => `<link rel="alternate" hreflang="${l}" href="${publicBase + [pageFolder(id, l), ''].filter((x, i) => x || i).join('/')}">`).join('')}
   <link rel="icon" href="${asset('facets/mark.svg')}"><link rel="preload" href="${asset('facets/fonts/InstrumentSerif-Regular.ttf')}" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="${asset('facets/style.css')}">${id ? `<link rel="stylesheet" href="${asset('facets/world.css')}">` : ''}</head><body class="${id ? 'interior' : 'home'}" data-page="${id || 'home'}">
-  <a href="#main" class="skip">${t.skip}</a><header><div class="shell header-inner"><a class="brand" href="${url()}">${mark}<span>Enzo Charolois</span></a>
+  <a href="#main" class="skip">${t.skip}</a><header><div class="shell header-inner">${id ? `<a class="home-nav" href="${url() + (ids.includes(id) ? '#' + id : '')}"><span aria-hidden="true">←</span>${t.home}</a>` : `<a class="brand" href="${url()}">${mark}<span>Enzo Charolois</span></a>`}
   <nav class="wide-nav" aria-label="${t.nav}">${navLinks}</nav>${localeNav}
   <details class="compact-nav"><summary>${t.menu}</summary><nav aria-label="${t.nav}">${navLinks}</nav></details></div></header>
   ${id ? world({ lang, id, t, url, asset }) : home(t, url, asset, lang)}
