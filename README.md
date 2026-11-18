@@ -23,4 +23,4 @@ Publication dates use the publisher’s Crossref deposits. The conference took p
 - [ACM demonstration paper](https://doi.org/10.1145/3705328.3759336)
 - [ACM journal article](https://doi.org/10.1145/3859880)
 
-This checkout is for local review on `design/three-facets`. The existing Pages configuration is preserved. Publication requires the owner’s approval.
+GitHub Pages serves the portfolio from `main`. `/ancienne-version/` contains the previous published portfolio and its assets from commit `8f77747`.

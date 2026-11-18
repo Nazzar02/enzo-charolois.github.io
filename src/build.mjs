@@ -64,12 +64,14 @@ export async function buildPage(lang, id, world) {
       ? t.role + ' · ' + t.location
       : t.descriptions[ids.indexOf(id)]
     : t.meta
-  const navLinks = [...ids, 'about']
+  const sectionLinks = [...ids, 'about']
     .map(
       (key, i) =>
         `<a href="${url(key)}" ${key === id ? 'aria-current="page"' : ''}>${i === 3 ? t.about : t.short[i]}</a>`,
     )
     .join('')
+  const archiveLink = `<a class="archive-nav" href="${asset('ancienne-version')}/">${t.archive}</a>`
+  const navLinks = sectionLinks + archiveLink
   const localeNav = `<div class="lang" aria-label="${t.language}">${['en', 'fr'].map((l) => `<a lang="${l}" hreflang="${l}" data-language href="${url(id, l)}" ${l === lang ? 'aria-current="true"' : ''}>${l.toUpperCase()}</a>`).join('<span aria-hidden="true">/</span>')}</div>`
   const html = `<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>${title} — Enzo Charolois</title><meta name="description" content="${description}"><meta name="theme-color" content="#111518">
